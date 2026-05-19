@@ -1,0 +1,56 @@
+# Inquiry
+
+## Example Usage
+
+```typescript
+import { Inquiry } from "@clientcasa/sdk/models";
+
+let value: Inquiry = {
+  id: "550e8400-e29b-41d4-a716-446655440000",
+  name: "<value>",
+  email: "Arvel.Tillman65@hotmail.com",
+  phone: "(314) 390-3462 x169",
+  contactId: "550e8400-e29b-41d4-a716-446655440000",
+  inquirySlug: "<value>",
+  preferredDate: new Date("2026-11-24"),
+  message: "<value>",
+  status: "declined",
+  source: "inquiry_form",
+  customAnswers: {
+    "key": "<value>",
+    "key1": "<value>",
+  },
+  convertedClientId: "550e8400-e29b-41d4-a716-446655440000",
+  convertedProjectId: "550e8400-e29b-41d4-a716-446655440000",
+  convertedAt: new Date("2026-11-12T15:57:52.270Z"),
+  lastContactedAt: new Date("2026-03-12T08:00:43.029Z"),
+  nextFollowUpAt: new Date("2025-05-04T00:34:04.521Z"),
+  notes: "<value>",
+  createdAt: new Date("2024-05-12T18:46:02.953Z"),
+  updatedAt: new Date("2026-11-17T14:37:15.457Z"),
+};
+```
+
+## Fields
+
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `id`                                                                                          | *string*                                                                                      | :heavy_check_mark:                                                                            | UUID v4                                                                                       | 550e8400-e29b-41d4-a716-446655440000                                                          |
+| `name`                                                                                        | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `email`                                                                                       | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `phone`                                                                                       | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `contactId`                                                                                   | *string*                                                                                      | :heavy_check_mark:                                                                            | UUID v4                                                                                       | 550e8400-e29b-41d4-a716-446655440000                                                          |
+| `inquirySlug`                                                                                 | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `preferredDate`                                                                               | [Date](../types/rfcdate.md)                                                                   | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `message`                                                                                     | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `status`                                                                                      | [models.InquiryStatus](../models/inquiry-status.md)                                           | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `source`                                                                                      | [models.InquirySource](../models/inquiry-source.md)                                           | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `customAnswers`                                                                               | Record<string, *any*>                                                                         | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `convertedClientId`                                                                           | *string*                                                                                      | :heavy_check_mark:                                                                            | UUID v4                                                                                       | 550e8400-e29b-41d4-a716-446655440000                                                          |
+| `convertedProjectId`                                                                          | *string*                                                                                      | :heavy_check_mark:                                                                            | UUID v4                                                                                       | 550e8400-e29b-41d4-a716-446655440000                                                          |
+| `convertedAt`                                                                                 | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | ISO 8601 timestamp (UTC)                                                                      |                                                                                               |
+| `lastContactedAt`                                                                             | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | ISO 8601 timestamp (UTC)                                                                      |                                                                                               |
+| `nextFollowUpAt`                                                                              | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | ISO 8601 timestamp (UTC)                                                                      |                                                                                               |
+| `notes`                                                                                       | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `createdAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | ISO 8601 timestamp (UTC)                                                                      |                                                                                               |
+| `updatedAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | ISO 8601 timestamp (UTC)                                                                      |                                                                                               |

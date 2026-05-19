@@ -1,0 +1,47 @@
+# Payment
+
+## Example Usage
+
+```typescript
+import { Payment } from "@clientcasa/sdk/models";
+
+let value: Payment = {
+  id: "550e8400-e29b-41d4-a716-446655440000",
+  clientId: "550e8400-e29b-41d4-a716-446655440000",
+  invoiceId: "550e8400-e29b-41d4-a716-446655440000",
+  amount: 1587.73,
+  currency: "CFP Franc",
+  receivedDate: new Date("2024-03-15"),
+  method: "stripe",
+  status: "failed",
+  kind: "refund",
+  reference: "<value>",
+  notes: "<value>",
+  netAmount: 2907.09,
+  payoutId: "550e8400-e29b-41d4-a716-446655440000",
+  refundOfId: "550e8400-e29b-41d4-a716-446655440000",
+  createdAt: new Date("2024-06-09T11:20:09.908Z"),
+  updatedAt: new Date("2026-03-06T23:42:30.632Z"),
+};
+```
+
+## Fields
+
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `id`                                                                                          | *string*                                                                                      | :heavy_check_mark:                                                                            | UUID v4                                                                                       | 550e8400-e29b-41d4-a716-446655440000                                                          |
+| `clientId`                                                                                    | *string*                                                                                      | :heavy_check_mark:                                                                            | UUID v4                                                                                       | 550e8400-e29b-41d4-a716-446655440000                                                          |
+| `invoiceId`                                                                                   | *string*                                                                                      | :heavy_check_mark:                                                                            | UUID v4                                                                                       | 550e8400-e29b-41d4-a716-446655440000                                                          |
+| `amount`                                                                                      | *number*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `currency`                                                                                    | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `receivedDate`                                                                                | [Date](../types/rfcdate.md)                                                                   | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `method`                                                                                      | [models.PaymentMethod](../models/payment-method.md)                                           | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `status`                                                                                      | [models.PaymentStatus](../models/payment-status.md)                                           | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `kind`                                                                                        | [models.PaymentKind](../models/payment-kind.md)                                               | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `reference`                                                                                   | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `notes`                                                                                       | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `netAmount`                                                                                   | *number*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `payoutId`                                                                                    | *string*                                                                                      | :heavy_check_mark:                                                                            | UUID v4                                                                                       | 550e8400-e29b-41d4-a716-446655440000                                                          |
+| `refundOfId`                                                                                  | *string*                                                                                      | :heavy_check_mark:                                                                            | UUID v4                                                                                       | 550e8400-e29b-41d4-a716-446655440000                                                          |
+| `createdAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | ISO 8601 timestamp (UTC)                                                                      |                                                                                               |
+| `updatedAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | ISO 8601 timestamp (UTC)                                                                      |                                                                                               |

@@ -1,0 +1,37 @@
+speakeasyVersion: 1.763.2
+sources:
+    ClientCasa API:
+        sourceNamespace: client-casa-api
+        sourceRevisionDigest: sha256:1a9b72140436ffff403872706e5defe79cb019eff9c0304785dfc7f9d97b449c
+        sourceBlobDigest: sha256:13462d09bae4d65e004f36d05c07d47b6bec140ebc8e0e8d249e32ff20ad9523
+        tags:
+            - latest
+            - 1.0.0
+targets:
+    client-casa:
+        source: ClientCasa API
+        sourceNamespace: client-casa-api
+        sourceRevisionDigest: sha256:1a9b72140436ffff403872706e5defe79cb019eff9c0304785dfc7f9d97b449c
+        sourceBlobDigest: sha256:13462d09bae4d65e004f36d05c07d47b6bec140ebc8e0e8d249e32ff20ad9523
+        codeSamplesNamespace: client-casa-api-typescript-code-samples
+        codeSamplesRevisionDigest: sha256:e8967179851587af49afff1cbd67feda6742f78ba7fb70eff5255d1588d0cd9a
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        ClientCasa API:
+            inputs:
+                - location: ./openapi.json
+            output: .speakeasy/out.openapi.yaml
+            registry:
+                location: registry.speakeasyapi.dev/delmare-digital/clientcasa/client-casa-api
+    targets:
+        client-casa:
+            target: typescript
+            source: ClientCasa API
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/delmare-digital/clientcasa/client-casa-api-typescript-code-samples
+                labelOverride:
+                    fixedValue: Typescript (SDK)
+                blocking: false
