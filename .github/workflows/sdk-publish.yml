@@ -1,0 +1,24 @@
+name: Publish SDK
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'RELEASES.md'
+      - '.speakeasy/gen.lock'
+
+permissions:
+  id-token: write
+  contents: write
+
+jobs:
+  publish:
+    name: Publish to npm
+    uses: speakeasy-api/sdk-generation-action/.github/workflows/sdk-publish.yaml@v15
+    with:
+      target: client-casa
+    secrets:
+      github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      npm_token: ${{ secrets.NPM_TOKEN }}
+      speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
