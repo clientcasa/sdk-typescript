@@ -8,6 +8,9 @@ on:
       - 'RELEASES.md'
       - '.speakeasy/gen.lock'
 
+# `id-token: write` is required for npm Trusted Publishing (OIDC).
+# Configured at https://www.npmjs.com/package/@clientcasa/sdk/access — no
+# NPM_TOKEN secret is needed once Trusted Publisher is set on the package.
 permissions:
   id-token: write
   contents: write
@@ -20,5 +23,4 @@ jobs:
       target: client-casa
     secrets:
       github_access_token: ${{ secrets.GITHUB_TOKEN }}
-      npm_token: ${{ secrets.NPM_TOKEN }}
       speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
