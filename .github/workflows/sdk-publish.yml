@@ -1,5 +1,17 @@
 name: Publish SDK
 
+permissions:
+  # id-token: write is REQUIRED for npm Trusted Publishing (OIDC).
+  # Once Trusted Publisher is configured at
+  # https://www.npmjs.com/package/@clientcasa/sdk/access, the npm CLI uses
+  # OIDC and the NPM_TOKEN secret becomes optional. We keep the token
+  # reference as a bootstrap fallback for the first publish (before Trusted
+  # Publishing is configured on the package).
+  id-token: write
+  contents: write
+  pull-requests: write
+  statuses: write
+
 on:
   push:
     branches:
@@ -8,19 +20,10 @@ on:
       - 'RELEASES.md'
       - '.speakeasy/gen.lock'
 
-# `id-token: write` is required for npm Trusted Publishing (OIDC).
-# Configured at https://www.npmjs.com/package/@clientcasa/sdk/access — no
-# NPM_TOKEN secret is needed once Trusted Publisher is set on the package.
-permissions:
-  id-token: write
-  contents: write
-
 jobs:
   publish:
-    name: Publish to npm
     uses: speakeasy-api/sdk-generation-action/.github/workflows/sdk-publish.yaml@v15
-    with:
-      target: client-casa
     secrets:
       github_access_token: ${{ secrets.GITHUB_TOKEN }}
+      npm_token: ${{ secrets.NPM_TOKEN }}
       speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
