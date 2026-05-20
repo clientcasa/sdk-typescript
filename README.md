@@ -213,39 +213,35 @@ ClientCasa API: REST API for ClientCasa — proposals, contracts, time tracking,
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
-> [!TIP]
-> To finish publishing your SDK to npm and others you must [run your first generation action](https://www.speakeasy.com/docs/github-setup#step-by-step-guide).
-
-
 The SDK can be installed with either [npm](https://www.npmjs.com/), [pnpm](https://pnpm.io/), [bun](https://bun.sh/) or [yarn](https://classic.yarnpkg.com/en/) package managers.
 
 ### NPM
 
 ```bash
-npm add https://github.com/clientcasa/sdk-typescript
+npm add @clientcasa/sdk
 ```
 
 ### PNPM
 
 ```bash
-pnpm add https://github.com/clientcasa/sdk-typescript
+pnpm add @clientcasa/sdk
 ```
 
 ### Bun
 
 ```bash
-bun add https://github.com/clientcasa/sdk-typescript
+bun add @clientcasa/sdk
 ```
 
 ### Yarn
 
 ```bash
-yarn add https://github.com/clientcasa/sdk-typescript
+yarn add @clientcasa/sdk
 ```
 
 > [!NOTE]
 > This package is published as an ES Module (ESM) only. For applications using
-> CommonJS, use `await import()` to import and use this package.
+> CommonJS, use `await import("@clientcasa/sdk")` to import and use this package.
 <!-- End SDK Installation [installation] -->
 
 <!-- Start Requirements [requirements] -->

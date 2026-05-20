@@ -14,7 +14,7 @@ targets:
         sourceRevisionDigest: sha256:9d3871b80a6e7c417bfd8ef7322763793f6b5e0ccf3aa7f30d21d78059069a6a
         sourceBlobDigest: sha256:bce8209e08760a91215e821c1bf21ae5b3d08b8f80f2413909b00501b32ecd59
         codeSamplesNamespace: client-casa-api-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:5bf712ea6a744264063de664e83dc479cf2c42a6b291597954ed6277b6c3653a
+        codeSamplesRevisionDigest: sha256:e7fb66c83167a327df1eabf753f492e2251d2e9defd424b9ba75d1dd808a0f65
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -29,6 +29,9 @@ workflow:
         client-casa:
             target: typescript
             source: ClientCasa API
+            publish:
+                npm:
+                    token: $npm_token
             codeSamples:
                 registry:
                     location: registry.speakeasyapi.dev/delmare-digital/clientcasa/client-casa-api-typescript-code-samples
