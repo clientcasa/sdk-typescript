@@ -11,6 +11,9 @@ targets:
     client-casa:
         target: typescript
         source: ClientCasa API
+        publish:
+            npm:
+                token: $npm_token
         codeSamples:
             registry:
                 location: registry.speakeasyapi.dev/delmare-digital/clientcasa/client-casa-api-typescript-code-samples
