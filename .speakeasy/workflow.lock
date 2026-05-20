@@ -14,7 +14,7 @@ targets:
         sourceRevisionDigest: sha256:9d3871b80a6e7c417bfd8ef7322763793f6b5e0ccf3aa7f30d21d78059069a6a
         sourceBlobDigest: sha256:bce8209e08760a91215e821c1bf21ae5b3d08b8f80f2413909b00501b32ecd59
         codeSamplesNamespace: client-casa-api-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:0bc53f9c402b1f446a331eebbb2fe2bc4ec1e46a34f262ef2db996b4b40701cc
+        codeSamplesRevisionDigest: sha256:5bf712ea6a744264063de664e83dc479cf2c42a6b291597954ed6277b6c3653a
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

@@ -5,14 +5,14 @@ management:
   docVersion: 1.0.0
   speakeasyVersion: 1.763.2
   generationVersion: 2.884.4
-  releaseVersion: 0.0.3
-  configChecksum: f801395be5ff479c9b2ff35a0cd6d201
+  releaseVersion: 0.1.1
+  configChecksum: 53293283f77a8cfd63dc6fa5287c26ff
   repoURL: https://github.com/clientcasa/sdk-typescript.git
   installationURL: https://github.com/clientcasa/sdk-typescript
 persistentEdits:
-  generation_id: 53f14833-5dab-42f6-8adc-eb3cca121880
-  pristine_commit_hash: 6f1e538ae10198d98bc51611b0958b5db7b7a5c4
-  pristine_tree_hash: 99a116f5e76b85a6fe04d5968065ede14c2dad3c
+  generation_id: 0bf496fe-0ed4-4605-9937-0b9fb4f24a67
+  pristine_commit_hash: 53ed6e63e3a6ecb79bbcc4d4433ff70da1a3921a
+  pristine_tree_hash: 5054baa17cbf1dafb5db0e635742267e9d6f9bbb
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -1280,12 +1280,12 @@ trackedFiles:
     pristine_git_object: dca8b77bfe9ec131b8e55da6a49883996f4ea14e
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:3ae474b052f9e57c51855a6db5cb49c593bba9ca
-    pristine_git_object: 813eed3b5cc103e38385825011537838f3242d2c
+    last_write_checksum: sha1:5c1c1359e8e15065294ebae2ed657f48d5ada2fe
+    pristine_git_object: 543b831253a25ffb39f67ba3459a22a6cc9dfb2f
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:4add394e3afe2fed9e209431b31ec1d405faf04c
-    pristine_git_object: c59c5c34f12c43b2bc05c9753ab9bf102696bb60
+    last_write_checksum: sha1:f4d92e46d863c93e9eee51c50aaf906f1955b2b9
+    pristine_git_object: 68165f75047f7ae79956c78dc0e35136a522bc1b
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:473b76edf3d30ed53981d70a75feb9a4318c3ec1
@@ -1596,8 +1596,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:72596cc3a7196b8713a745c43e7ad98565b797e8
-    pristine_git_object: f6be6e63e42d01b00316ceb6ee8663ebb3f0923c
+    last_write_checksum: sha1:b061e15ebb46eb30f96e30ad690e4f8047c0acb5
+    pristine_git_object: cc81e9366d9837af553e97f22997564cf55e58ae
   src/lib/dlv.ts:
     id: b1988214835a
     last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
@@ -3424,4 +3424,3 @@ examples:
         path:
           id: "550e8400-e29b-41d4-a716-446655440000"
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `clientcasa.invoices.createInvoice()`: \n  *  `request.status.enum(void)` **Removed** (Breaking ⚠️)\n* `clientcasa.payouts.listPayouts()`:  `response.data[].arrivalDate` **Changed** (Breaking ⚠️)\n* `clientcasa.payouts.getPayout()`:  `response.arrivalDate` **Changed** (Breaking ⚠️)\n"
