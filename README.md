@@ -14,124 +14,149 @@ Works in Node.js 18+, modern browsers, Edge runtimes, Cloudflare Workers, and De
 
 ## Quick start
 
-Get an API key from **Settings → API Keys** in your dashboard.
+Get an API key from **Settings → API Keys** in your dashboard, then:
 
 ```ts
 import { ClientCasa } from '@clientcasa/sdk'
 
-const cc = new ClientCasa({
-  apiKey: process.env.CLIENTCASA_API_KEY!,
-})
+const cc = new ClientCasa()
+const security = { apiKey: process.env.CLIENTCASA_API_KEY ?? '' }
 
 // List clients
-const { data, error } = await cc.clients.list({
-  query: { pageSize: 25 },
-})
-if (error) throw new Error(error.error.message)
-for (const client of data.data) {
+const result = await cc.clients.listClients(security, { pageSize: 25 })
+for (const client of result.data) {
   console.log(client.name, client.status)
 }
 
 // Create a client
-const { data: created } = await cc.clients.create({
-  body: { name: 'Acme Inc.', status: 'active' },
+const created = await cc.clients.createClient(security, {
+  name: 'Acme Inc.',
+  status: 'active',
 })
 
 // Get one by ID
-const { data: fetched } = await cc.clients.get({
-  path: { id: created!.id },
-})
+const fetched = await cc.clients.getClient(security, { id: created.id })
 
 // Update
-await cc.clients.update({
-  path: { id: created!.id },
-  body: { notes: 'Updated via SDK' },
+await cc.clients.updateClient(security, {
+  id: created.id,
+  clientUpdate: { notes: 'Updated via SDK' },
 })
 
 // Delete
-await cc.clients.delete({ path: { id: created!.id } })
+await cc.clients.deleteClient(security, { id: created.id })
 ```
+
+Errors are thrown — wrap calls in `try/catch` to handle them.
 
 ## OAuth (third-party apps)
 
 If you're building a third-party app that acts on behalf of a user, use the access token from your OAuth flow:
 
 ```ts
-const cc = new ClientCasa({
-  accessToken: 'eyJhbGc...', // from /api/auth/oauth2/token
-})
+const security = { bearer: 'eyJhbGc...' }  // from /api/auth/oauth2/token
+const result = await cc.clients.listClients(security, {})
 ```
 
 See the [OAuth Apps guide](https://www.clientcasa.com/docs/api/oauth-apps) for the full authorization-code-with-PKCE flow.
 
 ## Resources
 
-The client exposes one accessor per v1 resource:
+The client exposes one accessor per v1 resource. Method names follow the verb-then-resource pattern (`listClients`, `createInvoice`, `getPayout`, etc.):
 
 | Accessor | Methods | Notes |
 |---|---|---|
-| `cc.clients` | list, create, get, update, delete | |
-| `cc.contacts` | list, create, get, update, delete | |
-| `cc.projects` | list, create, get, update, delete | |
-| `cc.invoices` | list, create, get, update, delete | Status is payment-derived; only `draft`, `sent`, `void` writable |
-| `cc.proposals` | list, create, get, update, delete | Tiptap content not editable via API |
-| `cc.contracts` | list, create, get, update, delete | Create makes drafts only; signing is dashboard-managed |
-| `cc.payments` | list, create, get, update | Immutable — no delete. Refunds are negative-amount entries with `kind=refund` |
-| `cc.payouts` | list, get | Read-only — Stripe-managed |
-| `cc.timeEntries` | list, create, get, update, delete | |
-| `cc.milestones` | list, create, get, update, delete | Polymorphic parent (`parentType: 'projects' | 'proposals'`) |
-| `cc.calendarEvents` | list, create, get, update, delete | Externally-synced events are read-only |
-| `cc.inquiries` | list, create, get, update, delete | New inquiries land in `status: 'new'`; `converted` is set by the dashboard |
-| `cc.transactions` | list, create, get, update, delete | |
-| `cc.catalogItems` | list, create, get, update, delete | |
-| `cc.webhooks` | list, create, get, update, delete | Secret is write-only |
+| `cc.clients` | listClients, createClient, getClient, updateClient, deleteClient | |
+| `cc.contacts` | listContacts, createContact, getContact, updateContact, deleteContact | |
+| `cc.projects` | listProjects, createProject, getProject, updateProject, deleteProject | |
+| `cc.invoices` | listInvoices, createInvoice, getInvoice, updateInvoice, deleteInvoice | Status is payment-derived; only `draft`, `sent`, `void` writable |
+| `cc.proposals` | listProposals, createProposal, getProposal, updateProposal, deleteProposal | Tiptap content not editable via API |
+| `cc.contracts` | listContracts, createContract, getContract, updateContract, deleteContract | Create makes drafts only; signing is dashboard-managed |
+| `cc.payments` | listPayments, createPayment, getPayment, updatePayment | Immutable — no delete. Refunds are negative-amount entries with `kind=refund` |
+| `cc.payouts` | listPayouts, getPayout | Read-only — Stripe-managed |
+| `cc.timeEntries` | listTimeEntries, createTimeEntry, getTimeEntry, updateTimeEntry, deleteTimeEntry | |
+| `cc.milestones` | listMilestones, createMilestone, getMilestone, updateMilestone, deleteMilestone | Polymorphic parent (`parentType: 'projects' \| 'proposals'`) |
+| `cc.calendarEvents` | listCalendarEvents, createCalendarEvent, getCalendarEvent, updateCalendarEvent, deleteCalendarEvent | Externally-synced events are read-only |
+| `cc.inquiries` | listInquiries, createInquiry, getInquiry, updateInquiry, deleteInquiry | Inquiries land in `status: 'new'`; `converted` set by the dashboard |
+| `cc.transactions` | listTransactions, createTransaction, getTransaction, updateTransaction, deleteTransaction | |
+| `cc.catalogItems` | listCatalogItems, createCatalogItem, getCatalogItem, updateCatalogItem, deleteCatalogItem | |
+| `cc.webhooks` | listWebhooks, createWebhook, getWebhook, updateWebhook, deleteWebhook | Secret is write-only |
 
 ## Error handling
 
-Every method returns `{ data, error }`:
+Methods throw typed errors on non-2xx responses. Each operation has its own named error class:
 
 ```ts
-const { data, error } = await cc.clients.get({ path: { id: 'bad-id' } })
-if (error) {
-  console.error(error.error.code)      // 'not_found' | 'unauthorized' | …
-  console.error(error.error.message)
-  console.error(error.error.requestId) // for support tickets
-  return
+import { ClientCasa } from '@clientcasa/sdk'
+import { APIError, HTTPClientErrors } from '@clientcasa/sdk/models/errors'
+
+try {
+  const result = await cc.clients.getClient(security, { id: 'bad-id' })
+  console.log(result.name)
+} catch (err) {
+  if (err instanceof APIError) {
+    console.error(err.statusCode)            // 404
+    console.error(err.message)               // human-readable
+    // Decoded error body if the response was JSON:
+    // err.body has { error: { code, message, requestId, details? } }
+  } else {
+    throw err
+  }
 }
-console.log(data.name) // type-narrowed
 ```
+
+See [`docs/models/errors/`](./docs/models/errors) for per-operation error types.
 
 ## Idempotency
 
-Pass an `Idempotency-Key` header on writes to safely retry:
+Pass an `Idempotency-Key` header on write operations to safely retry:
 
 ```ts
-await cc.invoices.create({
-  body: { /* … */ },
-  headers: { 'Idempotency-Key': '7c9e6679-7425-40de-944b-e07fc1f90ae7' },
-})
+import { randomUUID } from 'node:crypto'
+
+await cc.invoices.createInvoice(
+  security,
+  {
+    clientId: 'cli_...',
+    issueDate: '2026-05-19',
+    dueDate: '2026-06-18',
+    lineItems: [{ description: 'Consult', quantity: 1, unitPrice: 500, taxable: false }],
+  },
+  { headers: { 'Idempotency-Key': randomUUID() } },
+)
 ```
 
-The same key replayed within 24h returns the cached response. See [Idempotency](https://www.clientcasa.com/docs/api/idempotency) for details.
+The same key replayed within 24h returns the cached response. See the [Idempotency guide](https://www.clientcasa.com/docs/integrations/idempotent-writes) for the full pattern, including payments and refunds.
 
 ## Configuration
 
 ```ts
+import { ClientCasa } from '@clientcasa/sdk'
+
 new ClientCasa({
-  apiKey: '…',           // or accessToken
-  accessToken: '…',      // OAuth Bearer
-  baseUrl: '…',          // override (defaults to https://www.clientcasa.com)
-  fetch: customFetch,    // BYO fetch (undici, cross-fetch, etc.)
+  // Optional default API key — applied to every method that takes `security`.
+  // Per-call security still overrides if both are set.
+  apiKey: process.env.CLIENTCASA_API_KEY ?? '',
+  // Override the production base URL (e.g., for staging or test envs)
+  serverURL: 'https://www.clientcasa.com',
+  // Override the underlying HTTP client (e.g., to inject middleware)
+  httpClient: undefined,
+  // Custom retry config (defaults are already sensible)
+  retryConfig: undefined,
+  // Per-call timeout in milliseconds
+  timeoutMs: 30_000,
 })
 ```
 
 ## TypeScript
 
-All DTOs are exported as types:
+All DTOs are exported under the `@clientcasa/sdk/models` subpath:
 
 ```ts
-import type { ClientDTO, InvoiceCreate, PaginationMeta } from '@clientcasa/sdk'
+import type { Client, InvoiceCreate, PaginationMeta } from '@clientcasa/sdk/models'
 ```
+
+Per-operation request/response types live under `@clientcasa/sdk/models/operations`.
 
 ## Contributing
 
