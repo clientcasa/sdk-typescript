@@ -133,22 +133,15 @@ All DTOs are exported as types:
 import type { ClientDTO, InvoiceCreate, PaginationMeta } from '@clientcasa/sdk'
 ```
 
-## Development
+## Contributing
 
-The SDK is generated from the live OpenAPI spec at `/api/v1/openapi.json`. To regenerate after API changes:
+This SDK is auto-generated from the [ClientCasa OpenAPI spec](https://www.clientcasa.com/api/v1/openapi.json) by [Speakeasy](https://www.speakeasy.com). Most changes belong upstream in the API, not here.
 
-```bash
-# From repo root: dump the current spec
-pnpm --filter @clientcasa/app generate:openapi-spec
+- **Found a bug or want a feature?** [Open an issue](https://github.com/clientcasa/sdk-typescript/issues) — include the SDK version, what you tried, and the unexpected behavior.
+- **Want to suggest an SDK-specific improvement** (ergonomics, retries, packaging)? Open an issue and we'll discuss before code.
+- **Security issue?** See [SECURITY.md](./SECURITY.md). Do not file a public issue.
 
-# Regenerate the SDK client + types
-pnpm --filter @clientcasa/sdk gen
-
-# Build
-pnpm --filter @clientcasa/sdk build
-```
-
-The CI build fails if the committed `openapi.json` or `src/generated/` are out of sync with the registry, so contributors can't forget to run `gen`.
+Pull requests touching `src/generated/` will be regenerated and overwritten — please don't edit generated code directly. See [CONTRIBUTING.md](./CONTRIBUTING.md) for the full contributor guide.
 
 ## Versioning
 
