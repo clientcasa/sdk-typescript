@@ -1,0 +1,9 @@
+# CODEOWNERS for clientcasa/sdk-typescript
+#
+# Anyone listed here is automatically requested for review on PRs that
+# touch the matched paths. Speakeasy's auto-regen PRs will request your
+# review when the OpenAPI spec changes upstream.
+#
+# Docs: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+* @allandelmare
