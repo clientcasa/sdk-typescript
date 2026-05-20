@@ -3,9 +3,6 @@ speakeasyVersion: latest
 sources:
     ClientCasa API:
         inputs:
-            # Pulls the live spec from production. The SDK regen workflow
-            # fetches this URL on schedule (and on workflow_dispatch) — if the
-            # spec has changed, Speakeasy opens a PR with the regenerated SDK.
             - location: https://www.clientcasa.com/api/v1/openapi.json
         output: .speakeasy/out.openapi.yaml
         registry:
