@@ -65,22 +65,6 @@ export class CatalogItems extends ClientSDK {
   }
 
   /**
-   * Update a catalog item
-   */
-  async updateCatalogItem(
-    security: operations.UpdateCatalogItemSecurity,
-    request: operations.UpdateCatalogItemRequest,
-    options?: RequestOptions,
-  ): Promise<models.CatalogItem> {
-    return unwrapAsync(catalogItemsUpdateCatalogItem(
-      this,
-      security,
-      request,
-      options,
-    ));
-  }
-
-  /**
    * Delete a catalog item
    */
   async deleteCatalogItem(
@@ -89,6 +73,22 @@ export class CatalogItems extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(catalogItemsDeleteCatalogItem(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update a catalog item
+   */
+  async updateCatalogItem(
+    security: operations.UpdateCatalogItemSecurity,
+    request: operations.UpdateCatalogItemRequest,
+    options?: RequestOptions,
+  ): Promise<models.CatalogItem> {
+    return unwrapAsync(catalogItemsUpdateCatalogItem(
       this,
       security,
       request,

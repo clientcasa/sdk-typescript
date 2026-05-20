@@ -204,25 +204,25 @@ The SDK can be installed with either [npm](https://www.npmjs.com/), [pnpm](https
 ### NPM
 
 ```bash
-npm add <UNSET>
+npm add https://github.com/clientcasa/sdk-typescript
 ```
 
 ### PNPM
 
 ```bash
-pnpm add <UNSET>
+pnpm add https://github.com/clientcasa/sdk-typescript
 ```
 
 ### Bun
 
 ```bash
-bun add <UNSET>
+bun add https://github.com/clientcasa/sdk-typescript
 ```
 
 ### Yarn
 
 ```bash
-yarn add <UNSET>
+yarn add https://github.com/clientcasa/sdk-typescript
 ```
 
 > [!NOTE]
@@ -303,64 +303,64 @@ run();
 * [listCalendarEvents](docs/sdks/calendarevents/README.md#listcalendarevents) - List calendar events
 * [createCalendarEvent](docs/sdks/calendarevents/README.md#createcalendarevent) - Create a calendar event
 * [getCalendarEvent](docs/sdks/calendarevents/README.md#getcalendarevent) - Get a calendar event
-* [updateCalendarEvent](docs/sdks/calendarevents/README.md#updatecalendarevent) - Update a calendar event
 * [deleteCalendarEvent](docs/sdks/calendarevents/README.md#deletecalendarevent) - Delete a calendar event
+* [updateCalendarEvent](docs/sdks/calendarevents/README.md#updatecalendarevent) - Update a calendar event
 
 ### [CatalogItems](docs/sdks/catalogitems/README.md)
 
 * [listCatalogItems](docs/sdks/catalogitems/README.md#listcatalogitems) - List catalog items
 * [createCatalogItem](docs/sdks/catalogitems/README.md#createcatalogitem) - Create a catalog item
 * [getCatalogItem](docs/sdks/catalogitems/README.md#getcatalogitem) - Get a catalog item
-* [updateCatalogItem](docs/sdks/catalogitems/README.md#updatecatalogitem) - Update a catalog item
 * [deleteCatalogItem](docs/sdks/catalogitems/README.md#deletecatalogitem) - Delete a catalog item
+* [updateCatalogItem](docs/sdks/catalogitems/README.md#updatecatalogitem) - Update a catalog item
 
 ### [Clients](docs/sdks/clients/README.md)
 
 * [listClients](docs/sdks/clients/README.md#listclients) - List clients
 * [createClient](docs/sdks/clients/README.md#createclient) - Create a client
 * [getClient](docs/sdks/clients/README.md#getclient) - Get a client
-* [updateClient](docs/sdks/clients/README.md#updateclient) - Update a client
 * [deleteClient](docs/sdks/clients/README.md#deleteclient) - Delete a client
+* [updateClient](docs/sdks/clients/README.md#updateclient) - Update a client
 
 ### [Contacts](docs/sdks/contacts/README.md)
 
 * [listContacts](docs/sdks/contacts/README.md#listcontacts) - List contacts
 * [createContact](docs/sdks/contacts/README.md#createcontact) - Create a contact
 * [getContact](docs/sdks/contacts/README.md#getcontact) - Get a contact
-* [updateContact](docs/sdks/contacts/README.md#updatecontact) - Update a contact
 * [deleteContact](docs/sdks/contacts/README.md#deletecontact) - Delete a contact
+* [updateContact](docs/sdks/contacts/README.md#updatecontact) - Update a contact
 
 ### [Contracts](docs/sdks/contracts/README.md)
 
 * [listContracts](docs/sdks/contracts/README.md#listcontracts) - List contracts
 * [createContract](docs/sdks/contracts/README.md#createcontract) - Create a draft contract
 * [getContract](docs/sdks/contracts/README.md#getcontract) - Get a contract
-* [updateContract](docs/sdks/contracts/README.md#updatecontract) - Update a contract (limited fields)
 * [deleteContract](docs/sdks/contracts/README.md#deletecontract) - Delete a contract (only drafts)
+* [updateContract](docs/sdks/contracts/README.md#updatecontract) - Update a contract (limited fields)
 
 ### [Inquiries](docs/sdks/inquiries/README.md)
 
 * [listInquiries](docs/sdks/inquiries/README.md#listinquiries) - List inquiries
 * [createInquiry](docs/sdks/inquiries/README.md#createinquiry) - Create an inquiry
 * [getInquiry](docs/sdks/inquiries/README.md#getinquiry) - Get an inquiry
-* [updateInquiry](docs/sdks/inquiries/README.md#updateinquiry) - Update an inquiry
 * [deleteInquiry](docs/sdks/inquiries/README.md#deleteinquiry) - Delete an inquiry
+* [updateInquiry](docs/sdks/inquiries/README.md#updateinquiry) - Update an inquiry
 
 ### [Invoices](docs/sdks/invoices/README.md)
 
 * [listInvoices](docs/sdks/invoices/README.md#listinvoices) - List invoices
 * [createInvoice](docs/sdks/invoices/README.md#createinvoice) - Create an invoice
 * [getInvoice](docs/sdks/invoices/README.md#getinvoice) - Get an invoice
-* [updateInvoice](docs/sdks/invoices/README.md#updateinvoice) - Update an invoice (line items not editable in v1)
 * [deleteInvoice](docs/sdks/invoices/README.md#deleteinvoice) - Delete an invoice (only drafts)
+* [updateInvoice](docs/sdks/invoices/README.md#updateinvoice) - Update an invoice (line items not editable in v1)
 
 ### [Milestones](docs/sdks/milestones/README.md)
 
 * [listMilestones](docs/sdks/milestones/README.md#listmilestones) - List milestones
 * [createMilestone](docs/sdks/milestones/README.md#createmilestone) - Create a milestone
 * [getMilestone](docs/sdks/milestones/README.md#getmilestone) - Get a milestone
-* [updateMilestone](docs/sdks/milestones/README.md#updatemilestone) - Update a milestone
 * [deleteMilestone](docs/sdks/milestones/README.md#deletemilestone) - Delete a milestone
+* [updateMilestone](docs/sdks/milestones/README.md#updatemilestone) - Update a milestone
 
 ### [Payments](docs/sdks/payments/README.md)
 
@@ -379,40 +379,40 @@ run();
 * [listProjects](docs/sdks/projects/README.md#listprojects) - List projects
 * [createProject](docs/sdks/projects/README.md#createproject) - Create a project
 * [getProject](docs/sdks/projects/README.md#getproject) - Get a project
-* [updateProject](docs/sdks/projects/README.md#updateproject) - Update a project
 * [deleteProject](docs/sdks/projects/README.md#deleteproject) - Delete a project
+* [updateProject](docs/sdks/projects/README.md#updateproject) - Update a project
 
 ### [Proposals](docs/sdks/proposals/README.md)
 
 * [listProposals](docs/sdks/proposals/README.md#listproposals) - List proposals
 * [createProposal](docs/sdks/proposals/README.md#createproposal) - Create a proposal (metadata only — rich-text content is dashboard-managed)
 * [getProposal](docs/sdks/proposals/README.md#getproposal) - Get a proposal
-* [updateProposal](docs/sdks/proposals/README.md#updateproposal) - Update a proposal
 * [deleteProposal](docs/sdks/proposals/README.md#deleteproposal) - Delete a proposal (only drafts)
+* [updateProposal](docs/sdks/proposals/README.md#updateproposal) - Update a proposal
 
 ### [TimeEntries](docs/sdks/timeentries/README.md)
 
 * [listTimeEntries](docs/sdks/timeentries/README.md#listtimeentries) - List time entries
 * [createTimeEntry](docs/sdks/timeentries/README.md#createtimeentry) - Create a time entry
 * [getTimeEntry](docs/sdks/timeentries/README.md#gettimeentry) - Get a time entry
-* [updateTimeEntry](docs/sdks/timeentries/README.md#updatetimeentry) - Update a time entry
 * [deleteTimeEntry](docs/sdks/timeentries/README.md#deletetimeentry) - Delete a time entry
+* [updateTimeEntry](docs/sdks/timeentries/README.md#updatetimeentry) - Update a time entry
 
 ### [Transactions](docs/sdks/transactions/README.md)
 
 * [listTransactions](docs/sdks/transactions/README.md#listtransactions) - List transactions
 * [createTransaction](docs/sdks/transactions/README.md#createtransaction) - Create a transaction (expense or charge)
 * [getTransaction](docs/sdks/transactions/README.md#gettransaction) - Get a transaction
-* [updateTransaction](docs/sdks/transactions/README.md#updatetransaction) - Update a transaction
 * [deleteTransaction](docs/sdks/transactions/README.md#deletetransaction) - Delete a transaction
+* [updateTransaction](docs/sdks/transactions/README.md#updatetransaction) - Update a transaction
 
 ### [Webhooks](docs/sdks/webhooks/README.md)
 
 * [listWebhooks](docs/sdks/webhooks/README.md#listwebhooks) - List webhook subscriptions
 * [createWebhook](docs/sdks/webhooks/README.md#createwebhook) - Subscribe to events
 * [getWebhook](docs/sdks/webhooks/README.md#getwebhook) - Get a webhook
-* [updateWebhook](docs/sdks/webhooks/README.md#updatewebhook) - Update a webhook
 * [deleteWebhook](docs/sdks/webhooks/README.md#deletewebhook) - Delete a webhook
+* [updateWebhook](docs/sdks/webhooks/README.md#updatewebhook) - Update a webhook
 
 </details>
 <!-- End Available Resources and Operations [operations] -->

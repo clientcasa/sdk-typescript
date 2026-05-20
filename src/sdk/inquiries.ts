@@ -65,6 +65,22 @@ export class Inquiries extends ClientSDK {
   }
 
   /**
+   * Delete an inquiry
+   */
+  async deleteInquiry(
+    security: operations.DeleteInquirySecurity,
+    request: operations.DeleteInquiryRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(inquiriesDeleteInquiry(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
    * Update an inquiry
    *
    * @remarks
@@ -76,22 +92,6 @@ export class Inquiries extends ClientSDK {
     options?: RequestOptions,
   ): Promise<models.Inquiry> {
     return unwrapAsync(inquiriesUpdateInquiry(
-      this,
-      security,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Delete an inquiry
-   */
-  async deleteInquiry(
-    security: operations.DeleteInquirySecurity,
-    request: operations.DeleteInquiryRequest,
-    options?: RequestOptions,
-  ): Promise<void> {
-    return unwrapAsync(inquiriesDeleteInquiry(
       this,
       security,
       request,

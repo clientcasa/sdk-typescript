@@ -62,22 +62,6 @@ export class Projects extends ClientSDK {
   }
 
   /**
-   * Update a project
-   */
-  async updateProject(
-    security: operations.UpdateProjectSecurity,
-    request: operations.UpdateProjectRequest,
-    options?: RequestOptions,
-  ): Promise<models.Project> {
-    return unwrapAsync(projectsUpdateProject(
-      this,
-      security,
-      request,
-      options,
-    ));
-  }
-
-  /**
    * Delete a project
    */
   async deleteProject(
@@ -86,6 +70,22 @@ export class Projects extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(projectsDeleteProject(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update a project
+   */
+  async updateProject(
+    security: operations.UpdateProjectSecurity,
+    request: operations.UpdateProjectRequest,
+    options?: RequestOptions,
+  ): Promise<models.Project> {
+    return unwrapAsync(projectsUpdateProject(
       this,
       security,
       request,

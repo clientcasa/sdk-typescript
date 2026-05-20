@@ -11,5 +11,5 @@ let value: InvoiceCreateStatus = "sent";
 ## Values
 
 ```typescript
-"draft" | "sent" | "void"
+"draft" | "sent"
 ```
