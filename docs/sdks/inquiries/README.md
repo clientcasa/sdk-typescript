@@ -7,8 +7,8 @@
 * [listInquiries](#listinquiries) - List inquiries
 * [createInquiry](#createinquiry) - Create an inquiry
 * [getInquiry](#getinquiry) - Get an inquiry
-* [updateInquiry](#updateinquiry) - Update an inquiry
 * [deleteInquiry](#deleteinquiry) - Delete an inquiry
+* [updateInquiry](#updateinquiry) - Update an inquiry
 
 ## listInquiries
 
@@ -232,6 +232,80 @@ run();
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
+## deleteInquiry
+
+Delete an inquiry
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="deleteInquiry" method="delete" path="/api/v1/inquiries/{id}" -->
+```typescript
+import { ClientCasa } from "@clientcasa/sdk";
+
+const clientCasa = new ClientCasa();
+
+async function run() {
+  await clientCasa.inquiries.deleteInquiry({
+    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
+  }, {
+    id: "550e8400-e29b-41d4-a716-446655440000",
+  });
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ClientCasaCore } from "@clientcasa/sdk/core.js";
+import { inquiriesDeleteInquiry } from "@clientcasa/sdk/funcs/inquiries-delete-inquiry.js";
+
+// Use `ClientCasaCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const clientCasa = new ClientCasaCore();
+
+async function run() {
+  const res = await inquiriesDeleteInquiry(clientCasa, {
+    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
+  }, {
+    id: "550e8400-e29b-41d4-a716-446655440000",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("inquiriesDeleteInquiry failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteInquiryRequest](../../models/operations/delete-inquiry-request.md)                                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `security`                                                                                                                                                                     | [operations.DeleteInquirySecurity](../../models/operations/delete-inquiry-security.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
+
 ## updateInquiry
 
 Status `converted` is terminal and set by the dashboard conversion flow. Transitions out of `converted` or `spam` are blocked.
@@ -301,80 +375,6 @@ run();
 ### Response
 
 **Promise\<[models.Inquiry](../../models/inquiry.md)\>**
-
-### Errors
-
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
-
-## deleteInquiry
-
-Delete an inquiry
-
-### Example Usage
-
-<!-- UsageSnippet language="typescript" operationID="deleteInquiry" method="delete" path="/api/v1/inquiries/{id}" -->
-```typescript
-import { ClientCasa } from "@clientcasa/sdk";
-
-const clientCasa = new ClientCasa();
-
-async function run() {
-  await clientCasa.inquiries.deleteInquiry({
-    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
-  }, {
-    id: "550e8400-e29b-41d4-a716-446655440000",
-  });
-
-
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { inquiriesDeleteInquiry } from "@clientcasa/sdk/funcs/inquiries-delete-inquiry.js";
-
-// Use `ClientCasaCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const clientCasa = new ClientCasaCore();
-
-async function run() {
-  const res = await inquiriesDeleteInquiry(clientCasa, {
-    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
-  }, {
-    id: "550e8400-e29b-41d4-a716-446655440000",
-  });
-  if (res.ok) {
-    const { value: result } = res;
-    
-  } else {
-    console.log("inquiriesDeleteInquiry failed:", res.error);
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.DeleteInquiryRequest](../../models/operations/delete-inquiry-request.md)                                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `security`                                                                                                                                                                     | [operations.DeleteInquirySecurity](../../models/operations/delete-inquiry-security.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<void\>**
 
 ### Errors
 

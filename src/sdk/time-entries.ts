@@ -62,25 +62,6 @@ export class TimeEntries extends ClientSDK {
   }
 
   /**
-   * Update a time entry
-   *
-   * @remarks
-   * Time entries billed to a paid invoice cannot be edited (the date field is immutable in that case).
-   */
-  async updateTimeEntry(
-    security: operations.UpdateTimeEntrySecurity,
-    request: operations.UpdateTimeEntryRequest,
-    options?: RequestOptions,
-  ): Promise<models.TimeEntry> {
-    return unwrapAsync(timeEntriesUpdateTimeEntry(
-      this,
-      security,
-      request,
-      options,
-    ));
-  }
-
-  /**
    * Delete a time entry
    *
    * @remarks
@@ -92,6 +73,25 @@ export class TimeEntries extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(timeEntriesDeleteTimeEntry(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update a time entry
+   *
+   * @remarks
+   * Time entries billed to a paid invoice cannot be edited (the date field is immutable in that case).
+   */
+  async updateTimeEntry(
+    security: operations.UpdateTimeEntrySecurity,
+    request: operations.UpdateTimeEntryRequest,
+    options?: RequestOptions,
+  ): Promise<models.TimeEntry> {
+    return unwrapAsync(timeEntriesUpdateTimeEntry(
       this,
       security,
       request,

@@ -7,8 +7,8 @@
 * [listTransactions](#listtransactions) - List transactions
 * [createTransaction](#createtransaction) - Create a transaction (expense or charge)
 * [getTransaction](#gettransaction) - Get a transaction
-* [updateTransaction](#updatetransaction) - Update a transaction
 * [deleteTransaction](#deletetransaction) - Delete a transaction
+* [updateTransaction](#updatetransaction) - Update a transaction
 
 ## listTransactions
 
@@ -248,6 +248,80 @@ run();
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
+## deleteTransaction
+
+Transactions billed to a sent/paid invoice cannot be deleted.
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="deleteTransaction" method="delete" path="/api/v1/transactions/{id}" -->
+```typescript
+import { ClientCasa } from "@clientcasa/sdk";
+
+const clientCasa = new ClientCasa();
+
+async function run() {
+  await clientCasa.transactions.deleteTransaction({
+    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
+  }, {
+    id: "550e8400-e29b-41d4-a716-446655440000",
+  });
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ClientCasaCore } from "@clientcasa/sdk/core.js";
+import { transactionsDeleteTransaction } from "@clientcasa/sdk/funcs/transactions-delete-transaction.js";
+
+// Use `ClientCasaCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const clientCasa = new ClientCasaCore();
+
+async function run() {
+  const res = await transactionsDeleteTransaction(clientCasa, {
+    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
+  }, {
+    id: "550e8400-e29b-41d4-a716-446655440000",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("transactionsDeleteTransaction failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteTransactionRequest](../../models/operations/delete-transaction-request.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `security`                                                                                                                                                                     | [operations.DeleteTransactionSecurity](../../models/operations/delete-transaction-security.md)                                                                                 | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
+
 ## updateTransaction
 
 Transactions billed to a sent/paid invoice may be frozen — the server will return 409 if so.
@@ -335,80 +409,6 @@ run();
 ### Response
 
 **Promise\<[models.Transaction](../../models/transaction.md)\>**
-
-### Errors
-
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
-
-## deleteTransaction
-
-Transactions billed to a sent/paid invoice cannot be deleted.
-
-### Example Usage
-
-<!-- UsageSnippet language="typescript" operationID="deleteTransaction" method="delete" path="/api/v1/transactions/{id}" -->
-```typescript
-import { ClientCasa } from "@clientcasa/sdk";
-
-const clientCasa = new ClientCasa();
-
-async function run() {
-  await clientCasa.transactions.deleteTransaction({
-    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
-  }, {
-    id: "550e8400-e29b-41d4-a716-446655440000",
-  });
-
-
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { transactionsDeleteTransaction } from "@clientcasa/sdk/funcs/transactions-delete-transaction.js";
-
-// Use `ClientCasaCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const clientCasa = new ClientCasaCore();
-
-async function run() {
-  const res = await transactionsDeleteTransaction(clientCasa, {
-    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
-  }, {
-    id: "550e8400-e29b-41d4-a716-446655440000",
-  });
-  if (res.ok) {
-    const { value: result } = res;
-    
-  } else {
-    console.log("transactionsDeleteTransaction failed:", res.error);
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.DeleteTransactionRequest](../../models/operations/delete-transaction-request.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `security`                                                                                                                                                                     | [operations.DeleteTransactionSecurity](../../models/operations/delete-transaction-security.md)                                                                                 | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<void\>**
 
 ### Errors
 

@@ -7,8 +7,8 @@
 * [listContracts](#listcontracts) - List contracts
 * [createContract](#createcontract) - Create a draft contract
 * [getContract](#getcontract) - Get a contract
-* [updateContract](#updatecontract) - Update a contract (limited fields)
 * [deleteContract](#deletecontract) - Delete a contract (only drafts)
+* [updateContract](#updatecontract) - Update a contract (limited fields)
 
 ## listContracts
 
@@ -242,6 +242,80 @@ run();
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
+## deleteContract
+
+Delete a contract (only drafts)
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="deleteContract" method="delete" path="/api/v1/contracts/{id}" -->
+```typescript
+import { ClientCasa } from "@clientcasa/sdk";
+
+const clientCasa = new ClientCasa();
+
+async function run() {
+  await clientCasa.contracts.deleteContract({
+    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
+  }, {
+    id: "550e8400-e29b-41d4-a716-446655440000",
+  });
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ClientCasaCore } from "@clientcasa/sdk/core.js";
+import { contractsDeleteContract } from "@clientcasa/sdk/funcs/contracts-delete-contract.js";
+
+// Use `ClientCasaCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const clientCasa = new ClientCasaCore();
+
+async function run() {
+  const res = await contractsDeleteContract(clientCasa, {
+    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
+  }, {
+    id: "550e8400-e29b-41d4-a716-446655440000",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("contractsDeleteContract failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteContractRequest](../../models/operations/delete-contract-request.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `security`                                                                                                                                                                     | [operations.DeleteContractSecurity](../../models/operations/delete-contract-security.md)                                                                                       | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
+
 ## updateContract
 
 Only `title`, `effectiveDate`, `expirationDate`, and `archived` are editable via v1. `title`/`effectiveDate`/`expirationDate` are draft-only; `archived` is always editable.
@@ -311,80 +385,6 @@ run();
 ### Response
 
 **Promise\<[models.Contract](../../models/contract.md)\>**
-
-### Errors
-
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
-
-## deleteContract
-
-Delete a contract (only drafts)
-
-### Example Usage
-
-<!-- UsageSnippet language="typescript" operationID="deleteContract" method="delete" path="/api/v1/contracts/{id}" -->
-```typescript
-import { ClientCasa } from "@clientcasa/sdk";
-
-const clientCasa = new ClientCasa();
-
-async function run() {
-  await clientCasa.contracts.deleteContract({
-    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
-  }, {
-    id: "550e8400-e29b-41d4-a716-446655440000",
-  });
-
-
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { contractsDeleteContract } from "@clientcasa/sdk/funcs/contracts-delete-contract.js";
-
-// Use `ClientCasaCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const clientCasa = new ClientCasaCore();
-
-async function run() {
-  const res = await contractsDeleteContract(clientCasa, {
-    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
-  }, {
-    id: "550e8400-e29b-41d4-a716-446655440000",
-  });
-  if (res.ok) {
-    const { value: result } = res;
-    
-  } else {
-    console.log("contractsDeleteContract failed:", res.error);
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.DeleteContractRequest](../../models/operations/delete-contract-request.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `security`                                                                                                                                                                     | [operations.DeleteContractSecurity](../../models/operations/delete-contract-security.md)                                                                                       | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<void\>**
 
 ### Errors
 

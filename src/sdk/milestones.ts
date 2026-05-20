@@ -65,22 +65,6 @@ export class Milestones extends ClientSDK {
   }
 
   /**
-   * Update a milestone
-   */
-  async updateMilestone(
-    security: operations.UpdateMilestoneSecurity,
-    request: operations.UpdateMilestoneRequest,
-    options?: RequestOptions,
-  ): Promise<models.Milestone> {
-    return unwrapAsync(milestonesUpdateMilestone(
-      this,
-      security,
-      request,
-      options,
-    ));
-  }
-
-  /**
    * Delete a milestone
    */
   async deleteMilestone(
@@ -89,6 +73,22 @@ export class Milestones extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(milestonesDeleteMilestone(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update a milestone
+   */
+  async updateMilestone(
+    security: operations.UpdateMilestoneSecurity,
+    request: operations.UpdateMilestoneRequest,
+    options?: RequestOptions,
+  ): Promise<models.Milestone> {
+    return unwrapAsync(milestonesUpdateMilestone(
       this,
       security,
       request,

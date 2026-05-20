@@ -62,25 +62,6 @@ export class Transactions extends ClientSDK {
   }
 
   /**
-   * Update a transaction
-   *
-   * @remarks
-   * Transactions billed to a sent/paid invoice may be frozen — the server will return 409 if so.
-   */
-  async updateTransaction(
-    security: operations.UpdateTransactionSecurity,
-    request: operations.UpdateTransactionRequest,
-    options?: RequestOptions,
-  ): Promise<models.Transaction> {
-    return unwrapAsync(transactionsUpdateTransaction(
-      this,
-      security,
-      request,
-      options,
-    ));
-  }
-
-  /**
    * Delete a transaction
    *
    * @remarks
@@ -92,6 +73,25 @@ export class Transactions extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(transactionsDeleteTransaction(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update a transaction
+   *
+   * @remarks
+   * Transactions billed to a sent/paid invoice may be frozen — the server will return 409 if so.
+   */
+  async updateTransaction(
+    security: operations.UpdateTransactionSecurity,
+    request: operations.UpdateTransactionRequest,
+    options?: RequestOptions,
+  ): Promise<models.Transaction> {
+    return unwrapAsync(transactionsUpdateTransaction(
       this,
       security,
       request,

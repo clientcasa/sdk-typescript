@@ -65,6 +65,22 @@ export class Contracts extends ClientSDK {
   }
 
   /**
+   * Delete a contract (only drafts)
+   */
+  async deleteContract(
+    security: operations.DeleteContractSecurity,
+    request: operations.DeleteContractRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(contractsDeleteContract(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
    * Update a contract (limited fields)
    *
    * @remarks
@@ -76,22 +92,6 @@ export class Contracts extends ClientSDK {
     options?: RequestOptions,
   ): Promise<models.Contract> {
     return unwrapAsync(contractsUpdateContract(
-      this,
-      security,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Delete a contract (only drafts)
-   */
-  async deleteContract(
-    security: operations.DeleteContractSecurity,
-    request: operations.DeleteContractRequest,
-    options?: RequestOptions,
-  ): Promise<void> {
-    return unwrapAsync(contractsDeleteContract(
       this,
       security,
       request,

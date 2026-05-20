@@ -65,6 +65,22 @@ export class CalendarEvents extends ClientSDK {
   }
 
   /**
+   * Delete a calendar event
+   */
+  async deleteCalendarEvent(
+    security: operations.DeleteCalendarEventSecurity,
+    request: operations.DeleteCalendarEventRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(calendarEventsDeleteCalendarEvent(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
    * Update a calendar event
    *
    * @remarks
@@ -76,22 +92,6 @@ export class CalendarEvents extends ClientSDK {
     options?: RequestOptions,
   ): Promise<models.CalendarEvent> {
     return unwrapAsync(calendarEventsUpdateCalendarEvent(
-      this,
-      security,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Delete a calendar event
-   */
-  async deleteCalendarEvent(
-    security: operations.DeleteCalendarEventSecurity,
-    request: operations.DeleteCalendarEventRequest,
-    options?: RequestOptions,
-  ): Promise<void> {
-    return unwrapAsync(calendarEventsDeleteCalendarEvent(
       this,
       security,
       request,
