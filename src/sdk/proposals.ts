@@ -65,6 +65,22 @@ export class Proposals extends ClientSDK {
   }
 
   /**
+   * Delete a proposal (only drafts)
+   */
+  async deleteProposal(
+    security: operations.DeleteProposalSecurity,
+    request: operations.DeleteProposalRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(proposalsDeleteProposal(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
    * Update a proposal
    *
    * @remarks
@@ -76,22 +92,6 @@ export class Proposals extends ClientSDK {
     options?: RequestOptions,
   ): Promise<models.Proposal> {
     return unwrapAsync(proposalsUpdateProposal(
-      this,
-      security,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Delete a proposal (only drafts)
-   */
-  async deleteProposal(
-    security: operations.DeleteProposalSecurity,
-    request: operations.DeleteProposalRequest,
-    options?: RequestOptions,
-  ): Promise<void> {
-    return unwrapAsync(proposalsDeleteProposal(
       this,
       security,
       request,

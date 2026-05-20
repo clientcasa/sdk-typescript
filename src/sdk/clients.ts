@@ -62,22 +62,6 @@ export class Clients extends ClientSDK {
   }
 
   /**
-   * Update a client
-   */
-  async updateClient(
-    security: operations.UpdateClientSecurity,
-    request: operations.UpdateClientRequest,
-    options?: RequestOptions,
-  ): Promise<models.Client> {
-    return unwrapAsync(clientsUpdateClient(
-      this,
-      security,
-      request,
-      options,
-    ));
-  }
-
-  /**
    * Delete a client
    */
   async deleteClient(
@@ -86,6 +70,22 @@ export class Clients extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(clientsDeleteClient(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update a client
+   */
+  async updateClient(
+    security: operations.UpdateClientSecurity,
+    request: operations.UpdateClientRequest,
+    options?: RequestOptions,
+  ): Promise<models.Client> {
+    return unwrapAsync(clientsUpdateClient(
       this,
       security,
       request,

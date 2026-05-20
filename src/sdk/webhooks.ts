@@ -65,6 +65,22 @@ export class Webhooks extends ClientSDK {
   }
 
   /**
+   * Delete a webhook
+   */
+  async deleteWebhook(
+    security: operations.DeleteWebhookSecurity,
+    request: operations.DeleteWebhookRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(webhooksDeleteWebhook(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
    * Update a webhook
    *
    * @remarks
@@ -76,22 +92,6 @@ export class Webhooks extends ClientSDK {
     options?: RequestOptions,
   ): Promise<models.Webhook> {
     return unwrapAsync(webhooksUpdateWebhook(
-      this,
-      security,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Delete a webhook
-   */
-  async deleteWebhook(
-    security: operations.DeleteWebhookSecurity,
-    request: operations.DeleteWebhookRequest,
-    options?: RequestOptions,
-  ): Promise<void> {
-    return unwrapAsync(webhooksDeleteWebhook(
       this,
       security,
       request,

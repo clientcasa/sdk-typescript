@@ -27,7 +27,7 @@ export type Payout = {
   stripePayoutId: string;
   amount: number;
   currency: string;
-  arrivalDate: Date;
+  arrivalDate: Date | null;
   status: PayoutStatus;
   type: string;
   automatic: boolean;
@@ -60,7 +60,7 @@ export const Payout$inboundSchema: z.ZodMiniType<Payout, unknown> = z.object({
   stripePayoutId: types.string(),
   amount: types.number(),
   currency: types.string(),
-  arrivalDate: types.date(),
+  arrivalDate: types.nullable(types.date()),
   status: PayoutStatus$inboundSchema,
   type: types.string(),
   automatic: types.boolean(),

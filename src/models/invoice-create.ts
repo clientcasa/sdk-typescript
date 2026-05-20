@@ -8,7 +8,6 @@ import { ClosedEnum } from "../types/enums.js";
 export const InvoiceCreateStatus = {
   Draft: "draft",
   Sent: "sent",
-  Void: "void",
 } as const;
 export type InvoiceCreateStatus = ClosedEnum<typeof InvoiceCreateStatus>;
 

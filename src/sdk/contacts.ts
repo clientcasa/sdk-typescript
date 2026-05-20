@@ -62,22 +62,6 @@ export class Contacts extends ClientSDK {
   }
 
   /**
-   * Update a contact
-   */
-  async updateContact(
-    security: operations.UpdateContactSecurity,
-    request: operations.UpdateContactRequest,
-    options?: RequestOptions,
-  ): Promise<models.Contact> {
-    return unwrapAsync(contactsUpdateContact(
-      this,
-      security,
-      request,
-      options,
-    ));
-  }
-
-  /**
    * Delete a contact
    */
   async deleteContact(
@@ -86,6 +70,22 @@ export class Contacts extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(contactsDeleteContact(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update a contact
+   */
+  async updateContact(
+    security: operations.UpdateContactSecurity,
+    request: operations.UpdateContactRequest,
+    options?: RequestOptions,
+  ): Promise<models.Contact> {
+    return unwrapAsync(contactsUpdateContact(
       this,
       security,
       request,

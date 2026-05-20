@@ -65,22 +65,6 @@ export class Invoices extends ClientSDK {
   }
 
   /**
-   * Update an invoice (line items not editable in v1)
-   */
-  async updateInvoice(
-    security: operations.UpdateInvoiceSecurity,
-    request: operations.UpdateInvoiceRequest,
-    options?: RequestOptions,
-  ): Promise<models.Invoice> {
-    return unwrapAsync(invoicesUpdateInvoice(
-      this,
-      security,
-      request,
-      options,
-    ));
-  }
-
-  /**
    * Delete an invoice (only drafts)
    */
   async deleteInvoice(
@@ -89,6 +73,22 @@ export class Invoices extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(invoicesDeleteInvoice(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update an invoice (line items not editable in v1)
+   */
+  async updateInvoice(
+    security: operations.UpdateInvoiceSecurity,
+    request: operations.UpdateInvoiceRequest,
+    options?: RequestOptions,
+  ): Promise<models.Invoice> {
+    return unwrapAsync(invoicesUpdateInvoice(
       this,
       security,
       request,
