@@ -4,13 +4,13 @@
 
 ### Available Operations
 
-* [listCatalogItems](#listcatalogitems) - List catalog items
-* [createCatalogItem](#createcatalogitem) - Create a catalog item
-* [getCatalogItem](#getcatalogitem) - Get a catalog item
-* [deleteCatalogItem](#deletecatalogitem) - Delete a catalog item
-* [updateCatalogItem](#updatecatalogitem) - Update a catalog item
+* [list](#list) - List catalog items
+* [create](#create) - Create a catalog item
+* [get](#get) - Get a catalog item
+* [update](#update) - Update a catalog item
+* [delete](#delete) - Delete a catalog item
 
-## listCatalogItems
+## list
 
 List catalog items
 
@@ -23,7 +23,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.catalogItems.listCatalogItems({
+  const result = await clientCasa.catalogItems.list({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     clientId: "550e8400-e29b-41d4-a716-446655440000",
@@ -41,14 +41,14 @@ The standalone function version of this method:
 
 ```typescript
 import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { catalogItemsListCatalogItems } from "@clientcasa/sdk/funcs/catalog-items-list-catalog-items.js";
+import { catalogItemsList } from "@clientcasa/sdk/funcs/catalog-items-list.js";
 
 // Use `ClientCasaCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const clientCasa = new ClientCasaCore();
 
 async function run() {
-  const res = await catalogItemsListCatalogItems(clientCasa, {
+  const res = await catalogItemsList(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     clientId: "550e8400-e29b-41d4-a716-446655440000",
@@ -57,7 +57,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("catalogItemsListCatalogItems failed:", res.error);
+    console.log("catalogItemsList failed:", res.error);
   }
 }
 
@@ -84,7 +84,7 @@ run();
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## createCatalogItem
+## create
 
 `type: expense` items track cost; `type: charge` items track revenue.
 
@@ -97,7 +97,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.catalogItems.createCatalogItem({
+  const result = await clientCasa.catalogItems.create({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     name: "<value>",
@@ -118,14 +118,14 @@ The standalone function version of this method:
 
 ```typescript
 import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { catalogItemsCreateCatalogItem } from "@clientcasa/sdk/funcs/catalog-items-create-catalog-item.js";
+import { catalogItemsCreate } from "@clientcasa/sdk/funcs/catalog-items-create.js";
 
 // Use `ClientCasaCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const clientCasa = new ClientCasaCore();
 
 async function run() {
-  const res = await catalogItemsCreateCatalogItem(clientCasa, {
+  const res = await catalogItemsCreate(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     name: "<value>",
@@ -137,7 +137,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("catalogItemsCreateCatalogItem failed:", res.error);
+    console.log("catalogItemsCreate failed:", res.error);
   }
 }
 
@@ -164,7 +164,7 @@ run();
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## getCatalogItem
+## get
 
 Get a catalog item
 
@@ -177,7 +177,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.catalogItems.getCatalogItem({
+  const result = await clientCasa.catalogItems.get({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
@@ -195,14 +195,14 @@ The standalone function version of this method:
 
 ```typescript
 import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { catalogItemsGetCatalogItem } from "@clientcasa/sdk/funcs/catalog-items-get-catalog-item.js";
+import { catalogItemsGet } from "@clientcasa/sdk/funcs/catalog-items-get.js";
 
 // Use `ClientCasaCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const clientCasa = new ClientCasaCore();
 
 async function run() {
-  const res = await catalogItemsGetCatalogItem(clientCasa, {
+  const res = await catalogItemsGet(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
@@ -211,7 +211,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("catalogItemsGetCatalogItem failed:", res.error);
+    console.log("catalogItemsGet failed:", res.error);
   }
 }
 
@@ -238,81 +238,7 @@ run();
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## deleteCatalogItem
-
-Delete a catalog item
-
-### Example Usage
-
-<!-- UsageSnippet language="typescript" operationID="deleteCatalogItem" method="delete" path="/api/v1/catalog-items/{id}" -->
-```typescript
-import { ClientCasa } from "@clientcasa/sdk";
-
-const clientCasa = new ClientCasa();
-
-async function run() {
-  await clientCasa.catalogItems.deleteCatalogItem({
-    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
-  }, {
-    id: "550e8400-e29b-41d4-a716-446655440000",
-  });
-
-
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { catalogItemsDeleteCatalogItem } from "@clientcasa/sdk/funcs/catalog-items-delete-catalog-item.js";
-
-// Use `ClientCasaCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const clientCasa = new ClientCasaCore();
-
-async function run() {
-  const res = await catalogItemsDeleteCatalogItem(clientCasa, {
-    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
-  }, {
-    id: "550e8400-e29b-41d4-a716-446655440000",
-  });
-  if (res.ok) {
-    const { value: result } = res;
-    
-  } else {
-    console.log("catalogItemsDeleteCatalogItem failed:", res.error);
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.DeleteCatalogItemRequest](../../models/operations/delete-catalog-item-request.md)                                                                                  | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `security`                                                                                                                                                                     | [operations.DeleteCatalogItemSecurity](../../models/operations/delete-catalog-item-security.md)                                                                                | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<void\>**
-
-### Errors
-
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
-
-## updateCatalogItem
+## update
 
 Update a catalog item
 
@@ -325,7 +251,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.catalogItems.updateCatalogItem({
+  const result = await clientCasa.catalogItems.update({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
@@ -347,14 +273,14 @@ The standalone function version of this method:
 
 ```typescript
 import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { catalogItemsUpdateCatalogItem } from "@clientcasa/sdk/funcs/catalog-items-update-catalog-item.js";
+import { catalogItemsUpdate } from "@clientcasa/sdk/funcs/catalog-items-update.js";
 
 // Use `ClientCasaCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const clientCasa = new ClientCasaCore();
 
 async function run() {
-  const res = await catalogItemsUpdateCatalogItem(clientCasa, {
+  const res = await catalogItemsUpdate(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
@@ -367,7 +293,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("catalogItemsUpdateCatalogItem failed:", res.error);
+    console.log("catalogItemsUpdate failed:", res.error);
   }
 }
 
@@ -387,6 +313,80 @@ run();
 ### Response
 
 **Promise\<[models.CatalogItem](../../models/catalog-item.md)\>**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
+
+## delete
+
+Delete a catalog item
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="deleteCatalogItem" method="delete" path="/api/v1/catalog-items/{id}" -->
+```typescript
+import { ClientCasa } from "@clientcasa/sdk";
+
+const clientCasa = new ClientCasa();
+
+async function run() {
+  await clientCasa.catalogItems.delete({
+    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
+  }, {
+    id: "550e8400-e29b-41d4-a716-446655440000",
+  });
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ClientCasaCore } from "@clientcasa/sdk/core.js";
+import { catalogItemsDelete } from "@clientcasa/sdk/funcs/catalog-items-delete.js";
+
+// Use `ClientCasaCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const clientCasa = new ClientCasaCore();
+
+async function run() {
+  const res = await catalogItemsDelete(clientCasa, {
+    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
+  }, {
+    id: "550e8400-e29b-41d4-a716-446655440000",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("catalogItemsDelete failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteCatalogItemRequest](../../models/operations/delete-catalog-item-request.md)                                                                                  | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `security`                                                                                                                                                                     | [operations.DeleteCatalogItemSecurity](../../models/operations/delete-catalog-item-security.md)                                                                                | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
 
 ### Errors
 

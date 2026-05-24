@@ -4,13 +4,13 @@
 
 ### Available Operations
 
-* [listCalendarEvents](#listcalendarevents) - List calendar events
-* [createCalendarEvent](#createcalendarevent) - Create a calendar event
-* [getCalendarEvent](#getcalendarevent) - Get a calendar event
-* [deleteCalendarEvent](#deletecalendarevent) - Delete a calendar event
-* [updateCalendarEvent](#updatecalendarevent) - Update a calendar event
+* [list](#list) - List calendar events
+* [create](#create) - Create a calendar event
+* [get](#get) - Get a calendar event
+* [update](#update) - Update a calendar event
+* [delete](#delete) - Delete a calendar event
 
-## listCalendarEvents
+## list
 
 List calendar events
 
@@ -23,7 +23,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.calendarEvents.listCalendarEvents({
+  const result = await clientCasa.calendarEvents.list({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     projectId: "550e8400-e29b-41d4-a716-446655440000",
@@ -42,14 +42,14 @@ The standalone function version of this method:
 
 ```typescript
 import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { calendarEventsListCalendarEvents } from "@clientcasa/sdk/funcs/calendar-events-list-calendar-events.js";
+import { calendarEventsList } from "@clientcasa/sdk/funcs/calendar-events-list.js";
 
 // Use `ClientCasaCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const clientCasa = new ClientCasaCore();
 
 async function run() {
-  const res = await calendarEventsListCalendarEvents(clientCasa, {
+  const res = await calendarEventsList(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     projectId: "550e8400-e29b-41d4-a716-446655440000",
@@ -59,7 +59,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("calendarEventsListCalendarEvents failed:", res.error);
+    console.log("calendarEventsList failed:", res.error);
   }
 }
 
@@ -86,7 +86,7 @@ run();
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## createCalendarEvent
+## create
 
 Only manually-created events accepted via API; events synced from Google/Outlook/Apple are read-only.
 
@@ -99,7 +99,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.calendarEvents.createCalendarEvent({
+  const result = await clientCasa.calendarEvents.create({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     title: "<value>",
@@ -121,14 +121,14 @@ The standalone function version of this method:
 
 ```typescript
 import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { calendarEventsCreateCalendarEvent } from "@clientcasa/sdk/funcs/calendar-events-create-calendar-event.js";
+import { calendarEventsCreate } from "@clientcasa/sdk/funcs/calendar-events-create.js";
 
 // Use `ClientCasaCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const clientCasa = new ClientCasaCore();
 
 async function run() {
-  const res = await calendarEventsCreateCalendarEvent(clientCasa, {
+  const res = await calendarEventsCreate(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     title: "<value>",
@@ -141,7 +141,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("calendarEventsCreateCalendarEvent failed:", res.error);
+    console.log("calendarEventsCreate failed:", res.error);
   }
 }
 
@@ -168,7 +168,7 @@ run();
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## getCalendarEvent
+## get
 
 Get a calendar event
 
@@ -181,7 +181,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.calendarEvents.getCalendarEvent({
+  const result = await clientCasa.calendarEvents.get({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
@@ -199,14 +199,14 @@ The standalone function version of this method:
 
 ```typescript
 import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { calendarEventsGetCalendarEvent } from "@clientcasa/sdk/funcs/calendar-events-get-calendar-event.js";
+import { calendarEventsGet } from "@clientcasa/sdk/funcs/calendar-events-get.js";
 
 // Use `ClientCasaCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const clientCasa = new ClientCasaCore();
 
 async function run() {
-  const res = await calendarEventsGetCalendarEvent(clientCasa, {
+  const res = await calendarEventsGet(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
@@ -215,7 +215,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("calendarEventsGetCalendarEvent failed:", res.error);
+    console.log("calendarEventsGet failed:", res.error);
   }
 }
 
@@ -242,81 +242,7 @@ run();
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## deleteCalendarEvent
-
-Delete a calendar event
-
-### Example Usage
-
-<!-- UsageSnippet language="typescript" operationID="deleteCalendarEvent" method="delete" path="/api/v1/calendar-events/{id}" -->
-```typescript
-import { ClientCasa } from "@clientcasa/sdk";
-
-const clientCasa = new ClientCasa();
-
-async function run() {
-  await clientCasa.calendarEvents.deleteCalendarEvent({
-    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
-  }, {
-    id: "550e8400-e29b-41d4-a716-446655440000",
-  });
-
-
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { calendarEventsDeleteCalendarEvent } from "@clientcasa/sdk/funcs/calendar-events-delete-calendar-event.js";
-
-// Use `ClientCasaCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const clientCasa = new ClientCasaCore();
-
-async function run() {
-  const res = await calendarEventsDeleteCalendarEvent(clientCasa, {
-    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
-  }, {
-    id: "550e8400-e29b-41d4-a716-446655440000",
-  });
-  if (res.ok) {
-    const { value: result } = res;
-    
-  } else {
-    console.log("calendarEventsDeleteCalendarEvent failed:", res.error);
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.DeleteCalendarEventRequest](../../models/operations/delete-calendar-event-request.md)                                                                              | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `security`                                                                                                                                                                     | [operations.DeleteCalendarEventSecurity](../../models/operations/delete-calendar-event-security.md)                                                                            | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<void\>**
-
-### Errors
-
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
-
-## updateCalendarEvent
+## update
 
 Externally-sourced events (google/microsoft/apple) are read-only.
 
@@ -329,7 +255,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.calendarEvents.updateCalendarEvent({
+  const result = await clientCasa.calendarEvents.update({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
@@ -351,14 +277,14 @@ The standalone function version of this method:
 
 ```typescript
 import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { calendarEventsUpdateCalendarEvent } from "@clientcasa/sdk/funcs/calendar-events-update-calendar-event.js";
+import { calendarEventsUpdate } from "@clientcasa/sdk/funcs/calendar-events-update.js";
 
 // Use `ClientCasaCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const clientCasa = new ClientCasaCore();
 
 async function run() {
-  const res = await calendarEventsUpdateCalendarEvent(clientCasa, {
+  const res = await calendarEventsUpdate(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
@@ -371,7 +297,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("calendarEventsUpdateCalendarEvent failed:", res.error);
+    console.log("calendarEventsUpdate failed:", res.error);
   }
 }
 
@@ -391,6 +317,80 @@ run();
 ### Response
 
 **Promise\<[models.CalendarEvent](../../models/calendar-event.md)\>**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
+
+## delete
+
+Delete a calendar event
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="deleteCalendarEvent" method="delete" path="/api/v1/calendar-events/{id}" -->
+```typescript
+import { ClientCasa } from "@clientcasa/sdk";
+
+const clientCasa = new ClientCasa();
+
+async function run() {
+  await clientCasa.calendarEvents.delete({
+    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
+  }, {
+    id: "550e8400-e29b-41d4-a716-446655440000",
+  });
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ClientCasaCore } from "@clientcasa/sdk/core.js";
+import { calendarEventsDelete } from "@clientcasa/sdk/funcs/calendar-events-delete.js";
+
+// Use `ClientCasaCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const clientCasa = new ClientCasaCore();
+
+async function run() {
+  const res = await calendarEventsDelete(clientCasa, {
+    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
+  }, {
+    id: "550e8400-e29b-41d4-a716-446655440000",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("calendarEventsDelete failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteCalendarEventRequest](../../models/operations/delete-calendar-event-request.md)                                                                              | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `security`                                                                                                                                                                     | [operations.DeleteCalendarEventSecurity](../../models/operations/delete-calendar-event-security.md)                                                                            | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
 
 ### Errors
 

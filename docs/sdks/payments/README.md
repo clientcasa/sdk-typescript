@@ -4,12 +4,12 @@
 
 ### Available Operations
 
-* [listPayments](#listpayments) - List payments
-* [createPayment](#createpayment) - Record a manual payment
-* [getPayment](#getpayment) - Get a payment
-* [updatePayment](#updatepayment) - Update a payment (notes/reference only — payments are otherwise immutable)
+* [list](#list) - List payments
+* [create](#create) - Record a manual payment
+* [get](#get) - Get a payment
+* [update](#update) - Update a payment (notes/reference only — payments are otherwise immutable)
 
-## listPayments
+## list
 
 List payments
 
@@ -22,7 +22,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.payments.listPayments({
+  const result = await clientCasa.payments.list({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     clientId: "550e8400-e29b-41d4-a716-446655440000",
@@ -41,14 +41,14 @@ The standalone function version of this method:
 
 ```typescript
 import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { paymentsListPayments } from "@clientcasa/sdk/funcs/payments-list-payments.js";
+import { paymentsList } from "@clientcasa/sdk/funcs/payments-list.js";
 
 // Use `ClientCasaCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const clientCasa = new ClientCasaCore();
 
 async function run() {
-  const res = await paymentsListPayments(clientCasa, {
+  const res = await paymentsList(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     clientId: "550e8400-e29b-41d4-a716-446655440000",
@@ -58,7 +58,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("paymentsListPayments failed:", res.error);
+    console.log("paymentsList failed:", res.error);
   }
 }
 
@@ -85,7 +85,7 @@ run();
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## createPayment
+## create
 
 Records a manually-collected payment (check, bank transfer, cash, etc.). Stripe payments are recorded automatically via webhooks and cannot be created here. Payments are immutable after creation except for `reference` and `notes`. To reverse a payment, record a refund (kind=refund, negative amount, refundOfId pointing at the original).
 
@@ -98,7 +98,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.payments.createPayment({
+  const result = await clientCasa.payments.create({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     clientId: "550e8400-e29b-41d4-a716-446655440000",
@@ -121,14 +121,14 @@ The standalone function version of this method:
 
 ```typescript
 import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { paymentsCreatePayment } from "@clientcasa/sdk/funcs/payments-create-payment.js";
+import { paymentsCreate } from "@clientcasa/sdk/funcs/payments-create.js";
 
 // Use `ClientCasaCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const clientCasa = new ClientCasaCore();
 
 async function run() {
-  const res = await paymentsCreatePayment(clientCasa, {
+  const res = await paymentsCreate(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     clientId: "550e8400-e29b-41d4-a716-446655440000",
@@ -142,7 +142,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("paymentsCreatePayment failed:", res.error);
+    console.log("paymentsCreate failed:", res.error);
   }
 }
 
@@ -169,7 +169,7 @@ run();
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## getPayment
+## get
 
 Get a payment
 
@@ -182,7 +182,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.payments.getPayment({
+  const result = await clientCasa.payments.get({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
@@ -200,14 +200,14 @@ The standalone function version of this method:
 
 ```typescript
 import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { paymentsGetPayment } from "@clientcasa/sdk/funcs/payments-get-payment.js";
+import { paymentsGet } from "@clientcasa/sdk/funcs/payments-get.js";
 
 // Use `ClientCasaCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const clientCasa = new ClientCasaCore();
 
 async function run() {
-  const res = await paymentsGetPayment(clientCasa, {
+  const res = await paymentsGet(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
@@ -216,7 +216,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("paymentsGetPayment failed:", res.error);
+    console.log("paymentsGet failed:", res.error);
   }
 }
 
@@ -243,7 +243,7 @@ run();
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## updatePayment
+## update
 
 Update a payment (notes/reference only — payments are otherwise immutable)
 
@@ -256,7 +256,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.payments.updatePayment({
+  const result = await clientCasa.payments.update({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
@@ -275,14 +275,14 @@ The standalone function version of this method:
 
 ```typescript
 import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { paymentsUpdatePayment } from "@clientcasa/sdk/funcs/payments-update-payment.js";
+import { paymentsUpdate } from "@clientcasa/sdk/funcs/payments-update.js";
 
 // Use `ClientCasaCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const clientCasa = new ClientCasaCore();
 
 async function run() {
-  const res = await paymentsUpdatePayment(clientCasa, {
+  const res = await paymentsUpdate(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
@@ -292,7 +292,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("paymentsUpdatePayment failed:", res.error);
+    console.log("paymentsUpdate failed:", res.error);
   }
 }
 

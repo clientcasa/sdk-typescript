@@ -4,13 +4,13 @@
 
 ### Available Operations
 
-* [listProjects](#listprojects) - List projects
-* [createProject](#createproject) - Create a project
-* [getProject](#getproject) - Get a project
-* [deleteProject](#deleteproject) - Delete a project
-* [updateProject](#updateproject) - Update a project
+* [list](#list) - List projects
+* [create](#create) - Create a project
+* [get](#get) - Get a project
+* [update](#update) - Update a project
+* [delete](#delete) - Delete a project
 
-## listProjects
+## list
 
 List projects
 
@@ -23,7 +23,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.projects.listProjects({
+  const result = await clientCasa.projects.list({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     clientId: "550e8400-e29b-41d4-a716-446655440000",
@@ -41,14 +41,14 @@ The standalone function version of this method:
 
 ```typescript
 import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { projectsListProjects } from "@clientcasa/sdk/funcs/projects-list-projects.js";
+import { projectsList } from "@clientcasa/sdk/funcs/projects-list.js";
 
 // Use `ClientCasaCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const clientCasa = new ClientCasaCore();
 
 async function run() {
-  const res = await projectsListProjects(clientCasa, {
+  const res = await projectsList(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     clientId: "550e8400-e29b-41d4-a716-446655440000",
@@ -57,7 +57,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("projectsListProjects failed:", res.error);
+    console.log("projectsList failed:", res.error);
   }
 }
 
@@ -84,7 +84,7 @@ run();
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## createProject
+## create
 
 Create a project
 
@@ -97,7 +97,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.projects.createProject({
+  const result = await clientCasa.projects.create({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     name: "<value>",
@@ -117,14 +117,14 @@ The standalone function version of this method:
 
 ```typescript
 import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { projectsCreateProject } from "@clientcasa/sdk/funcs/projects-create-project.js";
+import { projectsCreate } from "@clientcasa/sdk/funcs/projects-create.js";
 
 // Use `ClientCasaCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const clientCasa = new ClientCasaCore();
 
 async function run() {
-  const res = await projectsCreateProject(clientCasa, {
+  const res = await projectsCreate(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     name: "<value>",
@@ -135,7 +135,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("projectsCreateProject failed:", res.error);
+    console.log("projectsCreate failed:", res.error);
   }
 }
 
@@ -162,7 +162,7 @@ run();
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## getProject
+## get
 
 Get a project
 
@@ -175,7 +175,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.projects.getProject({
+  const result = await clientCasa.projects.get({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
@@ -193,14 +193,14 @@ The standalone function version of this method:
 
 ```typescript
 import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { projectsGetProject } from "@clientcasa/sdk/funcs/projects-get-project.js";
+import { projectsGet } from "@clientcasa/sdk/funcs/projects-get.js";
 
 // Use `ClientCasaCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const clientCasa = new ClientCasaCore();
 
 async function run() {
-  const res = await projectsGetProject(clientCasa, {
+  const res = await projectsGet(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
@@ -209,7 +209,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("projectsGetProject failed:", res.error);
+    console.log("projectsGet failed:", res.error);
   }
 }
 
@@ -236,81 +236,7 @@ run();
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## deleteProject
-
-Delete a project
-
-### Example Usage
-
-<!-- UsageSnippet language="typescript" operationID="deleteProject" method="delete" path="/api/v1/projects/{id}" -->
-```typescript
-import { ClientCasa } from "@clientcasa/sdk";
-
-const clientCasa = new ClientCasa();
-
-async function run() {
-  await clientCasa.projects.deleteProject({
-    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
-  }, {
-    id: "550e8400-e29b-41d4-a716-446655440000",
-  });
-
-
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { projectsDeleteProject } from "@clientcasa/sdk/funcs/projects-delete-project.js";
-
-// Use `ClientCasaCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const clientCasa = new ClientCasaCore();
-
-async function run() {
-  const res = await projectsDeleteProject(clientCasa, {
-    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
-  }, {
-    id: "550e8400-e29b-41d4-a716-446655440000",
-  });
-  if (res.ok) {
-    const { value: result } = res;
-    
-  } else {
-    console.log("projectsDeleteProject failed:", res.error);
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.DeleteProjectRequest](../../models/operations/delete-project-request.md)                                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `security`                                                                                                                                                                     | [operations.DeleteProjectSecurity](../../models/operations/delete-project-security.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<void\>**
-
-### Errors
-
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
-
-## updateProject
+## update
 
 Update a project
 
@@ -323,7 +249,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.projects.updateProject({
+  const result = await clientCasa.projects.update({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
@@ -345,14 +271,14 @@ The standalone function version of this method:
 
 ```typescript
 import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { projectsUpdateProject } from "@clientcasa/sdk/funcs/projects-update-project.js";
+import { projectsUpdate } from "@clientcasa/sdk/funcs/projects-update.js";
 
 // Use `ClientCasaCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const clientCasa = new ClientCasaCore();
 
 async function run() {
-  const res = await projectsUpdateProject(clientCasa, {
+  const res = await projectsUpdate(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
@@ -365,7 +291,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("projectsUpdateProject failed:", res.error);
+    console.log("projectsUpdate failed:", res.error);
   }
 }
 
@@ -385,6 +311,80 @@ run();
 ### Response
 
 **Promise\<[models.Project](../../models/project.md)\>**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
+
+## delete
+
+Delete a project
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="deleteProject" method="delete" path="/api/v1/projects/{id}" -->
+```typescript
+import { ClientCasa } from "@clientcasa/sdk";
+
+const clientCasa = new ClientCasa();
+
+async function run() {
+  await clientCasa.projects.delete({
+    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
+  }, {
+    id: "550e8400-e29b-41d4-a716-446655440000",
+  });
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ClientCasaCore } from "@clientcasa/sdk/core.js";
+import { projectsDelete } from "@clientcasa/sdk/funcs/projects-delete.js";
+
+// Use `ClientCasaCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const clientCasa = new ClientCasaCore();
+
+async function run() {
+  const res = await projectsDelete(clientCasa, {
+    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
+  }, {
+    id: "550e8400-e29b-41d4-a716-446655440000",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("projectsDelete failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteProjectRequest](../../models/operations/delete-project-request.md)                                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `security`                                                                                                                                                                     | [operations.DeleteProjectSecurity](../../models/operations/delete-project-security.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
 
 ### Errors
 

@@ -4,13 +4,13 @@
 
 ### Available Operations
 
-* [listContracts](#listcontracts) - List contracts
-* [createContract](#createcontract) - Create a draft contract
-* [getContract](#getcontract) - Get a contract
-* [deleteContract](#deletecontract) - Delete a contract (only drafts)
-* [updateContract](#updatecontract) - Update a contract (limited fields)
+* [list](#list) - List contracts
+* [create](#create) - Create a draft contract
+* [get](#get) - Get a contract
+* [update](#update) - Update a contract (limited fields)
+* [delete](#delete) - Delete a contract (only drafts)
 
-## listContracts
+## list
 
 List contracts
 
@@ -23,7 +23,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.contracts.listContracts({
+  const result = await clientCasa.contracts.list({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     clientId: "550e8400-e29b-41d4-a716-446655440000",
@@ -41,14 +41,14 @@ The standalone function version of this method:
 
 ```typescript
 import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { contractsListContracts } from "@clientcasa/sdk/funcs/contracts-list-contracts.js";
+import { contractsList } from "@clientcasa/sdk/funcs/contracts-list.js";
 
 // Use `ClientCasaCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const clientCasa = new ClientCasaCore();
 
 async function run() {
-  const res = await contractsListContracts(clientCasa, {
+  const res = await contractsList(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     clientId: "550e8400-e29b-41d4-a716-446655440000",
@@ -57,7 +57,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("contractsListContracts failed:", res.error);
+    console.log("contractsList failed:", res.error);
   }
 }
 
@@ -84,7 +84,7 @@ run();
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## createContract
+## create
 
 Creates a draft contract. Signing flow, signer assignment, and Tiptap content are dashboard-managed.
 
@@ -97,7 +97,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.contracts.createContract({
+  const result = await clientCasa.contracts.create({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     title: "<value>",
@@ -120,14 +120,14 @@ The standalone function version of this method:
 
 ```typescript
 import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { contractsCreateContract } from "@clientcasa/sdk/funcs/contracts-create-contract.js";
+import { contractsCreate } from "@clientcasa/sdk/funcs/contracts-create.js";
 
 // Use `ClientCasaCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const clientCasa = new ClientCasaCore();
 
 async function run() {
-  const res = await contractsCreateContract(clientCasa, {
+  const res = await contractsCreate(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     title: "<value>",
@@ -141,7 +141,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("contractsCreateContract failed:", res.error);
+    console.log("contractsCreate failed:", res.error);
   }
 }
 
@@ -168,7 +168,7 @@ run();
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## getContract
+## get
 
 Get a contract
 
@@ -181,7 +181,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.contracts.getContract({
+  const result = await clientCasa.contracts.get({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
@@ -199,14 +199,14 @@ The standalone function version of this method:
 
 ```typescript
 import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { contractsGetContract } from "@clientcasa/sdk/funcs/contracts-get-contract.js";
+import { contractsGet } from "@clientcasa/sdk/funcs/contracts-get.js";
 
 // Use `ClientCasaCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const clientCasa = new ClientCasaCore();
 
 async function run() {
-  const res = await contractsGetContract(clientCasa, {
+  const res = await contractsGet(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
@@ -215,7 +215,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("contractsGetContract failed:", res.error);
+    console.log("contractsGet failed:", res.error);
   }
 }
 
@@ -242,81 +242,7 @@ run();
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## deleteContract
-
-Delete a contract (only drafts)
-
-### Example Usage
-
-<!-- UsageSnippet language="typescript" operationID="deleteContract" method="delete" path="/api/v1/contracts/{id}" -->
-```typescript
-import { ClientCasa } from "@clientcasa/sdk";
-
-const clientCasa = new ClientCasa();
-
-async function run() {
-  await clientCasa.contracts.deleteContract({
-    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
-  }, {
-    id: "550e8400-e29b-41d4-a716-446655440000",
-  });
-
-
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { contractsDeleteContract } from "@clientcasa/sdk/funcs/contracts-delete-contract.js";
-
-// Use `ClientCasaCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const clientCasa = new ClientCasaCore();
-
-async function run() {
-  const res = await contractsDeleteContract(clientCasa, {
-    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
-  }, {
-    id: "550e8400-e29b-41d4-a716-446655440000",
-  });
-  if (res.ok) {
-    const { value: result } = res;
-    
-  } else {
-    console.log("contractsDeleteContract failed:", res.error);
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.DeleteContractRequest](../../models/operations/delete-contract-request.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `security`                                                                                                                                                                     | [operations.DeleteContractSecurity](../../models/operations/delete-contract-security.md)                                                                                       | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<void\>**
-
-### Errors
-
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
-
-## updateContract
+## update
 
 Only `title`, `effectiveDate`, `expirationDate`, and `archived` are editable via v1. `title`/`effectiveDate`/`expirationDate` are draft-only; `archived` is always editable.
 
@@ -329,7 +255,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.contracts.updateContract({
+  const result = await clientCasa.contracts.update({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
@@ -348,14 +274,14 @@ The standalone function version of this method:
 
 ```typescript
 import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { contractsUpdateContract } from "@clientcasa/sdk/funcs/contracts-update-contract.js";
+import { contractsUpdate } from "@clientcasa/sdk/funcs/contracts-update.js";
 
 // Use `ClientCasaCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const clientCasa = new ClientCasaCore();
 
 async function run() {
-  const res = await contractsUpdateContract(clientCasa, {
+  const res = await contractsUpdate(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
@@ -365,7 +291,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("contractsUpdateContract failed:", res.error);
+    console.log("contractsUpdate failed:", res.error);
   }
 }
 
@@ -385,6 +311,80 @@ run();
 ### Response
 
 **Promise\<[models.Contract](../../models/contract.md)\>**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
+
+## delete
+
+Delete a contract (only drafts)
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="deleteContract" method="delete" path="/api/v1/contracts/{id}" -->
+```typescript
+import { ClientCasa } from "@clientcasa/sdk";
+
+const clientCasa = new ClientCasa();
+
+async function run() {
+  await clientCasa.contracts.delete({
+    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
+  }, {
+    id: "550e8400-e29b-41d4-a716-446655440000",
+  });
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ClientCasaCore } from "@clientcasa/sdk/core.js";
+import { contractsDelete } from "@clientcasa/sdk/funcs/contracts-delete.js";
+
+// Use `ClientCasaCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const clientCasa = new ClientCasaCore();
+
+async function run() {
+  const res = await contractsDelete(clientCasa, {
+    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
+  }, {
+    id: "550e8400-e29b-41d4-a716-446655440000",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("contractsDelete failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteContractRequest](../../models/operations/delete-contract-request.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `security`                                                                                                                                                                     | [operations.DeleteContractSecurity](../../models/operations/delete-contract-security.md)                                                                                       | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
 
 ### Errors
 

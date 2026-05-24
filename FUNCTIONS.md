@@ -20,21 +20,21 @@ specific category of applications.
 
 ```typescript
 import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { clientsListClients } from "@clientcasa/sdk/funcs/clients-list-clients.js";
+import { clientsList } from "@clientcasa/sdk/funcs/clients-list.js";
 
 // Use `ClientCasaCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const clientCasa = new ClientCasaCore();
 
 async function run() {
-  const res = await clientsListClients(clientCasa, {
+  const res = await clientsList(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {});
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("clientsListClients failed:", res.error);
+    console.log("clientsList failed:", res.error);
   }
 }
 

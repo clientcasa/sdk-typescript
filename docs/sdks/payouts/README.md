@@ -4,10 +4,10 @@
 
 ### Available Operations
 
-* [listPayouts](#listpayouts) - List payouts
-* [getPayout](#getpayout) - Get a payout
+* [list](#list) - List payouts
+* [get](#get) - Get a payout
 
-## listPayouts
+## list
 
 List payouts
 
@@ -20,7 +20,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.payouts.listPayouts({
+  const result = await clientCasa.payouts.list({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {});
 
@@ -36,21 +36,21 @@ The standalone function version of this method:
 
 ```typescript
 import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { payoutsListPayouts } from "@clientcasa/sdk/funcs/payouts-list-payouts.js";
+import { payoutsList } from "@clientcasa/sdk/funcs/payouts-list.js";
 
 // Use `ClientCasaCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const clientCasa = new ClientCasaCore();
 
 async function run() {
-  const res = await payoutsListPayouts(clientCasa, {
+  const res = await payoutsList(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {});
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("payoutsListPayouts failed:", res.error);
+    console.log("payoutsList failed:", res.error);
   }
 }
 
@@ -77,7 +77,7 @@ run();
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## getPayout
+## get
 
 Get a payout
 
@@ -90,7 +90,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.payouts.getPayout({
+  const result = await clientCasa.payouts.get({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
@@ -108,14 +108,14 @@ The standalone function version of this method:
 
 ```typescript
 import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { payoutsGetPayout } from "@clientcasa/sdk/funcs/payouts-get-payout.js";
+import { payoutsGet } from "@clientcasa/sdk/funcs/payouts-get.js";
 
 // Use `ClientCasaCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const clientCasa = new ClientCasaCore();
 
 async function run() {
-  const res = await payoutsGetPayout(clientCasa, {
+  const res = await payoutsGet(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
@@ -124,7 +124,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("payoutsGetPayout failed:", res.error);
+    console.log("payoutsGet failed:", res.error);
   }
 }
 

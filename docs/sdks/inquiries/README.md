@@ -4,13 +4,13 @@
 
 ### Available Operations
 
-* [listInquiries](#listinquiries) - List inquiries
-* [createInquiry](#createinquiry) - Create an inquiry
-* [getInquiry](#getinquiry) - Get an inquiry
-* [deleteInquiry](#deleteinquiry) - Delete an inquiry
-* [updateInquiry](#updateinquiry) - Update an inquiry
+* [list](#list) - List inquiries
+* [create](#create) - Create an inquiry
+* [get](#get) - Get an inquiry
+* [update](#update) - Update an inquiry
+* [delete](#delete) - Delete an inquiry
 
-## listInquiries
+## list
 
 List inquiries
 
@@ -23,7 +23,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.inquiries.listInquiries({
+  const result = await clientCasa.inquiries.list({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {});
 
@@ -39,21 +39,21 @@ The standalone function version of this method:
 
 ```typescript
 import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { inquiriesListInquiries } from "@clientcasa/sdk/funcs/inquiries-list-inquiries.js";
+import { inquiriesList } from "@clientcasa/sdk/funcs/inquiries-list.js";
 
 // Use `ClientCasaCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const clientCasa = new ClientCasaCore();
 
 async function run() {
-  const res = await inquiriesListInquiries(clientCasa, {
+  const res = await inquiriesList(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {});
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("inquiriesListInquiries failed:", res.error);
+    console.log("inquiriesList failed:", res.error);
   }
 }
 
@@ -80,7 +80,7 @@ run();
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## createInquiry
+## create
 
 Inquiries created via the API land in `new` status. Conversion (to Client + Project) is dashboard-only in v1.
 
@@ -93,7 +93,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.inquiries.createInquiry({
+  const result = await clientCasa.inquiries.create({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     name: "<value>",
@@ -113,14 +113,14 @@ The standalone function version of this method:
 
 ```typescript
 import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { inquiriesCreateInquiry } from "@clientcasa/sdk/funcs/inquiries-create-inquiry.js";
+import { inquiriesCreate } from "@clientcasa/sdk/funcs/inquiries-create.js";
 
 // Use `ClientCasaCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const clientCasa = new ClientCasaCore();
 
 async function run() {
-  const res = await inquiriesCreateInquiry(clientCasa, {
+  const res = await inquiriesCreate(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     name: "<value>",
@@ -131,7 +131,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("inquiriesCreateInquiry failed:", res.error);
+    console.log("inquiriesCreate failed:", res.error);
   }
 }
 
@@ -158,7 +158,7 @@ run();
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## getInquiry
+## get
 
 Get an inquiry
 
@@ -171,7 +171,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.inquiries.getInquiry({
+  const result = await clientCasa.inquiries.get({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
@@ -189,14 +189,14 @@ The standalone function version of this method:
 
 ```typescript
 import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { inquiriesGetInquiry } from "@clientcasa/sdk/funcs/inquiries-get-inquiry.js";
+import { inquiriesGet } from "@clientcasa/sdk/funcs/inquiries-get.js";
 
 // Use `ClientCasaCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const clientCasa = new ClientCasaCore();
 
 async function run() {
-  const res = await inquiriesGetInquiry(clientCasa, {
+  const res = await inquiriesGet(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
@@ -205,7 +205,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("inquiriesGetInquiry failed:", res.error);
+    console.log("inquiriesGet failed:", res.error);
   }
 }
 
@@ -232,81 +232,7 @@ run();
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## deleteInquiry
-
-Delete an inquiry
-
-### Example Usage
-
-<!-- UsageSnippet language="typescript" operationID="deleteInquiry" method="delete" path="/api/v1/inquiries/{id}" -->
-```typescript
-import { ClientCasa } from "@clientcasa/sdk";
-
-const clientCasa = new ClientCasa();
-
-async function run() {
-  await clientCasa.inquiries.deleteInquiry({
-    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
-  }, {
-    id: "550e8400-e29b-41d4-a716-446655440000",
-  });
-
-
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { inquiriesDeleteInquiry } from "@clientcasa/sdk/funcs/inquiries-delete-inquiry.js";
-
-// Use `ClientCasaCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const clientCasa = new ClientCasaCore();
-
-async function run() {
-  const res = await inquiriesDeleteInquiry(clientCasa, {
-    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
-  }, {
-    id: "550e8400-e29b-41d4-a716-446655440000",
-  });
-  if (res.ok) {
-    const { value: result } = res;
-    
-  } else {
-    console.log("inquiriesDeleteInquiry failed:", res.error);
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.DeleteInquiryRequest](../../models/operations/delete-inquiry-request.md)                                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `security`                                                                                                                                                                     | [operations.DeleteInquirySecurity](../../models/operations/delete-inquiry-security.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<void\>**
-
-### Errors
-
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
-
-## updateInquiry
+## update
 
 Status `converted` is terminal and set by the dashboard conversion flow. Transitions out of `converted` or `spam` are blocked.
 
@@ -319,7 +245,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.inquiries.updateInquiry({
+  const result = await clientCasa.inquiries.update({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
@@ -338,14 +264,14 @@ The standalone function version of this method:
 
 ```typescript
 import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { inquiriesUpdateInquiry } from "@clientcasa/sdk/funcs/inquiries-update-inquiry.js";
+import { inquiriesUpdate } from "@clientcasa/sdk/funcs/inquiries-update.js";
 
 // Use `ClientCasaCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const clientCasa = new ClientCasaCore();
 
 async function run() {
-  const res = await inquiriesUpdateInquiry(clientCasa, {
+  const res = await inquiriesUpdate(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
@@ -355,7 +281,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("inquiriesUpdateInquiry failed:", res.error);
+    console.log("inquiriesUpdate failed:", res.error);
   }
 }
 
@@ -375,6 +301,80 @@ run();
 ### Response
 
 **Promise\<[models.Inquiry](../../models/inquiry.md)\>**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
+
+## delete
+
+Delete an inquiry
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="deleteInquiry" method="delete" path="/api/v1/inquiries/{id}" -->
+```typescript
+import { ClientCasa } from "@clientcasa/sdk";
+
+const clientCasa = new ClientCasa();
+
+async function run() {
+  await clientCasa.inquiries.delete({
+    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
+  }, {
+    id: "550e8400-e29b-41d4-a716-446655440000",
+  });
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ClientCasaCore } from "@clientcasa/sdk/core.js";
+import { inquiriesDelete } from "@clientcasa/sdk/funcs/inquiries-delete.js";
+
+// Use `ClientCasaCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const clientCasa = new ClientCasaCore();
+
+async function run() {
+  const res = await inquiriesDelete(clientCasa, {
+    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
+  }, {
+    id: "550e8400-e29b-41d4-a716-446655440000",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("inquiriesDelete failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteInquiryRequest](../../models/operations/delete-inquiry-request.md)                                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `security`                                                                                                                                                                     | [operations.DeleteInquirySecurity](../../models/operations/delete-inquiry-security.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
 
 ### Errors
 

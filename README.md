@@ -261,7 +261,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.clients.listClients({
+  const result = await clientCasa.clients.list({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {});
 
@@ -296,7 +296,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.clients.listClients({}, {});
+  const result = await clientCasa.clients.list({}, {});
 
   console.log(result);
 }
@@ -314,119 +314,119 @@ run();
 
 ### [CalendarEvents](docs/sdks/calendarevents/README.md)
 
-* [listCalendarEvents](docs/sdks/calendarevents/README.md#listcalendarevents) - List calendar events
-* [createCalendarEvent](docs/sdks/calendarevents/README.md#createcalendarevent) - Create a calendar event
-* [getCalendarEvent](docs/sdks/calendarevents/README.md#getcalendarevent) - Get a calendar event
-* [deleteCalendarEvent](docs/sdks/calendarevents/README.md#deletecalendarevent) - Delete a calendar event
-* [updateCalendarEvent](docs/sdks/calendarevents/README.md#updatecalendarevent) - Update a calendar event
+* [list](docs/sdks/calendarevents/README.md#list) - List calendar events
+* [create](docs/sdks/calendarevents/README.md#create) - Create a calendar event
+* [get](docs/sdks/calendarevents/README.md#get) - Get a calendar event
+* [update](docs/sdks/calendarevents/README.md#update) - Update a calendar event
+* [delete](docs/sdks/calendarevents/README.md#delete) - Delete a calendar event
 
 ### [CatalogItems](docs/sdks/catalogitems/README.md)
 
-* [listCatalogItems](docs/sdks/catalogitems/README.md#listcatalogitems) - List catalog items
-* [createCatalogItem](docs/sdks/catalogitems/README.md#createcatalogitem) - Create a catalog item
-* [getCatalogItem](docs/sdks/catalogitems/README.md#getcatalogitem) - Get a catalog item
-* [deleteCatalogItem](docs/sdks/catalogitems/README.md#deletecatalogitem) - Delete a catalog item
-* [updateCatalogItem](docs/sdks/catalogitems/README.md#updatecatalogitem) - Update a catalog item
+* [list](docs/sdks/catalogitems/README.md#list) - List catalog items
+* [create](docs/sdks/catalogitems/README.md#create) - Create a catalog item
+* [get](docs/sdks/catalogitems/README.md#get) - Get a catalog item
+* [update](docs/sdks/catalogitems/README.md#update) - Update a catalog item
+* [delete](docs/sdks/catalogitems/README.md#delete) - Delete a catalog item
 
 ### [Clients](docs/sdks/clients/README.md)
 
-* [listClients](docs/sdks/clients/README.md#listclients) - List clients
-* [createClient](docs/sdks/clients/README.md#createclient) - Create a client
-* [getClient](docs/sdks/clients/README.md#getclient) - Get a client
-* [deleteClient](docs/sdks/clients/README.md#deleteclient) - Delete a client
-* [updateClient](docs/sdks/clients/README.md#updateclient) - Update a client
+* [list](docs/sdks/clients/README.md#list) - List clients
+* [create](docs/sdks/clients/README.md#create) - Create a client
+* [get](docs/sdks/clients/README.md#get) - Get a client
+* [update](docs/sdks/clients/README.md#update) - Update a client
+* [delete](docs/sdks/clients/README.md#delete) - Delete a client
 
 ### [Contacts](docs/sdks/contacts/README.md)
 
-* [listContacts](docs/sdks/contacts/README.md#listcontacts) - List contacts
-* [createContact](docs/sdks/contacts/README.md#createcontact) - Create a contact
-* [getContact](docs/sdks/contacts/README.md#getcontact) - Get a contact
-* [deleteContact](docs/sdks/contacts/README.md#deletecontact) - Delete a contact
-* [updateContact](docs/sdks/contacts/README.md#updatecontact) - Update a contact
+* [list](docs/sdks/contacts/README.md#list) - List contacts
+* [create](docs/sdks/contacts/README.md#create) - Create a contact
+* [get](docs/sdks/contacts/README.md#get) - Get a contact
+* [update](docs/sdks/contacts/README.md#update) - Update a contact
+* [delete](docs/sdks/contacts/README.md#delete) - Delete a contact
 
 ### [Contracts](docs/sdks/contracts/README.md)
 
-* [listContracts](docs/sdks/contracts/README.md#listcontracts) - List contracts
-* [createContract](docs/sdks/contracts/README.md#createcontract) - Create a draft contract
-* [getContract](docs/sdks/contracts/README.md#getcontract) - Get a contract
-* [deleteContract](docs/sdks/contracts/README.md#deletecontract) - Delete a contract (only drafts)
-* [updateContract](docs/sdks/contracts/README.md#updatecontract) - Update a contract (limited fields)
+* [list](docs/sdks/contracts/README.md#list) - List contracts
+* [create](docs/sdks/contracts/README.md#create) - Create a draft contract
+* [get](docs/sdks/contracts/README.md#get) - Get a contract
+* [update](docs/sdks/contracts/README.md#update) - Update a contract (limited fields)
+* [delete](docs/sdks/contracts/README.md#delete) - Delete a contract (only drafts)
 
 ### [Inquiries](docs/sdks/inquiries/README.md)
 
-* [listInquiries](docs/sdks/inquiries/README.md#listinquiries) - List inquiries
-* [createInquiry](docs/sdks/inquiries/README.md#createinquiry) - Create an inquiry
-* [getInquiry](docs/sdks/inquiries/README.md#getinquiry) - Get an inquiry
-* [deleteInquiry](docs/sdks/inquiries/README.md#deleteinquiry) - Delete an inquiry
-* [updateInquiry](docs/sdks/inquiries/README.md#updateinquiry) - Update an inquiry
+* [list](docs/sdks/inquiries/README.md#list) - List inquiries
+* [create](docs/sdks/inquiries/README.md#create) - Create an inquiry
+* [get](docs/sdks/inquiries/README.md#get) - Get an inquiry
+* [update](docs/sdks/inquiries/README.md#update) - Update an inquiry
+* [delete](docs/sdks/inquiries/README.md#delete) - Delete an inquiry
 
 ### [Invoices](docs/sdks/invoices/README.md)
 
-* [listInvoices](docs/sdks/invoices/README.md#listinvoices) - List invoices
-* [createInvoice](docs/sdks/invoices/README.md#createinvoice) - Create an invoice
-* [getInvoice](docs/sdks/invoices/README.md#getinvoice) - Get an invoice
-* [deleteInvoice](docs/sdks/invoices/README.md#deleteinvoice) - Delete an invoice (only drafts)
-* [updateInvoice](docs/sdks/invoices/README.md#updateinvoice) - Update an invoice (line items not editable in v1)
+* [list](docs/sdks/invoices/README.md#list) - List invoices
+* [create](docs/sdks/invoices/README.md#create) - Create an invoice
+* [get](docs/sdks/invoices/README.md#get) - Get an invoice
+* [update](docs/sdks/invoices/README.md#update) - Update an invoice (line items not editable in v1)
+* [delete](docs/sdks/invoices/README.md#delete) - Delete an invoice (only drafts)
 
 ### [Milestones](docs/sdks/milestones/README.md)
 
-* [listMilestones](docs/sdks/milestones/README.md#listmilestones) - List milestones
-* [createMilestone](docs/sdks/milestones/README.md#createmilestone) - Create a milestone
-* [getMilestone](docs/sdks/milestones/README.md#getmilestone) - Get a milestone
-* [deleteMilestone](docs/sdks/milestones/README.md#deletemilestone) - Delete a milestone
-* [updateMilestone](docs/sdks/milestones/README.md#updatemilestone) - Update a milestone
+* [list](docs/sdks/milestones/README.md#list) - List milestones
+* [create](docs/sdks/milestones/README.md#create) - Create a milestone
+* [get](docs/sdks/milestones/README.md#get) - Get a milestone
+* [update](docs/sdks/milestones/README.md#update) - Update a milestone
+* [delete](docs/sdks/milestones/README.md#delete) - Delete a milestone
 
 ### [Payments](docs/sdks/payments/README.md)
 
-* [listPayments](docs/sdks/payments/README.md#listpayments) - List payments
-* [createPayment](docs/sdks/payments/README.md#createpayment) - Record a manual payment
-* [getPayment](docs/sdks/payments/README.md#getpayment) - Get a payment
-* [updatePayment](docs/sdks/payments/README.md#updatepayment) - Update a payment (notes/reference only — payments are otherwise immutable)
+* [list](docs/sdks/payments/README.md#list) - List payments
+* [create](docs/sdks/payments/README.md#create) - Record a manual payment
+* [get](docs/sdks/payments/README.md#get) - Get a payment
+* [update](docs/sdks/payments/README.md#update) - Update a payment (notes/reference only — payments are otherwise immutable)
 
 ### [Payouts](docs/sdks/payouts/README.md)
 
-* [listPayouts](docs/sdks/payouts/README.md#listpayouts) - List payouts
-* [getPayout](docs/sdks/payouts/README.md#getpayout) - Get a payout
+* [list](docs/sdks/payouts/README.md#list) - List payouts
+* [get](docs/sdks/payouts/README.md#get) - Get a payout
 
 ### [Projects](docs/sdks/projects/README.md)
 
-* [listProjects](docs/sdks/projects/README.md#listprojects) - List projects
-* [createProject](docs/sdks/projects/README.md#createproject) - Create a project
-* [getProject](docs/sdks/projects/README.md#getproject) - Get a project
-* [deleteProject](docs/sdks/projects/README.md#deleteproject) - Delete a project
-* [updateProject](docs/sdks/projects/README.md#updateproject) - Update a project
+* [list](docs/sdks/projects/README.md#list) - List projects
+* [create](docs/sdks/projects/README.md#create) - Create a project
+* [get](docs/sdks/projects/README.md#get) - Get a project
+* [update](docs/sdks/projects/README.md#update) - Update a project
+* [delete](docs/sdks/projects/README.md#delete) - Delete a project
 
 ### [Proposals](docs/sdks/proposals/README.md)
 
-* [listProposals](docs/sdks/proposals/README.md#listproposals) - List proposals
-* [createProposal](docs/sdks/proposals/README.md#createproposal) - Create a proposal (metadata only — rich-text content is dashboard-managed)
-* [getProposal](docs/sdks/proposals/README.md#getproposal) - Get a proposal
-* [deleteProposal](docs/sdks/proposals/README.md#deleteproposal) - Delete a proposal (only drafts)
-* [updateProposal](docs/sdks/proposals/README.md#updateproposal) - Update a proposal
+* [list](docs/sdks/proposals/README.md#list) - List proposals
+* [create](docs/sdks/proposals/README.md#create) - Create a proposal (metadata only — rich-text content is dashboard-managed)
+* [get](docs/sdks/proposals/README.md#get) - Get a proposal
+* [update](docs/sdks/proposals/README.md#update) - Update a proposal
+* [delete](docs/sdks/proposals/README.md#delete) - Delete a proposal (only drafts)
 
 ### [TimeEntries](docs/sdks/timeentries/README.md)
 
-* [listTimeEntries](docs/sdks/timeentries/README.md#listtimeentries) - List time entries
-* [createTimeEntry](docs/sdks/timeentries/README.md#createtimeentry) - Create a time entry
-* [getTimeEntry](docs/sdks/timeentries/README.md#gettimeentry) - Get a time entry
-* [deleteTimeEntry](docs/sdks/timeentries/README.md#deletetimeentry) - Delete a time entry
-* [updateTimeEntry](docs/sdks/timeentries/README.md#updatetimeentry) - Update a time entry
+* [list](docs/sdks/timeentries/README.md#list) - List time entries
+* [create](docs/sdks/timeentries/README.md#create) - Create a time entry
+* [get](docs/sdks/timeentries/README.md#get) - Get a time entry
+* [update](docs/sdks/timeentries/README.md#update) - Update a time entry
+* [delete](docs/sdks/timeentries/README.md#delete) - Delete a time entry
 
 ### [Transactions](docs/sdks/transactions/README.md)
 
-* [listTransactions](docs/sdks/transactions/README.md#listtransactions) - List transactions
-* [createTransaction](docs/sdks/transactions/README.md#createtransaction) - Create a transaction (expense or charge)
-* [getTransaction](docs/sdks/transactions/README.md#gettransaction) - Get a transaction
-* [deleteTransaction](docs/sdks/transactions/README.md#deletetransaction) - Delete a transaction
-* [updateTransaction](docs/sdks/transactions/README.md#updatetransaction) - Update a transaction
+* [list](docs/sdks/transactions/README.md#list) - List transactions
+* [create](docs/sdks/transactions/README.md#create) - Create a transaction (expense or charge)
+* [get](docs/sdks/transactions/README.md#get) - Get a transaction
+* [update](docs/sdks/transactions/README.md#update) - Update a transaction
+* [delete](docs/sdks/transactions/README.md#delete) - Delete a transaction
 
 ### [Webhooks](docs/sdks/webhooks/README.md)
 
-* [listWebhooks](docs/sdks/webhooks/README.md#listwebhooks) - List webhook subscriptions
-* [createWebhook](docs/sdks/webhooks/README.md#createwebhook) - Subscribe to events
-* [getWebhook](docs/sdks/webhooks/README.md#getwebhook) - Get a webhook
-* [deleteWebhook](docs/sdks/webhooks/README.md#deletewebhook) - Delete a webhook
-* [updateWebhook](docs/sdks/webhooks/README.md#updatewebhook) - Update a webhook
+* [list](docs/sdks/webhooks/README.md#list) - List webhook subscriptions
+* [create](docs/sdks/webhooks/README.md#create) - Subscribe to events
+* [get](docs/sdks/webhooks/README.md#get) - Get a webhook
+* [update](docs/sdks/webhooks/README.md#update) - Update a webhook
+* [delete](docs/sdks/webhooks/README.md#delete) - Delete a webhook
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -446,77 +446,77 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 
 <summary>Available standalone functions</summary>
 
-- [`calendarEventsCreateCalendarEvent`](docs/sdks/calendarevents/README.md#createcalendarevent) - Create a calendar event
-- [`calendarEventsDeleteCalendarEvent`](docs/sdks/calendarevents/README.md#deletecalendarevent) - Delete a calendar event
-- [`calendarEventsGetCalendarEvent`](docs/sdks/calendarevents/README.md#getcalendarevent) - Get a calendar event
-- [`calendarEventsListCalendarEvents`](docs/sdks/calendarevents/README.md#listcalendarevents) - List calendar events
-- [`calendarEventsUpdateCalendarEvent`](docs/sdks/calendarevents/README.md#updatecalendarevent) - Update a calendar event
-- [`catalogItemsCreateCatalogItem`](docs/sdks/catalogitems/README.md#createcatalogitem) - Create a catalog item
-- [`catalogItemsDeleteCatalogItem`](docs/sdks/catalogitems/README.md#deletecatalogitem) - Delete a catalog item
-- [`catalogItemsGetCatalogItem`](docs/sdks/catalogitems/README.md#getcatalogitem) - Get a catalog item
-- [`catalogItemsListCatalogItems`](docs/sdks/catalogitems/README.md#listcatalogitems) - List catalog items
-- [`catalogItemsUpdateCatalogItem`](docs/sdks/catalogitems/README.md#updatecatalogitem) - Update a catalog item
-- [`clientsCreateClient`](docs/sdks/clients/README.md#createclient) - Create a client
-- [`clientsDeleteClient`](docs/sdks/clients/README.md#deleteclient) - Delete a client
-- [`clientsGetClient`](docs/sdks/clients/README.md#getclient) - Get a client
-- [`clientsListClients`](docs/sdks/clients/README.md#listclients) - List clients
-- [`clientsUpdateClient`](docs/sdks/clients/README.md#updateclient) - Update a client
-- [`contactsCreateContact`](docs/sdks/contacts/README.md#createcontact) - Create a contact
-- [`contactsDeleteContact`](docs/sdks/contacts/README.md#deletecontact) - Delete a contact
-- [`contactsGetContact`](docs/sdks/contacts/README.md#getcontact) - Get a contact
-- [`contactsListContacts`](docs/sdks/contacts/README.md#listcontacts) - List contacts
-- [`contactsUpdateContact`](docs/sdks/contacts/README.md#updatecontact) - Update a contact
-- [`contractsCreateContract`](docs/sdks/contracts/README.md#createcontract) - Create a draft contract
-- [`contractsDeleteContract`](docs/sdks/contracts/README.md#deletecontract) - Delete a contract (only drafts)
-- [`contractsGetContract`](docs/sdks/contracts/README.md#getcontract) - Get a contract
-- [`contractsListContracts`](docs/sdks/contracts/README.md#listcontracts) - List contracts
-- [`contractsUpdateContract`](docs/sdks/contracts/README.md#updatecontract) - Update a contract (limited fields)
-- [`inquiriesCreateInquiry`](docs/sdks/inquiries/README.md#createinquiry) - Create an inquiry
-- [`inquiriesDeleteInquiry`](docs/sdks/inquiries/README.md#deleteinquiry) - Delete an inquiry
-- [`inquiriesGetInquiry`](docs/sdks/inquiries/README.md#getinquiry) - Get an inquiry
-- [`inquiriesListInquiries`](docs/sdks/inquiries/README.md#listinquiries) - List inquiries
-- [`inquiriesUpdateInquiry`](docs/sdks/inquiries/README.md#updateinquiry) - Update an inquiry
-- [`invoicesCreateInvoice`](docs/sdks/invoices/README.md#createinvoice) - Create an invoice
-- [`invoicesDeleteInvoice`](docs/sdks/invoices/README.md#deleteinvoice) - Delete an invoice (only drafts)
-- [`invoicesGetInvoice`](docs/sdks/invoices/README.md#getinvoice) - Get an invoice
-- [`invoicesListInvoices`](docs/sdks/invoices/README.md#listinvoices) - List invoices
-- [`invoicesUpdateInvoice`](docs/sdks/invoices/README.md#updateinvoice) - Update an invoice (line items not editable in v1)
-- [`milestonesCreateMilestone`](docs/sdks/milestones/README.md#createmilestone) - Create a milestone
-- [`milestonesDeleteMilestone`](docs/sdks/milestones/README.md#deletemilestone) - Delete a milestone
-- [`milestonesGetMilestone`](docs/sdks/milestones/README.md#getmilestone) - Get a milestone
-- [`milestonesListMilestones`](docs/sdks/milestones/README.md#listmilestones) - List milestones
-- [`milestonesUpdateMilestone`](docs/sdks/milestones/README.md#updatemilestone) - Update a milestone
-- [`paymentsCreatePayment`](docs/sdks/payments/README.md#createpayment) - Record a manual payment
-- [`paymentsGetPayment`](docs/sdks/payments/README.md#getpayment) - Get a payment
-- [`paymentsListPayments`](docs/sdks/payments/README.md#listpayments) - List payments
-- [`paymentsUpdatePayment`](docs/sdks/payments/README.md#updatepayment) - Update a payment (notes/reference only — payments are otherwise immutable)
-- [`payoutsGetPayout`](docs/sdks/payouts/README.md#getpayout) - Get a payout
-- [`payoutsListPayouts`](docs/sdks/payouts/README.md#listpayouts) - List payouts
-- [`projectsCreateProject`](docs/sdks/projects/README.md#createproject) - Create a project
-- [`projectsDeleteProject`](docs/sdks/projects/README.md#deleteproject) - Delete a project
-- [`projectsGetProject`](docs/sdks/projects/README.md#getproject) - Get a project
-- [`projectsListProjects`](docs/sdks/projects/README.md#listprojects) - List projects
-- [`projectsUpdateProject`](docs/sdks/projects/README.md#updateproject) - Update a project
-- [`proposalsCreateProposal`](docs/sdks/proposals/README.md#createproposal) - Create a proposal (metadata only — rich-text content is dashboard-managed)
-- [`proposalsDeleteProposal`](docs/sdks/proposals/README.md#deleteproposal) - Delete a proposal (only drafts)
-- [`proposalsGetProposal`](docs/sdks/proposals/README.md#getproposal) - Get a proposal
-- [`proposalsListProposals`](docs/sdks/proposals/README.md#listproposals) - List proposals
-- [`proposalsUpdateProposal`](docs/sdks/proposals/README.md#updateproposal) - Update a proposal
-- [`timeEntriesCreateTimeEntry`](docs/sdks/timeentries/README.md#createtimeentry) - Create a time entry
-- [`timeEntriesDeleteTimeEntry`](docs/sdks/timeentries/README.md#deletetimeentry) - Delete a time entry
-- [`timeEntriesGetTimeEntry`](docs/sdks/timeentries/README.md#gettimeentry) - Get a time entry
-- [`timeEntriesListTimeEntries`](docs/sdks/timeentries/README.md#listtimeentries) - List time entries
-- [`timeEntriesUpdateTimeEntry`](docs/sdks/timeentries/README.md#updatetimeentry) - Update a time entry
-- [`transactionsCreateTransaction`](docs/sdks/transactions/README.md#createtransaction) - Create a transaction (expense or charge)
-- [`transactionsDeleteTransaction`](docs/sdks/transactions/README.md#deletetransaction) - Delete a transaction
-- [`transactionsGetTransaction`](docs/sdks/transactions/README.md#gettransaction) - Get a transaction
-- [`transactionsListTransactions`](docs/sdks/transactions/README.md#listtransactions) - List transactions
-- [`transactionsUpdateTransaction`](docs/sdks/transactions/README.md#updatetransaction) - Update a transaction
-- [`webhooksCreateWebhook`](docs/sdks/webhooks/README.md#createwebhook) - Subscribe to events
-- [`webhooksDeleteWebhook`](docs/sdks/webhooks/README.md#deletewebhook) - Delete a webhook
-- [`webhooksGetWebhook`](docs/sdks/webhooks/README.md#getwebhook) - Get a webhook
-- [`webhooksListWebhooks`](docs/sdks/webhooks/README.md#listwebhooks) - List webhook subscriptions
-- [`webhooksUpdateWebhook`](docs/sdks/webhooks/README.md#updatewebhook) - Update a webhook
+- [`calendarEventsCreate`](docs/sdks/calendarevents/README.md#create) - Create a calendar event
+- [`calendarEventsDelete`](docs/sdks/calendarevents/README.md#delete) - Delete a calendar event
+- [`calendarEventsGet`](docs/sdks/calendarevents/README.md#get) - Get a calendar event
+- [`calendarEventsList`](docs/sdks/calendarevents/README.md#list) - List calendar events
+- [`calendarEventsUpdate`](docs/sdks/calendarevents/README.md#update) - Update a calendar event
+- [`catalogItemsCreate`](docs/sdks/catalogitems/README.md#create) - Create a catalog item
+- [`catalogItemsDelete`](docs/sdks/catalogitems/README.md#delete) - Delete a catalog item
+- [`catalogItemsGet`](docs/sdks/catalogitems/README.md#get) - Get a catalog item
+- [`catalogItemsList`](docs/sdks/catalogitems/README.md#list) - List catalog items
+- [`catalogItemsUpdate`](docs/sdks/catalogitems/README.md#update) - Update a catalog item
+- [`clientsCreate`](docs/sdks/clients/README.md#create) - Create a client
+- [`clientsDelete`](docs/sdks/clients/README.md#delete) - Delete a client
+- [`clientsGet`](docs/sdks/clients/README.md#get) - Get a client
+- [`clientsList`](docs/sdks/clients/README.md#list) - List clients
+- [`clientsUpdate`](docs/sdks/clients/README.md#update) - Update a client
+- [`contactsCreate`](docs/sdks/contacts/README.md#create) - Create a contact
+- [`contactsDelete`](docs/sdks/contacts/README.md#delete) - Delete a contact
+- [`contactsGet`](docs/sdks/contacts/README.md#get) - Get a contact
+- [`contactsList`](docs/sdks/contacts/README.md#list) - List contacts
+- [`contactsUpdate`](docs/sdks/contacts/README.md#update) - Update a contact
+- [`contractsCreate`](docs/sdks/contracts/README.md#create) - Create a draft contract
+- [`contractsDelete`](docs/sdks/contracts/README.md#delete) - Delete a contract (only drafts)
+- [`contractsGet`](docs/sdks/contracts/README.md#get) - Get a contract
+- [`contractsList`](docs/sdks/contracts/README.md#list) - List contracts
+- [`contractsUpdate`](docs/sdks/contracts/README.md#update) - Update a contract (limited fields)
+- [`inquiriesCreate`](docs/sdks/inquiries/README.md#create) - Create an inquiry
+- [`inquiriesDelete`](docs/sdks/inquiries/README.md#delete) - Delete an inquiry
+- [`inquiriesGet`](docs/sdks/inquiries/README.md#get) - Get an inquiry
+- [`inquiriesList`](docs/sdks/inquiries/README.md#list) - List inquiries
+- [`inquiriesUpdate`](docs/sdks/inquiries/README.md#update) - Update an inquiry
+- [`invoicesCreate`](docs/sdks/invoices/README.md#create) - Create an invoice
+- [`invoicesDelete`](docs/sdks/invoices/README.md#delete) - Delete an invoice (only drafts)
+- [`invoicesGet`](docs/sdks/invoices/README.md#get) - Get an invoice
+- [`invoicesList`](docs/sdks/invoices/README.md#list) - List invoices
+- [`invoicesUpdate`](docs/sdks/invoices/README.md#update) - Update an invoice (line items not editable in v1)
+- [`milestonesCreate`](docs/sdks/milestones/README.md#create) - Create a milestone
+- [`milestonesDelete`](docs/sdks/milestones/README.md#delete) - Delete a milestone
+- [`milestonesGet`](docs/sdks/milestones/README.md#get) - Get a milestone
+- [`milestonesList`](docs/sdks/milestones/README.md#list) - List milestones
+- [`milestonesUpdate`](docs/sdks/milestones/README.md#update) - Update a milestone
+- [`paymentsCreate`](docs/sdks/payments/README.md#create) - Record a manual payment
+- [`paymentsGet`](docs/sdks/payments/README.md#get) - Get a payment
+- [`paymentsList`](docs/sdks/payments/README.md#list) - List payments
+- [`paymentsUpdate`](docs/sdks/payments/README.md#update) - Update a payment (notes/reference only — payments are otherwise immutable)
+- [`payoutsGet`](docs/sdks/payouts/README.md#get) - Get a payout
+- [`payoutsList`](docs/sdks/payouts/README.md#list) - List payouts
+- [`projectsCreate`](docs/sdks/projects/README.md#create) - Create a project
+- [`projectsDelete`](docs/sdks/projects/README.md#delete) - Delete a project
+- [`projectsGet`](docs/sdks/projects/README.md#get) - Get a project
+- [`projectsList`](docs/sdks/projects/README.md#list) - List projects
+- [`projectsUpdate`](docs/sdks/projects/README.md#update) - Update a project
+- [`proposalsCreate`](docs/sdks/proposals/README.md#create) - Create a proposal (metadata only — rich-text content is dashboard-managed)
+- [`proposalsDelete`](docs/sdks/proposals/README.md#delete) - Delete a proposal (only drafts)
+- [`proposalsGet`](docs/sdks/proposals/README.md#get) - Get a proposal
+- [`proposalsList`](docs/sdks/proposals/README.md#list) - List proposals
+- [`proposalsUpdate`](docs/sdks/proposals/README.md#update) - Update a proposal
+- [`timeEntriesCreate`](docs/sdks/timeentries/README.md#create) - Create a time entry
+- [`timeEntriesDelete`](docs/sdks/timeentries/README.md#delete) - Delete a time entry
+- [`timeEntriesGet`](docs/sdks/timeentries/README.md#get) - Get a time entry
+- [`timeEntriesList`](docs/sdks/timeentries/README.md#list) - List time entries
+- [`timeEntriesUpdate`](docs/sdks/timeentries/README.md#update) - Update a time entry
+- [`transactionsCreate`](docs/sdks/transactions/README.md#create) - Create a transaction (expense or charge)
+- [`transactionsDelete`](docs/sdks/transactions/README.md#delete) - Delete a transaction
+- [`transactionsGet`](docs/sdks/transactions/README.md#get) - Get a transaction
+- [`transactionsList`](docs/sdks/transactions/README.md#list) - List transactions
+- [`transactionsUpdate`](docs/sdks/transactions/README.md#update) - Update a transaction
+- [`webhooksCreate`](docs/sdks/webhooks/README.md#create) - Subscribe to events
+- [`webhooksDelete`](docs/sdks/webhooks/README.md#delete) - Delete a webhook
+- [`webhooksGet`](docs/sdks/webhooks/README.md#get) - Get a webhook
+- [`webhooksList`](docs/sdks/webhooks/README.md#list) - List webhook subscriptions
+- [`webhooksUpdate`](docs/sdks/webhooks/README.md#update) - Update a webhook
 
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
@@ -533,7 +533,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.clients.listClients(
+  const result = await clientCasa.clients.list(
     {
       apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
     },
@@ -577,7 +577,7 @@ const clientCasa = new ClientCasa({
 });
 
 async function run() {
-  const result = await clientCasa.clients.listClients({
+  const result = await clientCasa.clients.list({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {});
 
@@ -611,7 +611,7 @@ const clientCasa = new ClientCasa();
 
 async function run() {
   try {
-    const result = await clientCasa.clients.listClients({
+    const result = await clientCasa.clients.list({
       apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
     }, {});
 
@@ -666,7 +666,7 @@ const clientCasa = new ClientCasa({
 });
 
 async function run() {
-  const result = await clientCasa.clients.listClients({
+  const result = await clientCasa.clients.list({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {});
 

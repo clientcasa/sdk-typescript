@@ -4,13 +4,13 @@
 
 ### Available Operations
 
-* [listTransactions](#listtransactions) - List transactions
-* [createTransaction](#createtransaction) - Create a transaction (expense or charge)
-* [getTransaction](#gettransaction) - Get a transaction
-* [deleteTransaction](#deletetransaction) - Delete a transaction
-* [updateTransaction](#updatetransaction) - Update a transaction
+* [list](#list) - List transactions
+* [create](#create) - Create a transaction (expense or charge)
+* [get](#get) - Get a transaction
+* [update](#update) - Update a transaction
+* [delete](#delete) - Delete a transaction
 
-## listTransactions
+## list
 
 List transactions
 
@@ -23,7 +23,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.transactions.listTransactions({
+  const result = await clientCasa.transactions.list({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {});
 
@@ -39,21 +39,21 @@ The standalone function version of this method:
 
 ```typescript
 import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { transactionsListTransactions } from "@clientcasa/sdk/funcs/transactions-list-transactions.js";
+import { transactionsList } from "@clientcasa/sdk/funcs/transactions-list.js";
 
 // Use `ClientCasaCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const clientCasa = new ClientCasaCore();
 
 async function run() {
-  const res = await transactionsListTransactions(clientCasa, {
+  const res = await transactionsList(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {});
   if (res.ok) {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("transactionsListTransactions failed:", res.error);
+    console.log("transactionsList failed:", res.error);
   }
 }
 
@@ -80,7 +80,7 @@ run();
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## createTransaction
+## create
 
 Create a transaction (expense or charge)
 
@@ -93,7 +93,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.transactions.createTransaction({
+  const result = await clientCasa.transactions.create({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     name: "<value>",
@@ -121,14 +121,14 @@ The standalone function version of this method:
 
 ```typescript
 import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { transactionsCreateTransaction } from "@clientcasa/sdk/funcs/transactions-create-transaction.js";
+import { transactionsCreate } from "@clientcasa/sdk/funcs/transactions-create.js";
 
 // Use `ClientCasaCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const clientCasa = new ClientCasaCore();
 
 async function run() {
-  const res = await transactionsCreateTransaction(clientCasa, {
+  const res = await transactionsCreate(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     name: "<value>",
@@ -147,7 +147,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("transactionsCreateTransaction failed:", res.error);
+    console.log("transactionsCreate failed:", res.error);
   }
 }
 
@@ -174,7 +174,7 @@ run();
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## getTransaction
+## get
 
 Get a transaction
 
@@ -187,7 +187,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.transactions.getTransaction({
+  const result = await clientCasa.transactions.get({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
@@ -205,14 +205,14 @@ The standalone function version of this method:
 
 ```typescript
 import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { transactionsGetTransaction } from "@clientcasa/sdk/funcs/transactions-get-transaction.js";
+import { transactionsGet } from "@clientcasa/sdk/funcs/transactions-get.js";
 
 // Use `ClientCasaCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const clientCasa = new ClientCasaCore();
 
 async function run() {
-  const res = await transactionsGetTransaction(clientCasa, {
+  const res = await transactionsGet(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
@@ -221,7 +221,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("transactionsGetTransaction failed:", res.error);
+    console.log("transactionsGet failed:", res.error);
   }
 }
 
@@ -248,81 +248,7 @@ run();
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
-## deleteTransaction
-
-Transactions billed to a sent/paid invoice cannot be deleted.
-
-### Example Usage
-
-<!-- UsageSnippet language="typescript" operationID="deleteTransaction" method="delete" path="/api/v1/transactions/{id}" -->
-```typescript
-import { ClientCasa } from "@clientcasa/sdk";
-
-const clientCasa = new ClientCasa();
-
-async function run() {
-  await clientCasa.transactions.deleteTransaction({
-    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
-  }, {
-    id: "550e8400-e29b-41d4-a716-446655440000",
-  });
-
-
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { transactionsDeleteTransaction } from "@clientcasa/sdk/funcs/transactions-delete-transaction.js";
-
-// Use `ClientCasaCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const clientCasa = new ClientCasaCore();
-
-async function run() {
-  const res = await transactionsDeleteTransaction(clientCasa, {
-    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
-  }, {
-    id: "550e8400-e29b-41d4-a716-446655440000",
-  });
-  if (res.ok) {
-    const { value: result } = res;
-    
-  } else {
-    console.log("transactionsDeleteTransaction failed:", res.error);
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.DeleteTransactionRequest](../../models/operations/delete-transaction-request.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `security`                                                                                                                                                                     | [operations.DeleteTransactionSecurity](../../models/operations/delete-transaction-security.md)                                                                                 | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<void\>**
-
-### Errors
-
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
-
-## updateTransaction
+## update
 
 Transactions billed to a sent/paid invoice may be frozen — the server will return 409 if so.
 
@@ -335,7 +261,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const clientCasa = new ClientCasa();
 
 async function run() {
-  const result = await clientCasa.transactions.updateTransaction({
+  const result = await clientCasa.transactions.update({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
@@ -363,14 +289,14 @@ The standalone function version of this method:
 
 ```typescript
 import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { transactionsUpdateTransaction } from "@clientcasa/sdk/funcs/transactions-update-transaction.js";
+import { transactionsUpdate } from "@clientcasa/sdk/funcs/transactions-update.js";
 
 // Use `ClientCasaCore` for best tree-shaking performance.
 // You can create one instance of it to use across an application.
 const clientCasa = new ClientCasaCore();
 
 async function run() {
-  const res = await transactionsUpdateTransaction(clientCasa, {
+  const res = await transactionsUpdate(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
@@ -389,7 +315,7 @@ async function run() {
     const { value: result } = res;
     console.log(result);
   } else {
-    console.log("transactionsUpdateTransaction failed:", res.error);
+    console.log("transactionsUpdate failed:", res.error);
   }
 }
 
@@ -409,6 +335,80 @@ run();
 ### Response
 
 **Promise\<[models.Transaction](../../models/transaction.md)\>**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
+
+## delete
+
+Transactions billed to a sent/paid invoice cannot be deleted.
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="deleteTransaction" method="delete" path="/api/v1/transactions/{id}" -->
+```typescript
+import { ClientCasa } from "@clientcasa/sdk";
+
+const clientCasa = new ClientCasa();
+
+async function run() {
+  await clientCasa.transactions.delete({
+    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
+  }, {
+    id: "550e8400-e29b-41d4-a716-446655440000",
+  });
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ClientCasaCore } from "@clientcasa/sdk/core.js";
+import { transactionsDelete } from "@clientcasa/sdk/funcs/transactions-delete.js";
+
+// Use `ClientCasaCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const clientCasa = new ClientCasaCore();
+
+async function run() {
+  const res = await transactionsDelete(clientCasa, {
+    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
+  }, {
+    id: "550e8400-e29b-41d4-a716-446655440000",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("transactionsDelete failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteTransactionRequest](../../models/operations/delete-transaction-request.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `security`                                                                                                                                                                     | [operations.DeleteTransactionSecurity](../../models/operations/delete-transaction-security.md)                                                                                 | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
 
 ### Errors
 

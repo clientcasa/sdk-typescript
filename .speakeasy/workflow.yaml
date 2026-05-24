@@ -4,6 +4,8 @@ sources:
     ClientCasa API:
         inputs:
             - location: https://www.clientcasa.com/api/v1/openapi.json
+        overlays:
+            - location: .speakeasy/speakeasy-modifications-overlay.yaml
         output: .speakeasy/out.openapi.yaml
         registry:
             location: registry.speakeasyapi.dev/delmare-digital/clientcasa/client-casa-api
