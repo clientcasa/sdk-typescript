@@ -193,7 +193,7 @@ ClientCasa API: REST API for ClientCasa — proposals, contracts, time tracking,
   * [Idempotency](#idempotency)
   * [Configuration](#configuration)
   * [TypeScript](#typescript)
-  * [Development](#development)
+  * [Contributing](#contributing)
   * [Versioning](#versioning)
   * [License](#license)
   * [SDK Installation](#sdk-installation)

@@ -19,10 +19,9 @@ let value: TimeEntry = {
   customMultiplierName: "<value>",
   rateOverride: 3692.6,
   effectiveRate: 7306,
-  discountPercent: 2756.52,
   workerName: "<value>",
-  createdAt: new Date("2026-04-15T05:41:45.885Z"),
-  updatedAt: new Date("2024-12-10T00:22:43.095Z"),
+  createdAt: new Date("2024-10-29T02:45:21.622Z"),
+  updatedAt: new Date("2025-03-01T07:47:47.183Z"),
 };
 ```
 
@@ -43,7 +42,6 @@ let value: TimeEntry = {
 | `customMultiplierName`                                                                        | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
 | `rateOverride`                                                                                | *number*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
 | `effectiveRate`                                                                               | *number*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
-| `discountPercent`                                                                             | *number*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
 | `workerName`                                                                                  | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
 | `createdAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | ISO 8601 timestamp (UTC)                                                                      |                                                                                               |
 | `updatedAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | ISO 8601 timestamp (UTC)                                                                      |                                                                                               |

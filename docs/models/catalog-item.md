@@ -15,11 +15,12 @@ let value: CatalogItem = {
   unit: "flat",
   defaultFrequency: "monthly",
   type: "charge",
+  pricingMode: "hourly",
   taxCategoryId: "550e8400-e29b-41d4-a716-446655440000",
-  status: "paused",
+  status: "active",
   clientId: "550e8400-e29b-41d4-a716-446655440000",
-  createdAt: new Date("2024-02-01T18:45:13.705Z"),
-  updatedAt: new Date("2024-07-19T15:50:23.231Z"),
+  createdAt: new Date("2024-07-19T15:50:23.231Z"),
+  updatedAt: new Date("2024-02-14T05:16:37.608Z"),
 };
 ```
 
@@ -36,6 +37,7 @@ let value: CatalogItem = {
 | `unit`                                                                                        | [models.CatalogItemUnit](../models/catalog-item-unit.md)                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
 | `defaultFrequency`                                                                            | [models.CatalogItemDefaultFrequency](../models/catalog-item-default-frequency.md)             | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
 | `type`                                                                                        | [models.CatalogItemType](../models/catalog-item-type.md)                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `pricingMode`                                                                                 | [models.CatalogItemPricingMode](../models/catalog-item-pricing-mode.md)                       | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
 | `taxCategoryId`                                                                               | *string*                                                                                      | :heavy_check_mark:                                                                            | UUID v4                                                                                       | 550e8400-e29b-41d4-a716-446655440000                                                          |
 | `status`                                                                                      | [models.CatalogItemStatus](../models/catalog-item-status.md)                                  | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
 | `clientId`                                                                                    | *string*                                                                                      | :heavy_check_mark:                                                                            | UUID v4                                                                                       | 550e8400-e29b-41d4-a716-446655440000                                                          |

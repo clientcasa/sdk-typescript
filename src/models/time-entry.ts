@@ -47,7 +47,6 @@ export type TimeEntry = {
   customMultiplierName: string | null;
   rateOverride: number | null;
   effectiveRate: number | null;
-  discountPercent: number | null;
   workerName: string | null;
   /**
    * ISO 8601 timestamp (UTC)
@@ -81,7 +80,6 @@ export const TimeEntry$inboundSchema: z.ZodMiniType<TimeEntry, unknown> = z
     customMultiplierName: types.nullable(types.string()),
     rateOverride: types.nullable(types.number()),
     effectiveRate: types.nullable(types.number()),
-    discountPercent: types.nullable(types.number()),
     workerName: types.nullable(types.string()),
     createdAt: types.date(),
     updatedAt: types.date(),
