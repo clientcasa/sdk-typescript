@@ -24,7 +24,9 @@ async function run() {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {});
 
-  console.log(result);
+  for await (const page of result) {
+    console.log(page);
+  }
 }
 
 run();
@@ -48,7 +50,9 @@ async function run() {
   }, {});
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    for await (const page of result) {
+    console.log(page);
+  }
   } else {
     console.log("payoutsList failed:", res.error);
   }
@@ -75,6 +79,8 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ApiError               | 400, 401, 403, 429            | application/json              |
+| errors.ApiError               | 500                           | application/json              |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
 ## get
@@ -149,4 +155,6 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ApiError               | 401, 403, 404, 429            | application/json              |
+| errors.ApiError               | 500                           | application/json              |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |

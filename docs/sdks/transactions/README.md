@@ -7,8 +7,8 @@
 * [list](#list) - List transactions
 * [create](#create) - Create a transaction (expense or charge)
 * [get](#get) - Get a transaction
-* [update](#update) - Update a transaction
 * [delete](#delete) - Delete a transaction
+* [update](#update) - Update a transaction
 
 ## list
 
@@ -27,7 +27,9 @@ async function run() {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {});
 
-  console.log(result);
+  for await (const page of result) {
+    console.log(page);
+  }
 }
 
 run();
@@ -51,7 +53,9 @@ async function run() {
   }, {});
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    for await (const page of result) {
+    console.log(page);
+  }
   } else {
     console.log("transactionsList failed:", res.error);
   }
@@ -78,6 +82,8 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ApiError               | 400, 401, 403, 429            | application/json              |
+| errors.ApiError               | 500                           | application/json              |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
 ## create
@@ -96,17 +102,20 @@ async function run() {
   const result = await clientCasa.transactions.create({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
-    name: "<value>",
-    catalogItemId: "550e8400-e29b-41d4-a716-446655440000",
-    taxCategoryId: "550e8400-e29b-41d4-a716-446655440000",
-    amount: 5744.12,
-    direction: "cost",
-    assignments: [
-      {
-        projectId: "550e8400-e29b-41d4-a716-446655440000",
-        clientId: "550e8400-e29b-41d4-a716-446655440000",
-      },
-    ],
+    idempotencyKey: "create-client-2026-05-24-a1b2c3",
+    body: {
+      name: "<value>",
+      catalogItemId: "550e8400-e29b-41d4-a716-446655440000",
+      taxCategoryId: "550e8400-e29b-41d4-a716-446655440000",
+      amount: 5744.12,
+      direction: "cost",
+      assignments: [
+        {
+          projectId: "550e8400-e29b-41d4-a716-446655440000",
+          clientId: "550e8400-e29b-41d4-a716-446655440000",
+        },
+      ],
+    },
   });
 
   console.log(result);
@@ -131,17 +140,20 @@ async function run() {
   const res = await transactionsCreate(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
-    name: "<value>",
-    catalogItemId: "550e8400-e29b-41d4-a716-446655440000",
-    taxCategoryId: "550e8400-e29b-41d4-a716-446655440000",
-    amount: 5744.12,
-    direction: "cost",
-    assignments: [
-      {
-        projectId: "550e8400-e29b-41d4-a716-446655440000",
-        clientId: "550e8400-e29b-41d4-a716-446655440000",
-      },
-    ],
+    idempotencyKey: "create-client-2026-05-24-a1b2c3",
+    body: {
+      name: "<value>",
+      catalogItemId: "550e8400-e29b-41d4-a716-446655440000",
+      taxCategoryId: "550e8400-e29b-41d4-a716-446655440000",
+      amount: 5744.12,
+      direction: "cost",
+      assignments: [
+        {
+          projectId: "550e8400-e29b-41d4-a716-446655440000",
+          clientId: "550e8400-e29b-41d4-a716-446655440000",
+        },
+      ],
+    },
   });
   if (res.ok) {
     const { value: result } = res;
@@ -158,7 +170,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [models.TransactionCreate](../../models/transaction-create.md)                                                                                                                 | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.CreateTransactionRequest](../../models/operations/create-transaction-request.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `security`                                                                                                                                                                     | [operations.CreateTransactionSecurity](../../models/operations/create-transaction-security.md)                                                                                 | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
@@ -172,6 +184,8 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ApiError               | 400, 401, 403, 409, 429       | application/json              |
+| errors.ApiError               | 500                           | application/json              |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
 ## get
@@ -246,6 +260,84 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ApiError               | 401, 403, 404, 429            | application/json              |
+| errors.ApiError               | 500                           | application/json              |
+| errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
+
+## delete
+
+Transactions billed to a sent/paid invoice cannot be deleted.
+
+### Example Usage
+
+<!-- UsageSnippet language="typescript" operationID="deleteTransaction" method="delete" path="/api/v1/transactions/{id}" -->
+```typescript
+import { ClientCasa } from "@clientcasa/sdk";
+
+const clientCasa = new ClientCasa();
+
+async function run() {
+  await clientCasa.transactions.delete({
+    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
+  }, {
+    id: "550e8400-e29b-41d4-a716-446655440000",
+  });
+
+
+}
+
+run();
+```
+
+### Standalone function
+
+The standalone function version of this method:
+
+```typescript
+import { ClientCasaCore } from "@clientcasa/sdk/core.js";
+import { transactionsDelete } from "@clientcasa/sdk/funcs/transactions-delete.js";
+
+// Use `ClientCasaCore` for best tree-shaking performance.
+// You can create one instance of it to use across an application.
+const clientCasa = new ClientCasaCore();
+
+async function run() {
+  const res = await transactionsDelete(clientCasa, {
+    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
+  }, {
+    id: "550e8400-e29b-41d4-a716-446655440000",
+  });
+  if (res.ok) {
+    const { value: result } = res;
+    
+  } else {
+    console.log("transactionsDelete failed:", res.error);
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `request`                                                                                                                                                                      | [operations.DeleteTransactionRequest](../../models/operations/delete-transaction-request.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `security`                                                                                                                                                                     | [operations.DeleteTransactionSecurity](../../models/operations/delete-transaction-security.md)                                                                                 | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
+| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
+| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
+| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
+
+### Response
+
+**Promise\<void\>**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ApiError               | 401, 403, 404, 429            | application/json              |
+| errors.ApiError               | 500                           | application/json              |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
 ## update
@@ -340,78 +432,6 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
-
-## delete
-
-Transactions billed to a sent/paid invoice cannot be deleted.
-
-### Example Usage
-
-<!-- UsageSnippet language="typescript" operationID="deleteTransaction" method="delete" path="/api/v1/transactions/{id}" -->
-```typescript
-import { ClientCasa } from "@clientcasa/sdk";
-
-const clientCasa = new ClientCasa();
-
-async function run() {
-  await clientCasa.transactions.delete({
-    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
-  }, {
-    id: "550e8400-e29b-41d4-a716-446655440000",
-  });
-
-
-}
-
-run();
-```
-
-### Standalone function
-
-The standalone function version of this method:
-
-```typescript
-import { ClientCasaCore } from "@clientcasa/sdk/core.js";
-import { transactionsDelete } from "@clientcasa/sdk/funcs/transactions-delete.js";
-
-// Use `ClientCasaCore` for best tree-shaking performance.
-// You can create one instance of it to use across an application.
-const clientCasa = new ClientCasaCore();
-
-async function run() {
-  const res = await transactionsDelete(clientCasa, {
-    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
-  }, {
-    id: "550e8400-e29b-41d4-a716-446655440000",
-  });
-  if (res.ok) {
-    const { value: result } = res;
-    
-  } else {
-    console.log("transactionsDelete failed:", res.error);
-  }
-}
-
-run();
-```
-
-### Parameters
-
-| Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [operations.DeleteTransactionRequest](../../models/operations/delete-transaction-request.md)                                                                                   | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
-| `security`                                                                                                                                                                     | [operations.DeleteTransactionSecurity](../../models/operations/delete-transaction-security.md)                                                                                 | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
-| `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
-| `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
-| `options.retries`                                                                                                                                                              | [RetryConfig](../../lib/utils/retryconfig.md)                                                                                                                                  | :heavy_minus_sign:                                                                                                                                                             | Enables retrying HTTP requests under certain failure conditions.                                                                                                               |
-
-### Response
-
-**Promise\<void\>**
-
-### Errors
-
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ApiError               | 400, 401, 403, 404, 429       | application/json              |
+| errors.ApiError               | 500                           | application/json              |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |

@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
@@ -43,12 +44,8 @@ export type ListTransactionsRequest = {
   frequency?: Frequency | undefined;
 };
 
-/**
- * OK
- */
 export type ListTransactionsResponse = {
-  data: Array<models.Transaction>;
-  pagination: models.PaginationMeta;
+  result: models.TransactionList;
 };
 
 /** @internal */
@@ -122,10 +119,16 @@ export function listTransactionsRequestToJSON(
 export const ListTransactionsResponse$inboundSchema: z.ZodMiniType<
   ListTransactionsResponse,
   unknown
-> = z.object({
-  data: z.array(models.Transaction$inboundSchema),
-  pagination: models.PaginationMeta$inboundSchema,
-});
+> = z.pipe(
+  z.object({
+    Result: models.TransactionList$inboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      "Result": "result",
+    });
+  }),
+);
 
 export function listTransactionsResponseFromJSON(
   jsonString: string,

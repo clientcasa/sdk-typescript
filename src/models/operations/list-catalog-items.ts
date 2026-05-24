@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
@@ -38,12 +39,8 @@ export type ListCatalogItemsRequest = {
   clientId?: string | undefined;
 };
 
-/**
- * OK
- */
 export type ListCatalogItemsResponse = {
-  data: Array<models.CatalogItem>;
-  pagination: models.PaginationMeta;
+  result: models.CatalogItemList;
 };
 
 /** @internal */
@@ -110,10 +107,16 @@ export function listCatalogItemsRequestToJSON(
 export const ListCatalogItemsResponse$inboundSchema: z.ZodMiniType<
   ListCatalogItemsResponse,
   unknown
-> = z.object({
-  data: z.array(models.CatalogItem$inboundSchema),
-  pagination: models.PaginationMeta$inboundSchema,
-});
+> = z.pipe(
+  z.object({
+    Result: models.CatalogItemList$inboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      "Result": "result",
+    });
+  }),
+);
 
 export function listCatalogItemsResponseFromJSON(
   jsonString: string,

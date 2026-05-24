@@ -3,10 +3,20 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
+import * as models from "../index.js";
 
 export type CreateContactSecurity = {
   apiKey?: string | undefined;
   bearer?: string | undefined;
+};
+
+export type CreateContactRequest = {
+  /**
+   * Optional unique key that makes this create safely retryable. Replaying the same key returns the original response instead of creating a duplicate; reusing a key with a different request body returns 409.
+   */
+  idempotencyKey?: string | undefined;
+  body: models.ContactCreate;
 };
 
 /** @internal */
@@ -29,5 +39,35 @@ export function createContactSecurityToJSON(
 ): string {
   return JSON.stringify(
     CreateContactSecurity$outboundSchema.parse(createContactSecurity),
+  );
+}
+
+/** @internal */
+export type CreateContactRequest$Outbound = {
+  "Idempotency-Key"?: string | undefined;
+  body: models.ContactCreate$Outbound;
+};
+
+/** @internal */
+export const CreateContactRequest$outboundSchema: z.ZodMiniType<
+  CreateContactRequest$Outbound,
+  CreateContactRequest
+> = z.pipe(
+  z.object({
+    idempotencyKey: z.optional(z.string()),
+    body: models.ContactCreate$outboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      idempotencyKey: "Idempotency-Key",
+    });
+  }),
+);
+
+export function createContactRequestToJSON(
+  createContactRequest: CreateContactRequest,
+): string {
+  return JSON.stringify(
+    CreateContactRequest$outboundSchema.parse(createContactRequest),
   );
 }

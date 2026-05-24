@@ -11,6 +11,7 @@ import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
+import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class Proposals extends ClientSDK {
   /**
@@ -20,8 +21,8 @@ export class Proposals extends ClientSDK {
     security: operations.ListProposalsSecurity,
     request?: operations.ListProposalsRequest | undefined,
     options?: RequestOptions,
-  ): Promise<operations.ListProposalsResponse> {
-    return unwrapAsync(proposalsList(
+  ): Promise<PageIterator<operations.ListProposalsResponse, { page: number }>> {
+    return unwrapResultIterator(proposalsList(
       this,
       security,
       request,
@@ -37,7 +38,7 @@ export class Proposals extends ClientSDK {
    */
   async create(
     security: operations.CreateProposalSecurity,
-    request: models.ProposalCreate,
+    request: operations.CreateProposalRequest,
     options?: RequestOptions,
   ): Promise<models.Proposal> {
     return unwrapAsync(proposalsCreate(
@@ -65,6 +66,22 @@ export class Proposals extends ClientSDK {
   }
 
   /**
+   * Delete a proposal (only drafts)
+   */
+  async delete(
+    security: operations.DeleteProposalSecurity,
+    request: operations.DeleteProposalRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(proposalsDelete(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
    * Update a proposal
    *
    * @remarks
@@ -76,22 +93,6 @@ export class Proposals extends ClientSDK {
     options?: RequestOptions,
   ): Promise<models.Proposal> {
     return unwrapAsync(proposalsUpdate(
-      this,
-      security,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Delete a proposal (only drafts)
-   */
-  async delete(
-    security: operations.DeleteProposalSecurity,
-    request: operations.DeleteProposalRequest,
-    options?: RequestOptions,
-  ): Promise<void> {
-    return unwrapAsync(proposalsDelete(
       this,
       security,
       request,

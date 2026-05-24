@@ -8,6 +8,7 @@ import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
+import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class Payouts extends ClientSDK {
   /**
@@ -17,8 +18,8 @@ export class Payouts extends ClientSDK {
     security: operations.ListPayoutsSecurity,
     request?: operations.ListPayoutsRequest | undefined,
     options?: RequestOptions,
-  ): Promise<operations.ListPayoutsResponse> {
-    return unwrapAsync(payoutsList(
+  ): Promise<PageIterator<operations.ListPayoutsResponse, { page: number }>> {
+    return unwrapResultIterator(payoutsList(
       this,
       security,
       request,

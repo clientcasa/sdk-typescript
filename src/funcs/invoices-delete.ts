@@ -20,6 +20,7 @@ import {
   RequestTimeoutError,
   UnexpectedClientError,
 } from "../models/errors/http-client-errors.js";
+import * as errors from "../models/errors/index.js";
 import { ResponseValidationError } from "../models/errors/response-validation-error.js";
 import { SDKValidationError } from "../models/errors/sdk-validation-error.js";
 import * as operations from "../models/operations/index.js";
@@ -37,6 +38,7 @@ export function invoicesDelete(
 ): APIPromise<
   Result<
     void,
+    | errors.ApiError
     | ClientCasaError
     | ResponseValidationError
     | ConnectionError
@@ -64,6 +66,7 @@ async function $do(
   [
     Result<
       void,
+      | errors.ApiError
       | ClientCasaError
       | ResponseValidationError
       | ConnectionError
@@ -96,7 +99,7 @@ async function $do(
   const path = pathToFunc("/api/v1/invoices/{id}")(pathParams);
 
   const headers = new Headers(compactMap({
-    Accept: "*/*",
+    Accept: "application/json",
   }));
 
   const requestSecurity = resolveSecurity(
@@ -127,8 +130,18 @@ async function $do(
     securitySource: security,
     retryConfig: options?.retries
       || client._options.retryConfig
+      || {
+        strategy: "backoff",
+        backoff: {
+          initialInterval: 500,
+          maxInterval: 30000,
+          exponent: 1.5,
+          maxElapsedTime: 30000,
+        },
+        retryConnectionErrors: true,
+      }
       || { strategy: "none" },
-    retryCodes: options?.retryCodes || ["429", "500", "502", "503", "504"],
+    retryCodes: options?.retryCodes || ["429", "5XX"],
   };
 
   const requestRes = client._createRequest(context, {
@@ -158,8 +171,13 @@ async function $do(
   }
   const response = doResult.value;
 
+  const responseFields = {
+    HttpMeta: { Response: response, Request: req },
+  };
+
   const [result] = await M.match<
     void,
+    | errors.ApiError
     | ClientCasaError
     | ResponseValidationError
     | ConnectionError
@@ -170,9 +188,11 @@ async function $do(
     | SDKValidationError
   >(
     M.nil(204, z.void()),
+    M.jsonErr([401, 403, 404, 429], errors.ApiError$inboundSchema),
+    M.jsonErr(500, errors.ApiError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
-  )(response, req);
+  )(response, req, { extraFields: responseFields });
   if (!result.ok) {
     return [result, { status: "complete", request: req, response }];
   }

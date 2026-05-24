@@ -202,6 +202,7 @@ ClientCasa API: REST API for ClientCasa — proposals, contracts, time tracking,
   * [Authentication](#authentication)
   * [Available Resources and Operations](#available-resources-and-operations)
   * [Standalone functions](#standalone-functions)
+  * [Pagination](#pagination)
   * [Retries](#retries)
   * [Error Handling](#error-handling-1)
   * [Server Selection](#server-selection)
@@ -265,7 +266,9 @@ async function run() {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {});
 
-  console.log(result);
+  for await (const page of result) {
+    console.log(page);
+  }
 }
 
 run();
@@ -298,7 +301,9 @@ const clientCasa = new ClientCasa();
 async function run() {
   const result = await clientCasa.clients.list({}, {});
 
-  console.log(result);
+  for await (const page of result) {
+    console.log(page);
+  }
 }
 
 run();
@@ -317,64 +322,64 @@ run();
 * [list](docs/sdks/calendarevents/README.md#list) - List calendar events
 * [create](docs/sdks/calendarevents/README.md#create) - Create a calendar event
 * [get](docs/sdks/calendarevents/README.md#get) - Get a calendar event
-* [update](docs/sdks/calendarevents/README.md#update) - Update a calendar event
 * [delete](docs/sdks/calendarevents/README.md#delete) - Delete a calendar event
+* [update](docs/sdks/calendarevents/README.md#update) - Update a calendar event
 
 ### [CatalogItems](docs/sdks/catalogitems/README.md)
 
 * [list](docs/sdks/catalogitems/README.md#list) - List catalog items
 * [create](docs/sdks/catalogitems/README.md#create) - Create a catalog item
 * [get](docs/sdks/catalogitems/README.md#get) - Get a catalog item
-* [update](docs/sdks/catalogitems/README.md#update) - Update a catalog item
 * [delete](docs/sdks/catalogitems/README.md#delete) - Delete a catalog item
+* [update](docs/sdks/catalogitems/README.md#update) - Update a catalog item
 
 ### [Clients](docs/sdks/clients/README.md)
 
 * [list](docs/sdks/clients/README.md#list) - List clients
 * [create](docs/sdks/clients/README.md#create) - Create a client
 * [get](docs/sdks/clients/README.md#get) - Get a client
-* [update](docs/sdks/clients/README.md#update) - Update a client
 * [delete](docs/sdks/clients/README.md#delete) - Delete a client
+* [update](docs/sdks/clients/README.md#update) - Update a client
 
 ### [Contacts](docs/sdks/contacts/README.md)
 
 * [list](docs/sdks/contacts/README.md#list) - List contacts
 * [create](docs/sdks/contacts/README.md#create) - Create a contact
 * [get](docs/sdks/contacts/README.md#get) - Get a contact
-* [update](docs/sdks/contacts/README.md#update) - Update a contact
 * [delete](docs/sdks/contacts/README.md#delete) - Delete a contact
+* [update](docs/sdks/contacts/README.md#update) - Update a contact
 
 ### [Contracts](docs/sdks/contracts/README.md)
 
 * [list](docs/sdks/contracts/README.md#list) - List contracts
 * [create](docs/sdks/contracts/README.md#create) - Create a draft contract
 * [get](docs/sdks/contracts/README.md#get) - Get a contract
-* [update](docs/sdks/contracts/README.md#update) - Update a contract (limited fields)
 * [delete](docs/sdks/contracts/README.md#delete) - Delete a contract (only drafts)
+* [update](docs/sdks/contracts/README.md#update) - Update a contract (limited fields)
 
 ### [Inquiries](docs/sdks/inquiries/README.md)
 
 * [list](docs/sdks/inquiries/README.md#list) - List inquiries
 * [create](docs/sdks/inquiries/README.md#create) - Create an inquiry
 * [get](docs/sdks/inquiries/README.md#get) - Get an inquiry
-* [update](docs/sdks/inquiries/README.md#update) - Update an inquiry
 * [delete](docs/sdks/inquiries/README.md#delete) - Delete an inquiry
+* [update](docs/sdks/inquiries/README.md#update) - Update an inquiry
 
 ### [Invoices](docs/sdks/invoices/README.md)
 
 * [list](docs/sdks/invoices/README.md#list) - List invoices
 * [create](docs/sdks/invoices/README.md#create) - Create an invoice
 * [get](docs/sdks/invoices/README.md#get) - Get an invoice
-* [update](docs/sdks/invoices/README.md#update) - Update an invoice (line items not editable in v1)
 * [delete](docs/sdks/invoices/README.md#delete) - Delete an invoice (only drafts)
+* [update](docs/sdks/invoices/README.md#update) - Update an invoice (line items not editable in v1)
 
 ### [Milestones](docs/sdks/milestones/README.md)
 
 * [list](docs/sdks/milestones/README.md#list) - List milestones
 * [create](docs/sdks/milestones/README.md#create) - Create a milestone
 * [get](docs/sdks/milestones/README.md#get) - Get a milestone
-* [update](docs/sdks/milestones/README.md#update) - Update a milestone
 * [delete](docs/sdks/milestones/README.md#delete) - Delete a milestone
+* [update](docs/sdks/milestones/README.md#update) - Update a milestone
 
 ### [Payments](docs/sdks/payments/README.md)
 
@@ -393,40 +398,40 @@ run();
 * [list](docs/sdks/projects/README.md#list) - List projects
 * [create](docs/sdks/projects/README.md#create) - Create a project
 * [get](docs/sdks/projects/README.md#get) - Get a project
-* [update](docs/sdks/projects/README.md#update) - Update a project
 * [delete](docs/sdks/projects/README.md#delete) - Delete a project
+* [update](docs/sdks/projects/README.md#update) - Update a project
 
 ### [Proposals](docs/sdks/proposals/README.md)
 
 * [list](docs/sdks/proposals/README.md#list) - List proposals
 * [create](docs/sdks/proposals/README.md#create) - Create a proposal (metadata only — rich-text content is dashboard-managed)
 * [get](docs/sdks/proposals/README.md#get) - Get a proposal
-* [update](docs/sdks/proposals/README.md#update) - Update a proposal
 * [delete](docs/sdks/proposals/README.md#delete) - Delete a proposal (only drafts)
+* [update](docs/sdks/proposals/README.md#update) - Update a proposal
 
 ### [TimeEntries](docs/sdks/timeentries/README.md)
 
 * [list](docs/sdks/timeentries/README.md#list) - List time entries
 * [create](docs/sdks/timeentries/README.md#create) - Create a time entry
 * [get](docs/sdks/timeentries/README.md#get) - Get a time entry
-* [update](docs/sdks/timeentries/README.md#update) - Update a time entry
 * [delete](docs/sdks/timeentries/README.md#delete) - Delete a time entry
+* [update](docs/sdks/timeentries/README.md#update) - Update a time entry
 
 ### [Transactions](docs/sdks/transactions/README.md)
 
 * [list](docs/sdks/transactions/README.md#list) - List transactions
 * [create](docs/sdks/transactions/README.md#create) - Create a transaction (expense or charge)
 * [get](docs/sdks/transactions/README.md#get) - Get a transaction
-* [update](docs/sdks/transactions/README.md#update) - Update a transaction
 * [delete](docs/sdks/transactions/README.md#delete) - Delete a transaction
+* [update](docs/sdks/transactions/README.md#update) - Update a transaction
 
 ### [Webhooks](docs/sdks/webhooks/README.md)
 
 * [list](docs/sdks/webhooks/README.md#list) - List webhook subscriptions
 * [create](docs/sdks/webhooks/README.md#create) - Subscribe to events
 * [get](docs/sdks/webhooks/README.md#get) - Get a webhook
-* [update](docs/sdks/webhooks/README.md#update) - Update a webhook
 * [delete](docs/sdks/webhooks/README.md#delete) - Delete a webhook
+* [update](docs/sdks/webhooks/README.md#update) - Update a webhook
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -521,6 +526,38 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 </details>
 <!-- End Standalone functions [standalone-funcs] -->
 
+<!-- Start Pagination [pagination] -->
+## Pagination
+
+Some of the endpoints in this SDK support pagination. To use pagination, you
+make your SDK calls as usual, but the returned response object will also be an
+async iterable that can be consumed using the [`for await...of`][for-await-of]
+syntax.
+
+[for-await-of]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for-await...of
+
+Here's an example of one such pagination call:
+
+```typescript
+import { ClientCasa } from "@clientcasa/sdk";
+
+const clientCasa = new ClientCasa();
+
+async function run() {
+  const result = await clientCasa.clients.list({
+    apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
+  }, {});
+
+  for await (const page of result) {
+    console.log(page);
+  }
+}
+
+run();
+
+```
+<!-- End Pagination [pagination] -->
+
 <!-- Start Retries [retries] -->
 ## Retries
 
@@ -552,7 +589,9 @@ async function run() {
     },
   );
 
-  console.log(result);
+  for await (const page of result) {
+    console.log(page);
+  }
 }
 
 run();
@@ -581,7 +620,9 @@ async function run() {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {});
 
-  console.log(result);
+  for await (const page of result) {
+    console.log(page);
+  }
 }
 
 run();
@@ -594,13 +635,14 @@ run();
 
 [`ClientCasaError`](./src/models/errors/client-casa-error.ts) is the base class for all HTTP error responses. It has the following properties:
 
-| Property            | Type       | Description                                            |
-| ------------------- | ---------- | ------------------------------------------------------ |
-| `error.message`     | `string`   | Error message                                          |
-| `error.statusCode`  | `number`   | HTTP response status code eg `404`                     |
-| `error.headers`     | `Headers`  | HTTP response headers                                  |
-| `error.body`        | `string`   | HTTP body. Can be empty string if no body is returned. |
-| `error.rawResponse` | `Response` | Raw HTTP response                                      |
+| Property            | Type       | Description                                                                             |
+| ------------------- | ---------- | --------------------------------------------------------------------------------------- |
+| `error.message`     | `string`   | Error message                                                                           |
+| `error.statusCode`  | `number`   | HTTP response status code eg `404`                                                      |
+| `error.headers`     | `Headers`  | HTTP response headers                                                                   |
+| `error.body`        | `string`   | HTTP body. Can be empty string if no body is returned.                                  |
+| `error.rawResponse` | `Response` | Raw HTTP response                                                                       |
+| `error.data$`       |            | Optional. Some errors may contain structured data. [See Error Classes](#error-classes). |
 
 ### Example
 ```typescript
@@ -615,13 +657,21 @@ async function run() {
       apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
     }, {});
 
-    console.log(result);
+    for await (const page of result) {
+      console.log(page);
+    }
   } catch (error) {
+    // The base class for HTTP error responses
     if (error instanceof errors.ClientCasaError) {
       console.log(error.message);
       console.log(error.statusCode);
       console.log(error.body);
       console.log(error.headers);
+
+      // Depending on the method different errors may be thrown
+      if (error instanceof errors.ApiError) {
+        console.log(error.data$.error); // models.ErrorT
+      }
     }
   }
 }
@@ -631,8 +681,9 @@ run();
 ```
 
 ### Error Classes
-**Primary error:**
+**Primary errors:**
 * [`ClientCasaError`](./src/models/errors/client-casa-error.ts): The base class for HTTP error responses.
+  * [`ApiError`](./src/models/errors/api-error.ts): Generic error.
 
 <details><summary>Less common errors (6)</summary>
 
@@ -670,7 +721,9 @@ async function run() {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {});
 
-  console.log(result);
+  for await (const page of result) {
+    console.log(page);
+  }
 }
 
 run();

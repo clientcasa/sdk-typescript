@@ -11,6 +11,7 @@ import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
+import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class Inquiries extends ClientSDK {
   /**
@@ -20,8 +21,8 @@ export class Inquiries extends ClientSDK {
     security: operations.ListInquiriesSecurity,
     request?: operations.ListInquiriesRequest | undefined,
     options?: RequestOptions,
-  ): Promise<operations.ListInquiriesResponse> {
-    return unwrapAsync(inquiriesList(
+  ): Promise<PageIterator<operations.ListInquiriesResponse, { page: number }>> {
+    return unwrapResultIterator(inquiriesList(
       this,
       security,
       request,
@@ -37,7 +38,7 @@ export class Inquiries extends ClientSDK {
    */
   async create(
     security: operations.CreateInquirySecurity,
-    request: models.InquiryCreate,
+    request: operations.CreateInquiryRequest,
     options?: RequestOptions,
   ): Promise<models.Inquiry> {
     return unwrapAsync(inquiriesCreate(
@@ -65,6 +66,22 @@ export class Inquiries extends ClientSDK {
   }
 
   /**
+   * Delete an inquiry
+   */
+  async delete(
+    security: operations.DeleteInquirySecurity,
+    request: operations.DeleteInquiryRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(inquiriesDelete(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
    * Update an inquiry
    *
    * @remarks
@@ -76,22 +93,6 @@ export class Inquiries extends ClientSDK {
     options?: RequestOptions,
   ): Promise<models.Inquiry> {
     return unwrapAsync(inquiriesUpdate(
-      this,
-      security,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Delete an inquiry
-   */
-  async delete(
-    security: operations.DeleteInquirySecurity,
-    request: operations.DeleteInquiryRequest,
-    options?: RequestOptions,
-  ): Promise<void> {
-    return unwrapAsync(inquiriesDelete(
       this,
       security,
       request,

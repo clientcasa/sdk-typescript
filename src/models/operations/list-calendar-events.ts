@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -34,12 +35,8 @@ export type ListCalendarEventsRequest = {
   startsBefore?: Date | undefined;
 };
 
-/**
- * OK
- */
 export type ListCalendarEventsResponse = {
-  data: Array<models.CalendarEvent>;
-  pagination: models.PaginationMeta;
+  result: models.CalendarEventList;
 };
 
 /** @internal */
@@ -100,10 +97,16 @@ export function listCalendarEventsRequestToJSON(
 export const ListCalendarEventsResponse$inboundSchema: z.ZodMiniType<
   ListCalendarEventsResponse,
   unknown
-> = z.object({
-  data: z.array(models.CalendarEvent$inboundSchema),
-  pagination: models.PaginationMeta$inboundSchema,
-});
+> = z.pipe(
+  z.object({
+    Result: models.CalendarEventList$inboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      "Result": "result",
+    });
+  }),
+);
 
 export function listCalendarEventsResponseFromJSON(
   jsonString: string,

@@ -3,10 +3,20 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
+import * as models from "../index.js";
 
 export type CreateCalendarEventSecurity = {
   apiKey?: string | undefined;
   bearer?: string | undefined;
+};
+
+export type CreateCalendarEventRequest = {
+  /**
+   * Optional unique key that makes this create safely retryable. Replaying the same key returns the original response instead of creating a duplicate; reusing a key with a different request body returns 409.
+   */
+  idempotencyKey?: string | undefined;
+  body: models.CalendarEventCreate;
 };
 
 /** @internal */
@@ -31,5 +41,35 @@ export function createCalendarEventSecurityToJSON(
     CreateCalendarEventSecurity$outboundSchema.parse(
       createCalendarEventSecurity,
     ),
+  );
+}
+
+/** @internal */
+export type CreateCalendarEventRequest$Outbound = {
+  "Idempotency-Key"?: string | undefined;
+  body: models.CalendarEventCreate$Outbound;
+};
+
+/** @internal */
+export const CreateCalendarEventRequest$outboundSchema: z.ZodMiniType<
+  CreateCalendarEventRequest$Outbound,
+  CreateCalendarEventRequest
+> = z.pipe(
+  z.object({
+    idempotencyKey: z.optional(z.string()),
+    body: models.CalendarEventCreate$outboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      idempotencyKey: "Idempotency-Key",
+    });
+  }),
+);
+
+export function createCalendarEventRequestToJSON(
+  createCalendarEventRequest: CreateCalendarEventRequest,
+): string {
+  return JSON.stringify(
+    CreateCalendarEventRequest$outboundSchema.parse(createCalendarEventRequest),
   );
 }

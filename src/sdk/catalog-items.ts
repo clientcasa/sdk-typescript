@@ -11,6 +11,7 @@ import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
+import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class CatalogItems extends ClientSDK {
   /**
@@ -20,8 +21,10 @@ export class CatalogItems extends ClientSDK {
     security: operations.ListCatalogItemsSecurity,
     request?: operations.ListCatalogItemsRequest | undefined,
     options?: RequestOptions,
-  ): Promise<operations.ListCatalogItemsResponse> {
-    return unwrapAsync(catalogItemsList(
+  ): Promise<
+    PageIterator<operations.ListCatalogItemsResponse, { page: number }>
+  > {
+    return unwrapResultIterator(catalogItemsList(
       this,
       security,
       request,
@@ -37,7 +40,7 @@ export class CatalogItems extends ClientSDK {
    */
   async create(
     security: operations.CreateCatalogItemSecurity,
-    request: models.CatalogItemCreate,
+    request: operations.CreateCatalogItemRequest,
     options?: RequestOptions,
   ): Promise<models.CatalogItem> {
     return unwrapAsync(catalogItemsCreate(
@@ -65,22 +68,6 @@ export class CatalogItems extends ClientSDK {
   }
 
   /**
-   * Update a catalog item
-   */
-  async update(
-    security: operations.UpdateCatalogItemSecurity,
-    request: operations.UpdateCatalogItemRequest,
-    options?: RequestOptions,
-  ): Promise<models.CatalogItem> {
-    return unwrapAsync(catalogItemsUpdate(
-      this,
-      security,
-      request,
-      options,
-    ));
-  }
-
-  /**
    * Delete a catalog item
    */
   async delete(
@@ -89,6 +76,22 @@ export class CatalogItems extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(catalogItemsDelete(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update a catalog item
+   */
+  async update(
+    security: operations.UpdateCatalogItemSecurity,
+    request: operations.UpdateCatalogItemRequest,
+    options?: RequestOptions,
+  ): Promise<models.CatalogItem> {
+    return unwrapAsync(catalogItemsUpdate(
       this,
       security,
       request,

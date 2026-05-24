@@ -3,10 +3,20 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
+import * as models from "../index.js";
 
 export type CreateTimeEntrySecurity = {
   apiKey?: string | undefined;
   bearer?: string | undefined;
+};
+
+export type CreateTimeEntryRequest = {
+  /**
+   * Optional unique key that makes this create safely retryable. Replaying the same key returns the original response instead of creating a duplicate; reusing a key with a different request body returns 409.
+   */
+  idempotencyKey?: string | undefined;
+  body: models.TimeEntryCreate;
 };
 
 /** @internal */
@@ -29,5 +39,35 @@ export function createTimeEntrySecurityToJSON(
 ): string {
   return JSON.stringify(
     CreateTimeEntrySecurity$outboundSchema.parse(createTimeEntrySecurity),
+  );
+}
+
+/** @internal */
+export type CreateTimeEntryRequest$Outbound = {
+  "Idempotency-Key"?: string | undefined;
+  body: models.TimeEntryCreate$Outbound;
+};
+
+/** @internal */
+export const CreateTimeEntryRequest$outboundSchema: z.ZodMiniType<
+  CreateTimeEntryRequest$Outbound,
+  CreateTimeEntryRequest
+> = z.pipe(
+  z.object({
+    idempotencyKey: z.optional(z.string()),
+    body: models.TimeEntryCreate$outboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      idempotencyKey: "Idempotency-Key",
+    });
+  }),
+);
+
+export function createTimeEntryRequestToJSON(
+  createTimeEntryRequest: CreateTimeEntryRequest,
+): string {
+  return JSON.stringify(
+    CreateTimeEntryRequest$outboundSchema.parse(createTimeEntryRequest),
   );
 }

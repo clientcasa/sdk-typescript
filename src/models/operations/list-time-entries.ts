@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -33,12 +34,8 @@ export type ListTimeEntriesRequest = {
   billable?: boolean | null | undefined;
 };
 
-/**
- * OK
- */
 export type ListTimeEntriesResponse = {
-  data: Array<models.TimeEntry>;
-  pagination: models.PaginationMeta;
+  result: models.TimeEntryList;
 };
 
 /** @internal */
@@ -113,10 +110,16 @@ export function listTimeEntriesRequestToJSON(
 export const ListTimeEntriesResponse$inboundSchema: z.ZodMiniType<
   ListTimeEntriesResponse,
   unknown
-> = z.object({
-  data: z.array(models.TimeEntry$inboundSchema),
-  pagination: models.PaginationMeta$inboundSchema,
-});
+> = z.pipe(
+  z.object({
+    Result: models.TimeEntryList$inboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      "Result": "result",
+    });
+  }),
+);
 
 export function listTimeEntriesResponseFromJSON(
   jsonString: string,

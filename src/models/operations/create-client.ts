@@ -3,10 +3,20 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
+import * as models from "../index.js";
 
 export type CreateClientSecurity = {
   apiKey?: string | undefined;
   bearer?: string | undefined;
+};
+
+export type CreateClientRequest = {
+  /**
+   * Optional unique key that makes this create safely retryable. Replaying the same key returns the original response instead of creating a duplicate; reusing a key with a different request body returns 409.
+   */
+  idempotencyKey?: string | undefined;
+  body: models.ClientCreate;
 };
 
 /** @internal */
@@ -29,5 +39,35 @@ export function createClientSecurityToJSON(
 ): string {
   return JSON.stringify(
     CreateClientSecurity$outboundSchema.parse(createClientSecurity),
+  );
+}
+
+/** @internal */
+export type CreateClientRequest$Outbound = {
+  "Idempotency-Key"?: string | undefined;
+  body: models.ClientCreate$Outbound;
+};
+
+/** @internal */
+export const CreateClientRequest$outboundSchema: z.ZodMiniType<
+  CreateClientRequest$Outbound,
+  CreateClientRequest
+> = z.pipe(
+  z.object({
+    idempotencyKey: z.optional(z.string()),
+    body: models.ClientCreate$outboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      idempotencyKey: "Idempotency-Key",
+    });
+  }),
+);
+
+export function createClientRequestToJSON(
+  createClientRequest: CreateClientRequest,
+): string {
+  return JSON.stringify(
+    CreateClientRequest$outboundSchema.parse(createClientRequest),
   );
 }

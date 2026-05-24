@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
@@ -77,12 +78,8 @@ export type ListWebhooksRequest = {
   event?: Event | undefined;
 };
 
-/**
- * OK
- */
 export type ListWebhooksResponse = {
-  data: Array<models.Webhook>;
-  pagination: models.PaginationMeta;
+  result: models.WebhookList;
 };
 
 /** @internal */
@@ -142,10 +139,16 @@ export function listWebhooksRequestToJSON(
 export const ListWebhooksResponse$inboundSchema: z.ZodMiniType<
   ListWebhooksResponse,
   unknown
-> = z.object({
-  data: z.array(models.Webhook$inboundSchema),
-  pagination: models.PaginationMeta$inboundSchema,
-});
+> = z.pipe(
+  z.object({
+    Result: models.WebhookList$inboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      "Result": "result",
+    });
+  }),
+);
 
 export function listWebhooksResponseFromJSON(
   jsonString: string,

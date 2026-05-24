@@ -11,6 +11,7 @@ import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
+import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class Projects extends ClientSDK {
   /**
@@ -20,8 +21,8 @@ export class Projects extends ClientSDK {
     security: operations.ListProjectsSecurity,
     request?: operations.ListProjectsRequest | undefined,
     options?: RequestOptions,
-  ): Promise<operations.ListProjectsResponse> {
-    return unwrapAsync(projectsList(
+  ): Promise<PageIterator<operations.ListProjectsResponse, { page: number }>> {
+    return unwrapResultIterator(projectsList(
       this,
       security,
       request,
@@ -34,7 +35,7 @@ export class Projects extends ClientSDK {
    */
   async create(
     security: operations.CreateProjectSecurity,
-    request: models.ProjectCreate,
+    request: operations.CreateProjectRequest,
     options?: RequestOptions,
   ): Promise<models.Project> {
     return unwrapAsync(projectsCreate(
@@ -62,22 +63,6 @@ export class Projects extends ClientSDK {
   }
 
   /**
-   * Update a project
-   */
-  async update(
-    security: operations.UpdateProjectSecurity,
-    request: operations.UpdateProjectRequest,
-    options?: RequestOptions,
-  ): Promise<models.Project> {
-    return unwrapAsync(projectsUpdate(
-      this,
-      security,
-      request,
-      options,
-    ));
-  }
-
-  /**
    * Delete a project
    */
   async delete(
@@ -86,6 +71,22 @@ export class Projects extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(projectsDelete(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update a project
+   */
+  async update(
+    security: operations.UpdateProjectSecurity,
+    request: operations.UpdateProjectRequest,
+    options?: RequestOptions,
+  ): Promise<models.Project> {
+    return unwrapAsync(projectsUpdate(
       this,
       security,
       request,

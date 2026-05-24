@@ -11,6 +11,7 @@ import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
+import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class CalendarEvents extends ClientSDK {
   /**
@@ -20,8 +21,10 @@ export class CalendarEvents extends ClientSDK {
     security: operations.ListCalendarEventsSecurity,
     request?: operations.ListCalendarEventsRequest | undefined,
     options?: RequestOptions,
-  ): Promise<operations.ListCalendarEventsResponse> {
-    return unwrapAsync(calendarEventsList(
+  ): Promise<
+    PageIterator<operations.ListCalendarEventsResponse, { page: number }>
+  > {
+    return unwrapResultIterator(calendarEventsList(
       this,
       security,
       request,
@@ -37,7 +40,7 @@ export class CalendarEvents extends ClientSDK {
    */
   async create(
     security: operations.CreateCalendarEventSecurity,
-    request: models.CalendarEventCreate,
+    request: operations.CreateCalendarEventRequest,
     options?: RequestOptions,
   ): Promise<models.CalendarEvent> {
     return unwrapAsync(calendarEventsCreate(
@@ -65,6 +68,22 @@ export class CalendarEvents extends ClientSDK {
   }
 
   /**
+   * Delete a calendar event
+   */
+  async delete(
+    security: operations.DeleteCalendarEventSecurity,
+    request: operations.DeleteCalendarEventRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(calendarEventsDelete(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
    * Update a calendar event
    *
    * @remarks
@@ -76,22 +95,6 @@ export class CalendarEvents extends ClientSDK {
     options?: RequestOptions,
   ): Promise<models.CalendarEvent> {
     return unwrapAsync(calendarEventsUpdate(
-      this,
-      security,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Delete a calendar event
-   */
-  async delete(
-    security: operations.DeleteCalendarEventSecurity,
-    request: operations.DeleteCalendarEventRequest,
-    options?: RequestOptions,
-  ): Promise<void> {
-    return unwrapAsync(calendarEventsDelete(
       this,
       security,
       request,

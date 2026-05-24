@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
@@ -31,12 +32,8 @@ export type ListContactsRequest = {
   role?: Role | undefined;
 };
 
-/**
- * OK
- */
 export type ListContactsResponse = {
-  data: Array<models.Contact>;
-  pagination: models.PaginationMeta;
+  result: models.ContactList;
 };
 
 /** @internal */
@@ -96,10 +93,16 @@ export function listContactsRequestToJSON(
 export const ListContactsResponse$inboundSchema: z.ZodMiniType<
   ListContactsResponse,
   unknown
-> = z.object({
-  data: z.array(models.Contact$inboundSchema),
-  pagination: models.PaginationMeta$inboundSchema,
-});
+> = z.pipe(
+  z.object({
+    Result: models.ContactList$inboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      "Result": "result",
+    });
+  }),
+);
 
 export function listContactsResponseFromJSON(
   jsonString: string,

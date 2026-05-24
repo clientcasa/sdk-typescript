@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
@@ -46,12 +47,8 @@ export type ListPaymentsRequest = {
   kind?: Kind | undefined;
 };
 
-/**
- * OK
- */
 export type ListPaymentsResponse = {
-  data: Array<models.Payment>;
-  pagination: models.PaginationMeta;
+  result: models.PaymentList;
 };
 
 /** @internal */
@@ -120,10 +117,16 @@ export function listPaymentsRequestToJSON(
 export const ListPaymentsResponse$inboundSchema: z.ZodMiniType<
   ListPaymentsResponse,
   unknown
-> = z.object({
-  data: z.array(models.Payment$inboundSchema),
-  pagination: models.PaginationMeta$inboundSchema,
-});
+> = z.pipe(
+  z.object({
+    Result: models.PaymentList$inboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      "Result": "result",
+    });
+  }),
+);
 
 export function listPaymentsResponseFromJSON(
   jsonString: string,

@@ -20,7 +20,9 @@ async function main() {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {});
 
-  console.log(result);
+  for await (const page of result) {
+    console.log(page);
+  }
 }
 
 main().catch(console.error);

@@ -3,10 +3,20 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
+import * as models from "../index.js";
 
 export type CreateWebhookSecurity = {
   apiKey?: string | undefined;
   bearer?: string | undefined;
+};
+
+export type CreateWebhookRequest = {
+  /**
+   * Optional unique key that makes this create safely retryable. Replaying the same key returns the original response instead of creating a duplicate; reusing a key with a different request body returns 409.
+   */
+  idempotencyKey?: string | undefined;
+  body: models.WebhookCreate;
 };
 
 /** @internal */
@@ -29,5 +39,35 @@ export function createWebhookSecurityToJSON(
 ): string {
   return JSON.stringify(
     CreateWebhookSecurity$outboundSchema.parse(createWebhookSecurity),
+  );
+}
+
+/** @internal */
+export type CreateWebhookRequest$Outbound = {
+  "Idempotency-Key"?: string | undefined;
+  body: models.WebhookCreate$Outbound;
+};
+
+/** @internal */
+export const CreateWebhookRequest$outboundSchema: z.ZodMiniType<
+  CreateWebhookRequest$Outbound,
+  CreateWebhookRequest
+> = z.pipe(
+  z.object({
+    idempotencyKey: z.optional(z.string()),
+    body: models.WebhookCreate$outboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      idempotencyKey: "Idempotency-Key",
+    });
+  }),
+);
+
+export function createWebhookRequestToJSON(
+  createWebhookRequest: CreateWebhookRequest,
+): string {
+  return JSON.stringify(
+    CreateWebhookRequest$outboundSchema.parse(createWebhookRequest),
   );
 }

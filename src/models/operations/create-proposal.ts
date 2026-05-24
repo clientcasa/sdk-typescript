@@ -3,10 +3,20 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
+import * as models from "../index.js";
 
 export type CreateProposalSecurity = {
   apiKey?: string | undefined;
   bearer?: string | undefined;
+};
+
+export type CreateProposalRequest = {
+  /**
+   * Optional unique key that makes this create safely retryable. Replaying the same key returns the original response instead of creating a duplicate; reusing a key with a different request body returns 409.
+   */
+  idempotencyKey?: string | undefined;
+  body: models.ProposalCreate;
 };
 
 /** @internal */
@@ -29,5 +39,35 @@ export function createProposalSecurityToJSON(
 ): string {
   return JSON.stringify(
     CreateProposalSecurity$outboundSchema.parse(createProposalSecurity),
+  );
+}
+
+/** @internal */
+export type CreateProposalRequest$Outbound = {
+  "Idempotency-Key"?: string | undefined;
+  body: models.ProposalCreate$Outbound;
+};
+
+/** @internal */
+export const CreateProposalRequest$outboundSchema: z.ZodMiniType<
+  CreateProposalRequest$Outbound,
+  CreateProposalRequest
+> = z.pipe(
+  z.object({
+    idempotencyKey: z.optional(z.string()),
+    body: models.ProposalCreate$outboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      idempotencyKey: "Idempotency-Key",
+    });
+  }),
+);
+
+export function createProposalRequestToJSON(
+  createProposalRequest: CreateProposalRequest,
+): string {
+  return JSON.stringify(
+    CreateProposalRequest$outboundSchema.parse(createProposalRequest),
   );
 }

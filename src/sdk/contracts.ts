@@ -11,6 +11,7 @@ import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
+import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class Contracts extends ClientSDK {
   /**
@@ -20,8 +21,8 @@ export class Contracts extends ClientSDK {
     security: operations.ListContractsSecurity,
     request?: operations.ListContractsRequest | undefined,
     options?: RequestOptions,
-  ): Promise<operations.ListContractsResponse> {
-    return unwrapAsync(contractsList(
+  ): Promise<PageIterator<operations.ListContractsResponse, { page: number }>> {
+    return unwrapResultIterator(contractsList(
       this,
       security,
       request,
@@ -37,7 +38,7 @@ export class Contracts extends ClientSDK {
    */
   async create(
     security: operations.CreateContractSecurity,
-    request: models.ContractCreate,
+    request: operations.CreateContractRequest,
     options?: RequestOptions,
   ): Promise<models.Contract> {
     return unwrapAsync(contractsCreate(
@@ -65,6 +66,22 @@ export class Contracts extends ClientSDK {
   }
 
   /**
+   * Delete a contract (only drafts)
+   */
+  async delete(
+    security: operations.DeleteContractSecurity,
+    request: operations.DeleteContractRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(contractsDelete(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
    * Update a contract (limited fields)
    *
    * @remarks
@@ -76,22 +93,6 @@ export class Contracts extends ClientSDK {
     options?: RequestOptions,
   ): Promise<models.Contract> {
     return unwrapAsync(contractsUpdate(
-      this,
-      security,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Delete a contract (only drafts)
-   */
-  async delete(
-    security: operations.DeleteContractSecurity,
-    request: operations.DeleteContractRequest,
-    options?: RequestOptions,
-  ): Promise<void> {
-    return unwrapAsync(contractsDelete(
       this,
       security,
       request,

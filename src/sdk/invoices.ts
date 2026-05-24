@@ -11,6 +11,7 @@ import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
+import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class Invoices extends ClientSDK {
   /**
@@ -20,8 +21,8 @@ export class Invoices extends ClientSDK {
     security: operations.ListInvoicesSecurity,
     request?: operations.ListInvoicesRequest | undefined,
     options?: RequestOptions,
-  ): Promise<operations.ListInvoicesResponse> {
-    return unwrapAsync(invoicesList(
+  ): Promise<PageIterator<operations.ListInvoicesResponse, { page: number }>> {
+    return unwrapResultIterator(invoicesList(
       this,
       security,
       request,
@@ -37,7 +38,7 @@ export class Invoices extends ClientSDK {
    */
   async create(
     security: operations.CreateInvoiceSecurity,
-    request: models.InvoiceCreate,
+    request: operations.CreateInvoiceRequest,
     options?: RequestOptions,
   ): Promise<models.Invoice> {
     return unwrapAsync(invoicesCreate(
@@ -65,22 +66,6 @@ export class Invoices extends ClientSDK {
   }
 
   /**
-   * Update an invoice (line items not editable in v1)
-   */
-  async update(
-    security: operations.UpdateInvoiceSecurity,
-    request: operations.UpdateInvoiceRequest,
-    options?: RequestOptions,
-  ): Promise<models.Invoice> {
-    return unwrapAsync(invoicesUpdate(
-      this,
-      security,
-      request,
-      options,
-    ));
-  }
-
-  /**
    * Delete an invoice (only drafts)
    */
   async delete(
@@ -89,6 +74,22 @@ export class Invoices extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(invoicesDelete(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update an invoice (line items not editable in v1)
+   */
+  async update(
+    security: operations.UpdateInvoiceSecurity,
+    request: operations.UpdateInvoiceRequest,
+    options?: RequestOptions,
+  ): Promise<models.Invoice> {
+    return unwrapAsync(invoicesUpdate(
       this,
       security,
       request,

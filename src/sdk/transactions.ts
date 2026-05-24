@@ -11,6 +11,7 @@ import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
+import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class Transactions extends ClientSDK {
   /**
@@ -20,8 +21,10 @@ export class Transactions extends ClientSDK {
     security: operations.ListTransactionsSecurity,
     request?: operations.ListTransactionsRequest | undefined,
     options?: RequestOptions,
-  ): Promise<operations.ListTransactionsResponse> {
-    return unwrapAsync(transactionsList(
+  ): Promise<
+    PageIterator<operations.ListTransactionsResponse, { page: number }>
+  > {
+    return unwrapResultIterator(transactionsList(
       this,
       security,
       request,
@@ -34,7 +37,7 @@ export class Transactions extends ClientSDK {
    */
   async create(
     security: operations.CreateTransactionSecurity,
-    request: models.TransactionCreate,
+    request: operations.CreateTransactionRequest,
     options?: RequestOptions,
   ): Promise<models.Transaction> {
     return unwrapAsync(transactionsCreate(
@@ -62,25 +65,6 @@ export class Transactions extends ClientSDK {
   }
 
   /**
-   * Update a transaction
-   *
-   * @remarks
-   * Transactions billed to a sent/paid invoice may be frozen — the server will return 409 if so.
-   */
-  async update(
-    security: operations.UpdateTransactionSecurity,
-    request: operations.UpdateTransactionRequest,
-    options?: RequestOptions,
-  ): Promise<models.Transaction> {
-    return unwrapAsync(transactionsUpdate(
-      this,
-      security,
-      request,
-      options,
-    ));
-  }
-
-  /**
    * Delete a transaction
    *
    * @remarks
@@ -92,6 +76,25 @@ export class Transactions extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(transactionsDelete(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update a transaction
+   *
+   * @remarks
+   * Transactions billed to a sent/paid invoice may be frozen — the server will return 409 if so.
+   */
+  async update(
+    security: operations.UpdateTransactionSecurity,
+    request: operations.UpdateTransactionRequest,
+    options?: RequestOptions,
+  ): Promise<models.Transaction> {
+    return unwrapAsync(transactionsUpdate(
       this,
       security,
       request,

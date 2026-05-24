@@ -11,6 +11,7 @@ import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
+import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class Webhooks extends ClientSDK {
   /**
@@ -20,8 +21,8 @@ export class Webhooks extends ClientSDK {
     security: operations.ListWebhooksSecurity,
     request?: operations.ListWebhooksRequest | undefined,
     options?: RequestOptions,
-  ): Promise<operations.ListWebhooksResponse> {
-    return unwrapAsync(webhooksList(
+  ): Promise<PageIterator<operations.ListWebhooksResponse, { page: number }>> {
+    return unwrapResultIterator(webhooksList(
       this,
       security,
       request,
@@ -37,7 +38,7 @@ export class Webhooks extends ClientSDK {
    */
   async create(
     security: operations.CreateWebhookSecurity,
-    request: models.WebhookCreate,
+    request: operations.CreateWebhookRequest,
     options?: RequestOptions,
   ): Promise<models.Webhook> {
     return unwrapAsync(webhooksCreate(
@@ -65,6 +66,22 @@ export class Webhooks extends ClientSDK {
   }
 
   /**
+   * Delete a webhook
+   */
+  async delete(
+    security: operations.DeleteWebhookSecurity,
+    request: operations.DeleteWebhookRequest,
+    options?: RequestOptions,
+  ): Promise<void> {
+    return unwrapAsync(webhooksDelete(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
    * Update a webhook
    *
    * @remarks
@@ -76,22 +93,6 @@ export class Webhooks extends ClientSDK {
     options?: RequestOptions,
   ): Promise<models.Webhook> {
     return unwrapAsync(webhooksUpdate(
-      this,
-      security,
-      request,
-      options,
-    ));
-  }
-
-  /**
-   * Delete a webhook
-   */
-  async delete(
-    security: operations.DeleteWebhookSecurity,
-    request: operations.DeleteWebhookRequest,
-    options?: RequestOptions,
-  ): Promise<void> {
-    return unwrapAsync(webhooksDelete(
       this,
       security,
       request,

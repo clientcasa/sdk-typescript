@@ -3,10 +3,20 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
+import * as models from "../index.js";
 
 export type CreateCatalogItemSecurity = {
   apiKey?: string | undefined;
   bearer?: string | undefined;
+};
+
+export type CreateCatalogItemRequest = {
+  /**
+   * Optional unique key that makes this create safely retryable. Replaying the same key returns the original response instead of creating a duplicate; reusing a key with a different request body returns 409.
+   */
+  idempotencyKey?: string | undefined;
+  body: models.CatalogItemCreate;
 };
 
 /** @internal */
@@ -29,5 +39,35 @@ export function createCatalogItemSecurityToJSON(
 ): string {
   return JSON.stringify(
     CreateCatalogItemSecurity$outboundSchema.parse(createCatalogItemSecurity),
+  );
+}
+
+/** @internal */
+export type CreateCatalogItemRequest$Outbound = {
+  "Idempotency-Key"?: string | undefined;
+  body: models.CatalogItemCreate$Outbound;
+};
+
+/** @internal */
+export const CreateCatalogItemRequest$outboundSchema: z.ZodMiniType<
+  CreateCatalogItemRequest$Outbound,
+  CreateCatalogItemRequest
+> = z.pipe(
+  z.object({
+    idempotencyKey: z.optional(z.string()),
+    body: models.CatalogItemCreate$outboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      idempotencyKey: "Idempotency-Key",
+    });
+  }),
+);
+
+export function createCatalogItemRequestToJSON(
+  createCatalogItemRequest: CreateCatalogItemRequest,
+): string {
+  return JSON.stringify(
+    CreateCatalogItemRequest$outboundSchema.parse(createCatalogItemRequest),
   );
 }

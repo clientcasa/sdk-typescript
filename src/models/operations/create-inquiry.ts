@@ -3,10 +3,20 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
+import * as models from "../index.js";
 
 export type CreateInquirySecurity = {
   apiKey?: string | undefined;
   bearer?: string | undefined;
+};
+
+export type CreateInquiryRequest = {
+  /**
+   * Optional unique key that makes this create safely retryable. Replaying the same key returns the original response instead of creating a duplicate; reusing a key with a different request body returns 409.
+   */
+  idempotencyKey?: string | undefined;
+  body: models.InquiryCreate;
 };
 
 /** @internal */
@@ -29,5 +39,35 @@ export function createInquirySecurityToJSON(
 ): string {
   return JSON.stringify(
     CreateInquirySecurity$outboundSchema.parse(createInquirySecurity),
+  );
+}
+
+/** @internal */
+export type CreateInquiryRequest$Outbound = {
+  "Idempotency-Key"?: string | undefined;
+  body: models.InquiryCreate$Outbound;
+};
+
+/** @internal */
+export const CreateInquiryRequest$outboundSchema: z.ZodMiniType<
+  CreateInquiryRequest$Outbound,
+  CreateInquiryRequest
+> = z.pipe(
+  z.object({
+    idempotencyKey: z.optional(z.string()),
+    body: models.InquiryCreate$outboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      idempotencyKey: "Idempotency-Key",
+    });
+  }),
+);
+
+export function createInquiryRequestToJSON(
+  createInquiryRequest: CreateInquiryRequest,
+): string {
+  return JSON.stringify(
+    CreateInquiryRequest$outboundSchema.parse(createInquiryRequest),
   );
 }

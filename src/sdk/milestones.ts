@@ -11,6 +11,7 @@ import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
+import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class Milestones extends ClientSDK {
   /**
@@ -20,8 +21,10 @@ export class Milestones extends ClientSDK {
     security: operations.ListMilestonesSecurity,
     request?: operations.ListMilestonesRequest | undefined,
     options?: RequestOptions,
-  ): Promise<operations.ListMilestonesResponse> {
-    return unwrapAsync(milestonesList(
+  ): Promise<
+    PageIterator<operations.ListMilestonesResponse, { page: number }>
+  > {
+    return unwrapResultIterator(milestonesList(
       this,
       security,
       request,
@@ -37,7 +40,7 @@ export class Milestones extends ClientSDK {
    */
   async create(
     security: operations.CreateMilestoneSecurity,
-    request: models.MilestoneCreate,
+    request: operations.CreateMilestoneRequest,
     options?: RequestOptions,
   ): Promise<models.Milestone> {
     return unwrapAsync(milestonesCreate(
@@ -65,22 +68,6 @@ export class Milestones extends ClientSDK {
   }
 
   /**
-   * Update a milestone
-   */
-  async update(
-    security: operations.UpdateMilestoneSecurity,
-    request: operations.UpdateMilestoneRequest,
-    options?: RequestOptions,
-  ): Promise<models.Milestone> {
-    return unwrapAsync(milestonesUpdate(
-      this,
-      security,
-      request,
-      options,
-    ));
-  }
-
-  /**
    * Delete a milestone
    */
   async delete(
@@ -89,6 +76,22 @@ export class Milestones extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(milestonesDelete(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update a milestone
+   */
+  async update(
+    security: operations.UpdateMilestoneSecurity,
+    request: operations.UpdateMilestoneRequest,
+    options?: RequestOptions,
+  ): Promise<models.Milestone> {
+    return unwrapAsync(milestonesUpdate(
       this,
       security,
       request,

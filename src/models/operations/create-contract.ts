@@ -3,10 +3,20 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
+import * as models from "../index.js";
 
 export type CreateContractSecurity = {
   apiKey?: string | undefined;
   bearer?: string | undefined;
+};
+
+export type CreateContractRequest = {
+  /**
+   * Optional unique key that makes this create safely retryable. Replaying the same key returns the original response instead of creating a duplicate; reusing a key with a different request body returns 409.
+   */
+  idempotencyKey?: string | undefined;
+  body: models.ContractCreate;
 };
 
 /** @internal */
@@ -29,5 +39,35 @@ export function createContractSecurityToJSON(
 ): string {
   return JSON.stringify(
     CreateContractSecurity$outboundSchema.parse(createContractSecurity),
+  );
+}
+
+/** @internal */
+export type CreateContractRequest$Outbound = {
+  "Idempotency-Key"?: string | undefined;
+  body: models.ContractCreate$Outbound;
+};
+
+/** @internal */
+export const CreateContractRequest$outboundSchema: z.ZodMiniType<
+  CreateContractRequest$Outbound,
+  CreateContractRequest
+> = z.pipe(
+  z.object({
+    idempotencyKey: z.optional(z.string()),
+    body: models.ContractCreate$outboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      idempotencyKey: "Idempotency-Key",
+    });
+  }),
+);
+
+export function createContractRequestToJSON(
+  createContractRequest: CreateContractRequest,
+): string {
+  return JSON.stringify(
+    CreateContractRequest$outboundSchema.parse(createContractRequest),
   );
 }

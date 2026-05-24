@@ -11,6 +11,7 @@ import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
+import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class Clients extends ClientSDK {
   /**
@@ -20,8 +21,8 @@ export class Clients extends ClientSDK {
     security: operations.ListClientsSecurity,
     request?: operations.ListClientsRequest | undefined,
     options?: RequestOptions,
-  ): Promise<operations.ListClientsResponse> {
-    return unwrapAsync(clientsList(
+  ): Promise<PageIterator<operations.ListClientsResponse, { page: number }>> {
+    return unwrapResultIterator(clientsList(
       this,
       security,
       request,
@@ -34,7 +35,7 @@ export class Clients extends ClientSDK {
    */
   async create(
     security: operations.CreateClientSecurity,
-    request: models.ClientCreate,
+    request: operations.CreateClientRequest,
     options?: RequestOptions,
   ): Promise<models.Client> {
     return unwrapAsync(clientsCreate(
@@ -62,22 +63,6 @@ export class Clients extends ClientSDK {
   }
 
   /**
-   * Update a client
-   */
-  async update(
-    security: operations.UpdateClientSecurity,
-    request: operations.UpdateClientRequest,
-    options?: RequestOptions,
-  ): Promise<models.Client> {
-    return unwrapAsync(clientsUpdate(
-      this,
-      security,
-      request,
-      options,
-    ));
-  }
-
-  /**
    * Delete a client
    */
   async delete(
@@ -86,6 +71,22 @@ export class Clients extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(clientsDelete(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update a client
+   */
+  async update(
+    security: operations.UpdateClientSecurity,
+    request: operations.UpdateClientRequest,
+    options?: RequestOptions,
+  ): Promise<models.Client> {
+    return unwrapAsync(clientsUpdate(
       this,
       security,
       request,

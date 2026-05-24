@@ -3,10 +3,20 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
+import * as models from "../index.js";
 
 export type CreateProjectSecurity = {
   apiKey?: string | undefined;
   bearer?: string | undefined;
+};
+
+export type CreateProjectRequest = {
+  /**
+   * Optional unique key that makes this create safely retryable. Replaying the same key returns the original response instead of creating a duplicate; reusing a key with a different request body returns 409.
+   */
+  idempotencyKey?: string | undefined;
+  body: models.ProjectCreate;
 };
 
 /** @internal */
@@ -29,5 +39,35 @@ export function createProjectSecurityToJSON(
 ): string {
   return JSON.stringify(
     CreateProjectSecurity$outboundSchema.parse(createProjectSecurity),
+  );
+}
+
+/** @internal */
+export type CreateProjectRequest$Outbound = {
+  "Idempotency-Key"?: string | undefined;
+  body: models.ProjectCreate$Outbound;
+};
+
+/** @internal */
+export const CreateProjectRequest$outboundSchema: z.ZodMiniType<
+  CreateProjectRequest$Outbound,
+  CreateProjectRequest
+> = z.pipe(
+  z.object({
+    idempotencyKey: z.optional(z.string()),
+    body: models.ProjectCreate$outboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      idempotencyKey: "Idempotency-Key",
+    });
+  }),
+);
+
+export function createProjectRequestToJSON(
+  createProjectRequest: CreateProjectRequest,
+): string {
+  return JSON.stringify(
+    CreateProjectRequest$outboundSchema.parse(createProjectRequest),
   );
 }

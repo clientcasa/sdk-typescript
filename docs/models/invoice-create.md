@@ -13,10 +13,9 @@ let value: InvoiceCreate = {
   ],
   lineItems: [
     {
-      description:
-        "intervention off while ad yowza physically suburban any among",
-      quantity: 652.87,
-      unitPrice: 8872.12,
+      description: "easy yowza a unlike rim horde sparse huzzah",
+      quantity: 8298.99,
+      unitPrice: 6845.35,
     },
   ],
 };

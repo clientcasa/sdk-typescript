@@ -3,10 +3,20 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
+import * as models from "../index.js";
 
 export type CreateMilestoneSecurity = {
   apiKey?: string | undefined;
   bearer?: string | undefined;
+};
+
+export type CreateMilestoneRequest = {
+  /**
+   * Optional unique key that makes this create safely retryable. Replaying the same key returns the original response instead of creating a duplicate; reusing a key with a different request body returns 409.
+   */
+  idempotencyKey?: string | undefined;
+  body: models.MilestoneCreate;
 };
 
 /** @internal */
@@ -29,5 +39,35 @@ export function createMilestoneSecurityToJSON(
 ): string {
   return JSON.stringify(
     CreateMilestoneSecurity$outboundSchema.parse(createMilestoneSecurity),
+  );
+}
+
+/** @internal */
+export type CreateMilestoneRequest$Outbound = {
+  "Idempotency-Key"?: string | undefined;
+  body: models.MilestoneCreate$Outbound;
+};
+
+/** @internal */
+export const CreateMilestoneRequest$outboundSchema: z.ZodMiniType<
+  CreateMilestoneRequest$Outbound,
+  CreateMilestoneRequest
+> = z.pipe(
+  z.object({
+    idempotencyKey: z.optional(z.string()),
+    body: models.MilestoneCreate$outboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      idempotencyKey: "Idempotency-Key",
+    });
+  }),
+);
+
+export function createMilestoneRequestToJSON(
+  createMilestoneRequest: CreateMilestoneRequest,
+): string {
+  return JSON.stringify(
+    CreateMilestoneRequest$outboundSchema.parse(createMilestoneRequest),
   );
 }

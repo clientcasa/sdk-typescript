@@ -11,6 +11,7 @@ import { ClientSDK, RequestOptions } from "../lib/sdks.js";
 import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { unwrapAsync } from "../types/fp.js";
+import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 
 export class Contacts extends ClientSDK {
   /**
@@ -20,8 +21,8 @@ export class Contacts extends ClientSDK {
     security: operations.ListContactsSecurity,
     request?: operations.ListContactsRequest | undefined,
     options?: RequestOptions,
-  ): Promise<operations.ListContactsResponse> {
-    return unwrapAsync(contactsList(
+  ): Promise<PageIterator<operations.ListContactsResponse, { page: number }>> {
+    return unwrapResultIterator(contactsList(
       this,
       security,
       request,
@@ -34,7 +35,7 @@ export class Contacts extends ClientSDK {
    */
   async create(
     security: operations.CreateContactSecurity,
-    request: models.ContactCreate,
+    request: operations.CreateContactRequest,
     options?: RequestOptions,
   ): Promise<models.Contact> {
     return unwrapAsync(contactsCreate(
@@ -62,22 +63,6 @@ export class Contacts extends ClientSDK {
   }
 
   /**
-   * Update a contact
-   */
-  async update(
-    security: operations.UpdateContactSecurity,
-    request: operations.UpdateContactRequest,
-    options?: RequestOptions,
-  ): Promise<models.Contact> {
-    return unwrapAsync(contactsUpdate(
-      this,
-      security,
-      request,
-      options,
-    ));
-  }
-
-  /**
    * Delete a contact
    */
   async delete(
@@ -86,6 +71,22 @@ export class Contacts extends ClientSDK {
     options?: RequestOptions,
   ): Promise<void> {
     return unwrapAsync(contactsDelete(
+      this,
+      security,
+      request,
+      options,
+    ));
+  }
+
+  /**
+   * Update a contact
+   */
+  async update(
+    security: operations.UpdateContactSecurity,
+    request: operations.UpdateContactRequest,
+    options?: RequestOptions,
+  ): Promise<models.Contact> {
+    return unwrapAsync(contactsUpdate(
       this,
       security,
       request,

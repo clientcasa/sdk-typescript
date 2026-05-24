@@ -2,8 +2,8 @@ speakeasyVersion: 1.764.1
 sources:
     ClientCasa API:
         sourceNamespace: client-casa-api
-        sourceRevisionDigest: sha256:3b3692a1e43e8ecf3a86fb92fc98b9fb57436b69ab47cbadbf512eaf058fec56
-        sourceBlobDigest: sha256:ea341fe3b7006bfde35497cf14f31141d901911620b136cf8af52e975f448599
+        sourceRevisionDigest: sha256:328f2d5e46b34b9450e615575ac4bb0580d0f87643994f9d2395a290fd7822cf
+        sourceBlobDigest: sha256:dd8bd7658efbe0f3087d71b998e75c3b58fe0cc7effbac01bb28296296e1c5f0
         tags:
             - latest
             - 1.0.0
@@ -11,10 +11,10 @@ targets:
     client-casa:
         source: ClientCasa API
         sourceNamespace: client-casa-api
-        sourceRevisionDigest: sha256:3b3692a1e43e8ecf3a86fb92fc98b9fb57436b69ab47cbadbf512eaf058fec56
-        sourceBlobDigest: sha256:ea341fe3b7006bfde35497cf14f31141d901911620b136cf8af52e975f448599
+        sourceRevisionDigest: sha256:328f2d5e46b34b9450e615575ac4bb0580d0f87643994f9d2395a290fd7822cf
+        sourceBlobDigest: sha256:dd8bd7658efbe0f3087d71b998e75c3b58fe0cc7effbac01bb28296296e1c5f0
         codeSamplesNamespace: client-casa-api-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:ff35b2d05c37214e3d4a82b3df7d828116f34d8654ab4daa4ba3d4dc1e1d7e85
+        codeSamplesRevisionDigest: sha256:bfbd7fc772caa198d4f14927b47be7a4dc84e57d61c105df10ef15c890207bdc
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
@@ -22,8 +22,6 @@ workflow:
         ClientCasa API:
             inputs:
                 - location: https://www.clientcasa.com/api/v1/openapi.json
-            overlays:
-                - location: .speakeasy/speakeasy-modifications-overlay.yaml
             output: .speakeasy/out.openapi.yaml
             registry:
                 location: registry.speakeasyapi.dev/delmare-digital/clientcasa/client-casa-api

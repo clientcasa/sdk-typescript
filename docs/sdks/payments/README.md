@@ -29,7 +29,9 @@ async function run() {
     invoiceId: "550e8400-e29b-41d4-a716-446655440000",
   });
 
-  console.log(result);
+  for await (const page of result) {
+    console.log(page);
+  }
 }
 
 run();
@@ -56,7 +58,9 @@ async function run() {
   });
   if (res.ok) {
     const { value: result } = res;
-    console.log(result);
+    for await (const page of result) {
+    console.log(page);
+  }
   } else {
     console.log("paymentsList failed:", res.error);
   }
@@ -83,6 +87,8 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ApiError               | 400, 401, 403, 429            | application/json              |
+| errors.ApiError               | 500                           | application/json              |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
 ## create
@@ -101,12 +107,15 @@ async function run() {
   const result = await clientCasa.payments.create({
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
-    clientId: "550e8400-e29b-41d4-a716-446655440000",
-    invoiceId: "550e8400-e29b-41d4-a716-446655440000",
-    amount: 8834.59,
-    receivedDate: new Date("2026-11-18"),
-    method: "zelle",
-    refundOfId: "550e8400-e29b-41d4-a716-446655440000",
+    idempotencyKey: "create-client-2026-05-24-a1b2c3",
+    body: {
+      clientId: "550e8400-e29b-41d4-a716-446655440000",
+      invoiceId: "550e8400-e29b-41d4-a716-446655440000",
+      amount: 8834.59,
+      receivedDate: new Date("2026-11-18"),
+      method: "zelle",
+      refundOfId: "550e8400-e29b-41d4-a716-446655440000",
+    },
   });
 
   console.log(result);
@@ -131,12 +140,15 @@ async function run() {
   const res = await paymentsCreate(clientCasa, {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
-    clientId: "550e8400-e29b-41d4-a716-446655440000",
-    invoiceId: "550e8400-e29b-41d4-a716-446655440000",
-    amount: 8834.59,
-    receivedDate: new Date("2026-11-18"),
-    method: "zelle",
-    refundOfId: "550e8400-e29b-41d4-a716-446655440000",
+    idempotencyKey: "create-client-2026-05-24-a1b2c3",
+    body: {
+      clientId: "550e8400-e29b-41d4-a716-446655440000",
+      invoiceId: "550e8400-e29b-41d4-a716-446655440000",
+      amount: 8834.59,
+      receivedDate: new Date("2026-11-18"),
+      method: "zelle",
+      refundOfId: "550e8400-e29b-41d4-a716-446655440000",
+    },
   });
   if (res.ok) {
     const { value: result } = res;
@@ -153,7 +165,7 @@ run();
 
 | Parameter                                                                                                                                                                      | Type                                                                                                                                                                           | Required                                                                                                                                                                       | Description                                                                                                                                                                    |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                                                                                      | [models.PaymentCreate](../../models/payment-create.md)                                                                                                                         | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
+| `request`                                                                                                                                                                      | [operations.CreatePaymentRequest](../../models/operations/create-payment-request.md)                                                                                           | :heavy_check_mark:                                                                                                                                                             | The request object to use for the request.                                                                                                                                     |
 | `security`                                                                                                                                                                     | [operations.CreatePaymentSecurity](../../models/operations/create-payment-security.md)                                                                                         | :heavy_check_mark:                                                                                                                                                             | The security requirements to use for the request.                                                                                                                              |
 | `options`                                                                                                                                                                      | RequestOptions                                                                                                                                                                 | :heavy_minus_sign:                                                                                                                                                             | Used to set various options for making HTTP requests.                                                                                                                          |
 | `options.fetchOptions`                                                                                                                                                         | [RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/Request/Request#options)                                                                                        | :heavy_minus_sign:                                                                                                                                                             | Options that are passed to the underlying HTTP request. This can be used to inject extra headers for examples. All `Request` options, except `method` and `body`, are allowed. |
@@ -167,6 +179,8 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ApiError               | 400, 401, 403, 409, 429       | application/json              |
+| errors.ApiError               | 500                           | application/json              |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
 ## get
@@ -241,6 +255,8 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ApiError               | 401, 403, 404, 429            | application/json              |
+| errors.ApiError               | 500                           | application/json              |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
 ## update
@@ -317,4 +333,6 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
+| errors.ApiError               | 400, 401, 403, 404, 429       | application/json              |
+| errors.ApiError               | 500                           | application/json              |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
