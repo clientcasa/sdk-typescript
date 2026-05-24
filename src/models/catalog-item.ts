@@ -33,6 +33,13 @@ export const CatalogItemType = {
 } as const;
 export type CatalogItemType = OpenEnum<typeof CatalogItemType>;
 
+export const CatalogItemPricingMode = {
+  Fixed: "fixed",
+  Hourly: "hourly",
+  Bom: "bom",
+} as const;
+export type CatalogItemPricingMode = OpenEnum<typeof CatalogItemPricingMode>;
+
 export const CatalogItemStatus = {
   Active: "active",
   Paused: "paused",
@@ -53,6 +60,7 @@ export type CatalogItem = {
   unit: CatalogItemUnit;
   defaultFrequency: CatalogItemDefaultFrequency;
   type: CatalogItemType;
+  pricingMode: CatalogItemPricingMode;
   /**
    * UUID v4
    */
@@ -91,6 +99,12 @@ export const CatalogItemType$inboundSchema: z.ZodMiniType<
 > = openEnums.inboundSchema(CatalogItemType);
 
 /** @internal */
+export const CatalogItemPricingMode$inboundSchema: z.ZodMiniType<
+  CatalogItemPricingMode,
+  unknown
+> = openEnums.inboundSchema(CatalogItemPricingMode);
+
+/** @internal */
 export const CatalogItemStatus$inboundSchema: z.ZodMiniType<
   CatalogItemStatus,
   unknown
@@ -108,6 +122,7 @@ export const CatalogItem$inboundSchema: z.ZodMiniType<CatalogItem, unknown> = z
     unit: CatalogItemUnit$inboundSchema,
     defaultFrequency: CatalogItemDefaultFrequency$inboundSchema,
     type: CatalogItemType$inboundSchema,
+    pricingMode: CatalogItemPricingMode$inboundSchema,
     taxCategoryId: types.nullable(types.string()),
     status: CatalogItemStatus$inboundSchema,
     clientId: types.nullable(types.string()),

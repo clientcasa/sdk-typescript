@@ -35,7 +35,6 @@ export type TimeEntryUpdate = {
   rateType?: TimeEntryUpdateRateType | undefined;
   customMultiplierName?: string | undefined;
   rateOverride?: number | undefined;
-  discountPercent?: number | undefined;
   workerName?: string | undefined;
 };
 
@@ -56,7 +55,6 @@ export type TimeEntryUpdate$Outbound = {
   rateType: string;
   customMultiplierName?: string | undefined;
   rateOverride?: number | undefined;
-  discountPercent?: number | undefined;
   workerName?: string | undefined;
 };
 
@@ -80,7 +78,6 @@ export const TimeEntryUpdate$outboundSchema: z.ZodMiniType<
   rateType: z._default(TimeEntryUpdateRateType$outboundSchema, "standard"),
   customMultiplierName: z.optional(z.string()),
   rateOverride: z.optional(z.number()),
-  discountPercent: z.optional(z.number()),
   workerName: z.optional(z.string()),
 });
 

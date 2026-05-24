@@ -1,24 +1,24 @@
 lockVersion: 2.0.0
 id: 845b3ae5-0c5c-44ad-9b76-21e1d9e24151
 management:
-  docChecksum: 4864c99bdf1d8561ec2590f30d4f8100
+  docChecksum: 46c4b61e27f72cc0ccb6e028e932d94c
   docVersion: 1.0.0
-  speakeasyVersion: 1.763.2
-  generationVersion: 2.884.4
-  releaseVersion: 0.1.2
-  configChecksum: 4ca3c2f6e7856327bd26c4e7e071c15b
+  speakeasyVersion: 1.764.1
+  generationVersion: 2.885.1
+  releaseVersion: 0.1.3
+  configChecksum: 0756ddcd67098efcecc9785d4270fb27
   repoURL: https://github.com/clientcasa/sdk-typescript.git
   installationURL: https://github.com/clientcasa/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: cf83e2c5-86e9-4cc1-b979-e039631099a3
-  pristine_commit_hash: 9b4eb7c5f0dd2c159b229f7df42db4904dd228a8
-  pristine_tree_hash: 2b0734bb59748a6064c13fae11594e3287f3b87c
+  generation_id: ac5a3ff3-8df6-4af7-be09-035ac5b088c2
+  pristine_commit_hash: a01d8a0efe1e7a7cda43e84f61ea1eed83be31a8
+  pristine_tree_hash: f4446f147e648850c01a0a065b72bfbb69646011
 features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.14
-    core: 3.26.50
+    core: 3.26.51
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.1
     enumUnions: 0.1.0
@@ -95,6 +95,10 @@ trackedFiles:
     id: 83b96b6b2f3a
     last_write_checksum: sha1:21bea13f54811943eb20dba3b4af5e58e02caa52
     pristine_git_object: f201f2ad41f8d224d60eb13d10077a8db04f3f3c
+  docs/models/catalog-item-create-pricing-mode.md:
+    id: 2d474081352f
+    last_write_checksum: sha1:d39b92fd1d64c4176ec3b47729a1fbe04b51bf90
+    pristine_git_object: 0dff83e1cff66332724e78108d48532631236a92
   docs/models/catalog-item-create-status.md:
     id: 6c941f10ff6a
     last_write_checksum: sha1:6c27738e17d57eeb76911d8b294a8b50504faae8
@@ -109,12 +113,16 @@ trackedFiles:
     pristine_git_object: 255c338ad2693f537383bc2df40e0e924bd47521
   docs/models/catalog-item-create.md:
     id: 89e31e5300e7
-    last_write_checksum: sha1:b86661ecec44da106de7b64c21d17e5c43eb31bf
-    pristine_git_object: a0f398f8f6a30ac15e0ed4546f868e7db85cd74e
+    last_write_checksum: sha1:8a29eaae0c55a4fa94a3eedc6a3537ae82154a44
+    pristine_git_object: bb3c668233f3042832fd273f38ba7d4d879a4989
   docs/models/catalog-item-default-frequency.md:
     id: d56a10032f59
     last_write_checksum: sha1:655745b85a8749e9c5497a437fcd44d20a7724e2
     pristine_git_object: 452e4d52bdcd6a9deaa8f6c248880871419414d3
+  docs/models/catalog-item-pricing-mode.md:
+    id: ccd61d0d4982
+    last_write_checksum: sha1:ec261c4aa4c1fcdfbfa11c602851548a2f517f1f
+    pristine_git_object: cc545b506df5e0b675a9af58f903a7e5fb1ff284
   docs/models/catalog-item-status.md:
     id: 63aae9569049
     last_write_checksum: sha1:87896e72efedb288141ffefe0c5ee4c94dba4ab8
@@ -131,6 +139,10 @@ trackedFiles:
     id: f0bc01796d95
     last_write_checksum: sha1:689cf31121bbe67a4ac5a872520dcf1f1d92526e
     pristine_git_object: 82238520e240b8f2b76435f77c60d2030c91716f
+  docs/models/catalog-item-update-pricing-mode.md:
+    id: 66cdf8a540be
+    last_write_checksum: sha1:6293db6d0c7cc78795f297978e8a8dc86202126f
+    pristine_git_object: 5b3353023195f490c43531b3cc8b9d6a647b3686
   docs/models/catalog-item-update-status.md:
     id: affc43ca2e3e
     last_write_checksum: sha1:27951d91453efc61f311b4e815169febae987a37
@@ -145,12 +157,12 @@ trackedFiles:
     pristine_git_object: b0e57e1f6b15e01c586337e0c057431bb283d3c3
   docs/models/catalog-item-update.md:
     id: c4ad99bf67a6
-    last_write_checksum: sha1:d5108a14c6f8fac8023e10a7a179bc4a8c103c22
-    pristine_git_object: f884acfa4c4ba86198a70c66ebcdc8abdfdef2f6
+    last_write_checksum: sha1:6b81133960753448a19b3ffb39db29158577c616
+    pristine_git_object: 83cec7a42d5ac13f9a96e8e569184a842d8458e6
   docs/models/catalog-item.md:
     id: 008d3e7535e7
-    last_write_checksum: sha1:e3324f4a8aa1d7c533409cfaa27a4cef5a974747
-    pristine_git_object: eb310226023f697fca4000511726124c975f5d0d
+    last_write_checksum: sha1:dd6c71b571ff6f6b1fb62162659ca19d316925e6
+    pristine_git_object: 506baa54b011823585798ac6d39df0e65f2edb88
   docs/models/client-create-status.md:
     id: a79077a51576
     last_write_checksum: sha1:28eac40d29a94730689a8f45f84a31392f589862
@@ -1081,8 +1093,8 @@ trackedFiles:
     pristine_git_object: 25bcebad99d1dc716aec885aa48e94130051c6d4
   docs/models/time-entry-create.md:
     id: f97e98baf290
-    last_write_checksum: sha1:114ca2e3f17b122c787043da97a9194075ca2f3f
-    pristine_git_object: b9e0871f7900c847c0bef2cfa2aea52e3c2e4bbb
+    last_write_checksum: sha1:8a717a8fa63afe3e34ce3489a7c969212abc36f1
+    pristine_git_object: 65592cc9e6f48e8783db4ef0fdcefe12b4ebef06
   docs/models/time-entry-rate-type.md:
     id: cf3a0d4f60b8
     last_write_checksum: sha1:60a065fb98e91b6e3148ab3046b192710b221421
@@ -1093,12 +1105,12 @@ trackedFiles:
     pristine_git_object: e32a061e530eeaa9cc2c10ad69ca0e9b970cb911
   docs/models/time-entry-update.md:
     id: 6668f74447a2
-    last_write_checksum: sha1:63a14d91c2bb1a42b8066f719b510ae71d20c8f3
-    pristine_git_object: 4419a4febce42403e13a699bfe80cf6373987214
+    last_write_checksum: sha1:83fdd941149fa1f570709a24a36a3e3a0f3e6766
+    pristine_git_object: d50cb072c2464854dc2f9a33b03477c14198a75f
   docs/models/time-entry.md:
     id: f6039172674f
-    last_write_checksum: sha1:dd52fd9ab3819abbdca4ba9325a3811502e38aba
-    pristine_git_object: c68d6f6c194c584e5aeb67107af5aee2a556e544
+    last_write_checksum: sha1:9eed90dd86688f9ae27ce927a5cf58ffb8ed6863
+    pristine_git_object: bb674a42bd1373f341dbaf85585880e24f27a1dc
   docs/models/transaction-assignment.md:
     id: d58c3d7f59dc
     last_write_checksum: sha1:7bba7481cb9bb8a676cfb98d39069e12691c1cb1
@@ -1169,8 +1181,8 @@ trackedFiles:
     pristine_git_object: 2c41c05186ee293f9b6a9a2607cea32db36fc373
   docs/models/transaction.md:
     id: 24ab0958a449
-    last_write_checksum: sha1:931749cdcf505dfb8677e805dde47dc21e4ad5de
-    pristine_git_object: 9e0d2be536038594747b82dbf6f41e77601812d6
+    last_write_checksum: sha1:de503af1ad4f96a4d2130dc9d76e7f81cc80a84e
+    pristine_git_object: 4e28f4436fa9b11604554b876034e099e64e7270
   docs/models/webhook-create-event.md:
     id: 76ced2e825cb
     last_write_checksum: sha1:233a33a57d547835d2cdf8fc9de0b86f4f2a8cab
@@ -1281,12 +1293,12 @@ trackedFiles:
     pristine_git_object: dca8b77bfe9ec131b8e55da6a49883996f4ea14e
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:8df33a4484933a128b244e9b3a7a9c4331127415
-    pristine_git_object: c2fadd20599018bc61266740db65bd43d4da9a10
+    last_write_checksum: sha1:76e293125c087ab2b1cab263a1326b8a90a5c22c
+    pristine_git_object: 74d5262639fb4b19e8d581d099d0dd40654852de
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:31ae31379a6217313604ec2d0acb968c8d62f505
-    pristine_git_object: a9e8a47699c900aea40d578d932e4b1b5ea1d188
+    last_write_checksum: sha1:a4b7f66d29f1e379653e26eec8219b6e4a9eb00f
+    pristine_git_object: 7d14621a7709109d78b6a6f8eda29cdb4daec654
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:473b76edf3d30ed53981d70a75feb9a4318c3ec1
@@ -1597,8 +1609,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:dbf8724d3f8a47acd092b4556f9b88a4c1e80bee
-    pristine_git_object: 116125611009a0f90581a241d76b65698a58159c
+    last_write_checksum: sha1:eec8719846ab7c89c70bb2654bdea8c151edba99
+    pristine_git_object: 8354a8579d93727067f1cb00eb3dece6c081ce39
   src/lib/dlv.ts:
     id: b1988214835a
     last_write_checksum: sha1:1dd3e3fbb4550c4bf31f5ef997faff355d6f3250
@@ -1669,16 +1681,16 @@ trackedFiles:
     pristine_git_object: 241cb2d38b56f290c06587ffec63358346055f3b
   src/models/catalog-item-create.ts:
     id: 82909dd3725d
-    last_write_checksum: sha1:03a7a0e6e08c6ba1e7295fed3308d7d7648a7c34
-    pristine_git_object: a3841586b2319b4458414a28ec32ac319c1059df
+    last_write_checksum: sha1:6782aa3b495d09b73d3404a4b275ec63e7d21a34
+    pristine_git_object: 3afb1a658f1a35ebfad7024203f2e9176c4f8f15
   src/models/catalog-item-update.ts:
     id: 0a184c72c2cc
-    last_write_checksum: sha1:def709ebe96d5d8f7c91d5c876adf4f344e03b44
-    pristine_git_object: 04979f4c65ecf3df750c299bedae2f82f6275475
+    last_write_checksum: sha1:f68548c0723ca9f1875acf1f9a8ee04d1a7aa9e0
+    pristine_git_object: 945927a3e1cf8b21269123b1edb211cf74d8a297
   src/models/catalog-item.ts:
     id: ed6e1a6d3fdf
-    last_write_checksum: sha1:8799027d9c5b1db0c58657fdd6043d0a5fef5bcf
-    pristine_git_object: 7e2cd7fc0fa11ceac63b5a024c6acd4632c6cb1b
+    last_write_checksum: sha1:d16c8d628cdc3c114e82be6105444324d78788fa
+    pristine_git_object: 5c545b4bc4fd1ac16df527f637b592ebed968a8b
   src/models/client-create.ts:
     id: 1736ac3a2d31
     last_write_checksum: sha1:2274b8f17d9f0725fe412dfd9caf90bf701b4bc3
@@ -2121,16 +2133,16 @@ trackedFiles:
     pristine_git_object: 06c5d2bcd5ecab8d5eea7c337744dc1e9043d948
   src/models/time-entry-create.ts:
     id: bea6d9597aa3
-    last_write_checksum: sha1:5d02a2744a9cb29b01e0acc802b00d406b7e2e52
-    pristine_git_object: a07726b11ee499c9b6af9b226f7a992a53ec21ea
+    last_write_checksum: sha1:c6e89af02cefdeee5f70840bc8a8a30a2c7134f9
+    pristine_git_object: ba309a1a60cf19fbdfadf1f83601b71e57b954ef
   src/models/time-entry-update.ts:
     id: 0c65511d38fc
-    last_write_checksum: sha1:13285facb4a4d3b30a272e5ef84214d2592709b8
-    pristine_git_object: bec364b8100e127cbaa91a0e4c147d221fbe3eb0
+    last_write_checksum: sha1:1037eabe74c8281369a0f2eabb0e872490230d1d
+    pristine_git_object: bc95d6df38a889a37a0ac302a70c91370ef8bc61
   src/models/time-entry.ts:
     id: 8a75718a993f
-    last_write_checksum: sha1:47d214d4bfbc8d22b80f7fc2afb2f5012bed3a27
-    pristine_git_object: 3748e899f4492148c070141da918abe11607a320
+    last_write_checksum: sha1:8625337e0f121224a65c527cdf4b0a61e2526fbf
+    pristine_git_object: a5c14e6b6a9b76ea4e0f82769f7fa49d83b17eb1
   src/models/transaction-create.ts:
     id: 44e0587c63e0
     last_write_checksum: sha1:b0b7be1f2033d044b1177c267f74534539b67269
@@ -2141,8 +2153,8 @@ trackedFiles:
     pristine_git_object: 1d9ecac2241ec6e5ad96dfce5c1dff10bfe0ea41
   src/models/transaction.ts:
     id: e95e32597b84
-    last_write_checksum: sha1:0e3a36df70352cf7071b4d096c87e8b59aced278
-    pristine_git_object: b8f377d274808076d4e0b4058876fad3fc6766ea
+    last_write_checksum: sha1:c5626c54576ab39595d4c618c2d4a46d824a88ee
+    pristine_git_object: 67464955b923570ab513f01ed0daff632f963ae8
   src/models/webhook-create.ts:
     id: ccfb5ae20b3c
     last_write_checksum: sha1:6cacd920a85eb94be9da23547bd58468402f4250
@@ -2225,8 +2237,8 @@ trackedFiles:
     pristine_git_object: 93ae0c2dfe8556c0332b75da5b427b1066764a98
   src/types/async.ts:
     id: fac8da972f86
-    last_write_checksum: sha1:3ff07b3feaf390ec1aeb18ff938e139c6c4a9585
-    pristine_git_object: 689dba5de50e8769e5f3bb913e3f42a146d15bc1
+    last_write_checksum: sha1:675d04bb4b4081dc3482f18de98674f9b446e7b4
+    pristine_git_object: 1543b95cf7be9b5a871d7395f259dbd65331dc21
   src/types/blobs.ts:
     id: f8ab9b326c86
     last_write_checksum: sha1:fd681458b532138913c372b05b3e16407abaa7a1
@@ -2257,8 +2269,8 @@ trackedFiles:
     pristine_git_object: beb81e10f0b9eee2ed398a853fe6f737b743f818
   src/types/primitives.ts:
     id: 0cd7f4ac625d
-    last_write_checksum: sha1:c3ce85778bf82bc0f0d464067b04856d99ff4365
-    pristine_git_object: 3db7350c00d08b4a3daa1c2c4d3cf3608d834430
+    last_write_checksum: sha1:a521a09fa18b1af857d29477d3aa7007b42583ed
+    pristine_git_object: 5c4e93d2030e8b820b6d8f060a275502a66c1a87
   src/types/rfcdate.ts:
     id: 9eb64906dcd6
     last_write_checksum: sha1:8e5f382e02fe21c2f2e24deb1b7bbf8cddd3dd16
@@ -3155,14 +3167,14 @@ examples:
           memberId: "550e8400-e29b-41d4-a716-446655440000"
       responses:
         "200":
-          application/json: {"data": [{"id": "550e8400-e29b-41d4-a716-446655440000", "projectId": "550e8400-e29b-41d4-a716-446655440000", "clientId": "550e8400-e29b-41d4-a716-446655440000", "memberId": "550e8400-e29b-41d4-a716-446655440000", "catalogItemId": "550e8400-e29b-41d4-a716-446655440000", "date": "2026-10-14", "hours": 140.9, "description": "publicize shark moor", "billable": true, "rateType": "custom", "customMultiplierName": "<value>", "rateOverride": 6564.17, "effectiveRate": 1365.67, "discountPercent": 9590.35, "workerName": "<value>", "createdAt": "2025-09-10T21:25:13.388Z", "updatedAt": "2025-10-26T04:42:48.805Z"}], "pagination": {"page": 909548, "pageSize": 328734, "total": 519135, "totalPages": 447449, "hasMore": false}}
+          application/json: {"data": [{"id": "550e8400-e29b-41d4-a716-446655440000", "projectId": "550e8400-e29b-41d4-a716-446655440000", "clientId": "550e8400-e29b-41d4-a716-446655440000", "memberId": "550e8400-e29b-41d4-a716-446655440000", "catalogItemId": "550e8400-e29b-41d4-a716-446655440000", "date": "2026-10-14", "hours": 140.9, "description": "publicize shark moor", "billable": true, "rateType": "custom", "customMultiplierName": "<value>", "rateOverride": 6564.17, "effectiveRate": 1365.67, "workerName": "<value>", "createdAt": "2025-09-10T21:25:13.388Z", "updatedAt": "2025-10-26T04:42:48.805Z"}], "pagination": {"page": 909548, "pageSize": 328734, "total": 519135, "totalPages": 447449, "hasMore": false}}
   createTimeEntry:
     speakeasy-default-create-time-entry:
       requestBody:
         application/json: {"projectId": "550e8400-e29b-41d4-a716-446655440000", "memberId": "550e8400-e29b-41d4-a716-446655440000", "catalogItemId": "550e8400-e29b-41d4-a716-446655440000", "date": "2025-08-03", "hours": 1367.83, "billable": true, "rateType": "standard"}
       responses:
         "201":
-          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "projectId": "550e8400-e29b-41d4-a716-446655440000", "clientId": "550e8400-e29b-41d4-a716-446655440000", "memberId": "550e8400-e29b-41d4-a716-446655440000", "catalogItemId": "550e8400-e29b-41d4-a716-446655440000", "date": "2025-10-21", "hours": 1254.25, "description": "until surprisingly hmph encode leading nasalise provided agreeable athwart", "billable": false, "rateType": "overtime", "customMultiplierName": "<value>", "rateOverride": null, "effectiveRate": 1655.39, "discountPercent": 2990.18, "workerName": null, "createdAt": "2024-03-11T09:10:19.504Z", "updatedAt": "2024-03-03T21:36:57.967Z"}
+          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "projectId": "550e8400-e29b-41d4-a716-446655440000", "clientId": "550e8400-e29b-41d4-a716-446655440000", "memberId": "550e8400-e29b-41d4-a716-446655440000", "catalogItemId": "550e8400-e29b-41d4-a716-446655440000", "date": "2025-10-21", "hours": 1254.25, "description": "until surprisingly hmph encode leading nasalise provided agreeable athwart", "billable": false, "rateType": "overtime", "customMultiplierName": "<value>", "rateOverride": null, "effectiveRate": 1655.39, "workerName": null, "createdAt": "2024-03-11T09:10:19.504Z", "updatedAt": "2024-03-03T21:36:57.967Z"}
   getTimeEntry:
     speakeasy-default-get-time-entry:
       parameters:
@@ -3170,7 +3182,7 @@ examples:
           id: "550e8400-e29b-41d4-a716-446655440000"
       responses:
         "200":
-          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "projectId": "550e8400-e29b-41d4-a716-446655440000", "clientId": "550e8400-e29b-41d4-a716-446655440000", "memberId": "550e8400-e29b-41d4-a716-446655440000", "catalogItemId": "550e8400-e29b-41d4-a716-446655440000", "date": "2024-10-23", "hours": 3587.35, "description": "given than coolly volunteer before unless reassemble profuse display", "billable": false, "rateType": "standard", "customMultiplierName": "<value>", "rateOverride": 3220.34, "effectiveRate": 1777.39, "discountPercent": 8004.32, "workerName": "<value>", "createdAt": "2024-03-17T15:01:16.282Z", "updatedAt": "2026-05-18T04:26:25.459Z"}
+          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "projectId": "550e8400-e29b-41d4-a716-446655440000", "clientId": "550e8400-e29b-41d4-a716-446655440000", "memberId": "550e8400-e29b-41d4-a716-446655440000", "catalogItemId": "550e8400-e29b-41d4-a716-446655440000", "date": "2024-10-23", "hours": 3587.35, "description": "given than coolly volunteer before unless reassemble profuse display", "billable": false, "rateType": "standard", "customMultiplierName": "<value>", "rateOverride": 3220.34, "effectiveRate": 1777.39, "workerName": "<value>", "createdAt": "2024-03-17T15:01:16.282Z", "updatedAt": "2026-05-18T04:26:25.459Z"}
   updateTimeEntry:
     speakeasy-default-update-time-entry:
       parameters:
@@ -3180,7 +3192,7 @@ examples:
         application/json: {"projectId": "550e8400-e29b-41d4-a716-446655440000", "memberId": "550e8400-e29b-41d4-a716-446655440000", "catalogItemId": "550e8400-e29b-41d4-a716-446655440000", "billable": true, "rateType": "standard"}
       responses:
         "200":
-          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "projectId": "550e8400-e29b-41d4-a716-446655440000", "clientId": "550e8400-e29b-41d4-a716-446655440000", "memberId": "550e8400-e29b-41d4-a716-446655440000", "catalogItemId": "550e8400-e29b-41d4-a716-446655440000", "date": "2025-08-17", "hours": 1898.28, "description": "remorseful sparse dilate", "billable": true, "rateType": "overtime", "customMultiplierName": "<value>", "rateOverride": 4607.54, "effectiveRate": 5099.2, "discountPercent": 1656.85, "workerName": "<value>", "createdAt": "2025-05-29T04:59:42.481Z", "updatedAt": "2024-12-04T06:41:59.776Z"}
+          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "projectId": "550e8400-e29b-41d4-a716-446655440000", "clientId": "550e8400-e29b-41d4-a716-446655440000", "memberId": "550e8400-e29b-41d4-a716-446655440000", "catalogItemId": "550e8400-e29b-41d4-a716-446655440000", "date": "2025-08-17", "hours": 1898.28, "description": "remorseful sparse dilate", "billable": true, "rateType": "overtime", "customMultiplierName": "<value>", "rateOverride": 4607.54, "effectiveRate": 5099.2, "workerName": "<value>", "createdAt": "2025-05-29T04:59:42.481Z", "updatedAt": "2024-12-04T06:41:59.776Z"}
   deleteTimeEntry:
     speakeasy-default-delete-time-entry:
       parameters:
@@ -3358,10 +3370,10 @@ examples:
   createCatalogItem:
     speakeasy-default-create-catalog-item:
       requestBody:
-        application/json: {"name": "<value>", "unit": "flat", "defaultFrequency": "one-time", "type": "charge", "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "status": "active", "clientId": "550e8400-e29b-41d4-a716-446655440000"}
+        application/json: {"name": "<value>", "unit": "flat", "defaultFrequency": "one-time", "type": "charge", "pricingMode": "fixed", "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "status": "active", "clientId": "550e8400-e29b-41d4-a716-446655440000"}
       responses:
         "201":
-          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "invoiceLabel": "<value>", "description": "grubby cork official iridescence", "invoiceDescription": "<value>", "defaultRate": 9947.64, "unit": "flat", "defaultFrequency": "monthly", "type": "charge", "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "status": "active", "clientId": "550e8400-e29b-41d4-a716-446655440000", "createdAt": "2025-12-04T21:54:25.737Z", "updatedAt": "2026-11-05T17:10:03.536Z"}
+          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "invoiceLabel": "<value>", "description": "grubby cork official iridescence", "invoiceDescription": "<value>", "defaultRate": 9947.64, "unit": "flat", "defaultFrequency": "monthly", "type": "charge", "pricingMode": "bom", "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "status": "active", "clientId": "550e8400-e29b-41d4-a716-446655440000", "createdAt": "2025-12-04T21:54:25.737Z", "updatedAt": "2026-11-05T17:10:03.536Z"}
   getCatalogItem:
     speakeasy-default-get-catalog-item:
       parameters:
@@ -3369,17 +3381,17 @@ examples:
           id: "550e8400-e29b-41d4-a716-446655440000"
       responses:
         "200":
-          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "invoiceLabel": "<value>", "description": "blossom chasuble promise", "invoiceDescription": "<value>", "defaultRate": 9324.38, "unit": "hour", "defaultFrequency": "quarterly", "type": "charge", "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "status": "archived", "clientId": "550e8400-e29b-41d4-a716-446655440000", "createdAt": "2026-07-28T09:59:15.820Z", "updatedAt": "2026-02-14T08:24:06.643Z"}
+          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "invoiceLabel": "<value>", "description": "blossom chasuble promise", "invoiceDescription": "<value>", "defaultRate": 9324.38, "unit": "hour", "defaultFrequency": "quarterly", "type": "charge", "pricingMode": "hourly", "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "status": "archived", "clientId": "550e8400-e29b-41d4-a716-446655440000", "createdAt": "2026-07-28T09:59:15.820Z", "updatedAt": "2026-02-14T08:24:06.643Z"}
   updateCatalogItem:
     speakeasy-default-update-catalog-item:
       parameters:
         path:
           id: "550e8400-e29b-41d4-a716-446655440000"
       requestBody:
-        application/json: {"unit": "flat", "defaultFrequency": "one-time", "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "status": "active", "clientId": "550e8400-e29b-41d4-a716-446655440000"}
+        application/json: {"unit": "flat", "defaultFrequency": "one-time", "pricingMode": "fixed", "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "status": "active", "clientId": "550e8400-e29b-41d4-a716-446655440000"}
       responses:
         "200":
-          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "invoiceLabel": "<value>", "description": "questioningly interestingly zowie kaleidoscopic modulo motionless", "invoiceDescription": "<value>", "defaultRate": 2647.79, "unit": "each", "defaultFrequency": "monthly", "type": "charge", "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "status": "archived", "clientId": "550e8400-e29b-41d4-a716-446655440000", "createdAt": "2024-03-01T02:00:39.260Z", "updatedAt": "2024-01-17T18:49:21.247Z"}
+          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "invoiceLabel": "<value>", "description": "questioningly interestingly zowie kaleidoscopic modulo motionless", "invoiceDescription": "<value>", "defaultRate": 2647.79, "unit": "each", "defaultFrequency": "monthly", "type": "charge", "pricingMode": "fixed", "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "status": "archived", "clientId": "550e8400-e29b-41d4-a716-446655440000", "createdAt": "2024-03-01T02:00:39.260Z", "updatedAt": "2024-01-17T18:49:21.247Z"}
   deleteCatalogItem:
     speakeasy-default-delete-catalog-item:
       parameters:

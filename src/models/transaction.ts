@@ -68,7 +68,7 @@ export type Transaction = {
    * UUID v4
    */
   taxCategoryId: string | null;
-  amount: number;
+  amount: number | null;
   frequency: TransactionFrequency;
   direction: TransactionDirection;
   mode: TransactionMode;
@@ -150,7 +150,7 @@ export const Transaction$inboundSchema: z.ZodMiniType<Transaction, unknown> = z
     name: types.string(),
     catalogItemId: types.nullable(types.string()),
     taxCategoryId: types.nullable(types.string()),
-    amount: types.number(),
+    amount: types.nullable(types.number()),
     frequency: TransactionFrequency$inboundSchema,
     direction: TransactionDirection$inboundSchema,
     mode: TransactionMode$inboundSchema,

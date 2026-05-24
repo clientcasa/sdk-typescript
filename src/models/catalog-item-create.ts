@@ -28,6 +28,15 @@ export const CatalogItemCreateType = {
 } as const;
 export type CatalogItemCreateType = ClosedEnum<typeof CatalogItemCreateType>;
 
+export const CatalogItemCreatePricingMode = {
+  Fixed: "fixed",
+  Hourly: "hourly",
+  Bom: "bom",
+} as const;
+export type CatalogItemCreatePricingMode = ClosedEnum<
+  typeof CatalogItemCreatePricingMode
+>;
+
 export const CatalogItemCreateStatus = {
   Active: "active",
   Paused: "paused",
@@ -46,6 +55,7 @@ export type CatalogItemCreate = {
   unit?: CatalogItemCreateUnit | undefined;
   defaultFrequency?: CatalogItemCreateDefaultFrequency | undefined;
   type: CatalogItemCreateType;
+  pricingMode?: CatalogItemCreatePricingMode | undefined;
   /**
    * UUID v4
    */
@@ -73,6 +83,11 @@ export const CatalogItemCreateType$outboundSchema: z.ZodMiniEnum<
 > = z.enum(CatalogItemCreateType);
 
 /** @internal */
+export const CatalogItemCreatePricingMode$outboundSchema: z.ZodMiniEnum<
+  typeof CatalogItemCreatePricingMode
+> = z.enum(CatalogItemCreatePricingMode);
+
+/** @internal */
 export const CatalogItemCreateStatus$outboundSchema: z.ZodMiniEnum<
   typeof CatalogItemCreateStatus
 > = z.enum(CatalogItemCreateStatus);
@@ -87,6 +102,7 @@ export type CatalogItemCreate$Outbound = {
   unit: string;
   defaultFrequency: string;
   type: string;
+  pricingMode: string;
   taxCategoryId?: string | undefined;
   status: string;
   clientId?: string | undefined;
@@ -108,6 +124,7 @@ export const CatalogItemCreate$outboundSchema: z.ZodMiniType<
     "one-time",
   ),
   type: CatalogItemCreateType$outboundSchema,
+  pricingMode: z._default(CatalogItemCreatePricingMode$outboundSchema, "fixed"),
   taxCategoryId: z.optional(z.string()),
   status: z._default(CatalogItemCreateStatus$outboundSchema, "active"),
   clientId: z.optional(z.string()),
