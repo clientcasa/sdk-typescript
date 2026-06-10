@@ -8,7 +8,7 @@ import { CreateMilestoneRequest } from "@clientcasa/sdk/models/operations";
 let value: CreateMilestoneRequest = {
   idempotencyKey: "create-client-2026-05-24-a1b2c3",
   body: {
-    parentType: "projects",
+    parentType: "client-documents",
     parentId: "550e8400-e29b-41d4-a716-446655440000",
     title: "<value>",
     date: new Date("2024-09-07"),

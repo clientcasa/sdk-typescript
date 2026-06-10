@@ -5,7 +5,7 @@
 ```typescript
 import { ClientStatus } from "@clientcasa/sdk/models";
 
-let value: ClientStatus = "prospect";
+let value: ClientStatus = "contacted";
 
 // Open enum: unrecognized values are captured as Unrecognized<string>
 ```
@@ -13,5 +13,5 @@ let value: ClientStatus = "prospect";
 ## Values
 
 ```typescript
-"prospect" | "active" | "inactive" | Unrecognized<string>
+"new" | "contacted" | "qualified" | "active" | "inactive" | "declined" | "spam" | Unrecognized<string>
 ```

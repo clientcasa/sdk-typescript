@@ -28,11 +28,18 @@ export const ListCatalogItemsStatus = {
 } as const;
 export type ListCatalogItemsStatus = ClosedEnum<typeof ListCatalogItemsStatus>;
 
+export const Composition = {
+  Atom: "atom",
+  Bundle: "bundle",
+} as const;
+export type Composition = ClosedEnum<typeof Composition>;
+
 export type ListCatalogItemsRequest = {
   page?: number | undefined;
   pageSize?: number | undefined;
   type?: Type | undefined;
   status?: ListCatalogItemsStatus | undefined;
+  composition?: Composition | undefined;
   /**
    * UUID v4
    */
@@ -75,11 +82,16 @@ export const ListCatalogItemsStatus$outboundSchema: z.ZodMiniEnum<
 > = z.enum(ListCatalogItemsStatus);
 
 /** @internal */
+export const Composition$outboundSchema: z.ZodMiniEnum<typeof Composition> = z
+  .enum(Composition);
+
+/** @internal */
 export type ListCatalogItemsRequest$Outbound = {
   page: number;
   pageSize: number;
   type?: string | undefined;
   status?: string | undefined;
+  composition?: string | undefined;
   clientId?: string | undefined;
 };
 
@@ -92,6 +104,7 @@ export const ListCatalogItemsRequest$outboundSchema: z.ZodMiniType<
   pageSize: z._default(z.int(), 25),
   type: z.optional(Type$outboundSchema),
   status: z.optional(ListCatalogItemsStatus$outboundSchema),
+  composition: z.optional(Composition$outboundSchema),
   clientId: z.optional(z.string()),
 });
 

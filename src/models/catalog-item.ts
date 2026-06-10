@@ -40,6 +40,18 @@ export const CatalogItemPricingMode = {
 } as const;
 export type CatalogItemPricingMode = OpenEnum<typeof CatalogItemPricingMode>;
 
+export const Composition = {
+  Atom: "atom",
+  Bundle: "bundle",
+} as const;
+export type Composition = OpenEnum<typeof Composition>;
+
+export const BundlePriceMode = {
+  Sum: "sum",
+  Fixed: "fixed",
+} as const;
+export type BundlePriceMode = OpenEnum<typeof BundlePriceMode>;
+
 export const CatalogItemStatus = {
   Active: "active",
   Paused: "paused",
@@ -61,6 +73,9 @@ export type CatalogItem = {
   defaultFrequency: CatalogItemDefaultFrequency;
   type: CatalogItemType;
   pricingMode: CatalogItemPricingMode;
+  composition: Composition;
+  bundlePriceMode: BundlePriceMode | null;
+  bundleFixedPrice: number | null;
   /**
    * UUID v4
    */
@@ -105,6 +120,16 @@ export const CatalogItemPricingMode$inboundSchema: z.ZodMiniType<
 > = openEnums.inboundSchema(CatalogItemPricingMode);
 
 /** @internal */
+export const Composition$inboundSchema: z.ZodMiniType<Composition, unknown> =
+  openEnums.inboundSchema(Composition);
+
+/** @internal */
+export const BundlePriceMode$inboundSchema: z.ZodMiniType<
+  BundlePriceMode,
+  unknown
+> = openEnums.inboundSchema(BundlePriceMode);
+
+/** @internal */
 export const CatalogItemStatus$inboundSchema: z.ZodMiniType<
   CatalogItemStatus,
   unknown
@@ -123,6 +148,9 @@ export const CatalogItem$inboundSchema: z.ZodMiniType<CatalogItem, unknown> = z
     defaultFrequency: CatalogItemDefaultFrequency$inboundSchema,
     type: CatalogItemType$inboundSchema,
     pricingMode: CatalogItemPricingMode$inboundSchema,
+    composition: Composition$inboundSchema,
+    bundlePriceMode: types.nullable(BundlePriceMode$inboundSchema),
+    bundleFixedPrice: types.nullable(types.number()),
     taxCategoryId: types.nullable(types.string()),
     status: CatalogItemStatus$inboundSchema,
     clientId: types.nullable(types.string()),

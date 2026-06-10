@@ -16,8 +16,8 @@ export type ListMilestonesSecurity = {
 };
 
 export const ParentType = {
-  Proposals: "proposals",
   Projects: "projects",
+  ClientDocuments: "client-documents",
 } as const;
 export type ParentType = ClosedEnum<typeof ParentType>;
 

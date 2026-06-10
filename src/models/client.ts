@@ -11,9 +11,13 @@ import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 export const ClientStatus = {
-  Prospect: "prospect",
+  New: "new",
+  Contacted: "contacted",
+  Qualified: "qualified",
   Active: "active",
   Inactive: "inactive",
+  Declined: "declined",
+  Spam: "spam",
 } as const;
 export type ClientStatus = OpenEnum<typeof ClientStatus>;
 

@@ -5,11 +5,11 @@
 ```typescript
 import { ParentType } from "@clientcasa/sdk/models/operations";
 
-let value: ParentType = "projects";
+let value: ParentType = "client-documents";
 ```
 
 ## Values
 
 ```typescript
-"proposals" | "projects"
+"projects" | "client-documents"
 ```

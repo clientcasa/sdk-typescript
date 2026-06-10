@@ -16,7 +16,7 @@ let value: ContactList = {
       role: "billing",
       isPrimary: true,
       clientId: "550e8400-e29b-41d4-a716-446655440000",
-      inquiryId: "550e8400-e29b-41d4-a716-446655440000",
+      sourceSubmissionId: "550e8400-e29b-41d4-a716-446655440000",
       createdAt: new Date("2026-01-15T03:20:43.958Z"),
       updatedAt: new Date("2025-04-26T09:41:35.455Z"),
     },

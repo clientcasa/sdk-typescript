@@ -11,8 +11,8 @@ import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 export const MilestoneParentType = {
-  Proposals: "proposals",
   Projects: "projects",
+  ClientDocuments: "client-documents",
 } as const;
 export type MilestoneParentType = OpenEnum<typeof MilestoneParentType>;
 

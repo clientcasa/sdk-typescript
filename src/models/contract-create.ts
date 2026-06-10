@@ -17,10 +17,6 @@ export type ContractCreate = {
   /**
    * UUID v4
    */
-  proposalId?: string | undefined;
-  /**
-   * UUID v4
-   */
   projectId?: string | undefined;
   /**
    * UUID v4
@@ -37,7 +33,6 @@ export type ContractCreate$Outbound = {
   title: string;
   clientId: string;
   billingContactId?: string | undefined;
-  proposalId?: string | undefined;
   projectId?: string | undefined;
   sourceTemplateId?: string | undefined;
   issueDate?: string | undefined;
@@ -54,7 +49,6 @@ export const ContractCreate$outboundSchema: z.ZodMiniType<
   title: z.string(),
   clientId: z.string(),
   billingContactId: z.optional(z.string()),
-  proposalId: z.optional(z.string()),
   projectId: z.optional(z.string()),
   sourceTemplateId: z.optional(z.string()),
   issueDate: z.optional(

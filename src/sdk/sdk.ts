@@ -8,13 +8,14 @@ import { CatalogItems } from "./catalog-items.js";
 import { Clients } from "./clients.js";
 import { Contacts } from "./contacts.js";
 import { Contracts } from "./contracts.js";
-import { Inquiries } from "./inquiries.js";
+import { FormSubmissions } from "./form-submissions.js";
+import { FormsAndAgreements } from "./forms-and-agreements.js";
+import { Forms } from "./forms.js";
 import { Invoices } from "./invoices.js";
 import { Milestones } from "./milestones.js";
 import { Payments } from "./payments.js";
 import { Payouts } from "./payouts.js";
 import { Projects } from "./projects.js";
-import { Proposals } from "./proposals.js";
 import { TimeEntries } from "./time-entries.js";
 import { Transactions } from "./transactions.js";
 import { Webhooks } from "./webhooks.js";
@@ -40,14 +41,24 @@ export class ClientCasa extends ClientSDK {
     return (this._invoices ??= new Invoices(this._options));
   }
 
-  private _proposals?: Proposals;
-  get proposals(): Proposals {
-    return (this._proposals ??= new Proposals(this._options));
-  }
-
   private _contracts?: Contracts;
   get contracts(): Contracts {
     return (this._contracts ??= new Contracts(this._options));
+  }
+
+  private _formsAndAgreements?: FormsAndAgreements;
+  get formsAndAgreements(): FormsAndAgreements {
+    return (this._formsAndAgreements ??= new FormsAndAgreements(this._options));
+  }
+
+  private _forms?: Forms;
+  get forms(): Forms {
+    return (this._forms ??= new Forms(this._options));
+  }
+
+  private _formSubmissions?: FormSubmissions;
+  get formSubmissions(): FormSubmissions {
+    return (this._formSubmissions ??= new FormSubmissions(this._options));
   }
 
   private _payments?: Payments;
@@ -73,11 +84,6 @@ export class ClientCasa extends ClientSDK {
   private _calendarEvents?: CalendarEvents;
   get calendarEvents(): CalendarEvents {
     return (this._calendarEvents ??= new CalendarEvents(this._options));
-  }
-
-  private _inquiries?: Inquiries;
-  get inquiries(): Inquiries {
-    return (this._inquiries ??= new Inquiries(this._options));
   }
 
   private _transactions?: Transactions;

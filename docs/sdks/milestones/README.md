@@ -92,7 +92,7 @@ run();
 
 ## create
 
-Milestones attach to either a project or a proposal — `parentType` + `parentId` are both required.
+Milestones attach to either a project or a form/agreement — `parentType` + `parentId` are both required.
 
 ### Example Usage
 
@@ -108,7 +108,7 @@ async function run() {
   }, {
     idempotencyKey: "create-client-2026-05-24-a1b2c3",
     body: {
-      parentType: "proposals",
+      parentType: "projects",
       parentId: "550e8400-e29b-41d4-a716-446655440000",
       title: "<value>",
       date: new Date("2025-07-24"),
@@ -141,7 +141,7 @@ async function run() {
   }, {
     idempotencyKey: "create-client-2026-05-24-a1b2c3",
     body: {
-      parentType: "proposals",
+      parentType: "projects",
       parentId: "550e8400-e29b-41d4-a716-446655440000",
       title: "<value>",
       date: new Date("2025-07-24"),

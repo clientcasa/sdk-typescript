@@ -76,10 +76,6 @@ export type Contract = {
   /**
    * UUID v4
    */
-  proposalId: string | null;
-  /**
-   * UUID v4
-   */
   projectId: string | null;
   /**
    * UUID v4
@@ -173,7 +169,6 @@ export const Contract$inboundSchema: z.ZodMiniType<Contract, unknown> = z
     title: types.string(),
     clientId: types.string(),
     billingContactId: types.nullable(types.string()),
-    proposalId: types.nullable(types.string()),
     projectId: types.nullable(types.string()),
     sourceTemplateId: types.nullable(types.string()),
     status: ContractStatus$inboundSchema,
