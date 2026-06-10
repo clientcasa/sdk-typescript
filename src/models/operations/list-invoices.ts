@@ -20,10 +20,21 @@ export const ListInvoicesStatus = {
   Sent: "sent",
   Partial: "partial",
   Paid: "paid",
-  Overdue: "overdue",
   Void: "void",
 } as const;
 export type ListInvoicesStatus = ClosedEnum<typeof ListInvoicesStatus>;
+
+/**
+ * Filter by the derived overdue condition. `true` → sent/partial invoices past their due date; `false` → everything else. (Replaces the removed `status=overdue` filter.)
+ */
+export const Overdue = {
+  True: "true",
+  False: "false",
+} as const;
+/**
+ * Filter by the derived overdue condition. `true` → sent/partial invoices past their due date; `false` → everything else. (Replaces the removed `status=overdue` filter.)
+ */
+export type Overdue = ClosedEnum<typeof Overdue>;
 
 export type ListInvoicesRequest = {
   page?: number | undefined;
@@ -33,6 +44,10 @@ export type ListInvoicesRequest = {
    */
   clientId?: string | undefined;
   status?: ListInvoicesStatus | undefined;
+  /**
+   * Filter by the derived overdue condition. `true` → sent/partial invoices past their due date; `false` → everything else. (Replaces the removed `status=overdue` filter.)
+   */
+  overdue?: Overdue | undefined;
 };
 
 export type ListInvoicesResponse = {
@@ -68,11 +83,17 @@ export const ListInvoicesStatus$outboundSchema: z.ZodMiniEnum<
 > = z.enum(ListInvoicesStatus);
 
 /** @internal */
+export const Overdue$outboundSchema: z.ZodMiniEnum<typeof Overdue> = z.enum(
+  Overdue,
+);
+
+/** @internal */
 export type ListInvoicesRequest$Outbound = {
   page: number;
   pageSize: number;
   clientId?: string | undefined;
   status?: string | undefined;
+  overdue?: string | undefined;
 };
 
 /** @internal */
@@ -84,6 +105,7 @@ export const ListInvoicesRequest$outboundSchema: z.ZodMiniType<
   pageSize: z._default(z.int(), 25),
   clientId: z.optional(z.string()),
   status: z.optional(ListInvoicesStatus$outboundSchema),
+  overdue: z.optional(Overdue$outboundSchema),
 });
 
 export function listInvoicesRequestToJSON(

@@ -5,11 +5,11 @@
 ```typescript
 import { ListInvoicesStatus } from "@clientcasa/sdk/models/operations";
 
-let value: ListInvoicesStatus = "partial";
+let value: ListInvoicesStatus = "sent";
 ```
 
 ## Values
 
 ```typescript
-"draft" | "sent" | "partial" | "paid" | "overdue" | "void"
+"draft" | "sent" | "partial" | "paid" | "void"
 ```

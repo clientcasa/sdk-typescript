@@ -108,6 +108,7 @@ async function $do(
 
   const query = encodeFormQuery({
     "clientId": payload?.clientId,
+    "overdue": payload?.overdue,
     "page": payload?.page,
     "pageSize": payload?.pageSize,
     "status": payload?.status,

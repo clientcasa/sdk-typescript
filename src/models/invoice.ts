@@ -19,7 +19,6 @@ export const InvoiceStatus = {
   Sent: "sent",
   Partial: "partial",
   Paid: "paid",
-  Overdue: "overdue",
   Void: "void",
 } as const;
 export type InvoiceStatus = OpenEnum<typeof InvoiceStatus>;
@@ -50,6 +49,10 @@ export type Invoice = {
   total: number;
   amountPaid: number;
   balanceDue: number;
+  /**
+   * Derived (read-only): true when the invoice is past its due date with a balance still owing (status is sent or partial). Not a stored status.
+   */
+  overdue: boolean;
   paymentTerms: string | null;
   notes: string | null;
   /**
@@ -91,6 +94,7 @@ export const Invoice$inboundSchema: z.ZodMiniType<Invoice, unknown> = z.object({
   total: types.number(),
   amountPaid: types.number(),
   balanceDue: types.number(),
+  overdue: types.boolean(),
   paymentTerms: types.nullable(types.string()),
   notes: types.nullable(types.string()),
   paidAt: types.nullable(types.date()),

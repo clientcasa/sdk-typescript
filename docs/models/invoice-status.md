@@ -5,7 +5,7 @@
 ```typescript
 import { InvoiceStatus } from "@clientcasa/sdk/models";
 
-let value: InvoiceStatus = "partial";
+let value: InvoiceStatus = "sent";
 
 // Open enum: unrecognized values are captured as Unrecognized<string>
 ```
@@ -13,5 +13,5 @@ let value: InvoiceStatus = "partial";
 ## Values
 
 ```typescript
-"draft" | "sent" | "partial" | "paid" | "overdue" | "void" | Unrecognized<string>
+"draft" | "sent" | "partial" | "paid" | "void" | Unrecognized<string>
 ```
