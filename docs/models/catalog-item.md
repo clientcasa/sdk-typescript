@@ -16,11 +16,14 @@ let value: CatalogItem = {
   defaultFrequency: "monthly",
   type: "charge",
   pricingMode: "hourly",
+  composition: "atom",
+  bundlePriceMode: "sum",
+  bundleFixedPrice: 5211.92,
   taxCategoryId: "550e8400-e29b-41d4-a716-446655440000",
-  status: "active",
+  status: "paused",
   clientId: "550e8400-e29b-41d4-a716-446655440000",
-  createdAt: new Date("2024-07-19T15:50:23.231Z"),
-  updatedAt: new Date("2024-02-14T05:16:37.608Z"),
+  createdAt: new Date("2024-05-11T04:12:14.969Z"),
+  updatedAt: new Date("2026-06-03T11:59:31.845Z"),
 };
 ```
 
@@ -38,6 +41,9 @@ let value: CatalogItem = {
 | `defaultFrequency`                                                                            | [models.CatalogItemDefaultFrequency](../models/catalog-item-default-frequency.md)             | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
 | `type`                                                                                        | [models.CatalogItemType](../models/catalog-item-type.md)                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
 | `pricingMode`                                                                                 | [models.CatalogItemPricingMode](../models/catalog-item-pricing-mode.md)                       | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `composition`                                                                                 | [models.Composition](../models/composition.md)                                                | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `bundlePriceMode`                                                                             | [models.BundlePriceMode](../models/bundle-price-mode.md)                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `bundleFixedPrice`                                                                            | *number*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
 | `taxCategoryId`                                                                               | *string*                                                                                      | :heavy_check_mark:                                                                            | UUID v4                                                                                       | 550e8400-e29b-41d4-a716-446655440000                                                          |
 | `status`                                                                                      | [models.CatalogItemStatus](../models/catalog-item-status.md)                                  | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
 | `clientId`                                                                                    | *string*                                                                                      | :heavy_check_mark:                                                                            | UUID v4                                                                                       | 550e8400-e29b-41d4-a716-446655440000                                                          |

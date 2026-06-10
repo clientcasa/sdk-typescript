@@ -5,7 +5,7 @@
 ```typescript
 import { MilestoneParentType } from "@clientcasa/sdk/models";
 
-let value: MilestoneParentType = "proposals";
+let value: MilestoneParentType = "projects";
 
 // Open enum: unrecognized values are captured as Unrecognized<string>
 ```
@@ -13,5 +13,5 @@ let value: MilestoneParentType = "proposals";
 ## Values
 
 ```typescript
-"proposals" | "projects" | Unrecognized<string>
+"projects" | "client-documents" | Unrecognized<string>
 ```

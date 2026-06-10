@@ -6,9 +6,13 @@ import * as z from "zod/v4-mini";
 import { ClosedEnum } from "../types/enums.js";
 
 export const ClientUpdateStatus = {
-  Prospect: "prospect",
+  New: "new",
+  Contacted: "contacted",
+  Qualified: "qualified",
   Active: "active",
   Inactive: "inactive",
+  Declined: "declined",
+  Spam: "spam",
 } as const;
 export type ClientUpdateStatus = ClosedEnum<typeof ClientUpdateStatus>;
 

@@ -5,11 +5,11 @@
 ```typescript
 import { MilestoneCreateParentType } from "@clientcasa/sdk/models";
 
-let value: MilestoneCreateParentType = "projects";
+let value: MilestoneCreateParentType = "client-documents";
 ```
 
 ## Values
 
 ```typescript
-"proposals" | "projects"
+"projects" | "client-documents"
 ```

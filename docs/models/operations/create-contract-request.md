@@ -11,7 +11,6 @@ let value: CreateContractRequest = {
     title: "<value>",
     clientId: "550e8400-e29b-41d4-a716-446655440000",
     billingContactId: "550e8400-e29b-41d4-a716-446655440000",
-    proposalId: "550e8400-e29b-41d4-a716-446655440000",
     projectId: "550e8400-e29b-41d4-a716-446655440000",
     sourceTemplateId: "550e8400-e29b-41d4-a716-446655440000",
   },

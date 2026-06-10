@@ -5,11 +5,11 @@
 ```typescript
 import { ClientCreateStatus } from "@clientcasa/sdk/models";
 
-let value: ClientCreateStatus = "prospect";
+let value: ClientCreateStatus = "qualified";
 ```
 
 ## Values
 
 ```typescript
-"prospect" | "active" | "inactive"
+"new" | "contacted" | "qualified" | "active" | "inactive" | "declined" | "spam"
 ```

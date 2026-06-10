@@ -16,9 +16,13 @@ export type ListClientsSecurity = {
 };
 
 export const ListClientsStatus = {
-  Prospect: "prospect",
+  New: "new",
+  Contacted: "contacted",
+  Qualified: "qualified",
   Active: "active",
   Inactive: "inactive",
+  Declined: "declined",
+  Spam: "spam",
 } as const;
 export type ListClientsStatus = ClosedEnum<typeof ListClientsStatus>;
 

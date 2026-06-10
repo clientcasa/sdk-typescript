@@ -357,13 +357,20 @@ run();
 * [delete](docs/sdks/contracts/README.md#delete) - Delete a contract (only drafts)
 * [update](docs/sdks/contracts/README.md#update) - Update a contract (limited fields)
 
-### [Inquiries](docs/sdks/inquiries/README.md)
+### [FormSubmissions](docs/sdks/formsubmissions/README.md)
 
-* [list](docs/sdks/inquiries/README.md#list) - List inquiries
-* [create](docs/sdks/inquiries/README.md#create) - Create an inquiry
-* [get](docs/sdks/inquiries/README.md#get) - Get an inquiry
-* [delete](docs/sdks/inquiries/README.md#delete) - Delete an inquiry
-* [update](docs/sdks/inquiries/README.md#update) - Update an inquiry
+* [list](docs/sdks/formsubmissions/README.md#list) - List form submissions
+* [get](docs/sdks/formsubmissions/README.md#get) - Get a form submission (with answers)
+
+### [Forms](docs/sdks/forms/README.md)
+
+* [list](docs/sdks/forms/README.md#list) - List forms
+* [get](docs/sdks/forms/README.md#get) - Get a form
+
+### [FormsAndAgreements](docs/sdks/formsandagreements/README.md)
+
+* [list](docs/sdks/formsandagreements/README.md#list) - List proposals
+* [get](docs/sdks/formsandagreements/README.md#get) - Get a proposal
 
 ### [Invoices](docs/sdks/invoices/README.md)
 
@@ -400,14 +407,6 @@ run();
 * [get](docs/sdks/projects/README.md#get) - Get a project
 * [delete](docs/sdks/projects/README.md#delete) - Delete a project
 * [update](docs/sdks/projects/README.md#update) - Update a project
-
-### [Proposals](docs/sdks/proposals/README.md)
-
-* [list](docs/sdks/proposals/README.md#list) - List proposals
-* [create](docs/sdks/proposals/README.md#create) - Create a proposal (metadata only — rich-text content is dashboard-managed)
-* [get](docs/sdks/proposals/README.md#get) - Get a proposal
-* [delete](docs/sdks/proposals/README.md#delete) - Delete a proposal (only drafts)
-* [update](docs/sdks/proposals/README.md#update) - Update a proposal
 
 ### [TimeEntries](docs/sdks/timeentries/README.md)
 
@@ -476,11 +475,12 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`contractsGet`](docs/sdks/contracts/README.md#get) - Get a contract
 - [`contractsList`](docs/sdks/contracts/README.md#list) - List contracts
 - [`contractsUpdate`](docs/sdks/contracts/README.md#update) - Update a contract (limited fields)
-- [`inquiriesCreate`](docs/sdks/inquiries/README.md#create) - Create an inquiry
-- [`inquiriesDelete`](docs/sdks/inquiries/README.md#delete) - Delete an inquiry
-- [`inquiriesGet`](docs/sdks/inquiries/README.md#get) - Get an inquiry
-- [`inquiriesList`](docs/sdks/inquiries/README.md#list) - List inquiries
-- [`inquiriesUpdate`](docs/sdks/inquiries/README.md#update) - Update an inquiry
+- [`formsAndAgreementsGet`](docs/sdks/formsandagreements/README.md#get) - Get a proposal
+- [`formsAndAgreementsList`](docs/sdks/formsandagreements/README.md#list) - List proposals
+- [`formsGet`](docs/sdks/forms/README.md#get) - Get a form
+- [`formsList`](docs/sdks/forms/README.md#list) - List forms
+- [`formSubmissionsGet`](docs/sdks/formsubmissions/README.md#get) - Get a form submission (with answers)
+- [`formSubmissionsList`](docs/sdks/formsubmissions/README.md#list) - List form submissions
 - [`invoicesCreate`](docs/sdks/invoices/README.md#create) - Create an invoice
 - [`invoicesDelete`](docs/sdks/invoices/README.md#delete) - Delete an invoice (only drafts)
 - [`invoicesGet`](docs/sdks/invoices/README.md#get) - Get an invoice
@@ -502,11 +502,6 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`projectsGet`](docs/sdks/projects/README.md#get) - Get a project
 - [`projectsList`](docs/sdks/projects/README.md#list) - List projects
 - [`projectsUpdate`](docs/sdks/projects/README.md#update) - Update a project
-- [`proposalsCreate`](docs/sdks/proposals/README.md#create) - Create a proposal (metadata only — rich-text content is dashboard-managed)
-- [`proposalsDelete`](docs/sdks/proposals/README.md#delete) - Delete a proposal (only drafts)
-- [`proposalsGet`](docs/sdks/proposals/README.md#get) - Get a proposal
-- [`proposalsList`](docs/sdks/proposals/README.md#list) - List proposals
-- [`proposalsUpdate`](docs/sdks/proposals/README.md#update) - Update a proposal
 - [`timeEntriesCreate`](docs/sdks/timeentries/README.md#create) - Create a time entry
 - [`timeEntriesDelete`](docs/sdks/timeentries/README.md#delete) - Delete a time entry
 - [`timeEntriesGet`](docs/sdks/timeentries/README.md#get) - Get a time entry

@@ -13,5 +13,5 @@ let value: Code = "unauthorized";
 ## Values
 
 ```typescript
-"unauthorized" | "forbidden" | "not_found" | "invalid_request" | "rate_limited" | "conflict" | "internal_error" | Unrecognized<string>
+"unauthorized" | "forbidden" | "not_found" | "invalid_request" | "rate_limited" | "conflict" | "gone" | "internal_error" | Unrecognized<string>
 ```

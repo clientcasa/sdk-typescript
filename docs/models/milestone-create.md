@@ -6,7 +6,7 @@
 import { MilestoneCreate } from "@clientcasa/sdk/models";
 
 let value: MilestoneCreate = {
-  parentType: "proposals",
+  parentType: "projects",
   parentId: "550e8400-e29b-41d4-a716-446655440000",
   title: "<value>",
   date: new Date("2026-03-20"),

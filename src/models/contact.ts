@@ -35,7 +35,7 @@ export type Contact = {
   /**
    * UUID v4
    */
-  inquiryId: string | null;
+  sourceSubmissionId: string | null;
   /**
    * ISO 8601 timestamp (UTC)
    */
@@ -60,7 +60,7 @@ export const Contact$inboundSchema: z.ZodMiniType<Contact, unknown> = z.object({
   role: ContactRole$inboundSchema,
   isPrimary: types.boolean(),
   clientId: types.nullable(types.string()),
-  inquiryId: types.nullable(types.string()),
+  sourceSubmissionId: types.nullable(types.string()),
   createdAt: types.date(),
   updatedAt: types.date(),
 });

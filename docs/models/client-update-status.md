@@ -11,5 +11,5 @@ let value: ClientUpdateStatus = "active";
 ## Values
 
 ```typescript
-"prospect" | "active" | "inactive"
+"new" | "contacted" | "qualified" | "active" | "inactive" | "declined" | "spam"
 ```

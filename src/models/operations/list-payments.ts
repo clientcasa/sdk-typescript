@@ -23,14 +23,14 @@ export const ListPaymentsStatus = {
 } as const;
 export type ListPaymentsStatus = ClosedEnum<typeof ListPaymentsStatus>;
 
-export const Kind = {
+export const ListPaymentsKind = {
   Payment: "payment",
   Refund: "refund",
   Chargeback: "chargeback",
   DisputeFee: "dispute_fee",
   Adjustment: "adjustment",
 } as const;
-export type Kind = ClosedEnum<typeof Kind>;
+export type ListPaymentsKind = ClosedEnum<typeof ListPaymentsKind>;
 
 export type ListPaymentsRequest = {
   page?: number | undefined;
@@ -44,7 +44,7 @@ export type ListPaymentsRequest = {
    */
   invoiceId?: string | undefined;
   status?: ListPaymentsStatus | undefined;
-  kind?: Kind | undefined;
+  kind?: ListPaymentsKind | undefined;
 };
 
 export type ListPaymentsResponse = {
@@ -80,7 +80,9 @@ export const ListPaymentsStatus$outboundSchema: z.ZodMiniEnum<
 > = z.enum(ListPaymentsStatus);
 
 /** @internal */
-export const Kind$outboundSchema: z.ZodMiniEnum<typeof Kind> = z.enum(Kind);
+export const ListPaymentsKind$outboundSchema: z.ZodMiniEnum<
+  typeof ListPaymentsKind
+> = z.enum(ListPaymentsKind);
 
 /** @internal */
 export type ListPaymentsRequest$Outbound = {
@@ -102,7 +104,7 @@ export const ListPaymentsRequest$outboundSchema: z.ZodMiniType<
   clientId: z.optional(z.string()),
   invoiceId: z.optional(z.string()),
   status: z.optional(ListPaymentsStatus$outboundSchema),
-  kind: z.optional(Kind$outboundSchema),
+  kind: z.optional(ListPaymentsKind$outboundSchema),
 });
 
 export function listPaymentsRequestToJSON(

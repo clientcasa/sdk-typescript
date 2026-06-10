@@ -1,0 +1,43 @@
+# ClientDocument
+
+## Example Usage
+
+```typescript
+import { ClientDocument } from "@clientcasa/sdk/models";
+
+let value: ClientDocument = {
+  id: "550e8400-e29b-41d4-a716-446655440000",
+  kind: "smart-file",
+  title: "<value>",
+  status: "viewed",
+  contactId: "550e8400-e29b-41d4-a716-446655440000",
+  clientId: "550e8400-e29b-41d4-a716-446655440000",
+  projectId: "550e8400-e29b-41d4-a716-446655440000",
+  engagementProjectId: "550e8400-e29b-41d4-a716-446655440000",
+  isTemplate: true,
+  clientUrl: "https://smug-flame.org/",
+  quoteConvertedAt: new Date("2026-01-25T09:47:12.854Z"),
+  expiresAt: new Date("2026-09-22T12:22:01.483Z"),
+  createdAt: new Date("2025-09-30T15:11:35.487Z"),
+  updatedAt: new Date("2024-08-28T06:01:57.368Z"),
+};
+```
+
+## Fields
+
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `id`                                                                                          | *string*                                                                                      | :heavy_check_mark:                                                                            | UUID v4                                                                                       | 550e8400-e29b-41d4-a716-446655440000                                                          |
+| `kind`                                                                                        | [models.ClientDocumentKind](../models/client-document-kind.md)                                | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `title`                                                                                       | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `status`                                                                                      | [models.ClientDocumentStatus](../models/client-document-status.md)                            | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `contactId`                                                                                   | *string*                                                                                      | :heavy_check_mark:                                                                            | UUID v4                                                                                       | 550e8400-e29b-41d4-a716-446655440000                                                          |
+| `clientId`                                                                                    | *string*                                                                                      | :heavy_check_mark:                                                                            | UUID v4                                                                                       | 550e8400-e29b-41d4-a716-446655440000                                                          |
+| `projectId`                                                                                   | *string*                                                                                      | :heavy_check_mark:                                                                            | UUID v4                                                                                       | 550e8400-e29b-41d4-a716-446655440000                                                          |
+| `engagementProjectId`                                                                         | *string*                                                                                      | :heavy_check_mark:                                                                            | UUID v4                                                                                       | 550e8400-e29b-41d4-a716-446655440000                                                          |
+| `isTemplate`                                                                                  | *boolean*                                                                                     | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `clientUrl`                                                                                   | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `quoteConvertedAt`                                                                            | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | ISO 8601 timestamp (UTC)                                                                      |                                                                                               |
+| `expiresAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | ISO 8601 timestamp (UTC)                                                                      |                                                                                               |
+| `createdAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | ISO 8601 timestamp (UTC)                                                                      |                                                                                               |
+| `updatedAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | ISO 8601 timestamp (UTC)                                                                      |                                                                                               |

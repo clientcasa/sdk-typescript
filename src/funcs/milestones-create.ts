@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Create a milestone
  *
  * @remarks
- * Milestones attach to either a project or a proposal — `parentType` + `parentId` are both required.
+ * Milestones attach to either a project or a form/agreement — `parentType` + `parentId` are both required.
  */
 export function milestonesCreate(
   client: ClientCasaCore,

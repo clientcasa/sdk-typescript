@@ -6,8 +6,8 @@ import * as z from "zod/v4-mini";
 import { ClosedEnum } from "../types/enums.js";
 
 export const MilestoneCreateParentType = {
-  Proposals: "proposals",
   Projects: "projects",
+  ClientDocuments: "client-documents",
 } as const;
 export type MilestoneCreateParentType = ClosedEnum<
   typeof MilestoneCreateParentType
