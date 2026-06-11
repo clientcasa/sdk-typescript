@@ -8,6 +8,10 @@ import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
+import {
+  ClientTaxSettings,
+  ClientTaxSettings$inboundSchema,
+} from "./client-tax-settings.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 export const ClientStatus = {
@@ -21,6 +25,20 @@ export const ClientStatus = {
 } as const;
 export type ClientStatus = OpenEnum<typeof ClientStatus>;
 
+export const RecurringBillingStatus = {
+  Active: "active",
+  PastDue: "past_due",
+  Paused: "paused",
+  Suspended: "suspended",
+  PendingSetup: "pending_setup",
+} as const;
+export type RecurringBillingStatus = OpenEnum<typeof RecurringBillingStatus>;
+
+export type RecurringBilling = {
+  status: RecurringBillingStatus;
+  nextBillingDate: Date | null;
+};
+
 export type Client = {
   /**
    * UUID v4
@@ -29,6 +47,13 @@ export type Client = {
   name: string;
   status: ClientStatus;
   notes: string | null;
+  taxSettings: ClientTaxSettings;
+  invoiceRemindersEnabled: boolean;
+  recurringBilling: RecurringBilling | null;
+  /**
+   * UUID v4
+   */
+  sourceSubmissionId: string | null;
   /**
    * ISO 8601 timestamp (UTC)
    */
@@ -44,11 +69,42 @@ export const ClientStatus$inboundSchema: z.ZodMiniType<ClientStatus, unknown> =
   openEnums.inboundSchema(ClientStatus);
 
 /** @internal */
+export const RecurringBillingStatus$inboundSchema: z.ZodMiniType<
+  RecurringBillingStatus,
+  unknown
+> = openEnums.inboundSchema(RecurringBillingStatus);
+
+/** @internal */
+export const RecurringBilling$inboundSchema: z.ZodMiniType<
+  RecurringBilling,
+  unknown
+> = z.object({
+  status: RecurringBillingStatus$inboundSchema,
+  nextBillingDate: types.nullable(types.date()),
+});
+
+export function recurringBillingFromJSON(
+  jsonString: string,
+): SafeParseResult<RecurringBilling, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => RecurringBilling$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'RecurringBilling' from JSON`,
+  );
+}
+
+/** @internal */
 export const Client$inboundSchema: z.ZodMiniType<Client, unknown> = z.object({
   id: types.string(),
   name: types.string(),
   status: ClientStatus$inboundSchema,
   notes: types.nullable(types.string()),
+  taxSettings: ClientTaxSettings$inboundSchema,
+  invoiceRemindersEnabled: types.boolean(),
+  recurringBilling: types.nullable(
+    z.lazy(() => RecurringBilling$inboundSchema),
+  ),
+  sourceSubmissionId: types.nullable(types.string()),
   createdAt: types.date(),
   updatedAt: types.date(),
 });

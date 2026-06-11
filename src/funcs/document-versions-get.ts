@@ -4,8 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { ClientCasaCore } from "../core.js";
-import { dlv } from "../lib/dlv.js";
-import { encodeFormQuery } from "../lib/encodings.js";
+import { encodeSimple } from "../lib/encodings.js";
 import { matchStatusCode } from "../lib/http.js";
 import * as M from "../lib/matchers.js";
 import { compactMap } from "../lib/primitives.js";
@@ -24,39 +23,31 @@ import {
 import * as errors from "../models/errors/index.js";
 import { ResponseValidationError } from "../models/errors/response-validation-error.js";
 import { SDKValidationError } from "../models/errors/sdk-validation-error.js";
+import * as models from "../models/index.js";
 import * as operations from "../models/operations/index.js";
 import { APICall, APIPromise } from "../types/async.js";
 import { Result } from "../types/fp.js";
-import {
-  createPageIterator,
-  haltIterator,
-  PageIterator,
-  Paginator,
-} from "../types/operations.js";
 
 /**
- * List invoices
+ * Get a document version
  */
-export function invoicesList(
+export function documentVersionsGet(
   client: ClientCasaCore,
-  security: operations.ListInvoicesSecurity,
-  request?: operations.ListInvoicesRequest | undefined,
+  security: operations.GetDocumentVersionSecurity,
+  request: operations.GetDocumentVersionRequest,
   options?: RequestOptions,
 ): APIPromise<
-  PageIterator<
-    Result<
-      operations.ListInvoicesResponse,
-      | errors.ApiError
-      | ClientCasaError
-      | ResponseValidationError
-      | ConnectionError
-      | RequestAbortedError
-      | RequestTimeoutError
-      | InvalidRequestError
-      | UnexpectedClientError
-      | SDKValidationError
-    >,
-    { page: number }
+  Result<
+    models.DocumentVersion,
+    | errors.ApiError
+    | ClientCasaError
+    | ResponseValidationError
+    | ConnectionError
+    | RequestAbortedError
+    | RequestTimeoutError
+    | InvalidRequestError
+    | UnexpectedClientError
+    | SDKValidationError
   >
 > {
   return new APIPromise($do(
@@ -69,25 +60,22 @@ export function invoicesList(
 
 async function $do(
   client: ClientCasaCore,
-  security: operations.ListInvoicesSecurity,
-  request?: operations.ListInvoicesRequest | undefined,
+  security: operations.GetDocumentVersionSecurity,
+  request: operations.GetDocumentVersionRequest,
   options?: RequestOptions,
 ): Promise<
   [
-    PageIterator<
-      Result<
-        operations.ListInvoicesResponse,
-        | errors.ApiError
-        | ClientCasaError
-        | ResponseValidationError
-        | ConnectionError
-        | RequestAbortedError
-        | RequestTimeoutError
-        | InvalidRequestError
-        | UnexpectedClientError
-        | SDKValidationError
-      >,
-      { page: number }
+    Result<
+      models.DocumentVersion,
+      | errors.ApiError
+      | ClientCasaError
+      | ResponseValidationError
+      | ConnectionError
+      | RequestAbortedError
+      | RequestTimeoutError
+      | InvalidRequestError
+      | UnexpectedClientError
+      | SDKValidationError
     >,
     APICall,
   ]
@@ -95,25 +83,22 @@ async function $do(
   const parsed = safeParse(
     request,
     (value) =>
-      z.parse(z.optional(operations.ListInvoicesRequest$outboundSchema), value),
+      z.parse(operations.GetDocumentVersionRequest$outboundSchema, value),
     "Input validation failed",
   );
   if (!parsed.ok) {
-    return [haltIterator(parsed), { status: "invalid" }];
+    return [parsed, { status: "invalid" }];
   }
   const payload = parsed.value;
   const body = null;
 
-  const path = pathToFunc("/api/v1/invoices")();
-
-  const query = encodeFormQuery({
-    "clientId": payload?.clientId,
-    "overdue": payload?.overdue,
-    "page": payload?.page,
-    "pageSize": payload?.pageSize,
-    "status": payload?.status,
-    "supersedesInvoice": payload?.supersedesInvoice,
-  });
+  const pathParams = {
+    id: encodeSimple("id", payload.id, {
+      explode: false,
+      charEncoding: "percent",
+    }),
+  };
+  const path = pathToFunc("/api/v1/document-versions/{id}")(pathParams);
 
   const headers = new Headers(compactMap({
     Accept: "application/json",
@@ -139,7 +124,7 @@ async function $do(
   const context = {
     options: client._options,
     baseURL: options?.serverURL ?? client._baseURL ?? "",
-    operationID: "listInvoices",
+    operationID: "getDocumentVersion",
     oAuth2Scopes: null,
 
     resolvedSecurity: requestSecurity,
@@ -167,13 +152,12 @@ async function $do(
     baseURL: options?.serverURL,
     path: path,
     headers: headers,
-    query: query,
     body: body,
     userAgent: client._options.userAgent,
     timeoutMs: options?.timeoutMs || client._options.timeoutMs || -1,
   }, options);
   if (!requestRes.ok) {
-    return [haltIterator(requestRes), { status: "invalid" }];
+    return [requestRes, { status: "invalid" }];
   }
   const req = requestRes.value;
 
@@ -185,7 +169,7 @@ async function $do(
     retryCodes: context.retryCodes,
   });
   if (!doResult.ok) {
-    return [haltIterator(doResult), { status: "request-error", request: req }];
+    return [doResult, { status: "request-error", request: req }];
   }
   const response = doResult.value;
 
@@ -193,8 +177,8 @@ async function $do(
     HttpMeta: { Response: response, Request: req },
   };
 
-  const [result, raw] = await M.match<
-    operations.ListInvoicesResponse,
+  const [result] = await M.match<
+    models.DocumentVersion,
     | errors.ApiError
     | ClientCasaError
     | ResponseValidationError
@@ -205,74 +189,15 @@ async function $do(
     | UnexpectedClientError
     | SDKValidationError
   >(
-    M.json(200, operations.ListInvoicesResponse$inboundSchema, {
-      key: "Result",
-    }),
-    M.jsonErr([400, 401, 403, 429], errors.ApiError$inboundSchema),
+    M.json(200, models.DocumentVersion$inboundSchema),
+    M.jsonErr([401, 403, 404, 429], errors.ApiError$inboundSchema),
     M.jsonErr(500, errors.ApiError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),
   )(response, req, { extraFields: responseFields });
   if (!result.ok) {
-    return [haltIterator(result), {
-      status: "complete",
-      request: req,
-      response,
-    }];
+    return [result, { status: "complete", request: req, response }];
   }
 
-  const nextFunc = (
-    responseData: unknown,
-  ): {
-    next: Paginator<
-      Result<
-        operations.ListInvoicesResponse,
-        | errors.ApiError
-        | ClientCasaError
-        | ResponseValidationError
-        | ConnectionError
-        | RequestAbortedError
-        | RequestTimeoutError
-        | InvalidRequestError
-        | UnexpectedClientError
-        | SDKValidationError
-      >
-    >;
-    "~next"?: { page: number };
-  } => {
-    const page = request?.page ?? 1;
-    const nextPage = page + 1;
-
-    if (!responseData) {
-      return { next: () => null };
-    }
-    const results = dlv(responseData, "data");
-    if (!Array.isArray(results) || !results.length) {
-      return { next: () => null };
-    }
-    const limit = request?.pageSize ?? 25;
-    if (results.length < limit) {
-      return { next: () => null };
-    }
-
-    const nextVal = () =>
-      invoicesList(
-        client,
-        security,
-        {
-          ...request!,
-          page: nextPage,
-        },
-        options,
-      );
-
-    return { next: nextVal, "~next": { page: nextPage } };
-  };
-
-  const page = { ...result, ...nextFunc(raw) };
-  return [{ ...page, ...createPageIterator(page, (v) => !v.ok) }, {
-    status: "complete",
-    request: req,
-    response,
-  }];
+  return [result, { status: "complete", request: req, response }];
 }
