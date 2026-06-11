@@ -53,6 +53,10 @@ export type Invoice = {
    * Derived (read-only): true when the invoice is past its due date with a balance still owing (status is sent or partial). Not a stored status.
    */
   overdue: boolean;
+  /**
+   * Read-only: the voided invoice this one was issued to correct (void & reissue). Null otherwise. To find the forward link — the corrected invoice that replaced a given one — list with `?supersedesInvoice={id}`.
+   */
+  supersedesInvoice: string | null;
   paymentTerms: string | null;
   notes: string | null;
   /**
@@ -95,6 +99,7 @@ export const Invoice$inboundSchema: z.ZodMiniType<Invoice, unknown> = z.object({
   amountPaid: types.number(),
   balanceDue: types.number(),
   overdue: types.boolean(),
+  supersedesInvoice: types.nullable(types.string()),
   paymentTerms: types.nullable(types.string()),
   notes: types.nullable(types.string()),
   paidAt: types.nullable(types.date()),

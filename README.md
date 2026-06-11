@@ -357,6 +357,11 @@ run();
 * [delete](docs/sdks/contracts/README.md#delete) - Delete a contract (only drafts)
 * [update](docs/sdks/contracts/README.md#update) - Update a contract (limited fields)
 
+### [DocumentVersions](docs/sdks/documentversions/README.md)
+
+* [list](docs/sdks/documentversions/README.md#list) - List document versions
+* [get](docs/sdks/documentversions/README.md#get) - Get a document version
+
 ### [FormSubmissions](docs/sdks/formsubmissions/README.md)
 
 * [list](docs/sdks/formsubmissions/README.md#list) - List form submissions
@@ -475,6 +480,8 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`contractsGet`](docs/sdks/contracts/README.md#get) - Get a contract
 - [`contractsList`](docs/sdks/contracts/README.md#list) - List contracts
 - [`contractsUpdate`](docs/sdks/contracts/README.md#update) - Update a contract (limited fields)
+- [`documentVersionsGet`](docs/sdks/documentversions/README.md#get) - Get a document version
+- [`documentVersionsList`](docs/sdks/documentversions/README.md#list) - List document versions
 - [`formsAndAgreementsGet`](docs/sdks/formsandagreements/README.md#get) - Get a proposal
 - [`formsAndAgreementsList`](docs/sdks/formsandagreements/README.md#list) - List proposals
 - [`formsGet`](docs/sdks/forms/README.md#get) - Get a form

@@ -48,6 +48,10 @@ export type ListInvoicesRequest = {
    * Filter by the derived overdue condition. `true` → sent/partial invoices past their due date; `false` → everything else. (Replaces the removed `status=overdue` filter.)
    */
   overdue?: Overdue | undefined;
+  /**
+   * Return the invoice that supersedes (replaces) the given invoice id — the forward void→reissue link.
+   */
+  supersedesInvoice?: string | undefined;
 };
 
 export type ListInvoicesResponse = {
@@ -94,6 +98,7 @@ export type ListInvoicesRequest$Outbound = {
   clientId?: string | undefined;
   status?: string | undefined;
   overdue?: string | undefined;
+  supersedesInvoice?: string | undefined;
 };
 
 /** @internal */
@@ -106,6 +111,7 @@ export const ListInvoicesRequest$outboundSchema: z.ZodMiniType<
   clientId: z.optional(z.string()),
   status: z.optional(ListInvoicesStatus$outboundSchema),
   overdue: z.optional(Overdue$outboundSchema),
+  supersedesInvoice: z.optional(z.string()),
 });
 
 export function listInvoicesRequestToJSON(

@@ -27,6 +27,7 @@ async function run() {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     clientId: "550e8400-e29b-41d4-a716-446655440000",
+    supersedesInvoice: "550e8400-e29b-41d4-a716-446655440000",
   });
 
   for await (const page of result) {
@@ -54,6 +55,7 @@ async function run() {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     clientId: "550e8400-e29b-41d4-a716-446655440000",
+    supersedesInvoice: "550e8400-e29b-41d4-a716-446655440000",
   });
   if (res.ok) {
     const { value: result } = res;

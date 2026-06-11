@@ -4,6 +4,11 @@
 
 import * as z from "zod/v4-mini";
 import { ClosedEnum } from "../types/enums.js";
+import {
+  ClientTaxSettings,
+  ClientTaxSettings$Outbound,
+  ClientTaxSettings$outboundSchema,
+} from "./client-tax-settings.js";
 
 export const ClientUpdateStatus = {
   New: "new",
@@ -20,6 +25,8 @@ export type ClientUpdate = {
   name?: string | undefined;
   status?: ClientUpdateStatus | undefined;
   notes?: string | undefined;
+  taxSettings?: ClientTaxSettings | undefined;
+  invoiceRemindersEnabled?: boolean | undefined;
 };
 
 /** @internal */
@@ -32,6 +39,8 @@ export type ClientUpdate$Outbound = {
   name?: string | undefined;
   status: string;
   notes?: string | undefined;
+  taxSettings?: ClientTaxSettings$Outbound | undefined;
+  invoiceRemindersEnabled?: boolean | undefined;
 };
 
 /** @internal */
@@ -42,6 +51,8 @@ export const ClientUpdate$outboundSchema: z.ZodMiniType<
   name: z.optional(z.string()),
   status: z._default(ClientUpdateStatus$outboundSchema, "active"),
   notes: z.optional(z.string()),
+  taxSettings: z.optional(ClientTaxSettings$outboundSchema),
+  invoiceRemindersEnabled: z.optional(z.boolean()),
 });
 
 export function clientUpdateToJSON(clientUpdate: ClientUpdate): string {

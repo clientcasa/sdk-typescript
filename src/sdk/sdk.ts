@@ -8,6 +8,7 @@ import { CatalogItems } from "./catalog-items.js";
 import { Clients } from "./clients.js";
 import { Contacts } from "./contacts.js";
 import { Contracts } from "./contracts.js";
+import { DocumentVersions } from "./document-versions.js";
 import { FormSubmissions } from "./form-submissions.js";
 import { FormsAndAgreements } from "./forms-and-agreements.js";
 import { Forms } from "./forms.js";
@@ -49,6 +50,11 @@ export class ClientCasa extends ClientSDK {
   private _formsAndAgreements?: FormsAndAgreements;
   get formsAndAgreements(): FormsAndAgreements {
     return (this._formsAndAgreements ??= new FormsAndAgreements(this._options));
+  }
+
+  private _documentVersions?: DocumentVersions;
+  get documentVersions(): DocumentVersions {
+    return (this._documentVersions ??= new DocumentVersions(this._options));
   }
 
   private _forms?: Forms;
