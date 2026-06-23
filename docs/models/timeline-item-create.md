@@ -1,0 +1,36 @@
+# TimelineItemCreate
+
+## Example Usage
+
+```typescript
+import { TimelineItemCreate } from "@clientcasa/sdk/models";
+
+let value: TimelineItemCreate = {
+  eventDayId: "<id>",
+  title: "<value>",
+  durationMinutes: 263780,
+};
+```
+
+## Fields
+
+| Field                                                                                | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `eventDayId`                                                                         | *string*                                                                             | :heavy_check_mark:                                                                   | N/A                                                                                  |
+| `title`                                                                              | *string*                                                                             | :heavy_check_mark:                                                                   | N/A                                                                                  |
+| `description`                                                                        | *string*                                                                             | :heavy_minus_sign:                                                                   | N/A                                                                                  |
+| `categoryId`                                                                         | *string*                                                                             | :heavy_minus_sign:                                                                   | N/A                                                                                  |
+| `sortOrder`                                                                          | *number*                                                                             | :heavy_minus_sign:                                                                   | N/A                                                                                  |
+| `trackId`                                                                            | *string*                                                                             | :heavy_minus_sign:                                                                   | N/A                                                                                  |
+| `requestedStartTime`                                                                 | *string*                                                                             | :heavy_minus_sign:                                                                   | N/A                                                                                  |
+| `durationMinutes`                                                                    | *number*                                                                             | :heavy_check_mark:                                                                   | N/A                                                                                  |
+| `bufferBeforeMinutes`                                                                | *number*                                                                             | :heavy_minus_sign:                                                                   | N/A                                                                                  |
+| `bufferAfterMinutes`                                                                 | *number*                                                                             | :heavy_minus_sign:                                                                   | N/A                                                                                  |
+| `travelTimeMinutes`                                                                  | *number*                                                                             | :heavy_minus_sign:                                                                   | N/A                                                                                  |
+| `locked`                                                                             | *boolean*                                                                            | :heavy_minus_sign:                                                                   | N/A                                                                                  |
+| `anchorType`                                                                         | [models.TimelineItemCreateAnchorType](../models/timeline-item-create-anchor-type.md) | :heavy_minus_sign:                                                                   | N/A                                                                                  |
+| `anchorKey`                                                                          | *string*                                                                             | :heavy_minus_sign:                                                                   | N/A                                                                                  |
+| `location`                                                                           | *string*                                                                             | :heavy_minus_sign:                                                                   | N/A                                                                                  |
+| `visibleTo`                                                                          | [models.TimelineItemCreateVisibleTo](../models/timeline-item-create-visible-to.md)[] | :heavy_minus_sign:                                                                   | N/A                                                                                  |
+| `vendorIds`                                                                          | *string*[]                                                                           | :heavy_minus_sign:                                                                   | N/A                                                                                  |
+| `status`                                                                             | [models.TimelineItemCreateStatus](../models/timeline-item-create-status.md)          | :heavy_minus_sign:                                                                   | N/A                                                                                  |

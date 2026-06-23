@@ -1,0 +1,45 @@
+# EventDayVendor
+
+## Example Usage
+
+```typescript
+import { EventDayVendor } from "@clientcasa/sdk/models";
+
+let value: EventDayVendor = {
+  id: "550e8400-e29b-41d4-a716-446655440000",
+  eventDayId: "<id>",
+  vendorId: "<id>",
+  role: "<value>",
+  callTime: "<value>",
+  coverageStartTime: "<value>",
+  coverageEndTime: "<value>",
+  mealProvided: false,
+  mealNotes: "<value>",
+  pointOfContact: "<value>",
+  pointOfContactPhone: "<value>",
+  internalNotes: "<value>",
+  confirmationStatus: "declined",
+  createdAt: new Date("2025-02-22T05:53:47.276Z"),
+  updatedAt: new Date("2025-09-01T19:21:58.267Z"),
+};
+```
+
+## Fields
+
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `id`                                                                                          | *string*                                                                                      | :heavy_check_mark:                                                                            | UUID v4                                                                                       | 550e8400-e29b-41d4-a716-446655440000                                                          |
+| `eventDayId`                                                                                  | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `vendorId`                                                                                    | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `role`                                                                                        | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `callTime`                                                                                    | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `coverageStartTime`                                                                           | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `coverageEndTime`                                                                             | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `mealProvided`                                                                                | *boolean*                                                                                     | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `mealNotes`                                                                                   | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `pointOfContact`                                                                              | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `pointOfContactPhone`                                                                         | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `internalNotes`                                                                               | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `confirmationStatus`                                                                          | [models.EventDayVendorConfirmationStatus](../models/event-day-vendor-confirmation-status.md)  | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `createdAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | ISO 8601 timestamp (UTC)                                                                      |                                                                                               |
+| `updatedAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | ISO 8601 timestamp (UTC)                                                                      |                                                                                               |

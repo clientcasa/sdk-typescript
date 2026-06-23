@@ -49,6 +49,8 @@ export type Client = {
   notes: string | null;
   taxSettings: ClientTaxSettings;
   invoiceRemindersEnabled: boolean;
+  attachInvoicePdf: boolean;
+  attachReceiptPdf: boolean;
   recurringBilling: RecurringBilling | null;
   /**
    * UUID v4
@@ -101,6 +103,8 @@ export const Client$inboundSchema: z.ZodMiniType<Client, unknown> = z.object({
   notes: types.nullable(types.string()),
   taxSettings: ClientTaxSettings$inboundSchema,
   invoiceRemindersEnabled: types.boolean(),
+  attachInvoicePdf: types.boolean(),
+  attachReceiptPdf: types.boolean(),
   recurringBilling: types.nullable(
     z.lazy(() => RecurringBilling$inboundSchema),
   ),

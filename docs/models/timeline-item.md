@@ -1,0 +1,59 @@
+# TimelineItem
+
+## Example Usage
+
+```typescript
+import { TimelineItem } from "@clientcasa/sdk/models";
+
+let value: TimelineItem = {
+  id: "550e8400-e29b-41d4-a716-446655440000",
+  eventDayId: "<id>",
+  title: "<value>",
+  description: "partially capitalize punctual better even than",
+  categoryId: "<id>",
+  sortOrder: 1624.21,
+  trackId: "<id>",
+  requestedStartTime: "<value>",
+  durationMinutes: 9817.37,
+  bufferBeforeMinutes: 9532.45,
+  bufferAfterMinutes: 1975.62,
+  travelTimeMinutes: 5649.58,
+  locked: false,
+  anchorType: "event-start",
+  anchorKey: null,
+  location: "<value>",
+  visibleTo: [
+    "shot-list",
+  ],
+  vendorIds: [],
+  status: "skipped",
+  createdAt: new Date("2026-01-24T23:36:57.192Z"),
+  updatedAt: new Date("2026-03-16T07:37:30.233Z"),
+};
+```
+
+## Fields
+
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `id`                                                                                          | *string*                                                                                      | :heavy_check_mark:                                                                            | UUID v4                                                                                       | 550e8400-e29b-41d4-a716-446655440000                                                          |
+| `eventDayId`                                                                                  | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `title`                                                                                       | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `description`                                                                                 | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `categoryId`                                                                                  | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `sortOrder`                                                                                   | *number*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `trackId`                                                                                     | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `requestedStartTime`                                                                          | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `durationMinutes`                                                                             | *number*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `bufferBeforeMinutes`                                                                         | *number*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `bufferAfterMinutes`                                                                          | *number*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `travelTimeMinutes`                                                                           | *number*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `locked`                                                                                      | *boolean*                                                                                     | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `anchorType`                                                                                  | [models.TimelineItemAnchorType](../models/timeline-item-anchor-type.md)                       | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `anchorKey`                                                                                   | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `location`                                                                                    | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `visibleTo`                                                                                   | [models.TimelineItemVisibleTo](../models/timeline-item-visible-to.md)[]                       | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `vendorIds`                                                                                   | *string*[]                                                                                    | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `status`                                                                                      | [models.TimelineItemStatus](../models/timeline-item-status.md)                                | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `createdAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | ISO 8601 timestamp (UTC)                                                                      |                                                                                               |
+| `updatedAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | ISO 8601 timestamp (UTC)                                                                      |                                                                                               |
