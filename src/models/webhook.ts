@@ -62,6 +62,11 @@ export const WebhookEvent = {
   SubscriptionPaymentFailed: "subscription_payment_failed",
   PayoutPaid: "payout_paid",
   PayoutFailed: "payout_failed",
+  EventDayCreated: "event_day_created",
+  EventDayPublished: "event_day_published",
+  EventDayArchived: "event_day_archived",
+  TimelineItemCompleted: "timeline_item_completed",
+  TimelineReminderSent: "timeline_reminder_sent",
 } as const;
 export type WebhookEvent = OpenEnum<typeof WebhookEvent>;
 

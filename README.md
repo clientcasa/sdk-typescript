@@ -362,6 +362,22 @@ run();
 * [list](docs/sdks/documentversions/README.md#list) - List document versions
 * [get](docs/sdks/documentversions/README.md#get) - Get a document version
 
+### [EventDayVendors](docs/sdks/eventdayvendors/README.md)
+
+* [list](docs/sdks/eventdayvendors/README.md#list) - List event day vendors
+* [create](docs/sdks/eventdayvendors/README.md#create) - Add a vendor to an event day
+* [get](docs/sdks/eventdayvendors/README.md#get) - Get an event day vendor
+* [delete](docs/sdks/eventdayvendors/README.md#delete) - Remove a vendor from an event day
+* [update](docs/sdks/eventdayvendors/README.md#update) - Update an event day vendor
+
+### [EventDays](docs/sdks/eventdays/README.md)
+
+* [list](docs/sdks/eventdays/README.md#list) - List event days
+* [create](docs/sdks/eventdays/README.md#create) - Create an event day
+* [get](docs/sdks/eventdays/README.md#get) - Get an event day
+* [delete](docs/sdks/eventdays/README.md#delete) - Delete an event day
+* [update](docs/sdks/eventdays/README.md#update) - Update an event day
+
 ### [FormSubmissions](docs/sdks/formsubmissions/README.md)
 
 * [list](docs/sdks/formsubmissions/README.md#list) - List form submissions
@@ -421,6 +437,14 @@ run();
 * [delete](docs/sdks/timeentries/README.md#delete) - Delete a time entry
 * [update](docs/sdks/timeentries/README.md#update) - Update a time entry
 
+### [TimelineItems](docs/sdks/timelineitems/README.md)
+
+* [list](docs/sdks/timelineitems/README.md#list) - List timeline items
+* [create](docs/sdks/timelineitems/README.md#create) - Create a timeline item
+* [get](docs/sdks/timelineitems/README.md#get) - Get a timeline item
+* [delete](docs/sdks/timelineitems/README.md#delete) - Delete a timeline item
+* [update](docs/sdks/timelineitems/README.md#update) - Update a timeline item
+
 ### [Transactions](docs/sdks/transactions/README.md)
 
 * [list](docs/sdks/transactions/README.md#list) - List transactions
@@ -428,6 +452,14 @@ run();
 * [get](docs/sdks/transactions/README.md#get) - Get a transaction
 * [delete](docs/sdks/transactions/README.md#delete) - Delete a transaction
 * [update](docs/sdks/transactions/README.md#update) - Update a transaction
+
+### [Vendors](docs/sdks/vendors/README.md)
+
+* [list](docs/sdks/vendors/README.md#list) - List vendors
+* [create](docs/sdks/vendors/README.md#create) - Create a vendor
+* [get](docs/sdks/vendors/README.md#get) - Get a vendor
+* [delete](docs/sdks/vendors/README.md#delete) - Delete a vendor
+* [update](docs/sdks/vendors/README.md#update) - Update a vendor
 
 ### [Webhooks](docs/sdks/webhooks/README.md)
 
@@ -482,6 +514,16 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`contractsUpdate`](docs/sdks/contracts/README.md#update) - Update a contract (limited fields)
 - [`documentVersionsGet`](docs/sdks/documentversions/README.md#get) - Get a document version
 - [`documentVersionsList`](docs/sdks/documentversions/README.md#list) - List document versions
+- [`eventDaysCreate`](docs/sdks/eventdays/README.md#create) - Create an event day
+- [`eventDaysDelete`](docs/sdks/eventdays/README.md#delete) - Delete an event day
+- [`eventDaysGet`](docs/sdks/eventdays/README.md#get) - Get an event day
+- [`eventDaysList`](docs/sdks/eventdays/README.md#list) - List event days
+- [`eventDaysUpdate`](docs/sdks/eventdays/README.md#update) - Update an event day
+- [`eventDayVendorsCreate`](docs/sdks/eventdayvendors/README.md#create) - Add a vendor to an event day
+- [`eventDayVendorsDelete`](docs/sdks/eventdayvendors/README.md#delete) - Remove a vendor from an event day
+- [`eventDayVendorsGet`](docs/sdks/eventdayvendors/README.md#get) - Get an event day vendor
+- [`eventDayVendorsList`](docs/sdks/eventdayvendors/README.md#list) - List event day vendors
+- [`eventDayVendorsUpdate`](docs/sdks/eventdayvendors/README.md#update) - Update an event day vendor
 - [`formsAndAgreementsGet`](docs/sdks/formsandagreements/README.md#get) - Get a proposal
 - [`formsAndAgreementsList`](docs/sdks/formsandagreements/README.md#list) - List proposals
 - [`formsGet`](docs/sdks/forms/README.md#get) - Get a form
@@ -514,11 +556,21 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`timeEntriesGet`](docs/sdks/timeentries/README.md#get) - Get a time entry
 - [`timeEntriesList`](docs/sdks/timeentries/README.md#list) - List time entries
 - [`timeEntriesUpdate`](docs/sdks/timeentries/README.md#update) - Update a time entry
+- [`timelineItemsCreate`](docs/sdks/timelineitems/README.md#create) - Create a timeline item
+- [`timelineItemsDelete`](docs/sdks/timelineitems/README.md#delete) - Delete a timeline item
+- [`timelineItemsGet`](docs/sdks/timelineitems/README.md#get) - Get a timeline item
+- [`timelineItemsList`](docs/sdks/timelineitems/README.md#list) - List timeline items
+- [`timelineItemsUpdate`](docs/sdks/timelineitems/README.md#update) - Update a timeline item
 - [`transactionsCreate`](docs/sdks/transactions/README.md#create) - Create a transaction (expense or charge)
 - [`transactionsDelete`](docs/sdks/transactions/README.md#delete) - Delete a transaction
 - [`transactionsGet`](docs/sdks/transactions/README.md#get) - Get a transaction
 - [`transactionsList`](docs/sdks/transactions/README.md#list) - List transactions
 - [`transactionsUpdate`](docs/sdks/transactions/README.md#update) - Update a transaction
+- [`vendorsCreate`](docs/sdks/vendors/README.md#create) - Create a vendor
+- [`vendorsDelete`](docs/sdks/vendors/README.md#delete) - Delete a vendor
+- [`vendorsGet`](docs/sdks/vendors/README.md#get) - Get a vendor
+- [`vendorsList`](docs/sdks/vendors/README.md#list) - List vendors
+- [`vendorsUpdate`](docs/sdks/vendors/README.md#update) - Update a vendor
 - [`webhooksCreate`](docs/sdks/webhooks/README.md#create) - Subscribe to events
 - [`webhooksDelete`](docs/sdks/webhooks/README.md#delete) - Delete a webhook
 - [`webhooksGet`](docs/sdks/webhooks/README.md#get) - Get a webhook

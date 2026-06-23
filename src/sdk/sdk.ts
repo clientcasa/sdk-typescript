@@ -9,6 +9,8 @@ import { Clients } from "./clients.js";
 import { Contacts } from "./contacts.js";
 import { Contracts } from "./contracts.js";
 import { DocumentVersions } from "./document-versions.js";
+import { EventDayVendors } from "./event-day-vendors.js";
+import { EventDays } from "./event-days.js";
 import { FormSubmissions } from "./form-submissions.js";
 import { FormsAndAgreements } from "./forms-and-agreements.js";
 import { Forms } from "./forms.js";
@@ -18,7 +20,9 @@ import { Payments } from "./payments.js";
 import { Payouts } from "./payouts.js";
 import { Projects } from "./projects.js";
 import { TimeEntries } from "./time-entries.js";
+import { TimelineItems } from "./timeline-items.js";
 import { Transactions } from "./transactions.js";
+import { Vendors } from "./vendors.js";
 import { Webhooks } from "./webhooks.js";
 
 export class ClientCasa extends ClientSDK {
@@ -100,6 +104,26 @@ export class ClientCasa extends ClientSDK {
   private _catalogItems?: CatalogItems;
   get catalogItems(): CatalogItems {
     return (this._catalogItems ??= new CatalogItems(this._options));
+  }
+
+  private _eventDays?: EventDays;
+  get eventDays(): EventDays {
+    return (this._eventDays ??= new EventDays(this._options));
+  }
+
+  private _timelineItems?: TimelineItems;
+  get timelineItems(): TimelineItems {
+    return (this._timelineItems ??= new TimelineItems(this._options));
+  }
+
+  private _eventDayVendors?: EventDayVendors;
+  get eventDayVendors(): EventDayVendors {
+    return (this._eventDayVendors ??= new EventDayVendors(this._options));
+  }
+
+  private _vendors?: Vendors;
+  get vendors(): Vendors {
+    return (this._vendors ??= new Vendors(this._options));
   }
 
   private _webhooks?: Webhooks;

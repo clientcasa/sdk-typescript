@@ -27,6 +27,8 @@ export type ClientUpdate = {
   notes?: string | undefined;
   taxSettings?: ClientTaxSettings | undefined;
   invoiceRemindersEnabled?: boolean | undefined;
+  attachInvoicePdf?: boolean | undefined;
+  attachReceiptPdf?: boolean | undefined;
 };
 
 /** @internal */
@@ -41,6 +43,8 @@ export type ClientUpdate$Outbound = {
   notes?: string | undefined;
   taxSettings?: ClientTaxSettings$Outbound | undefined;
   invoiceRemindersEnabled?: boolean | undefined;
+  attachInvoicePdf?: boolean | undefined;
+  attachReceiptPdf?: boolean | undefined;
 };
 
 /** @internal */
@@ -53,6 +57,8 @@ export const ClientUpdate$outboundSchema: z.ZodMiniType<
   notes: z.optional(z.string()),
   taxSettings: z.optional(ClientTaxSettings$outboundSchema),
   invoiceRemindersEnabled: z.optional(z.boolean()),
+  attachInvoicePdf: z.optional(z.boolean()),
+  attachReceiptPdf: z.optional(z.boolean()),
 });
 
 export function clientUpdateToJSON(clientUpdate: ClientUpdate): string {

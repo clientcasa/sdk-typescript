@@ -10,7 +10,7 @@ let value: Webhook = {
   name: "<value>",
   url: "https://sad-outlaw.org",
   events: [
-    "lead_created",
+    "lead_status_changed",
   ],
   enabled: true,
   source: "n8n",
