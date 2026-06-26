@@ -18,21 +18,21 @@ export type ListInvoicesSecurity = {
 export const ListInvoicesStatus = {
   Draft: "draft",
   Sent: "sent",
-  Partial: "partial",
   Paid: "paid",
   Void: "void",
+  WrittenOff: "written_off",
 } as const;
 export type ListInvoicesStatus = ClosedEnum<typeof ListInvoicesStatus>;
 
 /**
- * Filter by the derived overdue condition. `true` → sent/partial invoices past their due date; `false` → everything else. (Replaces the removed `status=overdue` filter.)
+ * Filter by the derived overdue condition. `true` → open (`sent`) invoices past their due date with a balance owing; `false` → everything else.
  */
 export const Overdue = {
   True: "true",
   False: "false",
 } as const;
 /**
- * Filter by the derived overdue condition. `true` → sent/partial invoices past their due date; `false` → everything else. (Replaces the removed `status=overdue` filter.)
+ * Filter by the derived overdue condition. `true` → open (`sent`) invoices past their due date with a balance owing; `false` → everything else.
  */
 export type Overdue = ClosedEnum<typeof Overdue>;
 
@@ -45,7 +45,7 @@ export type ListInvoicesRequest = {
   clientId?: string | undefined;
   status?: ListInvoicesStatus | undefined;
   /**
-   * Filter by the derived overdue condition. `true` → sent/partial invoices past their due date; `false` → everything else. (Replaces the removed `status=overdue` filter.)
+   * Filter by the derived overdue condition. `true` → open (`sent`) invoices past their due date with a balance owing; `false` → everything else.
    */
   overdue?: Overdue | undefined;
   /**

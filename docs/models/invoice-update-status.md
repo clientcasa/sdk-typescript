@@ -11,5 +11,5 @@ let value: InvoiceUpdateStatus = "void";
 ## Values
 
 ```typescript
-"draft" | "sent" | "void"
+"sent" | "void"
 ```

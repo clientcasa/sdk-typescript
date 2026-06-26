@@ -1,6 +1,6 @@
 # Overdue
 
-Filter by the derived overdue condition. `true` → sent/partial invoices past their due date; `false` → everything else. (Replaces the removed `status=overdue` filter.)
+Filter by the derived overdue condition. `true` → open (`sent`) invoices past their due date with a balance owing; `false` → everything else.
 
 ## Example Usage
 
