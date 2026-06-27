@@ -9,6 +9,7 @@ export * from "./create-contact.js";
 export * from "./create-contract.js";
 export * from "./create-event-day-vendor.js";
 export * from "./create-event-day.js";
+export * from "./create-inquiry.js";
 export * from "./create-invoice.js";
 export * from "./create-milestone.js";
 export * from "./create-payment.js";

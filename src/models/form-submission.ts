@@ -34,7 +34,7 @@ export type FormSubmission = {
   /**
    * UUID v4
    */
-  formId: string;
+  formId: string | null;
   kind: FormSubmissionKind | null;
   status: FormSubmissionStatus;
   /**
@@ -76,7 +76,7 @@ export const FormSubmission$inboundSchema: z.ZodMiniType<
   unknown
 > = z.object({
   id: types.string(),
-  formId: types.string(),
+  formId: types.nullable(types.string()),
   kind: types.nullable(FormSubmissionKind$inboundSchema),
   status: FormSubmissionStatus$inboundSchema,
   contactId: types.nullable(types.string()),
