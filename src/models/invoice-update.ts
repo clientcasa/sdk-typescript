@@ -6,7 +6,6 @@ import * as z from "zod/v4-mini";
 import { ClosedEnum } from "../types/enums.js";
 
 export const InvoiceUpdateStatus = {
-  Draft: "draft",
   Sent: "sent",
   Void: "void",
 } as const;

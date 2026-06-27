@@ -11,5 +11,5 @@ let value: ListInvoicesStatus = "sent";
 ## Values
 
 ```typescript
-"draft" | "sent" | "partial" | "paid" | "void"
+"draft" | "sent" | "paid" | "void" | "written_off"
 ```

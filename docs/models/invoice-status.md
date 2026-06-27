@@ -13,5 +13,5 @@ let value: InvoiceStatus = "sent";
 ## Values
 
 ```typescript
-"draft" | "sent" | "partial" | "paid" | "void" | Unrecognized<string>
+"draft" | "sent" | "paid" | "void" | "written_off" | Unrecognized<string>
 ```

@@ -94,7 +94,7 @@ run();
 
 ## create
 
-Status `paid` and `partial` are system-derived from Payments; do not set them directly. `overdue` is not a status — it is a derived read-only boolean field (past due with a balance owing).
+Status is system-derived: `paid` comes from Payments and there is no `partial` (partial-ness is numeric via amountPaid/balanceDue). `overdue` is not a status — it is a derived read-only boolean (past due with a balance owing).
 
 ### Example Usage
 

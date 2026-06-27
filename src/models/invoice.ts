@@ -17,9 +17,9 @@ import {
 export const InvoiceStatus = {
   Draft: "draft",
   Sent: "sent",
-  Partial: "partial",
   Paid: "paid",
   Void: "void",
+  WrittenOff: "written_off",
 } as const;
 export type InvoiceStatus = OpenEnum<typeof InvoiceStatus>;
 
@@ -50,7 +50,7 @@ export type Invoice = {
   amountPaid: number;
   balanceDue: number;
   /**
-   * Derived (read-only): true when the invoice is past its due date with a balance still owing (status is sent or partial). Not a stored status.
+   * Derived (read-only): true when the invoice is past its due date with a balance still owing (an open `sent` invoice). Not a stored status.
    */
   overdue: boolean;
   /**

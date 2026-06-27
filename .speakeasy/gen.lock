@@ -1,24 +1,24 @@
 lockVersion: 2.0.0
 id: 845b3ae5-0c5c-44ad-9b76-21e1d9e24151
 management:
-  docChecksum: 98569bab86906f2e6b70cffd6c4fe5f8
+  docChecksum: c582ba720e8d690933c1e1fa60dcf562
   docVersion: 1.0.0
-  speakeasyVersion: 1.784.0
-  generationVersion: 2.911.0
-  releaseVersion: 0.6.0
-  configChecksum: e0ed3bc14fd2d3694e69fb086b9714ac
+  speakeasyVersion: 1.785.0
+  generationVersion: 2.912.1
+  releaseVersion: 0.6.1
+  configChecksum: 7165d783feb4a9d61e5a450a5394b28d
   repoURL: https://github.com/clientcasa/sdk-typescript.git
   installationURL: https://github.com/clientcasa/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: 9febce48-c010-4c92-89e9-2743599e1f5c
-  pristine_commit_hash: a52a3846f9ed2f91e9ddb593580e5d609bfafa43
-  pristine_tree_hash: b65776985d69ba27fde5c207f5010c96181be0af
+  generation_id: 8c00cd4b-00ea-4e66-8ad7-0c4638aabe47
+  pristine_commit_hash: cf577fb15371a1d361ca9313021596be7c5daeaf
+  pristine_tree_hash: f51e73f296e51b852569e93704c64baf3194c5f8
 features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.14
-    core: 3.31.1
+    core: 3.31.2
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.1
     enumUnions: 0.1.0
@@ -447,20 +447,20 @@ trackedFiles:
     pristine_git_object: feb520f168dac694c829fc6d0ff27d5d2ae5d6be
   docs/models/invoice-status.md:
     id: 241d9bbe61f6
-    last_write_checksum: sha1:307c936a2114efe9308907c3abbb354a2f48f6c8
-    pristine_git_object: 0b0446fb6551df1fa620f46e76280d37b6d099f4
+    last_write_checksum: sha1:f9bad46f0b31b613850a3359e8a233669b03f80d
+    pristine_git_object: 176f1ee7d7b75b4bef5898d162a0003d443407a2
   docs/models/invoice-update-status.md:
     id: 6971a57bd85d
-    last_write_checksum: sha1:b6d86145a236a4b408fee06593e1c1069cc0164d
-    pristine_git_object: d52c1a79c5933e82567540f4f01409cbcce68f68
+    last_write_checksum: sha1:c61167a2dcac655d270d9558c19261254506a41c
+    pristine_git_object: 06a1e1253b70bc2e3741b46429d04c5e054e9731
   docs/models/invoice-update.md:
     id: d952200520aa
     last_write_checksum: sha1:1a2c419cf0a8797c81881e7ebc0005de709d99de
     pristine_git_object: a200e60f5787b8560ee1b2896189f7417f129b40
   docs/models/invoice.md:
     id: 18e2034f11ad
-    last_write_checksum: sha1:3d7859ab9fad3c098dba8b5e9f4a28a9ad9bcab0
-    pristine_git_object: 1698f06ecd5a33d6af63184d1882925304cb5517
+    last_write_checksum: sha1:d9518c489d00fd49bf3decbbec72290b7137f612
+    pristine_git_object: 62cb309d17fcab2e34bf5770b480bf53d217e332
   docs/models/line-item.md:
     id: 88b55faa3eca
     last_write_checksum: sha1:b1588a2afebebe2e4d2a2b496aa181f496b99581
@@ -1103,8 +1103,8 @@ trackedFiles:
     pristine_git_object: 268c4d9d32c286012a7888b3ccc7aeecaa482b56
   docs/models/operations/list-invoices-request.md:
     id: 75cce2b66e86
-    last_write_checksum: sha1:0e442de1a13fe7ed3b55b87f47d5c0917ad341c8
-    pristine_git_object: 8563afa609134a4b595e3d1c34f4d0aecf26f10e
+    last_write_checksum: sha1:f172c3901263b9f69ad64de28370353ebe4c6a3e
+    pristine_git_object: 72d7dc7835b3705d72301df76169053f4eea735c
   docs/models/operations/list-invoices-response.md:
     id: 9ead79c8458b
     last_write_checksum: sha1:e2416795ca0bfd05209347835b06930754c2fadb
@@ -1115,8 +1115,8 @@ trackedFiles:
     pristine_git_object: aa198c258c519b9604fa10ea18a202aed3cb3407
   docs/models/operations/list-invoices-status.md:
     id: 92ed744547c9
-    last_write_checksum: sha1:92e2ca42c075821cebf7c9a57fe95aa94d38c5cc
-    pristine_git_object: e726439838c02006d3a81b7c18503408d0d874ac
+    last_write_checksum: sha1:c243488c603c368272b4c0c88f276f2c61a94b4a
+    pristine_git_object: cdabc699fd2ac9a73094905ffa4ea2f1a4dd23ae
   docs/models/operations/list-milestones-request.md:
     id: 195ce3f4b1fe
     last_write_checksum: sha1:128fccf87f539c3d07eda839bf2bd04c55b9ab94
@@ -1259,8 +1259,8 @@ trackedFiles:
     pristine_git_object: 9bd6928b804f88fea07bad3e8e2f11d2f1729bc9
   docs/models/operations/overdue.md:
     id: eb8cc300168a
-    last_write_checksum: sha1:09ec8093b9da6b582c10a447ad2128b891a33c17
-    pristine_git_object: e7f895788281bc36084a3344ab6a470b39b94e6e
+    last_write_checksum: sha1:e2468bd337b137fa5d5ab56280b78667b6f0beed
+    pristine_git_object: 2078dd0be246c2d129c794e0af50afbfc416ee96
   docs/models/operations/parent-type.md:
     id: ef05fc35cdd6
     last_write_checksum: sha1:21fb8bcfc88063aa0999cc61f3703ffb499134ca
@@ -1795,8 +1795,8 @@ trackedFiles:
     pristine_git_object: c5db7e7ea9a5fb1b119ac64f44745e09a95b9963
   docs/sdks/invoices/README.md:
     id: a3f76a06eded
-    last_write_checksum: sha1:b2a92022689c3f3f92b21e66d001013ccdbc9682
-    pristine_git_object: 5825a7f3aa3216046a8cac2b8c2c9380872e4ad4
+    last_write_checksum: sha1:123b29cff9a06509b8106550dfe50f85d5a911af
+    pristine_git_object: a2c7d611e9feab4f8da956852fca7d2364d0eebc
   docs/sdks/milestones/README.md:
     id: 186be158f715
     last_write_checksum: sha1:a08ad418ce423267a202f1e5ad15f52329db590b
@@ -1855,12 +1855,12 @@ trackedFiles:
     pristine_git_object: dca8b77bfe9ec131b8e55da6a49883996f4ea14e
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:2ec9703767b96091e9615809b4c6ce0e29a32a81
-    pristine_git_object: cf71ee29ee2a8779a83144ab0d9991cc7885d171
+    last_write_checksum: sha1:e78b35265b9888e07ac8d5699f07975d82b4e929
+    pristine_git_object: d8696a441ee13e780ba565326392b2b5235fe9a4
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:2ccac086e6a25a8e673875813f166251423d71a4
-    pristine_git_object: 29f5e0c09db44e3d397a54a0993ea1955b903c3e
+    last_write_checksum: sha1:8aebf1289c72e324c82795dcde86323552ed55f5
+    pristine_git_object: d4562c1589a7a1e907d27a412da0a36ce85a8fc9
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:473b76edf3d30ed53981d70a75feb9a4318c3ec1
@@ -2039,8 +2039,8 @@ trackedFiles:
     pristine_git_object: 3fa62e1062524b25c508d96aca5dd575ffcea44f
   src/funcs/invoices-create.ts:
     id: 87002c805f0a
-    last_write_checksum: sha1:a70fb3d48c4130c2d0beb2a60c0532a422ebcc91
-    pristine_git_object: 45bff8c07e099880e4e93df43534079c3eaa9d3c
+    last_write_checksum: sha1:f68ae38e2032dbad6065ef8534e6e8d209c31513
+    pristine_git_object: 8ebe305e26c8e016020e92bd4c23de23c81f1fe8
   src/funcs/invoices-delete.ts:
     id: f36be08a5d45
     last_write_checksum: sha1:1e1c18e9132c96d06c631f45d9bcfa1618ea9f12
@@ -2243,8 +2243,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:34ae7fa54f422f55214ec4d232977287e83c816c
-    pristine_git_object: 937a0037ffba555a9490cf1806ff007d46c408aa
+    last_write_checksum: sha1:ce3ae531ffea14835265345d98eb5b33fe8705b2
+    pristine_git_object: 79a372e249f72f8d77a004e0736674de18ab032e
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:7533dcb79b22b8c84ac7b90aec94317d12bad5f8
@@ -2499,12 +2499,12 @@ trackedFiles:
     pristine_git_object: b66c24db2ed09ab66fc7bb00b90df68e72af873c
   src/models/invoice-update.ts:
     id: d0d25f9b5be8
-    last_write_checksum: sha1:9b5041eaae6268091c2453b011d6b3b578b90b8f
-    pristine_git_object: 4251be76d42d87b0309d134fdf1ac3b0dbecb1c1
+    last_write_checksum: sha1:458835dd7d602118e32c50ce86e6e9ee02e41531
+    pristine_git_object: a91283ae90bfe474110aee982ad20f03aacd8cd8
   src/models/invoice.ts:
     id: 1c5037fcdce9
-    last_write_checksum: sha1:10b7cb7081305c1c0dd29f7a8c6bcb9625bdc5e4
-    pristine_git_object: aa2da6dd84c0777d97c4b1bfed25eae918bae249
+    last_write_checksum: sha1:f865d930015bc2587d46cdaf0b6df86ddd7fb510
+    pristine_git_object: c7faec0af45b91b429acdeadabbababd1b8f9575
   src/models/milestone-create.ts:
     id: d75468b5a58a
     last_write_checksum: sha1:858a0d45931b31b27517dd01db47b857973b07f4
@@ -2779,8 +2779,8 @@ trackedFiles:
     pristine_git_object: 36be1e85fb8c80a459f3593180483e0af22fddb7
   src/models/operations/list-invoices.ts:
     id: 8a463261e5fe
-    last_write_checksum: sha1:f7e228c342af932ba760bd2ea732b7bc44b9ce47
-    pristine_git_object: 7e566728e37d01f70de9ab2c3c59636b06e368b1
+    last_write_checksum: sha1:5dcad8e27e8e1f3d2329a163ffb75dad2c98b1bc
+    pristine_git_object: 11236dc2acc601906b9ea697102fbae5296a1422
   src/models/operations/list-milestones.ts:
     id: c82dd5df5d4c
     last_write_checksum: sha1:f922901134c34457c32a35bec8d3cf56f18323e9
@@ -3063,8 +3063,8 @@ trackedFiles:
     pristine_git_object: ecac2264817bb369ff2dbf0f0e9029807e67ff77
   src/sdk/invoices.ts:
     id: b0baec52de2f
-    last_write_checksum: sha1:5a4fb618a9d02a6b9f3fb178d5739de8678c7fcc
-    pristine_git_object: 903f44b55f8b51c4e1aeb889d8565a37f28c47e8
+    last_write_checksum: sha1:313a5e1f59b4f45ef5bb2df7be9e875864eeb566
+    pristine_git_object: 63282c3dc3a6115623f975b68fb2c7dfbf928e1c
   src/sdk/milestones.ts:
     id: bca3de2e0fe9
     last_write_checksum: sha1:b15929c34e7dd4e4437a84eb1c734b9c6aae1c65
@@ -3949,7 +3949,7 @@ examples:
         application/json: {"clientId": "550e8400-e29b-41d4-a716-446655440000", "billingContactId": "550e8400-e29b-41d4-a716-446655440000", "projectIds": ["550e8400-e29b-41d4-a716-446655440000"], "status": "draft", "lineItems": [{"description": "aha surge service westernize courageously", "quantity": 2475.76, "unitPrice": 2802.03, "taxable": false}]}
       responses:
         "201":
-          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "invoiceNumber": "<value>", "clientId": "550e8400-e29b-41d4-a716-446655440000", "billingContactId": "550e8400-e29b-41d4-a716-446655440000", "projectIds": ["550e8400-e29b-41d4-a716-446655440000"], "status": "partial", "subject": "<value>", "issueDate": "2025-02-11", "dueDate": "2025-08-14", "currency": "Lilangeni", "subtotal": 7656.81, "discountAmount": 5729.75, "taxAmount": 8665.85, "total": 2564.26, "amountPaid": 734.53, "balanceDue": 6674.65, "overdue": false, "supersedesInvoice": "550e8400-e29b-41d4-a716-446655440000", "paymentTerms": "<value>", "notes": "<value>", "paidAt": "2025-12-29T12:01:16.062Z", "lineItems": [{"id": "550e8400-e29b-41d4-a716-446655440000", "description": "psst why intermix hmph sprinkles versus", "quantity": 4408.68, "unitPrice": 7813.74, "taxable": true, "discountPercent": null, "total": 5630.58}], "createdAt": "2026-01-29T20:48:20.595Z", "updatedAt": "2026-11-07T16:33:52.381Z"}
+          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "invoiceNumber": "<value>", "clientId": "550e8400-e29b-41d4-a716-446655440000", "billingContactId": "550e8400-e29b-41d4-a716-446655440000", "projectIds": ["550e8400-e29b-41d4-a716-446655440000"], "status": "void", "subject": "<value>", "issueDate": "2025-02-11", "dueDate": "2025-08-14", "currency": "Lilangeni", "subtotal": 7656.81, "discountAmount": 5729.75, "taxAmount": 8665.85, "total": 2564.26, "amountPaid": 734.53, "balanceDue": 6674.65, "overdue": false, "supersedesInvoice": "550e8400-e29b-41d4-a716-446655440000", "paymentTerms": "<value>", "notes": "<value>", "paidAt": "2025-12-29T12:01:16.062Z", "lineItems": [{"id": "550e8400-e29b-41d4-a716-446655440000", "description": "psst why intermix hmph sprinkles versus", "quantity": 4408.68, "unitPrice": 7813.74, "taxable": true, "discountPercent": null, "total": 5630.58}], "createdAt": "2026-01-29T20:48:20.595Z", "updatedAt": "2026-11-07T16:33:52.381Z"}
         "400":
           application/json: {"error": {"code": "conflict", "message": "<value>", "requestId": "<id>"}}
         "500":
@@ -5009,4 +5009,4 @@ examples:
         "500":
           application/json: {"error": {"code": "conflict", "message": "<value>", "requestId": "<id>"}}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `clientcasa.eventDays.list()`: **Added**\n* `clientcasa.eventDays.create()`: **Added**\n* `clientcasa.eventDays.get()`: **Added**\n* `clientcasa.eventDays.delete()`: **Added**\n* `clientcasa.eventDays.update()`: **Added**\n* `clientcasa.timelineItems.list()`: **Added**\n* `clientcasa.timelineItems.create()`: **Added**\n* `clientcasa.timelineItems.get()`: **Added**\n* `clientcasa.timelineItems.delete()`: **Added**\n* `clientcasa.timelineItems.update()`: **Added**\n* `clientcasa.eventDayVendors.list()`: **Added**\n* `clientcasa.eventDayVendors.create()`: **Added**\n* `clientcasa.eventDayVendors.get()`: **Added**\n* `clientcasa.eventDayVendors.delete()`: **Added**\n* `clientcasa.eventDayVendors.update()`: **Added**\n* `clientcasa.vendors.list()`: **Added**\n* `clientcasa.vendors.create()`: **Added**\n* `clientcasa.vendors.get()`: **Added**\n* `clientcasa.vendors.delete()`: **Added**\n* `clientcasa.vendors.update()`: **Added**\n* `clientcasa.clients.list()`:  `response.data[]` **Changed**\n* `clientcasa.clients.create()`: \n  *  `request.body` **Changed**\n  *  `response` **Changed**\n* `clientcasa.clients.get()`:  `response` **Changed**\n* `clientcasa.clients.update()`: \n  *  `request.body` **Changed**\n  *  `response` **Changed**\n* `clientcasa.webhooks.list()`: \n  *  `request.event` **Changed**\n  *  `response.data[].events[]` **Changed**\n* `clientcasa.webhooks.create()`: \n  *  `request.body.events[]` **Changed**\n  *  `response.events[]` **Changed**\n* `clientcasa.webhooks.get()`:  `response.events[]` **Changed**\n* `clientcasa.webhooks.update()`: \n  *  `request.body.events[]` **Changed**\n  *  `response.events[]` **Changed**\n"
+releaseNotes: "## Typescript SDK Changes:\n* `clientcasa.invoices.list()`: \n  *  `request.status` **Changed** (Breaking ⚠️)\n  *  `response.data[].status` **Changed** (Breaking ⚠️)\n* `clientcasa.invoices.create()`:  `response.status` **Changed** (Breaking ⚠️)\n* `clientcasa.invoices.get()`:  `response.status` **Changed** (Breaking ⚠️)\n* `clientcasa.invoices.update()`: \n  *  `request.body.status.enum(draft)` **Removed** (Breaking ⚠️)\n  *  `response.status` **Changed** (Breaking ⚠️)\n"
