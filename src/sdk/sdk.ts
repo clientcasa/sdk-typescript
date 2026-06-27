@@ -14,6 +14,7 @@ import { EventDays } from "./event-days.js";
 import { FormSubmissions } from "./form-submissions.js";
 import { FormsAndAgreements } from "./forms-and-agreements.js";
 import { Forms } from "./forms.js";
+import { Inquiries } from "./inquiries.js";
 import { Invoices } from "./invoices.js";
 import { Milestones } from "./milestones.js";
 import { Payments } from "./payments.js";
@@ -69,6 +70,11 @@ export class ClientCasa extends ClientSDK {
   private _formSubmissions?: FormSubmissions;
   get formSubmissions(): FormSubmissions {
     return (this._formSubmissions ??= new FormSubmissions(this._options));
+  }
+
+  private _inquiries?: Inquiries;
+  get inquiries(): Inquiries {
+    return (this._inquiries ??= new Inquiries(this._options));
   }
 
   private _payments?: Payments;

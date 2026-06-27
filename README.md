@@ -393,6 +393,10 @@ run();
 * [list](docs/sdks/formsandagreements/README.md#list) - List proposals
 * [get](docs/sdks/formsandagreements/README.md#get) - Get a proposal
 
+### [Inquiries](docs/sdks/inquiries/README.md)
+
+* [create](docs/sdks/inquiries/README.md#create) - Submit an inquiry (capture a lead)
+
 ### [Invoices](docs/sdks/invoices/README.md)
 
 * [list](docs/sdks/invoices/README.md#list) - List invoices
@@ -530,6 +534,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`formsList`](docs/sdks/forms/README.md#list) - List forms
 - [`formSubmissionsGet`](docs/sdks/formsubmissions/README.md#get) - Get a form submission (with answers)
 - [`formSubmissionsList`](docs/sdks/formsubmissions/README.md#list) - List form submissions
+- [`inquiriesCreate`](docs/sdks/inquiries/README.md#create) - Submit an inquiry (capture a lead)
 - [`invoicesCreate`](docs/sdks/invoices/README.md#create) - Create an invoice
 - [`invoicesDelete`](docs/sdks/invoices/README.md#delete) - Delete an invoice (only drafts)
 - [`invoicesGet`](docs/sdks/invoices/README.md#get) - Get an invoice

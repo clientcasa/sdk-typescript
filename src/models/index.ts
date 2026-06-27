@@ -42,6 +42,8 @@ export * from "./form-submission-answer.js";
 export * from "./form-submission-list.js";
 export * from "./form-submission.js";
 export * from "./form.js";
+export * from "./inquiry-create.js";
+export * from "./inquiry.js";
 export * from "./invoice-create.js";
 export * from "./invoice-line-item.js";
 export * from "./invoice-list.js";
