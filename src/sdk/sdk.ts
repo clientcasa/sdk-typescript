@@ -24,6 +24,7 @@ import { TimeEntries } from "./time-entries.js";
 import { TimelineItems } from "./timeline-items.js";
 import { Transactions } from "./transactions.js";
 import { Vendors } from "./vendors.js";
+import { Venues } from "./venues.js";
 import { Webhooks } from "./webhooks.js";
 
 export class ClientCasa extends ClientSDK {
@@ -130,6 +131,11 @@ export class ClientCasa extends ClientSDK {
   private _vendors?: Vendors;
   get vendors(): Vendors {
     return (this._vendors ??= new Vendors(this._options));
+  }
+
+  private _venues?: Venues;
+  get venues(): Venues {
+    return (this._venues ??= new Venues(this._options));
   }
 
   private _webhooks?: Webhooks;

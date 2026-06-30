@@ -465,6 +465,14 @@ run();
 * [delete](docs/sdks/vendors/README.md#delete) - Delete a vendor
 * [update](docs/sdks/vendors/README.md#update) - Update a vendor
 
+### [Venues](docs/sdks/venues/README.md)
+
+* [list](docs/sdks/venues/README.md#list) - List venues
+* [create](docs/sdks/venues/README.md#create) - Create a venue
+* [get](docs/sdks/venues/README.md#get) - Get a venue
+* [delete](docs/sdks/venues/README.md#delete) - Delete a venue
+* [update](docs/sdks/venues/README.md#update) - Update a venue
+
 ### [Webhooks](docs/sdks/webhooks/README.md)
 
 * [list](docs/sdks/webhooks/README.md#list) - List webhook subscriptions
@@ -576,6 +584,11 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`vendorsGet`](docs/sdks/vendors/README.md#get) - Get a vendor
 - [`vendorsList`](docs/sdks/vendors/README.md#list) - List vendors
 - [`vendorsUpdate`](docs/sdks/vendors/README.md#update) - Update a vendor
+- [`venuesCreate`](docs/sdks/venues/README.md#create) - Create a venue
+- [`venuesDelete`](docs/sdks/venues/README.md#delete) - Delete a venue
+- [`venuesGet`](docs/sdks/venues/README.md#get) - Get a venue
+- [`venuesList`](docs/sdks/venues/README.md#list) - List venues
+- [`venuesUpdate`](docs/sdks/venues/README.md#update) - Update a venue
 - [`webhooksCreate`](docs/sdks/webhooks/README.md#create) - Subscribe to events
 - [`webhooksDelete`](docs/sdks/webhooks/README.md#delete) - Delete a webhook
 - [`webhooksGet`](docs/sdks/webhooks/README.md#get) - Get a webhook
