@@ -10,15 +10,22 @@ import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
+/**
+ * How the item is timed. 'none' floats (the cascade solves its time from order + duration). 'fixed' pins the item's START to requestedStartTime (HH:MM). 'fixed-end' pins the item's END to requestedStartTime — a hard stop / curfew / 'must be done by'; the schedule back-solves the items before it to fit (pin = end − duration). 'custom-event' pins to a named Key Moment via anchorKey. 'sunset'/'sunrise' pin to the venue's golden hour. 'ceremony'/'event-start' are legacy named anchors.
+ */
 export const TimelineItemAnchorType = {
   None: "none",
   Fixed: "fixed",
+  FixedEnd: "fixed-end",
   Ceremony: "ceremony",
   EventStart: "event-start",
   Sunset: "sunset",
   Sunrise: "sunrise",
   CustomEvent: "custom-event",
 } as const;
+/**
+ * How the item is timed. 'none' floats (the cascade solves its time from order + duration). 'fixed' pins the item's START to requestedStartTime (HH:MM). 'fixed-end' pins the item's END to requestedStartTime — a hard stop / curfew / 'must be done by'; the schedule back-solves the items before it to fit (pin = end − duration). 'custom-event' pins to a named Key Moment via anchorKey. 'sunset'/'sunrise' pin to the venue's golden hour. 'ceremony'/'event-start' are legacy named anchors.
+ */
 export type TimelineItemAnchorType = OpenEnum<typeof TimelineItemAnchorType>;
 
 export const TimelineItemVisibleTo = {
@@ -56,6 +63,9 @@ export type TimelineItem = {
   bufferAfterMinutes: number | null;
   travelTimeMinutes: number | null;
   locked: boolean;
+  /**
+   * How the item is timed. 'none' floats (the cascade solves its time from order + duration). 'fixed' pins the item's START to requestedStartTime (HH:MM). 'fixed-end' pins the item's END to requestedStartTime — a hard stop / curfew / 'must be done by'; the schedule back-solves the items before it to fit (pin = end − duration). 'custom-event' pins to a named Key Moment via anchorKey. 'sunset'/'sunrise' pin to the venue's golden hour. 'ceremony'/'event-start' are legacy named anchors.
+   */
   anchorType: TimelineItemAnchorType;
   anchorKey: string | null;
   location: string | null;

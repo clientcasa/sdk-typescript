@@ -5,15 +5,22 @@
 import * as z from "zod/v4-mini";
 import { ClosedEnum } from "../types/enums.js";
 
+/**
+ * How the item is timed. 'none' floats (the cascade solves its time from order + duration). 'fixed' pins the item's START to requestedStartTime (HH:MM). 'fixed-end' pins the item's END to requestedStartTime — a hard stop / curfew / 'must be done by'; the schedule back-solves the items before it to fit (pin = end − duration). 'custom-event' pins to a named Key Moment via anchorKey. 'sunset'/'sunrise' pin to the venue's golden hour. 'ceremony'/'event-start' are legacy named anchors.
+ */
 export const TimelineItemCreateAnchorType = {
   None: "none",
   Fixed: "fixed",
+  FixedEnd: "fixed-end",
   Ceremony: "ceremony",
   EventStart: "event-start",
   Sunset: "sunset",
   Sunrise: "sunrise",
   CustomEvent: "custom-event",
 } as const;
+/**
+ * How the item is timed. 'none' floats (the cascade solves its time from order + duration). 'fixed' pins the item's START to requestedStartTime (HH:MM). 'fixed-end' pins the item's END to requestedStartTime — a hard stop / curfew / 'must be done by'; the schedule back-solves the items before it to fit (pin = end − duration). 'custom-event' pins to a named Key Moment via anchorKey. 'sunset'/'sunrise' pin to the venue's golden hour. 'ceremony'/'event-start' are legacy named anchors.
+ */
 export type TimelineItemCreateAnchorType = ClosedEnum<
   typeof TimelineItemCreateAnchorType
 >;
@@ -53,6 +60,9 @@ export type TimelineItemCreate = {
   bufferAfterMinutes?: number | undefined;
   travelTimeMinutes?: number | undefined;
   locked?: boolean | undefined;
+  /**
+   * How the item is timed. 'none' floats (the cascade solves its time from order + duration). 'fixed' pins the item's START to requestedStartTime (HH:MM). 'fixed-end' pins the item's END to requestedStartTime — a hard stop / curfew / 'must be done by'; the schedule back-solves the items before it to fit (pin = end − duration). 'custom-event' pins to a named Key Moment via anchorKey. 'sunset'/'sunrise' pin to the venue's golden hour. 'ceremony'/'event-start' are legacy named anchors.
+   */
   anchorType?: TimelineItemCreateAnchorType | undefined;
   anchorKey?: string | undefined;
   location?: string | undefined;
