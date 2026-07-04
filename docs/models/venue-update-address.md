@@ -18,5 +18,3 @@ let value: VenueUpdateAddress = {};
 | `state`            | *string*           | :heavy_minus_sign: | N/A                |
 | `postalCode`       | *string*           | :heavy_minus_sign: | N/A                |
 | `country`          | *string*           | :heavy_minus_sign: | N/A                |
-| `lat`              | *number*           | :heavy_minus_sign: | N/A                |
-| `lng`              | *number*           | :heavy_minus_sign: | N/A                |

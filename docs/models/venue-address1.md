@@ -12,8 +12,6 @@ let value: VenueAddress1 = {
   state: "North Dakota",
   postalCode: "30870",
   country: "Portugal",
-  lat: 2854.31,
-  lng: null,
 };
 ```
 
@@ -27,5 +25,3 @@ let value: VenueAddress1 = {
 | `state`            | *string*           | :heavy_check_mark: | N/A                |
 | `postalCode`       | *string*           | :heavy_check_mark: | N/A                |
 | `country`          | *string*           | :heavy_check_mark: | N/A                |
-| `lat`              | *number*           | :heavy_check_mark: | N/A                |
-| `lng`              | *number*           | :heavy_check_mark: | N/A                |

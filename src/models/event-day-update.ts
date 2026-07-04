@@ -19,8 +19,6 @@ export type EventDayUpdateVenueAddress = {
   state?: string | undefined;
   zip?: string | undefined;
   country?: string | undefined;
-  lat?: number | undefined;
-  lng?: number | undefined;
 };
 
 export type EventDayUpdateCustomAnchor = {
@@ -43,7 +41,6 @@ export type EventDayUpdate = {
   clientId?: string | null | undefined;
   ceremonyTime?: string | null | undefined;
   eventStartTime?: string | null | undefined;
-  venueTimezone?: string | null | undefined;
   venueAddress?: EventDayUpdateVenueAddress | undefined;
   venueNotes?: string | null | undefined;
   dayStartMinute?: number | undefined;
@@ -66,8 +63,6 @@ export type EventDayUpdateVenueAddress$Outbound = {
   state?: string | undefined;
   zip?: string | undefined;
   country?: string | undefined;
-  lat?: number | undefined;
-  lng?: number | undefined;
 };
 
 /** @internal */
@@ -81,8 +76,6 @@ export const EventDayUpdateVenueAddress$outboundSchema: z.ZodMiniType<
   state: z.optional(z.string()),
   zip: z.optional(z.string()),
   country: z.optional(z.string()),
-  lat: z.optional(z.number()),
-  lng: z.optional(z.number()),
 });
 
 export function eventDayUpdateVenueAddressToJSON(
@@ -127,7 +120,6 @@ export type EventDayUpdate$Outbound = {
   clientId?: string | null | undefined;
   ceremonyTime?: string | null | undefined;
   eventStartTime?: string | null | undefined;
-  venueTimezone?: string | null | undefined;
   venueAddress?: EventDayUpdateVenueAddress$Outbound | undefined;
   venueNotes?: string | null | undefined;
   dayStartMinute?: number | undefined;
@@ -154,7 +146,6 @@ export const EventDayUpdate$outboundSchema: z.ZodMiniType<
   clientId: z.optional(z.nullable(z.string())),
   ceremonyTime: z.optional(z.nullable(z.string())),
   eventStartTime: z.optional(z.nullable(z.string())),
-  venueTimezone: z.optional(z.nullable(z.string())),
   venueAddress: z.optional(
     z.lazy(() => EventDayUpdateVenueAddress$outboundSchema),
   ),

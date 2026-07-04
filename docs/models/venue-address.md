@@ -12,8 +12,6 @@ let value: VenueAddress = {
   state: "Minnesota",
   zip: "68705",
   country: "American Samoa",
-  lat: 7518.35,
-  lng: 7094.04,
 };
 ```
 
@@ -27,5 +25,3 @@ let value: VenueAddress = {
 | `state`            | *string*           | :heavy_check_mark: | N/A                |
 | `zip`              | *string*           | :heavy_check_mark: | N/A                |
 | `country`          | *string*           | :heavy_check_mark: | N/A                |
-| `lat`              | *number*           | :heavy_check_mark: | N/A                |
-| `lng`              | *number*           | :heavy_check_mark: | N/A                |

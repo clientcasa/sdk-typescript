@@ -16,8 +16,6 @@ let value: Venue = {
     state: "North Dakota",
     postalCode: "26047-5508",
     country: "Egypt",
-    lat: 6514.29,
-    lng: 7719.82,
   },
   timezone: "Europe/Berlin",
   contacts: [

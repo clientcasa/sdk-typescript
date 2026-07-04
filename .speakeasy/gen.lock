@@ -1,24 +1,24 @@
 lockVersion: 2.0.0
 id: 845b3ae5-0c5c-44ad-9b76-21e1d9e24151
 management:
-  docChecksum: f8a97973a8fd3be2b1ebd938fa474a84
+  docChecksum: c97f2278842ec56d25ea2a50f2571c22
   docVersion: 1.0.0
-  speakeasyVersion: 1.786.1
-  generationVersion: 2.913.3
-  releaseVersion: 0.6.3
-  configChecksum: 5f48e80346b0bfa1d13ddfdc9b25f74a
+  speakeasyVersion: 1.788.1
+  generationVersion: 2.915.1
+  releaseVersion: 0.6.4
+  configChecksum: 5dd13b1d2e9f8958b864afc94fbb7fdf
   repoURL: https://github.com/clientcasa/sdk-typescript.git
   installationURL: https://github.com/clientcasa/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: da9c091f-1d6a-4fba-9643-9c7a70da3854
-  pristine_commit_hash: c5a39b4e5ddf71b813318c66644a15412c7e293a
-  pristine_tree_hash: 06be783e24fbf9eab53b96c17fefce58eff7231c
+  generation_id: 0157d7e2-af95-473a-bae2-04194c0c31ac
+  pristine_commit_hash: 32df18d03cb382de44f5eab1236a7bcf448614a2
+  pristine_tree_hash: 7388d08b0add040c5dcdd52c97bbdd1daaccd8da
 features:
   typescript:
     additionalDependencies: 0.1.0
     constsAndDefaults: 0.1.14
-    core: 3.31.2
+    core: 3.31.3
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.1
     enumUnions: 0.1.0
@@ -231,8 +231,8 @@ trackedFiles:
     pristine_git_object: c0d4b46db77813262504224fc85839f87b7f05b7
   docs/models/code.md:
     id: 2fcb3964c9c0
-    last_write_checksum: sha1:c5d63cc95444c363e414d76093695c0cf89fc1c0
-    pristine_git_object: 3959daf0b08543b616537c4cb0e56d1bafa7c140
+    last_write_checksum: sha1:bbc9cf6077df13a6b20a6d2486c8882f47c7b3f0
+    pristine_git_object: 5a0fa48680bc8f844bf943205c714b3dcf9c2ae8
   docs/models/composition.md:
     id: 7d4b16582ea9
     last_write_checksum: sha1:931f16b78d7a960979cb7122006ceb0bb3180a88
@@ -331,12 +331,12 @@ trackedFiles:
     pristine_git_object: f18282051663ebbf1bbccaa4c3acc8cbe36ca95c
   docs/models/event-day-create-venue-address.md:
     id: d95fecbafe31
-    last_write_checksum: sha1:448ed5cda051c1d28e5455526446fa53b435eeba
-    pristine_git_object: 40cb54686942c7f0f8698287c41fc64c59675109
+    last_write_checksum: sha1:1100d445278db2e39070e6731d13bb194bcf8b85
+    pristine_git_object: 633cfc8392eca63966c66290e7cc54da02a8d0d3
   docs/models/event-day-create.md:
     id: a286dfe2385d
-    last_write_checksum: sha1:f4914dd591c05fddbf33f475cf7377580b5ed5b5
-    pristine_git_object: f985eb1aae2fe98fea100bcba9e8e45865b12065
+    last_write_checksum: sha1:d9275594c5335b19610205a1aa4d5c1a98b5fbde
+    pristine_git_object: d21ca169518580ac64bb628f14b94e0bab586dff
   docs/models/event-day-custom-anchor.md:
     id: 5bd3f3f1c74f
     last_write_checksum: sha1:4675b1f8c51efb10147616b91798ddb2ffd7c88d
@@ -359,12 +359,12 @@ trackedFiles:
     pristine_git_object: 39afd073f9a873f83ad86d71d48cde37d9d372b1
   docs/models/event-day-update-venue-address.md:
     id: b8ffe377e02c
-    last_write_checksum: sha1:b550fe6a8b22bbca86d96bc514205ad0c730fa59
-    pristine_git_object: 1617ca3082e4025ff8e61e12adcbf5121486b353
+    last_write_checksum: sha1:6248821c1017e6bc2acb7916df3fd88471faec9f
+    pristine_git_object: 883c81bab27a66ab27e9eb2cc53923f93f472c44
   docs/models/event-day-update.md:
     id: 46f3f66fd8c7
-    last_write_checksum: sha1:370b401120e792ee812e25cf50d750447d2bbb56
-    pristine_git_object: 6ead2860fc6d9f4a2c5c361b7acba43a6a2a8e22
+    last_write_checksum: sha1:6755c8a4e30c3612bb996832b8636624ea545717
+    pristine_git_object: bc1d3510ac7c23854835623dfb5010605ce08e71
   docs/models/event-day-vendor-confirmation-status.md:
     id: 7503b13e5e97
     last_write_checksum: sha1:ad6f711f4433d549d33cba61df176c7b2e577600
@@ -395,8 +395,8 @@ trackedFiles:
     pristine_git_object: e82c7f7b8583bb3d1df87a79411c826e57b220b2
   docs/models/event-day.md:
     id: e90039c8e153
-    last_write_checksum: sha1:fdca45b5726273449717a8edf31cdbfab007e955
-    pristine_git_object: 91820a38b9941605aa9970f1620c5d873a5b5b05
+    last_write_checksum: sha1:66df8a00529a9ced14045acf5083b49e05812599
+    pristine_git_object: 71e3246af5793e84ed1797eae8f7161c4fa4297b
   docs/models/fields.md:
     id: a0e8b6b2567f
     last_write_checksum: sha1:66945615d40020f8c1d11d46eb463d262aa221c2
@@ -1103,8 +1103,8 @@ trackedFiles:
     pristine_git_object: bfe61579ec8ef31f4630ce955327786473dfa166
   docs/models/operations/list-event-days-response.md:
     id: da1a75f93adb
-    last_write_checksum: sha1:f731c8246055f5df56c94084728b73a9880e002e
-    pristine_git_object: 97114a5f6b2b38616f901a2893084e630cb0a705
+    last_write_checksum: sha1:af68d9ec73acb725657e346f5aacc554d5c2eb86
+    pristine_git_object: 2710a58d5155218ad8245080ecf56795793259a7
   docs/models/operations/list-event-days-security.md:
     id: 233976b51142
     last_write_checksum: sha1:891330f0a67c40562c1c431ff58fd37103af3852
@@ -1783,20 +1783,20 @@ trackedFiles:
     pristine_git_object: 6bbff570dd665cc01cfbab57130e6a1bac42e49f
   docs/models/venue-address.md:
     id: b749845a6954
-    last_write_checksum: sha1:a0d7e4ebfad0f51ad4687a7cf5553af23280e6bd
-    pristine_git_object: 2a951ee201b60f9fc178d3e98f3f8a570f9a14f3
+    last_write_checksum: sha1:d371387af5e68937472cb577c4d0a9067ac080ba
+    pristine_git_object: ce228bd12d62f5e87144e302586fbba97b79e5d7
   docs/models/venue-address1.md:
     id: d6d944be5f32
-    last_write_checksum: sha1:3646adf5b80a6362e2fdd5149fd18ce0c6c4497d
-    pristine_git_object: 88c187a2669b7d75c40e0565684c1d7b7c7fc5b4
+    last_write_checksum: sha1:53a8e80d087e4a22769baffff618b0dd02ec9014
+    pristine_git_object: 4e619de2387a172854a944fe5f4a0a55e4258e20
   docs/models/venue-contact.md:
     id: 693e4dee0d66
     last_write_checksum: sha1:6bcf806a579174e55537966b6d51566bab988d4e
     pristine_git_object: 2f4d5f080118bedf721120ff48df505976279a96
   docs/models/venue-create-address.md:
     id: 6adb7e9117f0
-    last_write_checksum: sha1:4643259d82073bed9e692fbced4b08ed75984119
-    pristine_git_object: 772c8ac8dc7084cffff178bdc5a8ff2925ae45fb
+    last_write_checksum: sha1:dd14122198a6fce57f39782462c8629a665d8109
+    pristine_git_object: 7e2db629f54d68fb17dfb1a432c3e2c979a533b9
   docs/models/venue-create-contact.md:
     id: 35beaee47721
     last_write_checksum: sha1:68bf6ad453fc1ce7899f905a34eb762e95aa6310
@@ -1815,8 +1815,8 @@ trackedFiles:
     pristine_git_object: 9b426bcce736699002ddf2c706c8c2305379ea75
   docs/models/venue-list.md:
     id: 1390ca9b379b
-    last_write_checksum: sha1:c24500985fc7dff8b41e0a736cbe5dc37effd48a
-    pristine_git_object: 14a24ec39eebddd080a456794728b800997d1305
+    last_write_checksum: sha1:63c9de9a77555979e4e3fba496626ce0b314e7d4
+    pristine_git_object: e54889f54701172c88e30e7ef3f345f38401c7e1
   docs/models/venue-space.md:
     id: bc26c429bda9
     last_write_checksum: sha1:7e0a17251b89b4b247e044373067525443d6c5f6
@@ -1827,8 +1827,8 @@ trackedFiles:
     pristine_git_object: 8df4746c3ec2498e7dfb321f4f9d39a1425f735e
   docs/models/venue-update-address.md:
     id: c17127ad8403
-    last_write_checksum: sha1:cd9893031aba62e97316dbc81233e21c86821178
-    pristine_git_object: 81fa99d3c5bf7188671e2c5c059cd1a51317fbcd
+    last_write_checksum: sha1:f78619caf030a810331a65f4426f392c6c822c67
+    pristine_git_object: b7cbe61f853ec7d3d10c1ea91328ba45da2d5302
   docs/models/venue-update-contact.md:
     id: 4d55e5d0fe14
     last_write_checksum: sha1:a6af97e90dc0cb9950722f21cab38c23587cc3e7
@@ -1847,8 +1847,8 @@ trackedFiles:
     pristine_git_object: ba40b5d8385edd421bb5a8977e611d1c550a818b
   docs/models/venue.md:
     id: 9c378584beca
-    last_write_checksum: sha1:11f8a53792617f17e2d5e4fef7253345c4b932d0
-    pristine_git_object: 6a2f3effeb99911d0187b644c9702cc9e607040a
+    last_write_checksum: sha1:ba570e52e7a77aadd9fb0691ac4a0e046dfd507c
+    pristine_git_object: 26c8ec6d867447fbb274d9f41eb0588596b0afa9
   docs/models/version-status.md:
     id: b59170fde75c
     last_write_checksum: sha1:1ff2cdb7639cbdc8c415371221e4457525617bdb
@@ -1999,12 +1999,12 @@ trackedFiles:
     pristine_git_object: dca8b77bfe9ec131b8e55da6a49883996f4ea14e
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:dba6483c97b088ff192addb107ab72ddc5a15a59
-    pristine_git_object: f1200c1c5c8a965c28db5e81c6686cb9169b8ac4
+    last_write_checksum: sha1:9e5736794acd5f57919dd5f388a48816deb68da2
+    pristine_git_object: ee5996ffbac65b5ffbe278cd466df4c510dd9d23
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:ef3ada84a2f62614867befb16a15f345e8e2bc84
-    pristine_git_object: 7557310ee725c641342b610024c3082cb92dcaf6
+    last_write_checksum: sha1:1d735391fb2501c95a580194d801b1d16875f0fa
+    pristine_git_object: 1cd1f094b4201265dc2cf43122dc9d3379c329c4
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:473b76edf3d30ed53981d70a75feb9a4318c3ec1
@@ -2411,8 +2411,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:7e98230cac998a242267b05aefe723b15ae47687
-    pristine_git_object: d167386cc3bfd1f2a0049949ab030c9006503836
+    last_write_checksum: sha1:d9fc6729a8749ceafb2eb535b21e6e5cfec1ef7c
+    pristine_git_object: 3f18e84495cd5ae5c7848b743bbfcad23c53714f
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:7533dcb79b22b8c84ac7b90aec94317d12bad5f8
@@ -2463,8 +2463,8 @@ trackedFiles:
     pristine_git_object: 79e7ce660b3732053e3adcbb5a4cdeb51496e8aa
   src/models/api-error.ts:
     id: 1f7b1c091e2a
-    last_write_checksum: sha1:1a44a00354e6b1c1f83bde8923f7c092ddb4b271
-    pristine_git_object: 436bd8d8a436dfb6ec6a050857f07c3e0c607d22
+    last_write_checksum: sha1:8bdffe5af40d7a610b2a3a7bb28963be6899a494
+    pristine_git_object: ecb6aea95c82651ee4f4a840987b782405f8a976
   src/models/calendar-event-create.ts:
     id: b551e2d3e0b9
     last_write_checksum: sha1:4004e92e853a8f229666514dc2eda208af43912a
@@ -2595,8 +2595,8 @@ trackedFiles:
     pristine_git_object: db00022e05d55600252f401eb0e6ab46278e0b07
   src/models/event-day-create.ts:
     id: 02cc413a9f1b
-    last_write_checksum: sha1:3a53525403ddfb7ea17b81ed343c94d7511f681b
-    pristine_git_object: ad9416d317d7b8a82bd51b113b57b6555965a8d5
+    last_write_checksum: sha1:75cd05725f9ecc1527dd7d5377733c59432c975e
+    pristine_git_object: c6e4de175d515de9e97944f88e82862f3a29d956
   src/models/event-day-custom-anchor.ts:
     id: 84af61af7b71
     last_write_checksum: sha1:baab1e4a35ff6659e58eae1daf7ad377a2267cac
@@ -2607,8 +2607,8 @@ trackedFiles:
     pristine_git_object: fb8e63bbd21f703627f0427e511299e6c9bb9f36
   src/models/event-day-update.ts:
     id: c178576c565a
-    last_write_checksum: sha1:95741034de73129418a28d490dfefff43c6eb64f
-    pristine_git_object: 5d3b2280ff11417ba7c2e5bbacb44b2f7ee54f49
+    last_write_checksum: sha1:1aaf9f60ccc5ffaf218ad52717c8e5f4bd503c64
+    pristine_git_object: 38665a9da0d5a2e989499d348ab5bddaf27056aa
   src/models/event-day-vendor-create.ts:
     id: 1c6e6eed395a
     last_write_checksum: sha1:1a7c65080b9ab44822715ecf6b8734d59de2c90d
@@ -3195,24 +3195,24 @@ trackedFiles:
     pristine_git_object: 999cb6a756aaa551950c79884f0fcdf844608c36
   src/models/venue-address.ts:
     id: 583337ef5369
-    last_write_checksum: sha1:1f3c8405d2ee5aa018d5250349b2cab55bab5494
-    pristine_git_object: 119abd6909b7a5ca4da1f64e67dbfcc6da459dd0
+    last_write_checksum: sha1:cc2f8ee32e26bd7ebdf4b66f6e9397d4c9645d61
+    pristine_git_object: cf68ddefd304c7ad1808ff67ab8dc6866e706287
   src/models/venue-create.ts:
     id: b5406a0376bd
-    last_write_checksum: sha1:9d7ae225be35c6c49116a0485a6393c9acba950a
-    pristine_git_object: b960c22e93c0c6bb9ee18db48bf0c52f001a2c85
+    last_write_checksum: sha1:a379b1a51457bca8a08d2b213fdd52835dfa1798
+    pristine_git_object: d64afb8c45c0f02088712777f4a001a593b9de8f
   src/models/venue-list.ts:
     id: c441b5499b24
     last_write_checksum: sha1:a690bc04bffef6121c9300d52f772a08092655a1
     pristine_git_object: 8dce5cfd6dcd17dfd9f8019672e4e934cf5e26c5
   src/models/venue-update.ts:
     id: 130ea4d233b4
-    last_write_checksum: sha1:3a52d44f63d6643b43a5d4b7e0223235c839d1cd
-    pristine_git_object: 95c1903222a0932f6fa903c7ad97f022faf97f25
+    last_write_checksum: sha1:4bbbf345d858067bd891c6969f9d0dd7672a4999
+    pristine_git_object: 3d10a0f5a8b6275539767d8b893068d18e68ffdd
   src/models/venue.ts:
     id: dd6f2fdbfae8
-    last_write_checksum: sha1:bd3161b97f1278fccc8ff5c9efd87171ecde771b
-    pristine_git_object: d2309e8f913f1e9a0648f8dcee776b038e5ef818
+    last_write_checksum: sha1:1707b9cb5502144bba8fa5235d20bf6503a57c81
+    pristine_git_object: 054ec2759faa0b7b6e0d9b8bdedd94b04da383bb
   src/models/webhook-create.ts:
     id: ccfb5ae20b3c
     last_write_checksum: sha1:b421bca1512c0b3c961d4bf9b49443087a39a5ef
@@ -5001,7 +5001,7 @@ examples:
         application/json: {"date": "2026-06-09", "status": "draft", "projectId": "550e8400-e29b-41d4-a716-446655440000", "clientId": "550e8400-e29b-41d4-a716-446655440000"}
       responses:
         "201":
-          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "projectId": "550e8400-e29b-41d4-a716-446655440000", "clientId": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "date": "2026-04-04", "status": "published", "ceremonyTime": "<value>", "eventStartTime": "<value>", "venueTimezone": "<value>", "venueAddress": {"name": "<value>", "street": "Locust Street", "city": "West Marieview", "state": "Minnesota", "zip": "35782-8732", "country": "Pitcairn Islands", "lat": 3962.47, "lng": 4380.52}, "venueNotes": "<value>", "dayStartMinute": 544623, "dayEndMinute": 559857, "customAnchors": [{"key": "<key>", "label": "<value>", "time": "<value>"}], "isPrimary": false, "sortOrder": 921251, "createdAt": "2024-06-29T03:03:55.210Z", "updatedAt": "2026-08-15T15:43:52.645Z"}
+          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "projectId": "550e8400-e29b-41d4-a716-446655440000", "clientId": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "date": "2026-04-04", "status": "published", "ceremonyTime": "<value>", "eventStartTime": "<value>", "venueTimezone": "<value>", "venueAddress": {"name": "<value>", "street": "Locust Street", "city": "West Marieview", "state": "Minnesota", "zip": "35782-8732", "country": "Pitcairn Islands"}, "venueNotes": "<value>", "dayStartMinute": 544623, "dayEndMinute": 559857, "customAnchors": [{"key": "<key>", "label": "<value>", "time": "<value>"}], "isPrimary": false, "sortOrder": 921251, "createdAt": "2024-06-29T03:03:55.210Z", "updatedAt": "2026-08-15T15:43:52.645Z"}
         "400":
           application/json: {"error": {"code": "internal_error", "message": "<value>", "requestId": "<id>"}}
         "500":
@@ -5013,7 +5013,7 @@ examples:
           id: "550e8400-e29b-41d4-a716-446655440000"
       responses:
         "200":
-          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "projectId": "550e8400-e29b-41d4-a716-446655440000", "clientId": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "date": "2024-08-13", "status": "published", "ceremonyTime": "<value>", "eventStartTime": "<value>", "venueTimezone": "<value>", "venueAddress": {"name": "<value>", "street": null, "city": "Vivianview", "state": "Arizona", "zip": "23465-9051", "country": "Bahrain", "lat": 6732.91, "lng": 9981.71}, "venueNotes": "<value>", "dayStartMinute": null, "dayEndMinute": 959233, "customAnchors": [{"key": "<key>", "label": null, "time": "<value>"}], "isPrimary": false, "sortOrder": 622976, "createdAt": "2024-01-12T04:03:33.303Z", "updatedAt": "2024-03-05T13:20:41.709Z"}
+          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "projectId": "550e8400-e29b-41d4-a716-446655440000", "clientId": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "date": "2024-08-13", "status": "published", "ceremonyTime": "<value>", "eventStartTime": "<value>", "venueTimezone": "<value>", "venueAddress": {"name": "<value>", "street": null, "city": "Vivianview", "state": "Arizona", "zip": "23465-9051", "country": "Bahrain"}, "venueNotes": "<value>", "dayStartMinute": null, "dayEndMinute": 959233, "customAnchors": [{"key": "<key>", "label": null, "time": "<value>"}], "isPrimary": false, "sortOrder": 622976, "createdAt": "2024-01-12T04:03:33.303Z", "updatedAt": "2024-03-05T13:20:41.709Z"}
         "401":
           application/json: {"error": {"code": "internal_error", "message": "<value>", "requestId": "<id>"}}
         "500":
@@ -5254,7 +5254,7 @@ examples:
         application/json: {"name": "<value>", "tagIds": ["550e8400-e29b-41d4-a716-446655440000"], "status": "active"}
       responses:
         "201":
-          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "website": "<value>", "address": {"line1": "<value>", "line2": "<value>", "city": "Palo Alto", "state": "Alaska", "postalCode": "10138-8239", "country": "Saint Kitts and Nevis", "lat": 1954.81, "lng": 5191.38}, "timezone": "Indian/Comoro", "contacts": [{"name": null, "role": "<value>", "email": "Nya_Hegmann24@yahoo.com", "phone": "607-979-6780 x44961"}], "spaces": [{"name": "<value>", "notes": "<value>"}], "notes": "<value>", "tagIds": ["550e8400-e29b-41d4-a716-446655440000"], "status": "archived", "createdAt": "2026-05-26T01:05:10.302Z", "updatedAt": "2026-04-09T21:54:31.045Z"}
+          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "website": "<value>", "address": {"line1": "<value>", "line2": "<value>", "city": "Palo Alto", "state": "Alaska", "postalCode": "10138-8239", "country": "Saint Kitts and Nevis"}, "timezone": "Indian/Comoro", "contacts": [{"name": null, "role": "<value>", "email": "Nya_Hegmann24@yahoo.com", "phone": "607-979-6780 x44961"}], "spaces": [{"name": "<value>", "notes": "<value>"}], "notes": "<value>", "tagIds": ["550e8400-e29b-41d4-a716-446655440000"], "status": "archived", "createdAt": "2026-05-26T01:05:10.302Z", "updatedAt": "2026-04-09T21:54:31.045Z"}
         "400":
           application/json: {"error": {"code": "forbidden", "message": "<value>", "requestId": "<id>"}}
         "500":
@@ -5266,7 +5266,7 @@ examples:
           id: "550e8400-e29b-41d4-a716-446655440000"
       responses:
         "200":
-          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "website": "<value>", "address": {"line1": "<value>", "line2": null, "city": "Port Kendall", "state": null, "postalCode": "47377", "country": "Denmark", "lat": 7366.21, "lng": 9557.24}, "timezone": "Europe/Amsterdam", "contacts": [], "spaces": [{"name": "<value>", "notes": "<value>"}], "notes": "<value>", "tagIds": ["550e8400-e29b-41d4-a716-446655440000"], "status": "archived", "createdAt": "2025-02-09T19:34:41.099Z", "updatedAt": "2026-04-21T22:28:32.899Z"}
+          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "website": "<value>", "address": {"line1": "<value>", "line2": null, "city": "Port Kendall", "state": null, "postalCode": "47377", "country": "Denmark"}, "timezone": "Europe/Amsterdam", "contacts": [], "spaces": [{"name": "<value>", "notes": "<value>"}], "notes": "<value>", "tagIds": ["550e8400-e29b-41d4-a716-446655440000"], "status": "archived", "createdAt": "2025-02-09T19:34:41.099Z", "updatedAt": "2026-04-21T22:28:32.899Z"}
         "401":
           application/json: {"error": {"code": "internal_error", "message": "<value>", "requestId": "<id>"}}
         "500":
@@ -5290,10 +5290,10 @@ examples:
         application/json: {"tagIds": ["550e8400-e29b-41d4-a716-446655440000"]}
       responses:
         "200":
-          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "website": "<value>", "address": {"line1": "<value>", "line2": "<value>", "city": "West Raquelboro", "state": "Missouri", "postalCode": "35668-3195", "country": "Iran", "lat": 5216.64, "lng": 3462.1}, "timezone": "Antarctica/Troll", "contacts": [], "spaces": [{"name": "<value>", "notes": null}], "notes": "<value>", "tagIds": ["550e8400-e29b-41d4-a716-446655440000"], "status": "archived", "createdAt": "2025-01-27T23:55:35.967Z", "updatedAt": "2026-01-12T04:45:19.913Z"}
+          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "website": "<value>", "address": {"line1": "<value>", "line2": "<value>", "city": "West Raquelboro", "state": "Missouri", "postalCode": "35668-3195", "country": "Iran"}, "timezone": "Antarctica/Troll", "contacts": [], "spaces": [{"name": "<value>", "notes": null}], "notes": "<value>", "tagIds": ["550e8400-e29b-41d4-a716-446655440000"], "status": "archived", "createdAt": "2025-01-27T23:55:35.967Z", "updatedAt": "2026-01-12T04:45:19.913Z"}
         "400":
           application/json: {"error": {"code": "forbidden", "message": "<value>", "requestId": "<id>"}}
         "500":
           application/json: {"error": {"code": "forbidden", "message": "<value>", "requestId": "<id>"}}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `clientcasa.venues.list()`: **Added**\n* `clientcasa.venues.create()`: **Added**\n* `clientcasa.venues.get()`: **Added**\n* `clientcasa.venues.delete()`: **Added**\n* `clientcasa.venues.update()`: **Added**\n* `clientcasa.timelineItems.list()`:  `response.data[].anchorType.enum(fixedEnd)` **Added**\n* `clientcasa.timelineItems.create()`: \n  *  `request.body.anchorType.enum(fixedEnd)` **Added**\n  *  `response.anchorType.enum(fixedEnd)` **Added**\n* `clientcasa.timelineItems.get()`:  `response.anchorType.enum(fixedEnd)` **Added**\n* `clientcasa.timelineItems.update()`: \n  *  `request.body.anchorType.enum(fixedEnd)` **Added**\n  *  `response.anchorType.enum(fixedEnd)` **Added**\n"
+releaseNotes: "## Typescript SDK Changes:\n* `clientcasa.eventDays.list()`: \n  *  `response.data[].venueAddress` **Changed** (Breaking ⚠️)\n  *  `error.code.enum(clientError)` **Added**\n* `clientcasa.venues.update()`: \n  *  `request.body.address` **Changed** (Breaking ⚠️)\n  *  `response.address` **Changed** (Breaking ⚠️)\n  *  `error.code.enum(clientError)` **Added**\n* `clientcasa.venues.get()`: \n  *  `response.address` **Changed** (Breaking ⚠️)\n  *  `error.code.enum(clientError)` **Added**\n* `clientcasa.venues.create()`: \n  *  `request.body.address` **Changed** (Breaking ⚠️)\n  *  `response.address` **Changed** (Breaking ⚠️)\n  *  `error.code.enum(clientError)` **Added**\n* `clientcasa.venues.list()`: \n  *  `response.data[].address` **Changed** (Breaking ⚠️)\n  *  `error.code.enum(clientError)` **Added**\n* `clientcasa.eventDays.update()`: \n  *  `request.body` **Changed** (Breaking ⚠️)\n  *  `response.venueAddress` **Changed** (Breaking ⚠️)\n  *  `error.code.enum(clientError)` **Added**\n* `clientcasa.eventDays.get()`: \n  *  `response.venueAddress` **Changed** (Breaking ⚠️)\n  *  `error.code.enum(clientError)` **Added**\n* `clientcasa.eventDays.create()`: \n  *  `request.body` **Changed** (Breaking ⚠️)\n  *  `response.venueAddress` **Changed** (Breaking ⚠️)\n  *  `error.code.enum(clientError)` **Added**\n* `clientcasa.milestones.create()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.milestones.delete()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.projects.list()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.projects.create()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.projects.get()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.projects.delete()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.projects.update()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.invoices.list()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.invoices.create()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.invoices.get()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.invoices.delete()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.invoices.update()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.contracts.list()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.contracts.create()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.contracts.get()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.contracts.delete()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.contracts.update()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.calendarEvents.get()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.forms&Agreements.get()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.documentVersions.list()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.documentVersions.get()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.forms.list()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.forms.get()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.formSubmissions.list()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.formSubmissions.get()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.inquiries.create()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.payments.list()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.payments.create()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.payments.get()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.payments.update()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.payouts.list()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.payouts.get()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.timeEntries.list()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.timeEntries.create()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.timeEntries.get()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.timeEntries.delete()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.timeEntries.update()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.milestones.list()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.clients.list()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.milestones.get()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.calendarEvents.create()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.milestones.update()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.contacts.update()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.calendarEvents.list()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.forms&Agreements.list()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.calendarEvents.delete()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.calendarEvents.update()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.transactions.list()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.transactions.create()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.transactions.get()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.transactions.delete()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.transactions.update()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.catalogItems.list()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.catalogItems.create()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.catalogItems.get()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.catalogItems.delete()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.catalogItems.update()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.contacts.delete()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.contacts.get()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.contacts.create()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.eventDays.delete()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.contacts.list()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.timelineItems.list()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.timelineItems.create()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.timelineItems.get()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.timelineItems.delete()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.timelineItems.update()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.eventDayVendors.list()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.eventDayVendors.create()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.eventDayVendors.get()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.eventDayVendors.delete()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.eventDayVendors.update()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.vendors.list()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.vendors.create()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.vendors.get()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.vendors.delete()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.vendors.update()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.clients.update()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.clients.delete()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.clients.get()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.venues.delete()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.clients.create()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.webhooks.list()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.webhooks.create()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.webhooks.get()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.webhooks.delete()`:  `error.code.enum(clientError)` **Added**\n* `clientcasa.webhooks.update()`:  `error.code.enum(clientError)` **Added**\n"
