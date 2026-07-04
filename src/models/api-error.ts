@@ -18,6 +18,7 @@ export const Code = {
   RateLimited: "rate_limited",
   Conflict: "conflict",
   Gone: "gone",
+  ClientError: "client_error",
   InternalError: "internal_error",
 } as const;
 export type Code = OpenEnum<typeof Code>;

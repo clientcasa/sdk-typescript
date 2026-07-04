@@ -22,8 +22,6 @@ let value: EventDay = {
     state: null,
     zip: "09600-9225",
     country: "Bonaire, Sint Eustatius and Saba",
-    lat: 3434.52,
-    lng: 426.73,
   },
   venueNotes: "<value>",
   dayStartMinute: 909846,
@@ -31,14 +29,14 @@ let value: EventDay = {
   customAnchors: [
     {
       key: "<key>",
-      label: null,
+      label: "<value>",
       time: "<value>",
     },
   ],
   isPrimary: false,
-  sortOrder: 362129,
-  createdAt: new Date("2025-07-31T03:01:45.873Z"),
-  updatedAt: new Date("2026-08-27T13:51:33.750Z"),
+  sortOrder: 884651,
+  createdAt: new Date("2024-04-25T16:04:16.126Z"),
+  updatedAt: new Date("2026-07-22T20:08:14.577Z"),
 };
 ```
 

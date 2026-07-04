@@ -17,8 +17,6 @@ export type VenueAddress1 = {
   state: string | null;
   postalCode: string | null;
   country: string | null;
-  lat: number | null;
-  lng: number | null;
 };
 
 export type VenueContact = {
@@ -74,8 +72,6 @@ export const VenueAddress1$inboundSchema: z.ZodMiniType<
   state: types.nullable(types.string()),
   postalCode: types.nullable(types.string()),
   country: types.nullable(types.string()),
-  lat: types.nullable(types.number()),
-  lng: types.nullable(types.number()),
 });
 
 export function venueAddress1FromJSON(

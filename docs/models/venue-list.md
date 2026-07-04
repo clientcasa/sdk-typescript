@@ -18,10 +18,8 @@ let value: VenueList = {
         state: "North Dakota",
         postalCode: "26047-5508",
         country: "Egypt",
-        lat: 6514.29,
-        lng: 7719.82,
       },
-      timezone: "Pacific/Majuro",
+      timezone: "Asia/Shanghai",
       contacts: [],
       spaces: [
         {
@@ -33,9 +31,9 @@ let value: VenueList = {
       tagIds: [
         "550e8400-e29b-41d4-a716-446655440000",
       ],
-      status: "archived",
-      createdAt: new Date("2026-08-19T01:44:18.186Z"),
-      updatedAt: new Date("2024-02-18T05:15:26.571Z"),
+      status: "active",
+      createdAt: new Date("2026-02-22T08:22:25.640Z"),
+      updatedAt: new Date("2025-11-24T19:47:40.533Z"),
     },
   ],
   pagination: {

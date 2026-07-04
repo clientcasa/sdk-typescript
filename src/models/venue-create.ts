@@ -12,8 +12,6 @@ export type VenueCreateAddress = {
   state?: string | undefined;
   postalCode?: string | undefined;
   country?: string | undefined;
-  lat?: number | undefined;
-  lng?: number | undefined;
 };
 
 export type VenueCreateContact = {
@@ -54,8 +52,6 @@ export type VenueCreateAddress$Outbound = {
   state?: string | undefined;
   postalCode?: string | undefined;
   country?: string | undefined;
-  lat?: number | undefined;
-  lng?: number | undefined;
 };
 
 /** @internal */
@@ -69,8 +65,6 @@ export const VenueCreateAddress$outboundSchema: z.ZodMiniType<
   state: z.optional(z.string()),
   postalCode: z.optional(z.string()),
   country: z.optional(z.string()),
-  lat: z.optional(z.number()),
-  lng: z.optional(z.number()),
 });
 
 export function venueCreateAddressToJSON(
