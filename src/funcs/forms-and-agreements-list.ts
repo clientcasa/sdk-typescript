@@ -109,6 +109,7 @@ async function $do(
   const path = pathToFunc("/api/v1/client-documents")();
 
   const query = encodeFormQuery({
+    "archived": payload?.archived,
     "clientId": payload?.clientId,
     "contactId": payload?.contactId,
     "page": payload?.page,

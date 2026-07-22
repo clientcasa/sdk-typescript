@@ -98,6 +98,10 @@ export type Contract = {
   /**
    * ISO 8601 timestamp (UTC)
    */
+  archivedAt: Date | null;
+  /**
+   * ISO 8601 timestamp (UTC)
+   */
   createdAt: Date;
   /**
    * ISO 8601 timestamp (UTC)
@@ -182,6 +186,7 @@ export const Contract$inboundSchema: z.ZodMiniType<Contract, unknown> = z
     contractValue: types.nullable(types.number()),
     signers: z.array(z.lazy(() => Signer$inboundSchema)),
     archived: types.boolean(),
+    archivedAt: types.nullable(types.date()),
     createdAt: types.date(),
     updatedAt: types.date(),
   });

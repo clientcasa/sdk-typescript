@@ -29,6 +29,12 @@ export type ListClientDocumentsStatus = ClosedEnum<
   typeof ListClientDocumentsStatus
 >;
 
+export const Archived = {
+  True: "true",
+  False: "false",
+} as const;
+export type Archived = ClosedEnum<typeof Archived>;
+
 export type ListClientDocumentsRequest = {
   page?: number | undefined;
   pageSize?: number | undefined;
@@ -41,6 +47,7 @@ export type ListClientDocumentsRequest = {
    * UUID v4
    */
   contactId?: string | undefined;
+  archived?: Archived | undefined;
 };
 
 export type ListClientDocumentsResponse = {
@@ -78,12 +85,18 @@ export const ListClientDocumentsStatus$outboundSchema: z.ZodMiniEnum<
 > = z.enum(ListClientDocumentsStatus);
 
 /** @internal */
+export const Archived$outboundSchema: z.ZodMiniEnum<typeof Archived> = z.enum(
+  Archived,
+);
+
+/** @internal */
 export type ListClientDocumentsRequest$Outbound = {
   page: number;
   pageSize: number;
   status?: string | undefined;
   clientId?: string | undefined;
   contactId?: string | undefined;
+  archived?: string | undefined;
 };
 
 /** @internal */
@@ -96,6 +109,7 @@ export const ListClientDocumentsRequest$outboundSchema: z.ZodMiniType<
   status: z.optional(ListClientDocumentsStatus$outboundSchema),
   clientId: z.optional(z.string()),
   contactId: z.optional(z.string()),
+  archived: z.optional(Archived$outboundSchema),
 });
 
 export function listClientDocumentsRequestToJSON(

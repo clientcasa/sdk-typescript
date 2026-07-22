@@ -64,6 +64,10 @@ export type ClientDocument = {
   /**
    * ISO 8601 timestamp (UTC)
    */
+  archivedAt: Date | null;
+  /**
+   * ISO 8601 timestamp (UTC)
+   */
   createdAt: Date;
   /**
    * ISO 8601 timestamp (UTC)
@@ -99,6 +103,7 @@ export const ClientDocument$inboundSchema: z.ZodMiniType<
   clientUrl: types.nullable(types.string()),
   quoteConvertedAt: types.nullable(types.date()),
   expiresAt: types.nullable(types.date()),
+  archivedAt: types.nullable(types.date()),
   createdAt: types.date(),
   updatedAt: types.date(),
 });

@@ -37,8 +37,9 @@ let value: ListContractsResponse = {
           },
         ],
         archived: true,
-        createdAt: new Date("2026-10-07T04:22:23.354Z"),
-        updatedAt: new Date("2024-05-14T18:34:05.240Z"),
+        archivedAt: new Date("2024-05-14T18:34:05.240Z"),
+        createdAt: new Date("2024-09-11T04:07:39.596Z"),
+        updatedAt: new Date("2025-12-28T22:15:17.694Z"),
       },
     ],
     pagination: {
