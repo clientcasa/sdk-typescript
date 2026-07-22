@@ -18,8 +18,9 @@ let value: ClientDocument = {
   clientUrl: "https://smug-flame.org/",
   quoteConvertedAt: new Date("2026-01-25T09:47:12.854Z"),
   expiresAt: new Date("2026-09-22T12:22:01.483Z"),
-  createdAt: new Date("2025-09-30T15:11:35.487Z"),
-  updatedAt: new Date("2024-08-28T06:01:57.368Z"),
+  archivedAt: new Date("2024-08-28T06:01:57.368Z"),
+  createdAt: new Date("2026-05-01T11:35:29.930Z"),
+  updatedAt: new Date("2026-09-18T21:49:32.748Z"),
 };
 ```
 
@@ -39,5 +40,6 @@ let value: ClientDocument = {
 | `clientUrl`                                                                                   | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
 | `quoteConvertedAt`                                                                            | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | ISO 8601 timestamp (UTC)                                                                      |                                                                                               |
 | `expiresAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | ISO 8601 timestamp (UTC)                                                                      |                                                                                               |
+| `archivedAt`                                                                                  | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | ISO 8601 timestamp (UTC)                                                                      |                                                                                               |
 | `createdAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | ISO 8601 timestamp (UTC)                                                                      |                                                                                               |
 | `updatedAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | ISO 8601 timestamp (UTC)                                                                      |                                                                                               |

@@ -24,8 +24,9 @@ let value: Contract = {
   contractValue: 5811.73,
   signers: [],
   archived: true,
-  createdAt: new Date("2026-12-07T18:15:53.435Z"),
-  updatedAt: new Date("2024-02-24T21:20:38.669Z"),
+  archivedAt: new Date("2024-02-24T21:20:38.669Z"),
+  createdAt: new Date("2026-02-02T08:21:47.241Z"),
+  updatedAt: new Date("2026-12-05T19:41:18.347Z"),
 };
 ```
 
@@ -51,5 +52,6 @@ let value: Contract = {
 | `contractValue`                                                                               | *number*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
 | `signers`                                                                                     | [models.Signer](../models/signer.md)[]                                                        | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
 | `archived`                                                                                    | *boolean*                                                                                     | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `archivedAt`                                                                                  | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | ISO 8601 timestamp (UTC)                                                                      |                                                                                               |
 | `createdAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | ISO 8601 timestamp (UTC)                                                                      |                                                                                               |
 | `updatedAt`                                                                                   | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | ISO 8601 timestamp (UTC)                                                                      |                                                                                               |
