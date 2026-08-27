@@ -36,8 +36,8 @@ export type ContactUpdate$Outbound = {
   email?: string | undefined;
   phone?: string | undefined;
   title?: string | undefined;
-  role: string;
-  isPrimary: boolean;
+  role?: string | undefined;
+  isPrimary?: boolean | undefined;
   clientId?: string | undefined;
 };
 
@@ -50,8 +50,8 @@ export const ContactUpdate$outboundSchema: z.ZodMiniType<
   email: z.optional(z.string()),
   phone: z.optional(z.string()),
   title: z.optional(z.string()),
-  role: z._default(ContactUpdateRole$outboundSchema, "other"),
-  isPrimary: z._default(z.boolean(), false),
+  role: z.optional(ContactUpdateRole$outboundSchema),
+  isPrimary: z.optional(z.boolean()),
   clientId: z.optional(z.string()),
 });
 

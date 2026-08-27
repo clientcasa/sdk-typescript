@@ -26,15 +26,15 @@ export type TimeEntry = {
   /**
    * UUID v4
    */
-  projectId: string;
+  projectId: string | null;
   /**
    * UUID v4
    */
-  clientId: string;
+  clientId: string | null;
   /**
    * UUID v4
    */
-  memberId: string;
+  memberId: string | null;
   /**
    * UUID v4
    */
@@ -68,9 +68,9 @@ export const TimeEntryRateType$inboundSchema: z.ZodMiniType<
 export const TimeEntry$inboundSchema: z.ZodMiniType<TimeEntry, unknown> = z
   .object({
     id: types.string(),
-    projectId: types.string(),
-    clientId: types.string(),
-    memberId: types.string(),
+    projectId: types.nullable(types.string()),
+    clientId: types.nullable(types.string()),
+    memberId: types.nullable(types.string()),
     catalogItemId: types.nullable(types.string()),
     date: types.date(),
     hours: types.number(),

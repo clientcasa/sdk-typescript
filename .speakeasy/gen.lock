@@ -1,24 +1,25 @@
 lockVersion: 2.0.0
 id: 845b3ae5-0c5c-44ad-9b76-21e1d9e24151
 management:
-  docChecksum: b71af97a394145934ee340ae30c9170e
+  docChecksum: 651f42a6af169e45c79e443c92d31a43
   docVersion: 1.0.0
-  speakeasyVersion: 1.790.3
-  generationVersion: 2.918.4
-  releaseVersion: 0.6.5
-  configChecksum: d611ab6a7e1a77f50586ecdc91c7015f
+  speakeasyVersion: 1.796.0
+  generationVersion: 2.932.15
+  releaseVersion: 0.7.0
+  configChecksum: de57645d0ede2fc3efe017e804f9c27f
   repoURL: https://github.com/clientcasa/sdk-typescript.git
   installationURL: https://github.com/clientcasa/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: a342dee4-04cb-48f7-aff4-74516a0590e3
-  pristine_commit_hash: ce46853129eddda9aee8e2ce65ef764f3ea8ff68
-  pristine_tree_hash: 96823e8a5d1fc7ad35bf87ac57205d28d5ea1ab5
+  generation_id: 1b6f219c-803f-4744-a949-ba7e80adae94
+  pristine_commit_hash: 803f20ad5af6f25d7d0ea887e5c761ae70b56c56
+  pristine_tree_hash: f515cd5928b3c9f9635ab3a8edeb5bc57c400ad4
 features:
   typescript:
     additionalDependencies: 0.1.0
+    additionalProperties: 0.1.4
     constsAndDefaults: 0.1.14
-    core: 3.31.4
+    core: 3.31.6
     defaultEnabledRetries: 0.1.0
     devContainers: 2.90.1
     enumUnions: 0.1.0
@@ -35,7 +36,7 @@ features:
     responseFormat: 0.3.0
     retries: 2.83.1
     sdkHooks: 0.4.0
-    unions: 2.86.4
+    unions: 2.86.5
 trackedFiles:
   .devcontainer/README.md:
     id: b170c0f184ac
@@ -127,8 +128,8 @@ trackedFiles:
     pristine_git_object: 255c338ad2693f537383bc2df40e0e924bd47521
   docs/models/catalog-item-create.md:
     id: 89e31e5300e7
-    last_write_checksum: sha1:8a29eaae0c55a4fa94a3eedc6a3537ae82154a44
-    pristine_git_object: bb3c668233f3042832fd273f38ba7d4d879a4989
+    last_write_checksum: sha1:f1b6ccb40e8ce917316e4c3ba4bf2087a98d3786
+    pristine_git_object: 84ca87795a0ae3f2772f28cbd7af8da3ada8214c
   docs/models/catalog-item-default-frequency.md:
     id: d56a10032f59
     last_write_checksum: sha1:655745b85a8749e9c5497a437fcd44d20a7724e2
@@ -179,16 +180,16 @@ trackedFiles:
     pristine_git_object: 83cec7a42d5ac13f9a96e8e569184a842d8458e6
   docs/models/catalog-item.md:
     id: 008d3e7535e7
-    last_write_checksum: sha1:72b1907a1e70b9878ff59d17a75f078fd8f683a8
-    pristine_git_object: e4f6bb1a2c97404d1630952fddd5674e5cfd9fa5
+    last_write_checksum: sha1:a4b1eb7917e47dfeedb4821aa781167036106e37
+    pristine_git_object: e4ff023560535b13ea43808df924ff92e3f350e2
   docs/models/client-create-status.md:
     id: a79077a51576
     last_write_checksum: sha1:e35f8fb748dd807187c1c1f875661148fcc82b7b
     pristine_git_object: df3914e18c6ab9e3699dab01b79c10273a3d85cd
   docs/models/client-create.md:
     id: ef328f406c0a
-    last_write_checksum: sha1:7e34f16c3037a4057b4959409a888c157bd7f5a5
-    pristine_git_object: 13c0ba91143ae102033dc70591500f61b9a74a60
+    last_write_checksum: sha1:ebecd6ae80dedaae43e30aaee28cc353f997a5e0
+    pristine_git_object: 34a8817f9866670e88d765e90b12ad887a5bbd9e
   docs/models/client-document-kind.md:
     id: 2821f89320d0
     last_write_checksum: sha1:bfa17c609562a298dc2bba03e1a5409ffaa98370
@@ -227,12 +228,12 @@ trackedFiles:
     pristine_git_object: d99a43fcb3152c45ba4453c493606ca035efdbda
   docs/models/client.md:
     id: 67a7a58f44b4
-    last_write_checksum: sha1:cb495f9f4a904a7ba55c39d177643db0094e3c8c
-    pristine_git_object: c0d4b46db77813262504224fc85839f87b7f05b7
+    last_write_checksum: sha1:89185a7c77f0f21bc42644639b7d0b27bf9bb883
+    pristine_git_object: b60e252e4e14bfa1c644d40380f6d7185200a40c
   docs/models/code.md:
     id: 2fcb3964c9c0
-    last_write_checksum: sha1:bbc9cf6077df13a6b20a6d2486c8882f47c7b3f0
-    pristine_git_object: 5a0fa48680bc8f844bf943205c714b3dcf9c2ae8
+    last_write_checksum: sha1:7e413d773908ef08673648970ffd3f8b7cdbf4c0
+    pristine_git_object: 7b6b1fa6aefc7fbed9af6c4dd829876c13085d4e
   docs/models/composition.md:
     id: 7d4b16582ea9
     last_write_checksum: sha1:931f16b78d7a960979cb7122006ceb0bb3180a88
@@ -289,6 +290,14 @@ trackedFiles:
     id: b80fd5c2d662
     last_write_checksum: sha1:8a2353456a83c359c49a59c45984cd7049c0df8f
     pristine_git_object: ab7d87059a9ab10681ca5a14a1372055f1039a13
+  docs/models/details-code.md:
+    id: f59269204db0
+    last_write_checksum: sha1:97068853387185750b6e5ff23160d2f8b76ee574
+    pristine_git_object: 300f9a9de0c01d20cc38d627c922e7247c73a9f2
+  docs/models/details.md:
+    id: 78f6f9d989a9
+    last_write_checksum: sha1:508bb311aadf58ff6a2d7914bf21ff673cf774b8
+    pristine_git_object: d0354aa834d5e6a026ae277b0f07248d2b2cc3c1
   docs/models/document-ref.md:
     id: 5721c2b7c72a
     last_write_checksum: sha1:4d62281d0ae4d3e6966e06f8b2252f130b20b0ff
@@ -315,8 +324,8 @@ trackedFiles:
     pristine_git_object: 09dc9e42bcbe1fdb4cb4131ac8b0803f4f1ce2a9
   docs/models/error-t.md:
     id: 7fb5e56408dd
-    last_write_checksum: sha1:2605219481f481499097ff4ac82221e8a72c8429
-    pristine_git_object: 87f74ad73fa16835b0f834a14b1f106838a88c5b
+    last_write_checksum: sha1:48767a31ad4204ec3f6cfc36d15400d8a8c057c2
+    pristine_git_object: cdd2fece82b21fcecb11c3c43b5bd3c24079d4b7
   docs/models/errors/api-error.md:
     id: 9bd6b090035d
     last_write_checksum: sha1:3969cb8229826826632b5fc2c5346867d49e4771
@@ -535,16 +544,16 @@ trackedFiles:
     pristine_git_object: 86f4da34667e754b3a445e021952944b452dda2c
   docs/models/operations/create-catalog-item-request.md:
     id: 4befb7b1b9d8
-    last_write_checksum: sha1:4ca596f467098047022b2fe90411ee34bdbfd6e2
-    pristine_git_object: 06ee0a459511117b848bee750b684b72c3526612
+    last_write_checksum: sha1:c73ae230386903486600ef19d06b8339b69d266f
+    pristine_git_object: 86634151f6f4ea6a03a0c33594cff34f6cf613f8
   docs/models/operations/create-catalog-item-security.md:
     id: 8d4af3490c36
     last_write_checksum: sha1:67a9b897358210e94d3032c66c90a84e86671478
     pristine_git_object: dd7f5e4661a7f4f507e1d49b6ccc61ed20f5080c
   docs/models/operations/create-client-request.md:
     id: b03fbc0d3e0e
-    last_write_checksum: sha1:b0c419b8a56416d7bc879bfd108d200a962b9669
-    pristine_git_object: 8cd4b2e855b47f1dbf2105bf9cad5045d91b81f0
+    last_write_checksum: sha1:f0bb42053f493e926271aaf3ba10f5da39bc07d3
+    pristine_git_object: 7d92ea5a99b0f88e5cdae17e5316c6dd2481ba00
   docs/models/operations/create-client-security.md:
     id: 25329a73c86b
     last_write_checksum: sha1:96771b3c013158877bfd977a7eff51e3c7b79113
@@ -639,8 +648,8 @@ trackedFiles:
     pristine_git_object: 8a6abf945e19d5fc024e486b71beab3737f08d3d
   docs/models/operations/create-transaction-request.md:
     id: 7449e5d3247f
-    last_write_checksum: sha1:9a2e93f9021d8c8aa759de498ed8fdf6a8a43151
-    pristine_git_object: dd5b28d968fb46b85f64d94ecf4d0f0e488a8424
+    last_write_checksum: sha1:7904907b02a74fe85daa27acbac0cb90cf45910c
+    pristine_git_object: 975d82603a544426b03dd51957cf42d9d096e213
   docs/models/operations/create-transaction-security.md:
     id: 1ecb7d01bf24
     last_write_checksum: sha1:af39abdab2b80c30588c77421d276b6942ec2554
@@ -1555,8 +1564,8 @@ trackedFiles:
     pristine_git_object: 30eb48b3988ee722c9f6ff68f4e1939f4e62d581
   docs/models/project.md:
     id: 90bdd121a0a9
-    last_write_checksum: sha1:6188666e27b8abe740a940cc065582a3e12251f1
-    pristine_git_object: 6d1441cfd812c68341681a19f67fde3809d7911e
+    last_write_checksum: sha1:a8240e8078de21e183eb0bff38261a75d5baba92
+    pristine_git_object: 6a394800246790244eacb714227186b67b7d2cda
   docs/models/recurring-billing-status.md:
     id: c4513b11b695
     last_write_checksum: sha1:daee290d3d9da813848aaeec90d8a06f0ea9d72a
@@ -1683,8 +1692,8 @@ trackedFiles:
     pristine_git_object: 782ec848e45392b022a38e4902ebaa35a806332c
   docs/models/transaction-create.md:
     id: fda17c4295a1
-    last_write_checksum: sha1:897d6bcafe05fbf7e23d6fbbe9d7706b8a42ec3e
-    pristine_git_object: 3c43f06cad93d7d5559cf2691e7a5f6faac5d54f
+    last_write_checksum: sha1:e6d94d93340fe1fe0c9c8a392ed89134a3b47591
+    pristine_git_object: b40c07d3b37c3e93d65a2e2b23fd1380e9207cc5
   docs/models/transaction-direction.md:
     id: e70b259c1d08
     last_write_checksum: sha1:97348389fbedc118afa9b2fc2e6c2096201ccc95
@@ -1731,8 +1740,8 @@ trackedFiles:
     pristine_git_object: 2c41c05186ee293f9b6a9a2607cea32db36fc373
   docs/models/transaction.md:
     id: 24ab0958a449
-    last_write_checksum: sha1:de503af1ad4f96a4d2130dc9d76e7f81cc80a84e
-    pristine_git_object: 4e28f4436fa9b11604554b876034e099e64e7270
+    last_write_checksum: sha1:b1d4700328fe6d9f3016033ca50e2ba8419c6bab
+    pristine_git_object: 24062c61eb16c206286413f334913d70d45f206a
   docs/models/vendor-address.md:
     id: 15a2e20e951c
     last_write_checksum: sha1:c2b87eb8f58a9ec49edf185a87a402ac670de731
@@ -1895,12 +1904,12 @@ trackedFiles:
     pristine_git_object: 4933bea2fc60c095b153d7b01acaa7295a36a26e
   docs/sdks/catalogitems/README.md:
     id: 6fc4de4117c6
-    last_write_checksum: sha1:27bf62d7e5bba90dfd15876809fbe671fe9e1611
-    pristine_git_object: f7866db59267ba3d4671675f89e5e741c0d767a9
+    last_write_checksum: sha1:38d770366eab413d4521a4b6061e6bb93d346d33
+    pristine_git_object: c23ac78c7b4e8880ecc80390a5f4c3793d8d3a07
   docs/sdks/clients/README.md:
     id: ba883fd0c1cf
-    last_write_checksum: sha1:357b04cfcf13d70c877499e97664edda765d227f
-    pristine_git_object: fbd247e53cb3ae7e3288ed75b4d29890f6ebbbe6
+    last_write_checksum: sha1:e9cbf0f5913fabe5a8b360d2be211a41cc9ab497
+    pristine_git_object: f1be8631d26dcb4d75c839bde378f2a7b8be33ef
   docs/sdks/contacts/README.md:
     id: 4174fb287a81
     last_write_checksum: sha1:2df4408f7788127b3c90abd6af2df91d602e2397
@@ -1967,8 +1976,8 @@ trackedFiles:
     pristine_git_object: cfc271dfedaf4a0e9027e6a5cc6bf0f432be3a40
   docs/sdks/transactions/README.md:
     id: 85592abe3c6b
-    last_write_checksum: sha1:67dcee1909ba9b03f848ff2caf44d44d22a7003a
-    pristine_git_object: b469ae177bf411c2c12a4392d384a440aa445612
+    last_write_checksum: sha1:bae344df580ca7611fc4952c95e6b83a409f8921
+    pristine_git_object: a3bbcd7fc2bc48aff5ea155995b5f89f1426a7fa
   docs/sdks/vendors/README.md:
     id: e074853ab7b5
     last_write_checksum: sha1:c6c965b1db4d6ca122b16fa38864586d86861c74
@@ -2003,12 +2012,12 @@ trackedFiles:
     pristine_git_object: dca8b77bfe9ec131b8e55da6a49883996f4ea14e
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:aa6e932d8a244f0a9bb2e6ff5f9a8cf8d2473113
-    pristine_git_object: e287e9fec1de9566424f97f1e48687adb5882aa0
+    last_write_checksum: sha1:dfd49a713ca3da5876177b6229607bcce0370de3
+    pristine_git_object: 7d6d909f279a96422335492dae01f912bb433fc6
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:707181a35be9eff387f153935f6bd520ee458720
-    pristine_git_object: e2b9a8349b46c02955acba2c9f0a9dc5d91ebde9
+    last_write_checksum: sha1:59295c55797a6cd7d7813d2853ff3fe123f9390b
+    pristine_git_object: 72636ec28cd9f34e4988fb6e25888d54547220ed
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:473b76edf3d30ed53981d70a75feb9a4318c3ec1
@@ -2315,8 +2324,8 @@ trackedFiles:
     pristine_git_object: e62bf02baa0048a82207761c9db1380c1842382b
   src/funcs/transactions-create.ts:
     id: 7a35ce711b1c
-    last_write_checksum: sha1:544331a77da840aad12966e57d4b60a6cc38419a
-    pristine_git_object: fd4c2376c55470ac79f0a8294f7c5987133a9ad5
+    last_write_checksum: sha1:78305167ad740305c148928abccd0d30381c0791
+    pristine_git_object: 1ec0a1679178571eb9482748c63f0f9e69f5953c
   src/funcs/transactions-delete.ts:
     id: 4edc4df50808
     last_write_checksum: sha1:d7df0ccf0d170098f4f3d96a4c095fd53754c455
@@ -2331,8 +2340,8 @@ trackedFiles:
     pristine_git_object: c40f45f37633376ac6c1768c0211185d92f7e485
   src/funcs/transactions-update.ts:
     id: 2160bf01b4ac
-    last_write_checksum: sha1:8247e89e67b6c262d4d3f421972da4b20cc91bae
-    pristine_git_object: 7572856e96c6286c747a4ec9ec2599dfe5b71f72
+    last_write_checksum: sha1:ac95e68c555ecef319356efd0c853bd33acbd197
+    pristine_git_object: 56a4e67d30224d281ec695c5fdc586f78d4f7ac7
   src/funcs/vendors-create.ts:
     id: e2a6b7e0e0bf
     last_write_checksum: sha1:84b64257849426b126a19cf916a650432f2b9493
@@ -2415,12 +2424,12 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:30a00979acdbd295104f1bc3953998ae36e4cf33
-    pristine_git_object: 3f442c47b4fd789f6e528fe9ed0367beb8f37fa3
+    last_write_checksum: sha1:1fcbcaf114e53899ebb18685569f1320f02e3164
+    pristine_git_object: deda3e80fbc81aba6ea92e31e220b3b8b1b03a95
   src/lib/encodings.ts:
     id: 3bd8ead98afd
-    last_write_checksum: sha1:7533dcb79b22b8c84ac7b90aec94317d12bad5f8
-    pristine_git_object: 194a5c58800befc83f6838020550f973eda549d9
+    last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
+    pristine_git_object: e2bcb0da4968c2f30c226b94267ddf37ed9e627d
   src/lib/env.ts:
     id: c52972a3b198
     last_write_checksum: sha1:3a332c7550fc18ccc21c13d4bf160854badfcbf0
@@ -2467,8 +2476,8 @@ trackedFiles:
     pristine_git_object: 79e7ce660b3732053e3adcbb5a4cdeb51496e8aa
   src/models/api-error.ts:
     id: 1f7b1c091e2a
-    last_write_checksum: sha1:8bdffe5af40d7a610b2a3a7bb28963be6899a494
-    pristine_git_object: ecb6aea95c82651ee4f4a840987b782405f8a976
+    last_write_checksum: sha1:16cdf07a96d4aaa85619e639f028848c63f8b221
+    pristine_git_object: 9196b6b594241f1bc324dd88fb65d8b81f68cd9a
   src/models/calendar-event-create.ts:
     id: b551e2d3e0b9
     last_write_checksum: sha1:4004e92e853a8f229666514dc2eda208af43912a
@@ -2487,24 +2496,24 @@ trackedFiles:
     pristine_git_object: 241cb2d38b56f290c06587ffec63358346055f3b
   src/models/catalog-item-create.ts:
     id: 82909dd3725d
-    last_write_checksum: sha1:6782aa3b495d09b73d3404a4b275ec63e7d21a34
-    pristine_git_object: 3afb1a658f1a35ebfad7024203f2e9176c4f8f15
+    last_write_checksum: sha1:91b0b15d0df935998b2854c95fba798c8739e95a
+    pristine_git_object: 0ae673214560486f1a42d374468b17c58c401a82
   src/models/catalog-item-list.ts:
     id: a1e47aaeb690
     last_write_checksum: sha1:4fe00cc4c056fc6fe7aa6d42eaa73f4cd4250f34
     pristine_git_object: dbd2a2a6edbd9d44adecd559ad5efc1aad0c63f2
   src/models/catalog-item-update.ts:
     id: 0a184c72c2cc
-    last_write_checksum: sha1:f68548c0723ca9f1875acf1f9a8ee04d1a7aa9e0
-    pristine_git_object: 945927a3e1cf8b21269123b1edb211cf74d8a297
+    last_write_checksum: sha1:389a38d6ff6b6cf4ccac5be7e8a5f40ca1a9a8c9
+    pristine_git_object: fe8a5001b7e50f601e54372855bf56380d9aef7d
   src/models/catalog-item.ts:
     id: ed6e1a6d3fdf
-    last_write_checksum: sha1:4a5e2bb5551dd3531868b96df9c2cc232919ebd3
-    pristine_git_object: 3bc9a36832eb75f5580b79f4854eab70cd3305be
+    last_write_checksum: sha1:f83208fae29001287b03bb2dff47f5390e09f1ae
+    pristine_git_object: 6c3c799b190a0ac6b676723c0645b46984ec9753
   src/models/client-create.ts:
     id: 1736ac3a2d31
-    last_write_checksum: sha1:88620f5dd011fbb0114c590150fee29f79106855
-    pristine_git_object: bc3a906ba42600ebf97eb0942295c4fde2210ce8
+    last_write_checksum: sha1:4edda802ba923e363453dedbb497c55048140565
+    pristine_git_object: 7aa56de3d6956badd9486eafba4542b3763f8405
   src/models/client-document-list.ts:
     id: 9deaadab34f1
     last_write_checksum: sha1:01b819b862bd705dfa73ff2628ea3cc23fe0b3b8
@@ -2523,12 +2532,12 @@ trackedFiles:
     pristine_git_object: 3a29f206879766b7ba57fcb158fe0e45cac7b65c
   src/models/client-update.ts:
     id: 34b61d075c09
-    last_write_checksum: sha1:0597526a2b29fdc0ae979ce0364919615476b27d
-    pristine_git_object: f8808c1562a6ae8f21c56793fd3aa42d8c19eec3
+    last_write_checksum: sha1:44e3a600498407c633eba1dc9202a7c88ad780ea
+    pristine_git_object: c4834e86d12061a2f856d6cbf94453469c99c033
   src/models/client.ts:
     id: 8543d0b96dd4
-    last_write_checksum: sha1:5fb2bad998efb3af77f623c220653184558dd1a2
-    pristine_git_object: 08f0db1ddc685c075f82ae6fccf696757a26f9e2
+    last_write_checksum: sha1:f2381539b84899548ecd2d24fc9651f94848e545
+    pristine_git_object: 8cbbae1fc55eb40dc349afd7d88cd5097b9d7980
   src/models/contact-create.ts:
     id: 509814ae7bb1
     last_write_checksum: sha1:de6ef8ccc48061c08ba175261784514459eaa971
@@ -2539,8 +2548,8 @@ trackedFiles:
     pristine_git_object: 47d55a1b8d6dc4c74106ee123f57eef1a884ab4b
   src/models/contact-update.ts:
     id: 76aed8b41139
-    last_write_checksum: sha1:eb8af52ba468314416f48fa01b2ad95fee853628
-    pristine_git_object: 7b4d4be25dfd34328b1e7c98c819b10197f88ffd
+    last_write_checksum: sha1:c5f6a0f8431dfedb179e5548e6943f06b0d5a6ed
+    pristine_git_object: 3f6d535cd8c5fd0de80829ea9173fc4ecd8d3573
   src/models/contact.ts:
     id: 78ff25c8ec03
     last_write_checksum: sha1:5b7b755e4087bd1e17c0a4923930df876209d849
@@ -3103,8 +3112,8 @@ trackedFiles:
     pristine_git_object: 3165ede9b7ce12968e5f6a4e8fd5b6d92307b49d
   src/models/payment.ts:
     id: aa98f2320aec
-    last_write_checksum: sha1:a585b787079274a45d8286b7960811cc0570d245
-    pristine_git_object: 6bb17d2bbaedf9318cab9069baafc6acd4626b1b
+    last_write_checksum: sha1:119f36d055e104489b5d420028114bd17117b936
+    pristine_git_object: 0e072d2adaa3e0877bf4eb497706cb9f76a3f986
   src/models/payout-list.ts:
     id: 4a35b4c69cf6
     last_write_checksum: sha1:f3c4a539f1d81d7690029c3c3d7aa97800bbe777
@@ -3123,12 +3132,12 @@ trackedFiles:
     pristine_git_object: 4979756ffd79c24ba2c17ebb993206a6b1e482bc
   src/models/project-update.ts:
     id: d1fb5a65002b
-    last_write_checksum: sha1:00fc39da7b64cb6a52d7d99325819f2883ff11c1
-    pristine_git_object: b13719a61e2ebcc0b2eb89cffb6a3ec1032c124f
+    last_write_checksum: sha1:b722c395d408f2559716d24ed4a1bc2d7ee19616
+    pristine_git_object: 0b459838bde8a631d11e3afc94337148ca9bd247
   src/models/project.ts:
     id: 6d341934d773
-    last_write_checksum: sha1:b2b02fbfc5d5a3542ca64fcfbdba0202c0c30001
-    pristine_git_object: 48d2b0531929ccf7681327a9630922d58ef85730
+    last_write_checksum: sha1:b0d385cfdd1e481b21d10af3c1d529efd41c22fc
+    pristine_git_object: d4b3aa87e4aa18f86efe60003da19b49ceab074a
   src/models/security.ts:
     id: d90c6c784ca5
     last_write_checksum: sha1:2139d3eeb02529939e4faebb4e9cf87b39c528f3
@@ -3143,12 +3152,12 @@ trackedFiles:
     pristine_git_object: 6a900e8ce1a696b10a00af458e3d472cff8ec649
   src/models/time-entry-update.ts:
     id: 0c65511d38fc
-    last_write_checksum: sha1:1037eabe74c8281369a0f2eabb0e872490230d1d
-    pristine_git_object: bc95d6df38a889a37a0ac302a70c91370ef8bc61
+    last_write_checksum: sha1:40e624eb86e53594d99007cc6840281de5ec9c1d
+    pristine_git_object: c3381233de7d7df0ed33de662315222cc01606bb
   src/models/time-entry.ts:
     id: 8a75718a993f
-    last_write_checksum: sha1:8625337e0f121224a65c527cdf4b0a61e2526fbf
-    pristine_git_object: a5c14e6b6a9b76ea4e0f82769f7fa49d83b17eb1
+    last_write_checksum: sha1:c930a74caf9e623805e3007d2176ee9ef9639fae
+    pristine_git_object: 61dd584dc0e6407c28792833b9f0f30eef52f5d5
   src/models/timeline-item-create.ts:
     id: a80acb957b9b
     last_write_checksum: sha1:6ca0bc22ab8a36e06e86101259cc641c3183eb0e
@@ -3167,20 +3176,20 @@ trackedFiles:
     pristine_git_object: 33eba6a6f92c37a02472dd07596ead6283366a3a
   src/models/transaction-create.ts:
     id: 44e0587c63e0
-    last_write_checksum: sha1:b0b7be1f2033d044b1177c267f74534539b67269
-    pristine_git_object: e735cddbbc59ddcd96cf0c5a985a62bc8d0c49f8
+    last_write_checksum: sha1:bccb102e362ef39ce8a3e1ea312caf6fc044206c
+    pristine_git_object: 7386f886b319f1bceb31308299c7a1a65bb3d1b6
   src/models/transaction-list.ts:
     id: 57cef0b480c6
     last_write_checksum: sha1:2c537a1ff8c91c17f098326264133ace9e5b9dc1
     pristine_git_object: 29cad7fd2c80bf4181794ff8447b9e13098c87df
   src/models/transaction-update.ts:
     id: 0de6fddceee1
-    last_write_checksum: sha1:558778df69e0002e47384880c05e3fd3eb9921cf
-    pristine_git_object: 1d9ecac2241ec6e5ad96dfce5c1dff10bfe0ea41
+    last_write_checksum: sha1:0c61bfdd793ec28d48ae80d30eb72261e0c97f55
+    pristine_git_object: dad36f3419337018cda42435ea51c897cf34b99b
   src/models/transaction.ts:
     id: e95e32597b84
-    last_write_checksum: sha1:c5626c54576ab39595d4c618c2d4a46d824a88ee
-    pristine_git_object: 67464955b923570ab513f01ed0daff632f963ae8
+    last_write_checksum: sha1:c6da1b86780bc7d7514752c0cc90c39ca667a12a
+    pristine_git_object: 8ddada913f2107661673c319007ccc366e258b9d
   src/models/vendor-create.ts:
     id: 8524c0eb63e1
     last_write_checksum: sha1:d57e9857826b51ec215787f18e78375cab0399af
@@ -3319,8 +3328,8 @@ trackedFiles:
     pristine_git_object: 630fca6b3a02b003b0845433ddbada77884f8045
   src/sdk/transactions.ts:
     id: bcd7a9b32ed7
-    last_write_checksum: sha1:af6ae5021befd5ce5abb661275fc079093602869
-    pristine_git_object: a58f4cde789ca0f76864e8c399778fd74c41b24c
+    last_write_checksum: sha1:29a495fbdc4fbdb6bf914d68c34622a658ce17b6
+    pristine_git_object: 72570ddecba4169aca65417490bb00f769de9180
   src/sdk/vendors.ts:
     id: 4240b36d6189
     last_write_checksum: sha1:e717b9e3c03d6b3546bc3f172b9afbb15322a9f5
@@ -3970,7 +3979,7 @@ examples:
           pageSize: 25
       responses:
         "200":
-          application/json: {"data": [{"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "status": "active", "notes": "<value>", "taxSettings": {"defaultTaxable": false, "overrideTaxRate": false, "taxRate": 9575.43}, "invoiceRemindersEnabled": false, "attachInvoicePdf": false, "attachReceiptPdf": false, "recurringBilling": null, "sourceSubmissionId": "550e8400-e29b-41d4-a716-446655440000", "createdAt": "2026-11-15T11:12:31.087Z", "updatedAt": "2026-09-24T05:03:44.685Z"}], "pagination": {"page": 29388, "pageSize": 754710, "total": 468223, "totalPages": 520812, "hasMore": false}}
+          application/json: {"data": [{"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "status": "active", "businessId": "550e8400-e29b-41d4-a716-446655440000", "notes": "<value>", "taxSettings": {"defaultTaxable": false, "overrideTaxRate": false, "taxRate": 9575.43}, "invoiceRemindersEnabled": false, "attachInvoicePdf": false, "attachReceiptPdf": false, "recurringBilling": null, "sourceSubmissionId": "550e8400-e29b-41d4-a716-446655440000", "createdAt": "2026-11-15T11:12:31.087Z", "updatedAt": "2026-09-24T05:03:44.685Z"}], "pagination": {"page": 29388, "pageSize": 754710, "total": 468223, "totalPages": 520812, "hasMore": false}}
         "400":
           application/json: {"error": {"code": "rate_limited", "message": "<value>", "requestId": "<id>"}}
         "500":
@@ -3981,10 +3990,10 @@ examples:
         header:
           Idempotency-Key: "create-client-2026-05-24-a1b2c3"
       requestBody:
-        application/json: {"name": "<value>", "status": "active"}
+        application/json: {"name": "<value>", "status": "active", "businessId": "550e8400-e29b-41d4-a716-446655440000"}
       responses:
         "201":
-          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "status": "qualified", "notes": "<value>", "taxSettings": {"defaultTaxable": true, "overrideTaxRate": false, "taxRate": 4426.86}, "invoiceRemindersEnabled": true, "attachInvoicePdf": true, "attachReceiptPdf": false, "recurringBilling": {"status": "past_due", "nextBillingDate": "2024-02-04"}, "sourceSubmissionId": "550e8400-e29b-41d4-a716-446655440000", "createdAt": "2024-06-29T18:29:00.861Z", "updatedAt": "2025-04-30T04:24:51.294Z"}
+          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "status": "qualified", "businessId": "550e8400-e29b-41d4-a716-446655440000", "notes": "<value>", "taxSettings": {"defaultTaxable": true, "overrideTaxRate": false, "taxRate": 4426.86}, "invoiceRemindersEnabled": true, "attachInvoicePdf": true, "attachReceiptPdf": false, "recurringBilling": {"status": "past_due", "nextBillingDate": "2024-02-04"}, "sourceSubmissionId": "550e8400-e29b-41d4-a716-446655440000", "createdAt": "2024-06-29T18:29:00.861Z", "updatedAt": "2025-04-30T04:24:51.294Z"}
         "400":
           application/json: {"error": {"code": "not_found", "message": "<value>", "requestId": "<id>"}}
         "500":
@@ -3996,7 +4005,7 @@ examples:
           id: "550e8400-e29b-41d4-a716-446655440000"
       responses:
         "200":
-          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "status": "contacted", "notes": "<value>", "taxSettings": {"defaultTaxable": true, "overrideTaxRate": false, "taxRate": 6865.73}, "invoiceRemindersEnabled": true, "attachInvoicePdf": true, "attachReceiptPdf": false, "recurringBilling": {"status": "active", "nextBillingDate": "2024-08-16"}, "sourceSubmissionId": "550e8400-e29b-41d4-a716-446655440000", "createdAt": "2024-12-04T03:53:32.854Z", "updatedAt": "2026-01-22T11:36:08.083Z"}
+          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "status": "contacted", "businessId": "550e8400-e29b-41d4-a716-446655440000", "notes": "<value>", "taxSettings": {"defaultTaxable": true, "overrideTaxRate": false, "taxRate": 6865.73}, "invoiceRemindersEnabled": true, "attachInvoicePdf": true, "attachReceiptPdf": false, "recurringBilling": {"status": "active", "nextBillingDate": "2024-08-16"}, "sourceSubmissionId": "550e8400-e29b-41d4-a716-446655440000", "createdAt": "2024-12-04T03:53:32.854Z", "updatedAt": "2026-01-22T11:36:08.083Z"}
         "401":
           application/json: {"error": {"code": "forbidden", "message": "<value>", "requestId": "<id>"}}
         "500":
@@ -4007,10 +4016,10 @@ examples:
         path:
           id: "550e8400-e29b-41d4-a716-446655440000"
       requestBody:
-        application/json: {"status": "active"}
+        application/json: {}
       responses:
         "200":
-          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "status": "new", "notes": "<value>", "taxSettings": {"defaultTaxable": true, "overrideTaxRate": true, "taxRate": 6482.65}, "invoiceRemindersEnabled": true, "attachInvoicePdf": true, "attachReceiptPdf": true, "recurringBilling": {"status": "paused", "nextBillingDate": "2025-12-22"}, "sourceSubmissionId": "550e8400-e29b-41d4-a716-446655440000", "createdAt": "2025-12-23T09:43:36.175Z", "updatedAt": "2025-12-11T11:57:37.747Z"}
+          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "status": "new", "businessId": "550e8400-e29b-41d4-a716-446655440000", "notes": "<value>", "taxSettings": {"defaultTaxable": true, "overrideTaxRate": true, "taxRate": 6482.65}, "invoiceRemindersEnabled": true, "attachInvoicePdf": true, "attachReceiptPdf": true, "recurringBilling": {"status": "paused", "nextBillingDate": "2025-12-22"}, "sourceSubmissionId": "550e8400-e29b-41d4-a716-446655440000", "createdAt": "2025-12-23T09:43:36.175Z", "updatedAt": "2025-12-11T11:57:37.747Z"}
         "400":
           application/json: {"error": {"code": "unauthorized", "message": "<value>", "requestId": "<id>"}}
         "500":
@@ -4071,7 +4080,7 @@ examples:
         path:
           id: "550e8400-e29b-41d4-a716-446655440000"
       requestBody:
-        application/json: {"role": "other", "isPrimary": false, "clientId": "550e8400-e29b-41d4-a716-446655440000"}
+        application/json: {"clientId": "550e8400-e29b-41d4-a716-446655440000"}
       responses:
         "200":
           application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "email": "Lorna98@yahoo.com", "phone": null, "title": "<value>", "role": "billing", "isPrimary": true, "clientId": "550e8400-e29b-41d4-a716-446655440000", "sourceSubmissionId": "550e8400-e29b-41d4-a716-446655440000", "createdAt": "2025-09-29T00:29:35.501Z", "updatedAt": "2026-08-02T14:25:58.339Z"}
@@ -4098,7 +4107,7 @@ examples:
           clientId: "550e8400-e29b-41d4-a716-446655440000"
       responses:
         "200":
-          application/json: {"data": [{"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "clientId": "550e8400-e29b-41d4-a716-446655440000", "status": "active", "pipelineStageId": "550e8400-e29b-41d4-a716-446655440000", "startDate": "2026-02-24", "endDate": "2025-07-19", "eventDate": "2026-04-23", "contractValue": 6992.41, "createdAt": "2024-04-26T06:18:30.173Z", "updatedAt": "2024-01-20T23:20:20.613Z"}], "pagination": {"page": 677757, "pageSize": 82832, "total": 62295, "totalPages": 707340, "hasMore": true}}
+          application/json: {"data": [{"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "clientId": "550e8400-e29b-41d4-a716-446655440000", "businessId": "550e8400-e29b-41d4-a716-446655440000", "status": "active", "pipelineStageId": "550e8400-e29b-41d4-a716-446655440000", "startDate": "2026-02-24", "endDate": "2025-07-19", "eventDate": "2026-04-23", "contractValue": 6992.41, "createdAt": "2024-04-26T06:18:30.173Z", "updatedAt": "2024-01-20T23:20:20.613Z"}], "pagination": {"page": 677757, "pageSize": 82832, "total": 62295, "totalPages": 707340, "hasMore": true}}
         "400":
           application/json: {"error": {"code": "rate_limited", "message": "<value>", "requestId": "<id>"}}
         "500":
@@ -4112,7 +4121,7 @@ examples:
         application/json: {"name": "<value>", "clientId": "550e8400-e29b-41d4-a716-446655440000", "status": "active", "pipelineStageId": "550e8400-e29b-41d4-a716-446655440000"}
       responses:
         "201":
-          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "clientId": "550e8400-e29b-41d4-a716-446655440000", "status": "completed", "pipelineStageId": "550e8400-e29b-41d4-a716-446655440000", "startDate": "2026-04-20", "endDate": "2024-06-15", "eventDate": null, "contractValue": 3801.7, "createdAt": "2024-01-09T15:53:25.592Z", "updatedAt": "2026-12-09T21:03:40.469Z"}
+          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "clientId": "550e8400-e29b-41d4-a716-446655440000", "businessId": "550e8400-e29b-41d4-a716-446655440000", "status": "completed", "pipelineStageId": "550e8400-e29b-41d4-a716-446655440000", "startDate": "2026-04-20", "endDate": "2024-06-15", "eventDate": null, "contractValue": 3801.7, "createdAt": "2024-01-09T15:53:25.592Z", "updatedAt": "2026-12-09T21:03:40.469Z"}
         "400":
           application/json: {"error": {"code": "internal_error", "message": "<value>", "requestId": "<id>"}}
         "500":
@@ -4124,7 +4133,7 @@ examples:
           id: "550e8400-e29b-41d4-a716-446655440000"
       responses:
         "200":
-          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "clientId": "550e8400-e29b-41d4-a716-446655440000", "status": "completed", "pipelineStageId": "550e8400-e29b-41d4-a716-446655440000", "startDate": "2024-07-26", "endDate": "2025-09-23", "eventDate": "2024-09-22", "contractValue": 4597.71, "createdAt": "2024-02-07T15:57:21.461Z", "updatedAt": "2025-01-23T15:27:41.722Z"}
+          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "clientId": "550e8400-e29b-41d4-a716-446655440000", "businessId": "550e8400-e29b-41d4-a716-446655440000", "status": "completed", "pipelineStageId": "550e8400-e29b-41d4-a716-446655440000", "startDate": "2024-07-26", "endDate": "2025-09-23", "eventDate": "2024-09-22", "contractValue": 4597.71, "createdAt": "2024-02-07T15:57:21.461Z", "updatedAt": "2025-01-23T15:27:41.722Z"}
         "401":
           application/json: {"error": {"code": "internal_error", "message": "<value>", "requestId": "<id>"}}
         "500":
@@ -4135,10 +4144,10 @@ examples:
         path:
           id: "550e8400-e29b-41d4-a716-446655440000"
       requestBody:
-        application/json: {"clientId": "550e8400-e29b-41d4-a716-446655440000", "status": "active", "pipelineStageId": "550e8400-e29b-41d4-a716-446655440000"}
+        application/json: {"clientId": "550e8400-e29b-41d4-a716-446655440000", "pipelineStageId": "550e8400-e29b-41d4-a716-446655440000"}
       responses:
         "200":
-          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "clientId": "550e8400-e29b-41d4-a716-446655440000", "status": "active", "pipelineStageId": "550e8400-e29b-41d4-a716-446655440000", "startDate": "2026-11-27", "endDate": "2025-03-21", "eventDate": "2025-01-17", "contractValue": 5470.28, "createdAt": "2025-10-17T16:03:29.406Z", "updatedAt": "2025-05-19T03:18:30.601Z"}
+          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "clientId": "550e8400-e29b-41d4-a716-446655440000", "businessId": "550e8400-e29b-41d4-a716-446655440000", "status": "active", "pipelineStageId": "550e8400-e29b-41d4-a716-446655440000", "startDate": "2026-11-27", "endDate": "2025-03-21", "eventDate": "2025-01-17", "contractValue": 5470.28, "createdAt": "2025-10-17T16:03:29.406Z", "updatedAt": "2025-05-19T03:18:30.601Z"}
         "400":
           application/json: {"error": {"code": "unauthorized", "message": "<value>", "requestId": "<id>"}}
         "500":
@@ -4474,7 +4483,7 @@ examples:
         path:
           id: "550e8400-e29b-41d4-a716-446655440000"
       requestBody:
-        application/json: {"projectId": "550e8400-e29b-41d4-a716-446655440000", "memberId": "550e8400-e29b-41d4-a716-446655440000", "catalogItemId": "550e8400-e29b-41d4-a716-446655440000", "billable": true, "rateType": "standard"}
+        application/json: {"projectId": "550e8400-e29b-41d4-a716-446655440000", "memberId": "550e8400-e29b-41d4-a716-446655440000", "catalogItemId": "550e8400-e29b-41d4-a716-446655440000"}
       responses:
         "200":
           application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "projectId": "550e8400-e29b-41d4-a716-446655440000", "clientId": "550e8400-e29b-41d4-a716-446655440000", "memberId": "550e8400-e29b-41d4-a716-446655440000", "catalogItemId": "550e8400-e29b-41d4-a716-446655440000", "date": "2025-08-17", "hours": 1898.28, "description": "remorseful sparse dilate", "billable": true, "rateType": "overtime", "customMultiplierName": "<value>", "rateOverride": 4607.54, "effectiveRate": 5099.2, "workerName": "<value>", "createdAt": "2025-05-29T04:59:42.481Z", "updatedAt": "2024-12-04T06:41:59.776Z"}
@@ -4692,7 +4701,7 @@ examples:
           pageSize: 25
       responses:
         "200":
-          application/json: {"data": [{"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "catalogItemId": "550e8400-e29b-41d4-a716-446655440000", "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "amount": 1088.22, "frequency": "quarterly", "direction": "revenue", "mode": "global", "splitEvenly": false, "assignments": [], "passThrough": false, "markupPercent": null, "billedAmount": 871.15, "startDate": "2025-04-05", "endDate": "2025-09-14", "notes": "<value>", "vendorName": "<value>", "vendorEmail": "Imani.Kris@hotmail.com", "vendorTaxId": "<id>", "receiptVerified": true, "status": "paused", "createdAt": "2026-07-05T20:11:52.116Z", "updatedAt": "2026-12-30T01:36:17.675Z"}], "pagination": {"page": 463120, "pageSize": 260870, "total": 719103, "totalPages": 954450, "hasMore": false}}
+          application/json: {"data": [{"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "businessId": "550e8400-e29b-41d4-a716-446655440000", "catalogItemId": "550e8400-e29b-41d4-a716-446655440000", "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "amount": 1088.22, "frequency": "quarterly", "direction": "revenue", "mode": "global", "splitEvenly": false, "assignments": [], "passThrough": false, "markupPercent": null, "billedAmount": 871.15, "startDate": "2025-04-05", "endDate": "2025-09-14", "notes": "<value>", "vendorName": "<value>", "vendorEmail": "Imani.Kris@hotmail.com", "vendorTaxId": "<id>", "receiptVerified": true, "status": "paused", "createdAt": "2026-07-05T20:11:52.116Z", "updatedAt": "2026-12-30T01:36:17.675Z"}], "pagination": {"page": 463120, "pageSize": 260870, "total": 719103, "totalPages": 954450, "hasMore": false}}
         "400":
           application/json: {"error": {"code": "internal_error", "message": "<value>", "requestId": "<id>"}}
         "500":
@@ -4703,10 +4712,10 @@ examples:
         header:
           Idempotency-Key: "create-client-2026-05-24-a1b2c3"
       requestBody:
-        application/json: {"name": "<value>", "catalogItemId": "550e8400-e29b-41d4-a716-446655440000", "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "amount": 5744.12, "frequency": "one-time", "direction": "cost", "mode": "each", "assignments": [{"projectId": "550e8400-e29b-41d4-a716-446655440000", "clientId": "550e8400-e29b-41d4-a716-446655440000"}], "status": "active"}
+        application/json: {"name": "<value>", "businessId": "550e8400-e29b-41d4-a716-446655440000", "catalogItemId": "550e8400-e29b-41d4-a716-446655440000", "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "amount": 5744.12, "frequency": "one-time", "direction": "cost", "mode": "each", "assignments": [{"projectId": "550e8400-e29b-41d4-a716-446655440000", "clientId": "550e8400-e29b-41d4-a716-446655440000"}], "status": "active"}
       responses:
         "201":
-          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "catalogItemId": "550e8400-e29b-41d4-a716-446655440000", "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "amount": 289.65, "frequency": "one-time", "direction": "cost", "mode": "each", "splitEvenly": false, "assignments": [{"projectId": "550e8400-e29b-41d4-a716-446655440000", "clientId": "550e8400-e29b-41d4-a716-446655440000", "amount": 1341.35, "percentage": 5058.75, "fixedAmount": 3909.67, "startDate": "2025-05-11", "endDate": null}], "passThrough": false, "markupPercent": null, "billedAmount": null, "startDate": "2025-08-16", "endDate": "2024-05-30", "notes": "<value>", "vendorName": "<value>", "vendorEmail": "Karlee.Emard36@gmail.com", "vendorTaxId": "<id>", "receiptVerified": true, "status": "archived", "createdAt": "2024-10-06T09:15:53.127Z", "updatedAt": "2024-07-02T22:16:41.623Z"}
+          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "businessId": "550e8400-e29b-41d4-a716-446655440000", "catalogItemId": "550e8400-e29b-41d4-a716-446655440000", "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "amount": 289.65, "frequency": "one-time", "direction": "cost", "mode": "each", "splitEvenly": false, "assignments": [{"projectId": "550e8400-e29b-41d4-a716-446655440000", "clientId": "550e8400-e29b-41d4-a716-446655440000", "amount": 1341.35, "percentage": 5058.75, "fixedAmount": 3909.67, "startDate": "2025-05-11", "endDate": null}], "passThrough": false, "markupPercent": null, "billedAmount": null, "startDate": "2025-08-16", "endDate": "2024-05-30", "notes": "<value>", "vendorName": "<value>", "vendorEmail": "Karlee.Emard36@gmail.com", "vendorTaxId": "<id>", "receiptVerified": true, "status": "archived", "createdAt": "2024-10-06T09:15:53.127Z", "updatedAt": "2024-07-02T22:16:41.623Z"}
         "400":
           application/json: {"error": {"code": "rate_limited", "message": "<value>", "requestId": "<id>"}}
         "500":
@@ -4718,7 +4727,7 @@ examples:
           id: "550e8400-e29b-41d4-a716-446655440000"
       responses:
         "200":
-          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "catalogItemId": "550e8400-e29b-41d4-a716-446655440000", "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "amount": 6482.03, "frequency": "annual", "direction": "revenue", "mode": "split", "splitEvenly": true, "assignments": [], "passThrough": false, "markupPercent": 1093.55, "billedAmount": 2763.62, "startDate": "2024-05-09", "endDate": "2025-04-18", "notes": "<value>", "vendorName": "<value>", "vendorEmail": null, "vendorTaxId": null, "receiptVerified": true, "status": "paused", "createdAt": "2025-08-30T09:16:43.880Z", "updatedAt": "2026-12-07T09:50:11.764Z"}
+          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "businessId": "550e8400-e29b-41d4-a716-446655440000", "catalogItemId": "550e8400-e29b-41d4-a716-446655440000", "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "amount": 6482.03, "frequency": "annual", "direction": "revenue", "mode": "split", "splitEvenly": true, "assignments": [], "passThrough": false, "markupPercent": 1093.55, "billedAmount": 2763.62, "startDate": "2024-05-09", "endDate": "2025-04-18", "notes": "<value>", "vendorName": "<value>", "vendorEmail": null, "vendorTaxId": null, "receiptVerified": true, "status": "paused", "createdAt": "2025-08-30T09:16:43.880Z", "updatedAt": "2026-12-07T09:50:11.764Z"}
         "401":
           application/json: {"error": {"code": "rate_limited", "message": "<value>", "requestId": "<id>"}}
         "500":
@@ -4729,10 +4738,10 @@ examples:
         path:
           id: "550e8400-e29b-41d4-a716-446655440000"
       requestBody:
-        application/json: {"catalogItemId": "550e8400-e29b-41d4-a716-446655440000", "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "frequency": "one-time", "mode": "each", "assignments": [{"projectId": "550e8400-e29b-41d4-a716-446655440000", "clientId": "550e8400-e29b-41d4-a716-446655440000"}], "status": "active"}
+        application/json: {"catalogItemId": "550e8400-e29b-41d4-a716-446655440000", "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "assignments": [{"projectId": "550e8400-e29b-41d4-a716-446655440000", "clientId": "550e8400-e29b-41d4-a716-446655440000"}]}
       responses:
         "200":
-          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "catalogItemId": "550e8400-e29b-41d4-a716-446655440000", "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "amount": 9838.37, "frequency": "one-time", "direction": "revenue", "mode": "each", "splitEvenly": true, "assignments": [{"projectId": "550e8400-e29b-41d4-a716-446655440000", "clientId": "550e8400-e29b-41d4-a716-446655440000", "amount": 3309.94, "percentage": 4686.53, "fixedAmount": 7865.86, "startDate": null, "endDate": "2025-02-16"}], "passThrough": false, "markupPercent": 8008.91, "billedAmount": 2644.59, "startDate": "2025-09-15", "endDate": "2026-09-07", "notes": "<value>", "vendorName": "<value>", "vendorEmail": "Evie11@hotmail.com", "vendorTaxId": "<id>", "receiptVerified": true, "status": "archived", "createdAt": "2024-08-20T01:23:11.550Z", "updatedAt": "2026-12-15T17:13:29.947Z"}
+          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "businessId": "550e8400-e29b-41d4-a716-446655440000", "catalogItemId": "550e8400-e29b-41d4-a716-446655440000", "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "amount": 9838.37, "frequency": "one-time", "direction": "revenue", "mode": "each", "splitEvenly": true, "assignments": [{"projectId": "550e8400-e29b-41d4-a716-446655440000", "clientId": "550e8400-e29b-41d4-a716-446655440000", "amount": 3309.94, "percentage": 4686.53, "fixedAmount": 7865.86, "startDate": null, "endDate": "2025-02-16"}], "passThrough": false, "markupPercent": 8008.91, "billedAmount": 2644.59, "startDate": "2025-09-15", "endDate": "2026-09-07", "notes": "<value>", "vendorName": "<value>", "vendorEmail": "Evie11@hotmail.com", "vendorTaxId": "<id>", "receiptVerified": true, "status": "archived", "createdAt": "2024-08-20T01:23:11.550Z", "updatedAt": "2026-12-15T17:13:29.947Z"}
         "400":
           application/json: {"error": {"code": "internal_error", "message": "<value>", "requestId": "<id>"}}
         "500":
@@ -4767,10 +4776,10 @@ examples:
         header:
           Idempotency-Key: "create-client-2026-05-24-a1b2c3"
       requestBody:
-        application/json: {"name": "<value>", "unit": "flat", "defaultFrequency": "one-time", "type": "charge", "pricingMode": "fixed", "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "status": "active", "clientId": "550e8400-e29b-41d4-a716-446655440000"}
+        application/json: {"name": "<value>", "businessId": "550e8400-e29b-41d4-a716-446655440000", "unit": "flat", "defaultFrequency": "one-time", "type": "charge", "pricingMode": "fixed", "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "status": "active", "clientId": "550e8400-e29b-41d4-a716-446655440000"}
       responses:
         "201":
-          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "invoiceLabel": "<value>", "description": "grubby cork official iridescence", "invoiceDescription": "<value>", "defaultRate": 9947.64, "unit": "flat", "defaultFrequency": "monthly", "type": "charge", "pricingMode": "bom", "composition": "bundle", "bundlePriceMode": "sum", "bundleFixedPrice": 9864.7, "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "status": "active", "clientId": "550e8400-e29b-41d4-a716-446655440000", "createdAt": "2025-12-04T21:54:25.737Z", "updatedAt": "2026-11-05T17:10:03.536Z"}
+          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "businessId": "550e8400-e29b-41d4-a716-446655440000", "invoiceLabel": "<value>", "description": "grubby cork official iridescence", "invoiceDescription": "<value>", "defaultRate": 9947.64, "unit": "flat", "defaultFrequency": "monthly", "type": "charge", "pricingMode": "bom", "composition": "bundle", "bundlePriceMode": "sum", "bundleFixedPrice": 9864.7, "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "status": "active", "clientId": "550e8400-e29b-41d4-a716-446655440000", "createdAt": "2025-12-04T21:54:25.737Z", "updatedAt": "2026-11-05T17:10:03.536Z"}
         "400":
           application/json: {"error": {"code": "rate_limited", "message": "<value>", "requestId": "<id>"}}
         "500":
@@ -4782,7 +4791,7 @@ examples:
           id: "550e8400-e29b-41d4-a716-446655440000"
       responses:
         "200":
-          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "invoiceLabel": "<value>", "description": "blossom chasuble promise", "invoiceDescription": "<value>", "defaultRate": 9324.38, "unit": "hour", "defaultFrequency": "quarterly", "type": "charge", "pricingMode": "hourly", "composition": "atom", "bundlePriceMode": "sum", "bundleFixedPrice": 6602.86, "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "status": "archived", "clientId": "550e8400-e29b-41d4-a716-446655440000", "createdAt": "2026-07-28T09:59:15.820Z", "updatedAt": "2026-02-14T08:24:06.643Z"}
+          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "businessId": "550e8400-e29b-41d4-a716-446655440000", "invoiceLabel": "<value>", "description": "blossom chasuble promise", "invoiceDescription": "<value>", "defaultRate": 9324.38, "unit": "hour", "defaultFrequency": "quarterly", "type": "charge", "pricingMode": "hourly", "composition": "atom", "bundlePriceMode": "sum", "bundleFixedPrice": 6602.86, "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "status": "archived", "clientId": "550e8400-e29b-41d4-a716-446655440000", "createdAt": "2026-07-28T09:59:15.820Z", "updatedAt": "2026-02-14T08:24:06.643Z"}
         "401":
           application/json: {"error": {"code": "invalid_request", "message": "<value>", "requestId": "<id>"}}
         "500":
@@ -4793,10 +4802,10 @@ examples:
         path:
           id: "550e8400-e29b-41d4-a716-446655440000"
       requestBody:
-        application/json: {"unit": "flat", "defaultFrequency": "one-time", "pricingMode": "fixed", "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "status": "active", "clientId": "550e8400-e29b-41d4-a716-446655440000"}
+        application/json: {"taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "clientId": "550e8400-e29b-41d4-a716-446655440000"}
       responses:
         "200":
-          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "invoiceLabel": "<value>", "description": "questioningly interestingly zowie kaleidoscopic modulo motionless", "invoiceDescription": "<value>", "defaultRate": 2647.79, "unit": "each", "defaultFrequency": "monthly", "type": "charge", "pricingMode": "fixed", "composition": "atom", "bundlePriceMode": "sum", "bundleFixedPrice": 3769.68, "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "status": "archived", "clientId": "550e8400-e29b-41d4-a716-446655440000", "createdAt": "2024-03-01T02:00:39.260Z", "updatedAt": "2024-01-17T18:49:21.247Z"}
+          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "businessId": "550e8400-e29b-41d4-a716-446655440000", "invoiceLabel": "<value>", "description": "questioningly interestingly zowie kaleidoscopic modulo motionless", "invoiceDescription": "<value>", "defaultRate": 2647.79, "unit": "each", "defaultFrequency": "monthly", "type": "charge", "pricingMode": "fixed", "composition": "atom", "bundlePriceMode": "sum", "bundleFixedPrice": 3769.68, "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "status": "archived", "clientId": "550e8400-e29b-41d4-a716-446655440000", "createdAt": "2024-03-01T02:00:39.260Z", "updatedAt": "2024-01-17T18:49:21.247Z"}
         "400":
           application/json: {"error": {"code": "forbidden", "message": "<value>", "requestId": "<id>"}}
         "500":
@@ -5300,4 +5309,4 @@ examples:
         "500":
           application/json: {"error": {"code": "forbidden", "message": "<value>", "requestId": "<id>"}}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `clientcasa.contracts.list()`:  `response.data[].archivedAt` **Added**\n* `clientcasa.contracts.create()`:  `response.archivedAt` **Added**\n* `clientcasa.contracts.get()`:  `response.archivedAt` **Added**\n* `clientcasa.contracts.update()`:  `response.archivedAt` **Added**\n* `clientcasa.forms&Agreements.list()`: \n  *  `request.archived` **Added**\n  *  `response.data[].archivedAt` **Added**\n* `clientcasa.forms&Agreements.get()`:  `response.archivedAt` **Added**\n"
+releaseNotes: "## Typescript SDK Changes:\n* `clientcasa.clients.list()`: \n  *  `response.data[].businessId` **Added**\n  *  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.clients.create()`: \n  *  `request.body.businessId` **Added**\n  *  `response.businessId` **Added**\n  *  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.clients.get()`: \n  *  `response.businessId` **Added**\n  *  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.clients.delete()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.clients.update()`: \n  *  `request.body.status` **Changed**\n  *  `response.businessId` **Added**\n  *  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.contacts.list()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.contacts.create()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.contacts.get()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.contacts.delete()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.contacts.update()`: \n  *  `request.body` **Changed**\n  *  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.projects.list()`: \n  *  `response.data[]` **Changed** (Breaking ⚠️)\n  *  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.projects.create()`: \n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.projects.get()`: \n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.projects.delete()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.projects.update()`: \n  *  `request.body.status` **Changed**\n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.invoices.list()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.invoices.create()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.invoices.get()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.invoices.delete()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.invoices.update()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.contracts.list()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.contracts.create()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.contracts.get()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.contracts.delete()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.contracts.update()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.forms&Agreements.list()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.forms&Agreements.get()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.documentVersions.list()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.documentVersions.get()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.forms.list()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.forms.get()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.formSubmissions.list()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.formSubmissions.get()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.inquiries.create()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.payments.list()`: \n  *  `response.data[].clientId` **Changed** (Breaking ⚠️)\n  *  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.payments.create()`: \n  *  `response.clientId` **Changed** (Breaking ⚠️)\n  *  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.payments.get()`: \n  *  `response.clientId` **Changed** (Breaking ⚠️)\n  *  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.payments.update()`: \n  *  `response.clientId` **Changed** (Breaking ⚠️)\n  *  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.payouts.list()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.payouts.get()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.timeEntries.list()`: \n  *  `response.data[]` **Changed** (Breaking ⚠️)\n  *  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.timeEntries.create()`: \n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.timeEntries.get()`: \n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.timeEntries.delete()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.timeEntries.update()`: \n  *  `request.body` **Changed**\n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.milestones.list()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.milestones.create()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.milestones.get()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.milestones.delete()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.milestones.update()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.calendarEvents.list()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.calendarEvents.create()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.calendarEvents.get()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.calendarEvents.delete()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.calendarEvents.update()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.transactions.list()`: \n  *  `response.data[].businessId` **Added**\n  *  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.transactions.create()`: \n  *  `request.body.businessId` **Added**\n  *  `response.businessId` **Added**\n  *  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.transactions.get()`: \n  *  `response.businessId` **Added**\n  *  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.transactions.delete()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.transactions.update()`: \n  *  `request.body` **Changed**\n  *  `response.businessId` **Added**\n  *  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.catalogItems.list()`: \n  *  `response.data[].businessId` **Added**\n  *  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.catalogItems.create()`: \n  *  `request.body.businessId` **Added**\n  *  `response.businessId` **Added**\n  *  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.catalogItems.get()`: \n  *  `response.businessId` **Added**\n  *  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.catalogItems.delete()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.catalogItems.update()`: \n  *  `request.body` **Changed**\n  *  `response.businessId` **Added**\n  *  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.eventDays.list()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.eventDays.create()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.eventDays.get()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.eventDays.delete()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.eventDays.update()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.timelineItems.list()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.timelineItems.create()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.timelineItems.get()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.timelineItems.delete()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.timelineItems.update()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.eventDayVendors.list()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.eventDayVendors.create()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.eventDayVendors.get()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.eventDayVendors.delete()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.eventDayVendors.update()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.vendors.list()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.vendors.create()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.vendors.get()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.vendors.delete()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.vendors.update()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.venues.list()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.venues.create()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.venues.get()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.venues.delete()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.venues.update()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.webhooks.list()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.webhooks.create()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.webhooks.get()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.webhooks.delete()`:  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.webhooks.update()`:  `error` **Changed** (Breaking ⚠️)\n"

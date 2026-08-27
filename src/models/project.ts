@@ -26,7 +26,11 @@ export type Project = {
   /**
    * UUID v4
    */
-  clientId: string;
+  clientId: string | null;
+  /**
+   * UUID v4
+   */
+  businessId: string;
   status: ProjectStatus;
   /**
    * UUID v4
@@ -56,7 +60,8 @@ export const ProjectStatus$inboundSchema: z.ZodMiniType<
 export const Project$inboundSchema: z.ZodMiniType<Project, unknown> = z.object({
   id: types.string(),
   name: types.string(),
-  clientId: types.string(),
+  clientId: types.nullable(types.string()),
+  businessId: types.string(),
   status: ProjectStatus$inboundSchema,
   pipelineStageId: types.nullable(types.string()),
   startDate: types.nullable(types.date()),

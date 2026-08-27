@@ -1,9 +1,9 @@
-speakeasyVersion: 1.790.3
+speakeasyVersion: 1.796.0
 sources:
     ClientCasa API:
         sourceNamespace: client-casa-api
-        sourceRevisionDigest: sha256:ddd196016f8c8b1fb6b909f8b8d2a9be0a770e7c5d600390e3985163f002e7d9
-        sourceBlobDigest: sha256:b029ec6e39757b5e0b83d30917db985a474da93b6dcde485542907fd2c654233
+        sourceRevisionDigest: sha256:6f6fa5feb1fef95704b6ec152391926a5bcafc697946ed065ff134c24feca555
+        sourceBlobDigest: sha256:fd99a3c45cbb2fb20a8182e7246a64a6251ca67f51a73a8a18ffc71028c263b2
         tags:
             - latest
             - 1.0.0
@@ -11,10 +11,10 @@ targets:
     client-casa:
         source: ClientCasa API
         sourceNamespace: client-casa-api
-        sourceRevisionDigest: sha256:ddd196016f8c8b1fb6b909f8b8d2a9be0a770e7c5d600390e3985163f002e7d9
-        sourceBlobDigest: sha256:b029ec6e39757b5e0b83d30917db985a474da93b6dcde485542907fd2c654233
+        sourceRevisionDigest: sha256:6f6fa5feb1fef95704b6ec152391926a5bcafc697946ed065ff134c24feca555
+        sourceBlobDigest: sha256:fd99a3c45cbb2fb20a8182e7246a64a6251ca67f51a73a8a18ffc71028c263b2
         codeSamplesNamespace: client-casa-api-typescript-code-samples
-        codeSamplesRevisionDigest: sha256:282a765b0589b9f757d948a583d475a1ed4c288e1ff6341abb0b900717d6c5d0
+        codeSamplesRevisionDigest: sha256:b51183394a948778a385ace954f3089846c24399e7b855b5c28ab38259eb163e
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest

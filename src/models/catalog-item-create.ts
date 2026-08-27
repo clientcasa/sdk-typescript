@@ -48,6 +48,10 @@ export type CatalogItemCreateStatus = ClosedEnum<
 
 export type CatalogItemCreate = {
   name: string;
+  /**
+   * UUID v4
+   */
+  businessId?: string | undefined;
   invoiceLabel?: string | undefined;
   description?: string | undefined;
   invoiceDescription?: string | undefined;
@@ -95,6 +99,7 @@ export const CatalogItemCreateStatus$outboundSchema: z.ZodMiniEnum<
 /** @internal */
 export type CatalogItemCreate$Outbound = {
   name: string;
+  businessId?: string | undefined;
   invoiceLabel?: string | undefined;
   description?: string | undefined;
   invoiceDescription?: string | undefined;
@@ -114,6 +119,7 @@ export const CatalogItemCreate$outboundSchema: z.ZodMiniType<
   CatalogItemCreate
 > = z.object({
   name: z.string(),
+  businessId: z.optional(z.string()),
   invoiceLabel: z.optional(z.string()),
   description: z.optional(z.string()),
   invoiceDescription: z.optional(z.string()),

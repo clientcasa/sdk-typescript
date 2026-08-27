@@ -39,7 +39,7 @@ export const ClientUpdateStatus$outboundSchema: z.ZodMiniEnum<
 /** @internal */
 export type ClientUpdate$Outbound = {
   name?: string | undefined;
-  status: string;
+  status?: string | undefined;
   notes?: string | undefined;
   taxSettings?: ClientTaxSettings$Outbound | undefined;
   invoiceRemindersEnabled?: boolean | undefined;
@@ -53,7 +53,7 @@ export const ClientUpdate$outboundSchema: z.ZodMiniType<
   ClientUpdate
 > = z.object({
   name: z.optional(z.string()),
-  status: z._default(ClientUpdateStatus$outboundSchema, "active"),
+  status: z.optional(ClientUpdateStatus$outboundSchema),
   notes: z.optional(z.string()),
   taxSettings: z.optional(ClientTaxSettings$outboundSchema),
   invoiceRemindersEnabled: z.optional(z.boolean()),

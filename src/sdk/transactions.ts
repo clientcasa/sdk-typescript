@@ -34,6 +34,9 @@ export class Transactions extends ClientSDK {
 
   /**
    * Create a transaction (expense or charge)
+   *
+   * @remarks
+   * A `global` transaction applies org-wide (all clients for revenue, overhead for cost), so it cannot carry `assignments` — send an empty array, or use mode `each`/`split` to scope it. This constraint is enforced by the server but cannot be expressed in JSON Schema, so generated SDKs will surface it as a 400 rather than a compile error.
    */
   async create(
     security: operations.CreateTransactionSecurity,
@@ -87,7 +90,7 @@ export class Transactions extends ClientSDK {
    * Update a transaction
    *
    * @remarks
-   * Transactions billed to a sent/paid invoice may be frozen — the server will return 409 if so.
+   * Transactions billed to a sent/paid invoice may be frozen — the server will return 409 if so. A `global` transaction applies org-wide (all clients for revenue, overhead for cost), so it cannot carry `assignments` — send an empty array, or use mode `each`/`split` to scope it. This constraint is enforced by the server but cannot be expressed in JSON Schema, so generated SDKs will surface it as a 400 rather than a compile error.
    */
   async update(
     security: operations.UpdateTransactionSecurity,

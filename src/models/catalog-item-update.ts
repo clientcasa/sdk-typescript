@@ -99,12 +99,12 @@ export type CatalogItemUpdate$Outbound = {
   description?: string | undefined;
   invoiceDescription?: string | undefined;
   defaultRate?: number | undefined;
-  unit: string;
-  defaultFrequency: string;
+  unit?: string | undefined;
+  defaultFrequency?: string | undefined;
   type?: string | undefined;
-  pricingMode: string;
+  pricingMode?: string | undefined;
   taxCategoryId?: string | undefined;
-  status: string;
+  status?: string | undefined;
   clientId?: string | undefined;
 };
 
@@ -118,15 +118,14 @@ export const CatalogItemUpdate$outboundSchema: z.ZodMiniType<
   description: z.optional(z.string()),
   invoiceDescription: z.optional(z.string()),
   defaultRate: z.optional(z.number()),
-  unit: z._default(CatalogItemUpdateUnit$outboundSchema, "flat"),
-  defaultFrequency: z._default(
+  unit: z.optional(CatalogItemUpdateUnit$outboundSchema),
+  defaultFrequency: z.optional(
     CatalogItemUpdateDefaultFrequency$outboundSchema,
-    "one-time",
   ),
   type: z.optional(CatalogItemUpdateType$outboundSchema),
-  pricingMode: z._default(CatalogItemUpdatePricingMode$outboundSchema, "fixed"),
+  pricingMode: z.optional(CatalogItemUpdatePricingMode$outboundSchema),
   taxCategoryId: z.optional(z.string()),
-  status: z._default(CatalogItemUpdateStatus$outboundSchema, "active"),
+  status: z.optional(CatalogItemUpdateStatus$outboundSchema),
   clientId: z.optional(z.string()),
 });
 

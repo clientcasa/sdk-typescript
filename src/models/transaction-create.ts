@@ -60,6 +60,10 @@ export type TransactionCreate = {
   /**
    * UUID v4
    */
+  businessId?: string | undefined;
+  /**
+   * UUID v4
+   */
   catalogItemId?: string | undefined;
   /**
    * UUID v4
@@ -150,6 +154,7 @@ export const TransactionCreateStatus$outboundSchema: z.ZodMiniEnum<
 /** @internal */
 export type TransactionCreate$Outbound = {
   name: string;
+  businessId?: string | undefined;
   catalogItemId?: string | undefined;
   taxCategoryId?: string | undefined;
   amount: number;
@@ -175,6 +180,7 @@ export const TransactionCreate$outboundSchema: z.ZodMiniType<
   TransactionCreate
 > = z.object({
   name: z.string(),
+  businessId: z.optional(z.string()),
   catalogItemId: z.optional(z.string()),
   taxCategoryId: z.optional(z.string()),
   amount: z.number(),

@@ -18,16 +18,37 @@ export const Code = {
   RateLimited: "rate_limited",
   Conflict: "conflict",
   Gone: "gone",
+  PayloadTooLarge: "payload_too_large",
   ClientError: "client_error",
   InternalError: "internal_error",
 } as const;
 export type Code = OpenEnum<typeof Code>;
 
+export const DetailsCode = {
+  ArchivedRecordReadOnly: "archived_record_read_only",
+  RecordHasDependents: "record_has_dependents",
+  DuplicateRecord: "duplicate_record",
+  RecordImmutable: "record_immutable",
+  QuotaExceeded: "quota_exceeded",
+  InvalidPayload: "invalid_payload",
+  UnsupportedFileType: "unsupported_file_type",
+  FileTooLarge: "file_too_large",
+  CrossOrganization: "cross_organization",
+  RateLimited: "rate_limited",
+  RevenueOnInternalProject: "revenue_on_internal_project",
+} as const;
+export type DetailsCode = OpenEnum<typeof DetailsCode>;
+
+export type Details = {
+  code?: DetailsCode | undefined;
+  [additionalProperties: string]: unknown;
+};
+
 export type ErrorT = {
   code: Code;
   message: string;
   requestId: string;
-  details?: { [k: string]: any } | undefined;
+  details?: Details | undefined;
 };
 
 /** @internal */
@@ -35,11 +56,34 @@ export const Code$inboundSchema: z.ZodMiniType<Code, unknown> = openEnums
   .inboundSchema(Code);
 
 /** @internal */
+export const DetailsCode$inboundSchema: z.ZodMiniType<DetailsCode, unknown> =
+  openEnums.inboundSchema(DetailsCode);
+
+/** @internal */
+export const Details$inboundSchema: z.ZodMiniType<Details, unknown> = z
+  .catchall(
+    z.object({
+      code: types.optional(DetailsCode$inboundSchema),
+    }),
+    z.any(),
+  );
+
+export function detailsFromJSON(
+  jsonString: string,
+): SafeParseResult<Details, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Details$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Details' from JSON`,
+  );
+}
+
+/** @internal */
 export const ErrorT$inboundSchema: z.ZodMiniType<ErrorT, unknown> = z.object({
   code: Code$inboundSchema,
   message: types.string(),
   requestId: types.string(),
-  details: types.optional(z.record(z.string(), z.any())),
+  details: types.optional(z.lazy(() => Details$inboundSchema)),
 });
 
 export function errorFromJSON(

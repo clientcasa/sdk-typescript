@@ -65,6 +65,10 @@ export type CatalogItem = {
    */
   id: string;
   name: string;
+  /**
+   * UUID v4
+   */
+  businessId: string;
   invoiceLabel: string | null;
   description: string | null;
   invoiceDescription: string | null;
@@ -140,6 +144,7 @@ export const CatalogItem$inboundSchema: z.ZodMiniType<CatalogItem, unknown> = z
   .object({
     id: types.string(),
     name: types.string(),
+    businessId: types.string(),
     invoiceLabel: types.nullable(types.string()),
     description: types.nullable(types.string()),
     invoiceDescription: types.nullable(types.string()),

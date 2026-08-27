@@ -63,6 +63,10 @@ export type Transaction = {
   /**
    * UUID v4
    */
+  businessId: string;
+  /**
+   * UUID v4
+   */
   catalogItemId: string | null;
   /**
    * UUID v4
@@ -148,6 +152,7 @@ export const Transaction$inboundSchema: z.ZodMiniType<Transaction, unknown> = z
   .object({
     id: types.string(),
     name: types.string(),
+    businessId: types.string(),
     catalogItemId: types.nullable(types.string()),
     taxCategoryId: types.nullable(types.string()),
     amount: types.nullable(types.number()),
