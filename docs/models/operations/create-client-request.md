@@ -9,6 +9,7 @@ let value: CreateClientRequest = {
   idempotencyKey: "create-client-2026-05-24-a1b2c3",
   body: {
     name: "<value>",
+    businessId: "550e8400-e29b-41d4-a716-446655440000",
   },
 };
 ```

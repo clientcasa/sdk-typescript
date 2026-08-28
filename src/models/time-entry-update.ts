@@ -51,8 +51,8 @@ export type TimeEntryUpdate$Outbound = {
   date?: string | undefined;
   hours?: number | undefined;
   description?: string | undefined;
-  billable: boolean;
-  rateType: string;
+  billable?: boolean | undefined;
+  rateType?: string | undefined;
   customMultiplierName?: string | undefined;
   rateOverride?: number | undefined;
   workerName?: string | undefined;
@@ -74,8 +74,8 @@ export const TimeEntryUpdate$outboundSchema: z.ZodMiniType<
   ),
   hours: z.optional(z.number()),
   description: z.optional(z.string()),
-  billable: z._default(z.boolean(), true),
-  rateType: z._default(TimeEntryUpdateRateType$outboundSchema, "standard"),
+  billable: z.optional(z.boolean()),
+  rateType: z.optional(TimeEntryUpdateRateType$outboundSchema),
   customMultiplierName: z.optional(z.string()),
   rateOverride: z.optional(z.number()),
   workerName: z.optional(z.string()),

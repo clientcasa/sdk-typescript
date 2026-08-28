@@ -24,6 +24,10 @@ export type ClientCreateStatus = ClosedEnum<typeof ClientCreateStatus>;
 export type ClientCreate = {
   name: string;
   status?: ClientCreateStatus | undefined;
+  /**
+   * UUID v4
+   */
+  businessId?: string | undefined;
   notes?: string | undefined;
   taxSettings?: ClientTaxSettings | undefined;
   invoiceRemindersEnabled?: boolean | undefined;
@@ -40,6 +44,7 @@ export const ClientCreateStatus$outboundSchema: z.ZodMiniEnum<
 export type ClientCreate$Outbound = {
   name: string;
   status: string;
+  businessId?: string | undefined;
   notes?: string | undefined;
   taxSettings?: ClientTaxSettings$Outbound | undefined;
   invoiceRemindersEnabled?: boolean | undefined;
@@ -54,6 +59,7 @@ export const ClientCreate$outboundSchema: z.ZodMiniType<
 > = z.object({
   name: z.string(),
   status: z._default(ClientCreateStatus$outboundSchema, "active"),
+  businessId: z.optional(z.string()),
   notes: z.optional(z.string()),
   taxSettings: z.optional(ClientTaxSettings$outboundSchema),
   invoiceRemindersEnabled: z.optional(z.boolean()),

@@ -88,7 +88,7 @@ run();
 
 ## create
 
-Create a transaction (expense or charge)
+A `global` transaction applies org-wide (all clients for revenue, overhead for cost), so it cannot carry `assignments` — send an empty array, or use mode `each`/`split` to scope it. This constraint is enforced by the server but cannot be expressed in JSON Schema, so generated SDKs will surface it as a 400 rather than a compile error.
 
 ### Example Usage
 
@@ -105,6 +105,7 @@ async function run() {
     idempotencyKey: "create-client-2026-05-24-a1b2c3",
     body: {
       name: "<value>",
+      businessId: "550e8400-e29b-41d4-a716-446655440000",
       catalogItemId: "550e8400-e29b-41d4-a716-446655440000",
       taxCategoryId: "550e8400-e29b-41d4-a716-446655440000",
       amount: 5744.12,
@@ -143,6 +144,7 @@ async function run() {
     idempotencyKey: "create-client-2026-05-24-a1b2c3",
     body: {
       name: "<value>",
+      businessId: "550e8400-e29b-41d4-a716-446655440000",
       catalogItemId: "550e8400-e29b-41d4-a716-446655440000",
       taxCategoryId: "550e8400-e29b-41d4-a716-446655440000",
       amount: 5744.12,
@@ -342,7 +344,7 @@ run();
 
 ## update
 
-Transactions billed to a sent/paid invoice may be frozen — the server will return 409 if so.
+Transactions billed to a sent/paid invoice may be frozen — the server will return 409 if so. A `global` transaction applies org-wide (all clients for revenue, overhead for cost), so it cannot carry `assignments` — send an empty array, or use mode `each`/`split` to scope it. This constraint is enforced by the server but cannot be expressed in JSON Schema, so generated SDKs will surface it as a 400 rather than a compile error.
 
 ### Example Usage
 

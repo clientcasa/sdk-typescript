@@ -46,6 +46,10 @@ export type Client = {
   id: string;
   name: string;
   status: ClientStatus;
+  /**
+   * UUID v4
+   */
+  businessId: string;
   notes: string | null;
   taxSettings: ClientTaxSettings;
   invoiceRemindersEnabled: boolean;
@@ -100,6 +104,7 @@ export const Client$inboundSchema: z.ZodMiniType<Client, unknown> = z.object({
   id: types.string(),
   name: types.string(),
   status: ClientStatus$inboundSchema,
+  businessId: types.string(),
   notes: types.nullable(types.string()),
   taxSettings: ClientTaxSettings$inboundSchema,
   invoiceRemindersEnabled: types.boolean(),

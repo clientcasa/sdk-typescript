@@ -30,6 +30,9 @@ import { Result } from "../types/fp.js";
 
 /**
  * Create a transaction (expense or charge)
+ *
+ * @remarks
+ * A `global` transaction applies org-wide (all clients for revenue, overhead for cost), so it cannot carry `assignments` — send an empty array, or use mode `each`/`split` to scope it. This constraint is enforced by the server but cannot be expressed in JSON Schema, so generated SDKs will surface it as a 400 rather than a compile error.
  */
 export function transactionsCreate(
   client: ClientCasaCore,

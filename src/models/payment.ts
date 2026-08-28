@@ -48,7 +48,7 @@ export type Payment = {
   /**
    * UUID v4
    */
-  clientId: string;
+  clientId: string | null;
   /**
    * UUID v4
    */
@@ -99,7 +99,7 @@ export const PaymentKind$inboundSchema: z.ZodMiniType<PaymentKind, unknown> =
 /** @internal */
 export const Payment$inboundSchema: z.ZodMiniType<Payment, unknown> = z.object({
   id: types.string(),
-  clientId: types.string(),
+  clientId: types.nullable(types.string()),
   invoiceId: types.nullable(types.string()),
   amount: types.number(),
   currency: types.string(),

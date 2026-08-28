@@ -153,9 +153,9 @@ export type TransactionUpdate$Outbound = {
   catalogItemId?: string | undefined;
   taxCategoryId?: string | undefined;
   amount?: number | undefined;
-  frequency: string;
+  frequency?: string | undefined;
   direction?: string | undefined;
-  mode: string;
+  mode?: string | undefined;
   splitEvenly?: boolean | undefined;
   assignments?: Array<TransactionUpdateAssignment$Outbound> | undefined;
   passThrough?: boolean | undefined;
@@ -166,7 +166,7 @@ export type TransactionUpdate$Outbound = {
   vendorName?: string | undefined;
   vendorEmail?: string | undefined;
   vendorTaxId?: string | undefined;
-  status: string;
+  status?: string | undefined;
 };
 
 /** @internal */
@@ -178,9 +178,9 @@ export const TransactionUpdate$outboundSchema: z.ZodMiniType<
   catalogItemId: z.optional(z.string()),
   taxCategoryId: z.optional(z.string()),
   amount: z.optional(z.number()),
-  frequency: z._default(TransactionUpdateFrequency$outboundSchema, "one-time"),
+  frequency: z.optional(TransactionUpdateFrequency$outboundSchema),
   direction: z.optional(TransactionUpdateDirection$outboundSchema),
-  mode: z._default(TransactionUpdateMode$outboundSchema, "each"),
+  mode: z.optional(TransactionUpdateMode$outboundSchema),
   splitEvenly: z.optional(z.boolean()),
   assignments: z.optional(
     z.array(z.lazy(() => TransactionUpdateAssignment$outboundSchema)),
@@ -203,7 +203,7 @@ export const TransactionUpdate$outboundSchema: z.ZodMiniType<
   vendorName: z.optional(z.string()),
   vendorEmail: z.optional(z.string()),
   vendorTaxId: z.optional(z.string()),
-  status: z._default(TransactionUpdateStatus$outboundSchema, "active"),
+  status: z.optional(TransactionUpdateStatus$outboundSchema),
 });
 
 export function transactionUpdateToJSON(

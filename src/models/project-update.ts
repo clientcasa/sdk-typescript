@@ -38,7 +38,7 @@ export const ProjectUpdateStatus$outboundSchema: z.ZodMiniEnum<
 export type ProjectUpdate$Outbound = {
   name?: string | undefined;
   clientId?: string | undefined;
-  status: string;
+  status?: string | undefined;
   pipelineStageId?: string | undefined;
   startDate?: string | undefined;
   endDate?: string | undefined;
@@ -53,7 +53,7 @@ export const ProjectUpdate$outboundSchema: z.ZodMiniType<
 > = z.object({
   name: z.optional(z.string()),
   clientId: z.optional(z.string()),
-  status: z._default(ProjectUpdateStatus$outboundSchema, "active"),
+  status: z.optional(ProjectUpdateStatus$outboundSchema),
   pipelineStageId: z.optional(z.string()),
   startDate: z.optional(
     z.pipe(
