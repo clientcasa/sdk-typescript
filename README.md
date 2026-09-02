@@ -433,6 +433,11 @@ run();
 * [delete](docs/sdks/projects/README.md#delete) - Delete a project
 * [update](docs/sdks/projects/README.md#update) - Update a project
 
+### [Sales](docs/sdks/sales/README.md)
+
+* [list](docs/sdks/sales/README.md#list) - List sales
+* [get](docs/sdks/sales/README.md#get) - Get a sale
+
 ### [TimeEntries](docs/sdks/timeentries/README.md)
 
 * [list](docs/sdks/timeentries/README.md#list) - List time entries
@@ -564,6 +569,8 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`projectsGet`](docs/sdks/projects/README.md#get) - Get a project
 - [`projectsList`](docs/sdks/projects/README.md#list) - List projects
 - [`projectsUpdate`](docs/sdks/projects/README.md#update) - Update a project
+- [`salesGet`](docs/sdks/sales/README.md#get) - Get a sale
+- [`salesList`](docs/sdks/sales/README.md#list) - List sales
 - [`timeEntriesCreate`](docs/sdks/timeentries/README.md#create) - Create a time entry
 - [`timeEntriesDelete`](docs/sdks/timeentries/README.md#delete) - Delete a time entry
 - [`timeEntriesGet`](docs/sdks/timeentries/README.md#get) - Get a time entry

@@ -12,7 +12,7 @@ let value: WebhookList = {
       name: "<value>",
       url: "https://infinite-pronoun.info/",
       events: [
-        "schedule_installment_due",
+        "document_action_created",
       ],
       enabled: true,
       source: "make",

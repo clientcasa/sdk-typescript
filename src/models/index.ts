@@ -64,6 +64,8 @@ export * from "./project-create.js";
 export * from "./project-list.js";
 export * from "./project-update.js";
 export * from "./project.js";
+export * from "./sale-list.js";
+export * from "./sale.js";
 export * from "./security.js";
 export * from "./time-entry-create.js";
 export * from "./time-entry-list.js";
