@@ -43,6 +43,10 @@ export type ListPaymentsRequest = {
    * UUID v4
    */
   invoiceId?: string | undefined;
+  /**
+   * UUID v4
+   */
+  saleId?: string | undefined;
   status?: ListPaymentsStatus | undefined;
   kind?: ListPaymentsKind | undefined;
 };
@@ -90,6 +94,7 @@ export type ListPaymentsRequest$Outbound = {
   pageSize: number;
   clientId?: string | undefined;
   invoiceId?: string | undefined;
+  saleId?: string | undefined;
   status?: string | undefined;
   kind?: string | undefined;
 };
@@ -103,6 +108,7 @@ export const ListPaymentsRequest$outboundSchema: z.ZodMiniType<
   pageSize: z._default(z.int(), 25),
   clientId: z.optional(z.string()),
   invoiceId: z.optional(z.string()),
+  saleId: z.optional(z.string()),
   status: z.optional(ListPaymentsStatus$outboundSchema),
   kind: z.optional(ListPaymentsKind$outboundSchema),
 });

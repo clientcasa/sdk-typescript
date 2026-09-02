@@ -20,6 +20,7 @@ import { Milestones } from "./milestones.js";
 import { Payments } from "./payments.js";
 import { Payouts } from "./payouts.js";
 import { Projects } from "./projects.js";
+import { Sales } from "./sales.js";
 import { TimeEntries } from "./time-entries.js";
 import { TimelineItems } from "./timeline-items.js";
 import { Transactions } from "./transactions.js";
@@ -86,6 +87,11 @@ export class ClientCasa extends ClientSDK {
   private _payouts?: Payouts;
   get payouts(): Payouts {
     return (this._payouts ??= new Payouts(this._options));
+  }
+
+  private _sales?: Sales;
+  get sales(): Sales {
+    return (this._sales ??= new Sales(this._options));
   }
 
   private _timeEntries?: TimeEntries;
