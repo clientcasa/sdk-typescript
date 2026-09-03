@@ -36,6 +36,7 @@ export const DetailsCode = {
   CrossOrganization: "cross_organization",
   RateLimited: "rate_limited",
   RevenueOnInternalProject: "revenue_on_internal_project",
+  NumberSeriesUnlocked: "number_series_unlocked",
 } as const;
 export type DetailsCode = OpenEnum<typeof DetailsCode>;
 
