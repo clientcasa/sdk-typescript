@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 845b3ae5-0c5c-44ad-9b76-21e1d9e24151
 management:
-  docChecksum: dbcf53be01e9f07194fb78054376ef02
+  docChecksum: fdd4a438393b89cf5733716eefc61fcf
   docVersion: 1.0.0
   speakeasyVersion: 1.796.2
   generationVersion: 2.933.0
-  releaseVersion: 0.7.1
-  configChecksum: a147613264aee07dc3942383b1864bb4
+  releaseVersion: 0.7.2
+  configChecksum: f9263c9c3f19c2766e64b8f6cb2a9082
   repoURL: https://github.com/clientcasa/sdk-typescript.git
   installationURL: https://github.com/clientcasa/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: 838e71f9-44ee-4953-aef3-3a96ea60a51c
-  pristine_commit_hash: b95f54336fbd492a4c0e2e791376d4973a92a949
-  pristine_tree_hash: 18f19f4279e26dd10da974027e2e92a62d4aeb99
+  generation_id: c3f4b10b-d866-4f81-b669-ed87ada99e3f
+  pristine_commit_hash: bdce8a46046b18d8f182b3d51e441e05afdb36db
+  pristine_tree_hash: d213179d8d06dcdc9252710acf15b597a59d2d9d
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -296,8 +296,8 @@ trackedFiles:
     pristine_git_object: ab7d87059a9ab10681ca5a14a1372055f1039a13
   docs/models/details-code.md:
     id: f59269204db0
-    last_write_checksum: sha1:97068853387185750b6e5ff23160d2f8b76ee574
-    pristine_git_object: 300f9a9de0c01d20cc38d627c922e7247c73a9f2
+    last_write_checksum: sha1:36c4a8426f6c92247429f62bcd5f35f728bd5eee
+    pristine_git_object: d543c8d214239f629096680e39eaf366af8bde76
   docs/models/details.md:
     id: 78f6f9d989a9
     last_write_checksum: sha1:508bb311aadf58ff6a2d7914bf21ff673cf774b8
@@ -2060,12 +2060,12 @@ trackedFiles:
     pristine_git_object: dca8b77bfe9ec131b8e55da6a49883996f4ea14e
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:f6d2738ca9d61d96b60a86b40c1cb7a5cfd5a8a1
-    pristine_git_object: cd3de56c4c262ac3e6633041ada362fd4dae5a76
+    last_write_checksum: sha1:6cbce13843ea750bf150bf38c77f4aab68274f32
+    pristine_git_object: 82d6e3a1e652ebe22808ed352e131f87cc6b8537
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:e89400b9842d7653b87b3e8c13f475cb766adfb9
-    pristine_git_object: 37b37f0bac7052e9b8c313b2867f0c7b0f660572
+    last_write_checksum: sha1:b3abf907608ca257e67039e9b684736a0e5bdbe9
+    pristine_git_object: 40fa8689a60eba6a67d0a013e1f796dfefb541e5
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:473b76edf3d30ed53981d70a75feb9a4318c3ec1
@@ -2480,8 +2480,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:5a2062f9c5a7fc82c4c1391de389b817db677127
-    pristine_git_object: 85b57433f4bffe56b6227e2392d0bdc20ea47b1a
+    last_write_checksum: sha1:f835e0be8744e27656d4ae74c0e3da2b62803f16
+    pristine_git_object: 3a63e4e9898547a89ac82b5efab5568337c00d25
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -2532,8 +2532,8 @@ trackedFiles:
     pristine_git_object: 79e7ce660b3732053e3adcbb5a4cdeb51496e8aa
   src/models/api-error.ts:
     id: 1f7b1c091e2a
-    last_write_checksum: sha1:16cdf07a96d4aaa85619e639f028848c63f8b221
-    pristine_git_object: 9196b6b594241f1bc324dd88fb65d8b81f68cd9a
+    last_write_checksum: sha1:d98e32226451154f70cbcdadf2407452e17fa083
+    pristine_git_object: 41fe11565c23793320b4f9d22e37d22cc3b37f96
   src/models/calendar-event-create.ts:
     id: b551e2d3e0b9
     last_write_checksum: sha1:4004e92e853a8f229666514dc2eda208af43912a
@@ -5413,4 +5413,102 @@ examples:
         "500":
           application/json: {"error": {"code": "invalid_request", "message": "<value>", "requestId": "<id>"}}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `clientcasa.sales.list()`: **Added**\n* `clientcasa.sales.get()`: **Added**\n* `clientcasa.payments.list()`: \n  *  `request.saleId` **Added**\n  *  `response.data[].saleId` **Added**\n* `clientcasa.payments.create()`:  `response.saleId` **Added**\n* `clientcasa.payments.get()`:  `response.saleId` **Added**\n* `clientcasa.payments.update()`:  `response.saleId` **Added**\n* `clientcasa.webhooks.list()`: \n  *  `request.event` **Changed**\n  *  `response.data[].events[]` **Changed**\n* `clientcasa.webhooks.create()`: \n  *  `request.body.events[]` **Changed**\n  *  `response.events[]` **Changed**\n* `clientcasa.webhooks.get()`:  `response.events[]` **Changed**\n* `clientcasa.webhooks.update()`: \n  *  `request.body.events[]` **Changed**\n  *  `response.events[]` **Changed**\n"
+releaseNotes: |
+  ## Typescript SDK Changes:
+  * `clientcasa.clients.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.clients.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.clients.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.clients.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.clients.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.contacts.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.contacts.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.contacts.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.contacts.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.contacts.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.projects.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.projects.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.projects.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.projects.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.projects.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.invoices.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.invoices.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.invoices.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.invoices.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.invoices.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.contracts.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.contracts.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.contracts.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.contracts.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.contracts.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.forms&Agreements.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.forms&Agreements.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.documentVersions.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.documentVersions.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.forms.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.forms.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.formSubmissions.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.formSubmissions.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.inquiries.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.payments.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.payments.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.payments.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.payments.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.payouts.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.payouts.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.sales.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.sales.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.timeEntries.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.timeEntries.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.timeEntries.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.timeEntries.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.timeEntries.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.milestones.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.milestones.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.milestones.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.milestones.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.milestones.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.calendarEvents.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.calendarEvents.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.calendarEvents.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.calendarEvents.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.calendarEvents.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.transactions.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.transactions.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.transactions.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.transactions.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.transactions.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.catalogItems.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.catalogItems.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.catalogItems.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.catalogItems.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.catalogItems.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.eventDays.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.eventDays.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.eventDays.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.eventDays.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.eventDays.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.timelineItems.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.timelineItems.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.timelineItems.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.timelineItems.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.timelineItems.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.eventDayVendors.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.eventDayVendors.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.eventDayVendors.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.eventDayVendors.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.eventDayVendors.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.vendors.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.vendors.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.vendors.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.vendors.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.vendors.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.venues.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.venues.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.venues.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.venues.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.venues.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.webhooks.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.webhooks.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.webhooks.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.webhooks.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.webhooks.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
