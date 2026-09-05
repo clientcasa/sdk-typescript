@@ -34,10 +34,34 @@ export type Payout = {
   description: string | null;
   bankAccountLast4: string | null;
   bankAccountName: string | null;
-  grossTotal: number;
-  feeTotal: number;
-  refundTotal: number;
-  paymentCount: number;
+  /**
+   * Read-only: the gross amount of the payments that settled in this deposit. `null` means NOT MEASURED — this deposit has not been reconciled yet (`lastReconciledAt` is null), so nobody has counted what is in it. It does NOT mean the deposit contained no payments; do not coalesce it to 0.
+   */
+  grossTotal: number | null;
+  /**
+   * Read-only: the Stripe processing fees withheld from the payments in this deposit. `null` means NOT MEASURED — see `lastReconciledAt`. It is not a fee-free deposit.
+   */
+  feeTotal: number | null;
+  /**
+   * Read-only: the refunds included in this deposit, as a positive amount. `null` means NOT MEASURED — see `lastReconciledAt`. It is not a refund-free deposit.
+   */
+  refundTotal: number | null;
+  /**
+   * Read-only: the dispute withdrawals — chargebacks and dispute fees — Stripe took out of this deposit, as a positive amount. Bucketed apart from fees and refunds so the deposit reconciles: `grossTotal - feeTotal - refundTotal - disputeTotal + unattributedTotal = amount`. `null` means NOT RECORDED, and it does NOT mean "this deposit had no disputes": the deposit was reconciled before dispute withdrawals were bucketed separately, or it has not been reconciled yet. A dispute inside such a deposit was counted in `paymentCount` and landed in no bucket, so on those rows the identity above is short by exactly the dispute amount — which is why this reads `null` rather than `0`. `0` means the deposit was examined and carried no dispute activity. Unlike `unattributedTotal`, this applies to automatic and manual payouts alike — there is no arm on which the question does not apply.
+   */
+  disputeTotal: number | null;
+  /**
+   * Read-only. On a MANUAL payout: how much of this deposit could not be matched to a payment. Stripe does not report which payments a manual payout contained, so the deposit is reconstructed from the balance transactions available when it was requested, and this is the remainder. THREE DISTINCT STATES, and `null` is not one of the numbers: `null` means NOT RECORDED — either the question does not apply (an `automatic` payout, whose contents Stripe reports exactly) or it was never asked (a payout synced before this field existed). It does NOT mean zero, and no backfill will ever turn it into one, because the true value cannot be recomputed without re-asking Stripe. `0` means the reconstruction ran and every balance transaction in the deposit was matched to a payment. A value greater than 0 is real money in this deposit that no payment accounts for — it is not a fee, not a refund, and not a dispute. Do not coalesce `null` to 0: that reports a tie-out nobody verified. Use the `automatic` field on this same object to tell "not applicable" from "not recorded".
+   */
+  unattributedTotal: number | null;
+  /**
+   * Read-only: how many payments this deposit was found to contain. `null` means NOT COUNTED — this deposit has not been reconciled (`lastReconciledAt` is null). A deposit that was walked and genuinely contained nothing reads `0`; the two are different facts and this field keeps them apart.
+   */
+  paymentCount: number | null;
+  /**
+   * Read-only: when this deposit was last reconciled — when we last matched it against your payments and computed the totals on this object. `null` means IT NEVER HAS BEEN: `grossTotal`, `feeTotal`, `refundTotal` and `paymentCount` are all `null` too, and every one of them is unknown rather than zero. Render such a deposit as un-reconciled; its `amount`, `arrivalDate`, `status` and `automatic` come straight from Stripe and remain trustworthy. A non-null value does NOT imply every total is a number: `disputeTotal` stays `null` on deposits reconciled before dispute withdrawals were bucketed separately, and on those rows the reconciliation identity is short by exactly the dispute amount. ⚠️ Deposits reconciled before this field existed carry a BACKFILLED value — the row’s last-modified time, which for those rows is the instant of that deposit’s last sync. It is accurate to the sync, not independently observed, so treat it at day resolution.
+   */
+  lastReconciledAt: Date | null;
   failureCode: string | null;
   failureMessage: string | null;
   /**
@@ -67,10 +91,13 @@ export const Payout$inboundSchema: z.ZodMiniType<Payout, unknown> = z.object({
   description: types.nullable(types.string()),
   bankAccountLast4: types.nullable(types.string()),
   bankAccountName: types.nullable(types.string()),
-  grossTotal: types.number(),
-  feeTotal: types.number(),
-  refundTotal: types.number(),
-  paymentCount: types.number(),
+  grossTotal: types.nullable(types.number()),
+  feeTotal: types.nullable(types.number()),
+  refundTotal: types.nullable(types.number()),
+  disputeTotal: types.nullable(types.number()),
+  unattributedTotal: types.nullable(types.number()),
+  paymentCount: types.nullable(types.number()),
+  lastReconciledAt: types.nullable(types.date()),
   failureCode: types.nullable(types.string()),
   failureMessage: types.nullable(types.string()),
   createdAt: types.date(),

@@ -19,6 +19,14 @@ let value: FormSubmission = {
       fieldId: "<id>",
       question: "<value>",
       answer: "<value>",
+      attachments: [
+        {
+          id: "550e8400-e29b-41d4-a716-446655440000",
+          filename: "example.file",
+          mimeType: "<value>",
+          filesize: 343690,
+        },
+      ],
     },
   ],
   createdAt: new Date("2026-03-19T01:47:11.788Z"),

@@ -7,11 +7,16 @@ import { safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
+import {
+  FormSubmissionAttachment,
+  FormSubmissionAttachment$inboundSchema,
+} from "./form-submission-attachment.js";
 
 export type FormSubmissionAnswer = {
   fieldId: string;
   question: string;
   answer: string;
+  attachments?: Array<FormSubmissionAttachment> | undefined;
 };
 
 /** @internal */
@@ -22,6 +27,7 @@ export const FormSubmissionAnswer$inboundSchema: z.ZodMiniType<
   fieldId: types.string(),
   question: types.string(),
   answer: types.string(),
+  attachments: types.optional(z.array(FormSubmissionAttachment$inboundSchema)),
 });
 
 export function formSubmissionAnswerFromJSON(

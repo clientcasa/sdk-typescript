@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 845b3ae5-0c5c-44ad-9b76-21e1d9e24151
 management:
-  docChecksum: fdd4a438393b89cf5733716eefc61fcf
+  docChecksum: 8200d9bf44da68906d6fa40d5d1fdb0a
   docVersion: 1.0.0
-  speakeasyVersion: 1.796.2
-  generationVersion: 2.933.0
-  releaseVersion: 0.7.2
-  configChecksum: f9263c9c3f19c2766e64b8f6cb2a9082
+  speakeasyVersion: 1.796.4
+  generationVersion: 2.935.1
+  releaseVersion: 0.7.3
+  configChecksum: 68151122c64c55cfd16cff40f836c121
   repoURL: https://github.com/clientcasa/sdk-typescript.git
   installationURL: https://github.com/clientcasa/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: c3f4b10b-d866-4f81-b669-ed87ada99e3f
-  pristine_commit_hash: bdce8a46046b18d8f182b3d51e441e05afdb36db
-  pristine_tree_hash: d213179d8d06dcdc9252710acf15b597a59d2d9d
+  generation_id: 7d828298-ea10-44c6-8dc7-df58f46a9c0a
+  pristine_commit_hash: 9c97e00b926f12e0ae91295e8368c12e95adaca2
+  pristine_tree_hash: 52bce0c1848d595b7098a175fe5fb0b59e6c3434
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -34,7 +34,7 @@ features:
     nullables: 0.1.1
     pagination: 2.83.2
     responseFormat: 0.3.0
-    retries: 2.83.1
+    retries: 2.83.2
     sdkHooks: 0.4.0
     unions: 2.86.5
 trackedFiles:
@@ -424,24 +424,28 @@ trackedFiles:
     pristine_git_object: 41eb3eac2c201f006e2d7300a3116a232c70c265
   docs/models/form-submission-answer.md:
     id: f7ff6b3a538a
-    last_write_checksum: sha1:a58de1e36875ddd30ab1037ea841cd623bb1af11
-    pristine_git_object: 32239c3e554bb778848c15ee2fe3c2d956bea587
+    last_write_checksum: sha1:128afb0e66688995e5b3c30a8cf0bf166a30bc80
+    pristine_git_object: 2f4a34ac95dbdd24559566d53f53354b9497504a
+  docs/models/form-submission-attachment.md:
+    id: 9416cc0ee5ce
+    last_write_checksum: sha1:ebd2834f30d09fc5bdc47730050dcd20df5d04e6
+    pristine_git_object: 60807303baaf6a25ce7a78ee0d9c8685fe398593
   docs/models/form-submission-kind.md:
     id: 7c9328deb417
     last_write_checksum: sha1:983c55bbd1b1b36ceb55c27e184d897d8666d3d4
     pristine_git_object: 232639cf0969ff45db477152edbb55a6519698b5
   docs/models/form-submission-list.md:
     id: 8922cd997c7c
-    last_write_checksum: sha1:e049ba7771fb492cc84426f97e1976a2af992b97
-    pristine_git_object: 6c79a8b8bff4ab94430326b08ab332f3bcde515d
+    last_write_checksum: sha1:eae8446d7086ea80b905e07ccd69f69d254e17d2
+    pristine_git_object: 89b9e854f2433562bec895ddd6d5be0a2a54e9e9
   docs/models/form-submission-status.md:
     id: 9b212dda90b5
     last_write_checksum: sha1:d79d0dc97bf43a628e449b1333f2cd8c3ae49654
     pristine_git_object: 495e783dc864932bba44b87be8d3e39098abd8f8
   docs/models/form-submission.md:
     id: c569705bfc08
-    last_write_checksum: sha1:224d525c41e4c0a1b5064f9ca1bd5794bd1a15de
-    pristine_git_object: 35a53703719a3137fc5934560fc690627ce34846
+    last_write_checksum: sha1:fd92297e1393cbc9569341204eb8c09b46023e4a
+    pristine_git_object: 88b53c34f91b3ba91912f1e0ef9d9aa519471d4f
   docs/models/form.md:
     id: e4bf2b49cade
     last_write_checksum: sha1:2067ddf349194485c4c2e8e3a001a5cfebef3830
@@ -1560,16 +1564,16 @@ trackedFiles:
     pristine_git_object: 1aeb0b292d41e0c29d45c514602cf813f2f078f7
   docs/models/payout-list.md:
     id: df5a22c1aed3
-    last_write_checksum: sha1:4ba49750b7aaeca0800d797e05d3cc82126db1ef
-    pristine_git_object: 9a9e7c42eb1c5900ea475fa7d2d3cd4a3188b807
+    last_write_checksum: sha1:353fd1c2191d5599e2a486db773ce2828196a790
+    pristine_git_object: 3e59c1128f83300654f2694bd1845cfee3345bd2
   docs/models/payout-status.md:
     id: fdef44838ec8
     last_write_checksum: sha1:86d9e01e96a40663178f95114a3ac43fe74e0125
     pristine_git_object: ce8fdbcbc8c7bc9ddb9f455a13440c29e2a2fde6
   docs/models/payout.md:
     id: b87f06e1da3c
-    last_write_checksum: sha1:00c62cf30bb8702cc15a02f3708a86116164083f
-    pristine_git_object: c40f55f1210cd8d2928b97053619778484feb0b4
+    last_write_checksum: sha1:a16582cd7f06b247979a3ade88b427f82053d2ef
+    pristine_git_object: d26aefe9267c09bacc1fffa23948afd4172dcae1
   docs/models/project-create-status.md:
     id: 319400b7a327
     last_write_checksum: sha1:7bbed93b1039e0dbb1cd9d06c4782a02dae51bf0
@@ -2060,12 +2064,12 @@ trackedFiles:
     pristine_git_object: dca8b77bfe9ec131b8e55da6a49883996f4ea14e
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:6cbce13843ea750bf150bf38c77f4aab68274f32
-    pristine_git_object: 82d6e3a1e652ebe22808ed352e131f87cc6b8537
+    last_write_checksum: sha1:9b833327184697ca4a05a0ee0593e6305a1df8b1
+    pristine_git_object: f5449763aeaf13eea9b52076fc8d392450fd4cac
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:b3abf907608ca257e67039e9b684736a0e5bdbe9
-    pristine_git_object: 40fa8689a60eba6a67d0a013e1f796dfefb541e5
+    last_write_checksum: sha1:1701619c9c7a5492448ef57b7e62478919088e63
+    pristine_git_object: 6a7da18644e5d17323780d2de10a52481630a320
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:473b76edf3d30ed53981d70a75feb9a4318c3ec1
@@ -2480,8 +2484,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:f835e0be8744e27656d4ae74c0e3da2b62803f16
-    pristine_git_object: 3a63e4e9898547a89ac82b5efab5568337c00d25
+    last_write_checksum: sha1:ad45cec15ce3c86207bb01c6a5660b7415192a0a
+    pristine_git_object: 87d5f76184d524b5169a973152181200bf43c2e6
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -2704,8 +2708,12 @@ trackedFiles:
     pristine_git_object: 026bdc06ea3c90cf0756d950deea902abf3479db
   src/models/form-submission-answer.ts:
     id: 8c55cec0c590
-    last_write_checksum: sha1:6145691350307b4aebdd078b209a8dd7b2680671
-    pristine_git_object: d16a61a1d3eabef6b46d28faa05fce89b6b7d1fc
+    last_write_checksum: sha1:d1f8431733bd398bcf9e49d19eee5d1e590f50a1
+    pristine_git_object: a334402a429088ea8ff3bcd27f05db7c08313514
+  src/models/form-submission-attachment.ts:
+    id: b99dcd483e52
+    last_write_checksum: sha1:03c0e05d6f3bff535744ebe3db936b6c27cffc9b
+    pristine_git_object: b694dcdb1cc3c0b9182a7272c0ba1947a7b2134c
   src/models/form-submission-list.ts:
     id: f9fae3772f21
     last_write_checksum: sha1:03636ebfde216873d1072cd955f0425e56372fa4
@@ -2720,8 +2728,8 @@ trackedFiles:
     pristine_git_object: a664058ac0175a311b118952bbf1104915de513c
   src/models/index.ts:
     id: f93644b0f37e
-    last_write_checksum: sha1:0b0c1acf51060dd93fe1c8f5eb6ca2daca4ff83c
-    pristine_git_object: 890fdcb7c5cbb5ac1d77bcebdf90f03a18665ec7
+    last_write_checksum: sha1:1a053953c3af58870eb1b25b06bc5e394e2c8eea
+    pristine_git_object: d19935002932c39dcd6e73723f996473afe922de
   src/models/inquiry-create.ts:
     id: b8f2cb1f3dc1
     last_write_checksum: sha1:3aedcfc627d68bab8384afa35e7ca785e6fd31bc
@@ -3184,8 +3192,8 @@ trackedFiles:
     pristine_git_object: 3a1a48618d20e512f1d8e349a3b1d30911482eed
   src/models/payout.ts:
     id: cba596c39108
-    last_write_checksum: sha1:8dbe6cc49d2768eaea0179320d0e972bc05f89ba
-    pristine_git_object: 407e6bf491bbcd5c3cde61db5e828458af4615ef
+    last_write_checksum: sha1:85141a6c8ce0e2e368db2f922d906b19b2db174d
+    pristine_git_object: a48c27d4f3016009ee6ad0997fdd7e4ca4b8979b
   src/models/project-create.ts:
     id: 4233bfd31cba
     last_write_checksum: sha1:b0f9771dc56a94975943369bf47dd9f16b9df369
@@ -4495,7 +4503,7 @@ examples:
           pageSize: 25
       responses:
         "200":
-          application/json: {"data": [{"id": "550e8400-e29b-41d4-a716-446655440000", "stripePayoutId": "<id>", "amount": 8380.38, "currency": "Vatu", "arrivalDate": "2026-04-24", "status": "failed", "type": "<value>", "automatic": true, "description": "informal woot versus near scrutinise toward less reassuringly improbable", "bankAccountLast4": "<value>", "bankAccountName": "<value>", "grossTotal": 5702.52, "feeTotal": 129.28, "refundTotal": 587.36, "paymentCount": 764317, "failureCode": "<value>", "failureMessage": "<value>", "createdAt": "2025-03-18T02:32:27.089Z", "updatedAt": "2026-08-15T09:42:48.210Z"}], "pagination": {"page": 792837, "pageSize": 110968, "total": 314554, "totalPages": 872793, "hasMore": true}}
+          application/json: {"data": [{"id": "550e8400-e29b-41d4-a716-446655440000", "stripePayoutId": "<id>", "amount": 8380.38, "currency": "Vatu", "arrivalDate": "2026-04-24", "status": "failed", "type": "<value>", "automatic": true, "description": "informal woot versus near scrutinise toward less reassuringly improbable", "bankAccountLast4": "<value>", "bankAccountName": "<value>", "grossTotal": 5702.52, "feeTotal": 129.28, "refundTotal": 587.36, "disputeTotal": 0, "unattributedTotal": 0, "paymentCount": 764317, "lastReconciledAt": "2026-08-20T14:32:07.000Z", "failureCode": "<value>", "failureMessage": "<value>", "createdAt": "2025-03-18T02:32:27.089Z", "updatedAt": "2026-08-15T09:42:48.210Z"}], "pagination": {"page": 792837, "pageSize": 110968, "total": 314554, "totalPages": 872793, "hasMore": true}}
         "400":
           application/json: {"error": {"code": "conflict", "message": "<value>", "requestId": "<id>"}}
         "500":
@@ -4507,7 +4515,7 @@ examples:
           id: "550e8400-e29b-41d4-a716-446655440000"
       responses:
         "200":
-          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "stripePayoutId": "<id>", "amount": 4818.28, "currency": "Peso Uruguayo", "arrivalDate": "2024-04-25", "status": "pending", "type": "<value>", "automatic": true, "description": "highly over before troubled", "bankAccountLast4": "<value>", "bankAccountName": "<value>", "grossTotal": 7978.16, "feeTotal": 6568.92, "refundTotal": 9293.12, "paymentCount": 571311, "failureCode": "<value>", "failureMessage": "<value>", "createdAt": "2024-01-18T18:13:38.123Z", "updatedAt": "2026-04-14T03:10:42.151Z"}
+          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "stripePayoutId": "<id>", "amount": 4818.28, "currency": "Peso Uruguayo", "arrivalDate": "2024-04-25", "status": "pending", "type": "<value>", "automatic": true, "description": "highly over before troubled", "bankAccountLast4": "<value>", "bankAccountName": "<value>", "grossTotal": 7978.16, "feeTotal": 6568.92, "refundTotal": 9293.12, "disputeTotal": 0, "unattributedTotal": 0, "paymentCount": 571311, "lastReconciledAt": "2026-08-20T14:32:07.000Z", "failureCode": "<value>", "failureMessage": "<value>", "createdAt": "2024-01-18T18:13:38.123Z", "updatedAt": "2026-04-14T03:10:42.151Z"}
         "401":
           application/json: {"error": {"code": "invalid_request", "message": "<value>", "requestId": "<id>"}}
         "500":
@@ -5415,100 +5423,7 @@ examples:
 examplesVersion: 1.0.2
 releaseNotes: |
   ## Typescript SDK Changes:
-  * `clientcasa.clients.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.clients.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.clients.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.clients.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.clients.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.contacts.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.contacts.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.contacts.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.contacts.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.contacts.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.projects.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.projects.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.projects.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.projects.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.projects.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.invoices.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.invoices.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.invoices.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.invoices.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.invoices.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.contracts.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.contracts.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.contracts.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.contracts.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.contracts.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.forms&Agreements.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.forms&Agreements.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.documentVersions.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.documentVersions.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.forms.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.forms.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.formSubmissions.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.formSubmissions.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.inquiries.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.payments.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.payments.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.payments.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.payments.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.payouts.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.payouts.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.sales.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.sales.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.timeEntries.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.timeEntries.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.timeEntries.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.timeEntries.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.timeEntries.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.milestones.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.milestones.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.milestones.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.milestones.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.milestones.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.calendarEvents.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.calendarEvents.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.calendarEvents.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.calendarEvents.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.calendarEvents.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.transactions.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.transactions.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.transactions.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.transactions.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.transactions.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.catalogItems.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.catalogItems.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.catalogItems.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.catalogItems.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.catalogItems.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.eventDays.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.eventDays.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.eventDays.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.eventDays.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.eventDays.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.timelineItems.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.timelineItems.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.timelineItems.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.timelineItems.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.timelineItems.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.eventDayVendors.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.eventDayVendors.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.eventDayVendors.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.eventDayVendors.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.eventDayVendors.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.vendors.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.vendors.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.vendors.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.vendors.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.vendors.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.venues.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.venues.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.venues.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.venues.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.venues.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.webhooks.list()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.webhooks.create()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.webhooks.get()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.webhooks.delete()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
-  * `clientcasa.webhooks.update()`:  `error.details.code.enum(numberSeriesUnlocked)` **Added**
+  * `clientcasa.payouts.list()`:  `response.data[]` **Changed** (Breaking ⚠️)
+  * `clientcasa.payouts.get()`:  `response` **Changed** (Breaking ⚠️)
+  * `clientcasa.formSubmissions.list()`:  `response.data[].answers[].attachments` **Added**
+  * `clientcasa.formSubmissions.get()`:  `response.answers[].attachments` **Added**
