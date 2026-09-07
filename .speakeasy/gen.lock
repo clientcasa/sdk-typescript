@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 845b3ae5-0c5c-44ad-9b76-21e1d9e24151
 management:
-  docChecksum: 8200d9bf44da68906d6fa40d5d1fdb0a
+  docChecksum: d98d1b11af9e44761e32d7183b2addc1
   docVersion: 1.0.0
   speakeasyVersion: 1.796.4
   generationVersion: 2.935.1
-  releaseVersion: 0.7.3
-  configChecksum: 68151122c64c55cfd16cff40f836c121
+  releaseVersion: 0.7.4
+  configChecksum: 691472fad5a2b92de3c2e2c42f988edb
   repoURL: https://github.com/clientcasa/sdk-typescript.git
   installationURL: https://github.com/clientcasa/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: 7d828298-ea10-44c6-8dc7-df58f46a9c0a
-  pristine_commit_hash: 9c97e00b926f12e0ae91295e8368c12e95adaca2
-  pristine_tree_hash: 52bce0c1848d595b7098a175fe5fb0b59e6c3434
+  generation_id: c2bdbcc8-3617-457b-a579-52d893a62ccb
+  pristine_commit_hash: 4ff13cd43d2340395641d4f7625ea62772bf46c1
+  pristine_tree_hash: 6fdeba161f6366b33477ded110fc4d20bc67dfca
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -296,8 +296,8 @@ trackedFiles:
     pristine_git_object: ab7d87059a9ab10681ca5a14a1372055f1039a13
   docs/models/details-code.md:
     id: f59269204db0
-    last_write_checksum: sha1:36c4a8426f6c92247429f62bcd5f35f728bd5eee
-    pristine_git_object: d543c8d214239f629096680e39eaf366af8bde76
+    last_write_checksum: sha1:adff31ae2ab5148b22926adb8274df947c9651bb
+    pristine_git_object: bbcb39e36ea2456c6ebe4245b7a5e39159949ced
   docs/models/details.md:
     id: 78f6f9d989a9
     last_write_checksum: sha1:508bb311aadf58ff6a2d7914bf21ff673cf774b8
@@ -660,8 +660,8 @@ trackedFiles:
     pristine_git_object: 8a6abf945e19d5fc024e486b71beab3737f08d3d
   docs/models/operations/create-transaction-request.md:
     id: 7449e5d3247f
-    last_write_checksum: sha1:7904907b02a74fe85daa27acbac0cb90cf45910c
-    pristine_git_object: 975d82603a544426b03dd51957cf42d9d096e213
+    last_write_checksum: sha1:bf4653a2fff8828d86ed88fbf5f3bb74eb466334
+    pristine_git_object: fd55be43b862231b5f069ffbbc229a4af53783d9
   docs/models/operations/create-transaction-security.md:
     id: 1ecb7d01bf24
     last_write_checksum: sha1:af39abdab2b80c30588c77421d276b6942ec2554
@@ -1492,8 +1492,8 @@ trackedFiles:
     pristine_git_object: 76c190fe2282aa1a83eba7540cb29898b143c557
   docs/models/operations/update-transaction-request.md:
     id: 39c315e59bd0
-    last_write_checksum: sha1:9ba107d6b56eb7cb1ef19eecf21d7866cc190fe7
-    pristine_git_object: 04f6843b6465c0779c84852702f4298386669201
+    last_write_checksum: sha1:d5fa18b18b62c705be3b93ad255a910723e031da
+    pristine_git_object: 4e0b8a9011313a906c245faea659f1412898416f
   docs/models/operations/update-transaction-security.md:
     id: 20b3a68be496
     last_write_checksum: sha1:b9eda4f61d6d50a8e60b727d5b13d7e8e179c52a
@@ -1716,12 +1716,12 @@ trackedFiles:
     pristine_git_object: 86c8e8c184b8f631a30a29404fd74c30475d3dd4
   docs/models/transaction-assignment.md:
     id: d58c3d7f59dc
-    last_write_checksum: sha1:7bba7481cb9bb8a676cfb98d39069e12691c1cb1
-    pristine_git_object: b9340c218acea7774472c6047781c5c9d611a524
+    last_write_checksum: sha1:6fcfc95c65f4c8ee98ff7ca860be036b902f38c1
+    pristine_git_object: 34c7f0385f7050e38099e39610d67353b674f15d
   docs/models/transaction-create-assignment.md:
     id: cdedf775a390
-    last_write_checksum: sha1:96c221931261976dc2a76541bde16d9c2502a333
-    pristine_git_object: 67a0c3bc2f3d77cbbb4655eaecfd6ec43b67b19f
+    last_write_checksum: sha1:db046479625cec31b6ab99d34b1a1bcde22bf9a5
+    pristine_git_object: 3dcddbfeb92e71ffe93177b0e788d5d6f676eb55
   docs/models/transaction-create-direction.md:
     id: 8d9c9b2cc579
     last_write_checksum: sha1:1e315c56ec3033799f9841ccff003b0749260cbe
@@ -1740,8 +1740,8 @@ trackedFiles:
     pristine_git_object: 782ec848e45392b022a38e4902ebaa35a806332c
   docs/models/transaction-create.md:
     id: fda17c4295a1
-    last_write_checksum: sha1:e6d94d93340fe1fe0c9c8a392ed89134a3b47591
-    pristine_git_object: b40c07d3b37c3e93d65a2e2b23fd1380e9207cc5
+    last_write_checksum: sha1:3bd61eec1179b6c3dcd745bef6bf6f675c1346b5
+    pristine_git_object: c9b01100a3e1c3fef8eba2f08e06688f53e354fa
   docs/models/transaction-direction.md:
     id: e70b259c1d08
     last_write_checksum: sha1:97348389fbedc118afa9b2fc2e6c2096201ccc95
@@ -1764,8 +1764,8 @@ trackedFiles:
     pristine_git_object: af911008994cd9ca88a1361ab7939e5e368a6f3c
   docs/models/transaction-update-assignment.md:
     id: 76e7dc369437
-    last_write_checksum: sha1:6da2fa47f056dc417c437543a11d55432573b17b
-    pristine_git_object: 33092abf2930e785ab73007a6c5926003b68b690
+    last_write_checksum: sha1:e07b06c1b9b7ac5b3b8a53caa5162d2ec4a1cea4
+    pristine_git_object: ee5f7026493069da4b8c7bbed526310f0c10354f
   docs/models/transaction-update-direction.md:
     id: e7e938487a6d
     last_write_checksum: sha1:56605c2eb102b1b70f48edfc428bf2466155dcf0
@@ -1784,8 +1784,8 @@ trackedFiles:
     pristine_git_object: d1f7e3610563de20893d5f0b918bbf2ca7f23a52
   docs/models/transaction-update.md:
     id: 5ecfab682e86
-    last_write_checksum: sha1:781d66abc63d5e84aa3d73367761a1e2bddb785d
-    pristine_git_object: 2c41c05186ee293f9b6a9a2607cea32db36fc373
+    last_write_checksum: sha1:8797746430f28eac7727f72129204f48ae954a57
+    pristine_git_object: 4d5eca2f4607bb11daba48c06ffd6b5729d513ec
   docs/models/transaction.md:
     id: 24ab0958a449
     last_write_checksum: sha1:b1d4700328fe6d9f3016033ca50e2ba8419c6bab
@@ -2064,12 +2064,12 @@ trackedFiles:
     pristine_git_object: dca8b77bfe9ec131b8e55da6a49883996f4ea14e
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:9b833327184697ca4a05a0ee0593e6305a1df8b1
-    pristine_git_object: f5449763aeaf13eea9b52076fc8d392450fd4cac
+    last_write_checksum: sha1:1500fd5f9808d95fa87128a7333a76e3987549b5
+    pristine_git_object: e467fcb9935d218f4a6fdd0af30dd75e90ce564e
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:1701619c9c7a5492448ef57b7e62478919088e63
-    pristine_git_object: 6a7da18644e5d17323780d2de10a52481630a320
+    last_write_checksum: sha1:576147c3ece831b41ef4a49dae8a54c19b9e79f7
+    pristine_git_object: b4334b6454ea63eced8ef02071325608347522ca
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:473b76edf3d30ed53981d70a75feb9a4318c3ec1
@@ -2484,8 +2484,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:ad45cec15ce3c86207bb01c6a5660b7415192a0a
-    pristine_git_object: 87d5f76184d524b5169a973152181200bf43c2e6
+    last_write_checksum: sha1:05b0d026b4ad22afeac39c619c0c471d46988887
+    pristine_git_object: 373f3dda72373e6971342dc1fb975da56a9feb6f
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -2536,8 +2536,8 @@ trackedFiles:
     pristine_git_object: 79e7ce660b3732053e3adcbb5a4cdeb51496e8aa
   src/models/api-error.ts:
     id: 1f7b1c091e2a
-    last_write_checksum: sha1:d98e32226451154f70cbcdadf2407452e17fa083
-    pristine_git_object: 41fe11565c23793320b4f9d22e37d22cc3b37f96
+    last_write_checksum: sha1:240648fdc8d45fb8484ca0be79617297ed57596e
+    pristine_git_object: 7e9fdc8b169555b12b11e016699e9ee1f006ac5a
   src/models/calendar-event-create.ts:
     id: b551e2d3e0b9
     last_write_checksum: sha1:4004e92e853a8f229666514dc2eda208af43912a
@@ -3256,20 +3256,20 @@ trackedFiles:
     pristine_git_object: 33eba6a6f92c37a02472dd07596ead6283366a3a
   src/models/transaction-create.ts:
     id: 44e0587c63e0
-    last_write_checksum: sha1:bccb102e362ef39ce8a3e1ea312caf6fc044206c
-    pristine_git_object: 7386f886b319f1bceb31308299c7a1a65bb3d1b6
+    last_write_checksum: sha1:e6cc37888472e80568c0298614a22da9ca2a3cd0
+    pristine_git_object: 6df0c3ba875ae81f9878a8c118f853c6713bf11a
   src/models/transaction-list.ts:
     id: 57cef0b480c6
     last_write_checksum: sha1:2c537a1ff8c91c17f098326264133ace9e5b9dc1
     pristine_git_object: 29cad7fd2c80bf4181794ff8447b9e13098c87df
   src/models/transaction-update.ts:
     id: 0de6fddceee1
-    last_write_checksum: sha1:0c61bfdd793ec28d48ae80d30eb72261e0c97f55
-    pristine_git_object: dad36f3419337018cda42435ea51c897cf34b99b
+    last_write_checksum: sha1:f853027f048de656bd917583d6aa0fcf51241f03
+    pristine_git_object: c999e8867741e55edbb88f92b0a35327318d7f9e
   src/models/transaction.ts:
     id: e95e32597b84
-    last_write_checksum: sha1:c6da1b86780bc7d7514752c0cc90c39ca667a12a
-    pristine_git_object: 8ddada913f2107661673c319007ccc366e258b9d
+    last_write_checksum: sha1:0a4b8bec40681b350325ef46eb1fcb2bbee004d2
+    pristine_git_object: 0b909c79f286d89fecfa167a651658afa7135d7c
   src/models/vendor-create.ts:
     id: 8524c0eb63e1
     last_write_checksum: sha1:d57e9857826b51ec215787f18e78375cab0399af
@@ -4800,7 +4800,7 @@ examples:
         application/json: {"name": "<value>", "businessId": "550e8400-e29b-41d4-a716-446655440000", "catalogItemId": "550e8400-e29b-41d4-a716-446655440000", "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "amount": 5744.12, "frequency": "one-time", "direction": "cost", "mode": "each", "assignments": [{"projectId": "550e8400-e29b-41d4-a716-446655440000", "clientId": "550e8400-e29b-41d4-a716-446655440000"}], "status": "active"}
       responses:
         "201":
-          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "businessId": "550e8400-e29b-41d4-a716-446655440000", "catalogItemId": "550e8400-e29b-41d4-a716-446655440000", "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "amount": 289.65, "frequency": "one-time", "direction": "cost", "mode": "each", "splitEvenly": false, "assignments": [{"projectId": "550e8400-e29b-41d4-a716-446655440000", "clientId": "550e8400-e29b-41d4-a716-446655440000", "amount": 1341.35, "percentage": 5058.75, "fixedAmount": 3909.67, "startDate": "2025-05-11", "endDate": null}], "passThrough": false, "markupPercent": null, "billedAmount": null, "startDate": "2025-08-16", "endDate": "2024-05-30", "notes": "<value>", "vendorName": "<value>", "vendorEmail": "Karlee.Emard36@gmail.com", "vendorTaxId": "<id>", "receiptVerified": true, "status": "archived", "createdAt": "2024-10-06T09:15:53.127Z", "updatedAt": "2024-07-02T22:16:41.623Z"}
+          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "businessId": "550e8400-e29b-41d4-a716-446655440000", "catalogItemId": "550e8400-e29b-41d4-a716-446655440000", "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "amount": 289.65, "frequency": "one-time", "direction": "cost", "mode": "each", "splitEvenly": false, "assignments": [{"id": "68b9e3d1c4a2f70012ab34cd", "projectId": "550e8400-e29b-41d4-a716-446655440000", "clientId": "550e8400-e29b-41d4-a716-446655440000", "amount": 1341.35, "percentage": 5058.75, "fixedAmount": 3909.67, "startDate": "2025-05-11", "endDate": null, "allocationKey": "<value>"}], "passThrough": false, "markupPercent": null, "billedAmount": null, "startDate": "2025-08-16", "endDate": "2024-05-30", "notes": "<value>", "vendorName": "<value>", "vendorEmail": "Karlee.Emard36@gmail.com", "vendorTaxId": "<id>", "receiptVerified": true, "status": "archived", "createdAt": "2024-10-06T09:15:53.127Z", "updatedAt": "2024-07-02T22:16:41.623Z"}
         "400":
           application/json: {"error": {"code": "rate_limited", "message": "<value>", "requestId": "<id>"}}
         "500":
@@ -4826,7 +4826,7 @@ examples:
         application/json: {"catalogItemId": "550e8400-e29b-41d4-a716-446655440000", "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "assignments": [{"projectId": "550e8400-e29b-41d4-a716-446655440000", "clientId": "550e8400-e29b-41d4-a716-446655440000"}]}
       responses:
         "200":
-          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "businessId": "550e8400-e29b-41d4-a716-446655440000", "catalogItemId": "550e8400-e29b-41d4-a716-446655440000", "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "amount": 9838.37, "frequency": "one-time", "direction": "revenue", "mode": "each", "splitEvenly": true, "assignments": [{"projectId": "550e8400-e29b-41d4-a716-446655440000", "clientId": "550e8400-e29b-41d4-a716-446655440000", "amount": 3309.94, "percentage": 4686.53, "fixedAmount": 7865.86, "startDate": null, "endDate": "2025-02-16"}], "passThrough": false, "markupPercent": 8008.91, "billedAmount": 2644.59, "startDate": "2025-09-15", "endDate": "2026-09-07", "notes": "<value>", "vendorName": "<value>", "vendorEmail": "Evie11@hotmail.com", "vendorTaxId": "<id>", "receiptVerified": true, "status": "archived", "createdAt": "2024-08-20T01:23:11.550Z", "updatedAt": "2026-12-15T17:13:29.947Z"}
+          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "name": "<value>", "businessId": "550e8400-e29b-41d4-a716-446655440000", "catalogItemId": "550e8400-e29b-41d4-a716-446655440000", "taxCategoryId": "550e8400-e29b-41d4-a716-446655440000", "amount": 9838.37, "frequency": "one-time", "direction": "revenue", "mode": "each", "splitEvenly": true, "assignments": [{"id": "68b9e3d1c4a2f70012ab34cd", "projectId": "550e8400-e29b-41d4-a716-446655440000", "clientId": "550e8400-e29b-41d4-a716-446655440000", "amount": 3309.94, "percentage": 4686.53, "fixedAmount": 7865.86, "startDate": null, "endDate": "2025-02-16", "allocationKey": "<value>"}], "passThrough": false, "markupPercent": 8008.91, "billedAmount": 2644.59, "startDate": "2025-09-15", "endDate": "2026-09-07", "notes": "<value>", "vendorName": "<value>", "vendorEmail": "Evie11@hotmail.com", "vendorTaxId": "<id>", "receiptVerified": true, "status": "archived", "createdAt": "2024-08-20T01:23:11.550Z", "updatedAt": "2026-12-15T17:13:29.947Z"}
         "400":
           application/json: {"error": {"code": "internal_error", "message": "<value>", "requestId": "<id>"}}
         "500":
@@ -5421,9 +5421,4 @@ examples:
         "500":
           application/json: {"error": {"code": "invalid_request", "message": "<value>", "requestId": "<id>"}}
 examplesVersion: 1.0.2
-releaseNotes: |
-  ## Typescript SDK Changes:
-  * `clientcasa.payouts.list()`:  `response.data[]` **Changed** (Breaking ⚠️)
-  * `clientcasa.payouts.get()`:  `response` **Changed** (Breaking ⚠️)
-  * `clientcasa.formSubmissions.list()`:  `response.data[].answers[].attachments` **Added**
-  * `clientcasa.formSubmissions.get()`:  `response.answers[].attachments` **Added**
+releaseNotes: "## Typescript SDK Changes:\n* `clientcasa.clients.list()`:  `error.details.code` **Changed**\n* `clientcasa.clients.create()`:  `error.details.code` **Changed**\n* `clientcasa.clients.get()`:  `error.details.code` **Changed**\n* `clientcasa.clients.delete()`:  `error.details.code` **Changed**\n* `clientcasa.clients.update()`:  `error.details.code` **Changed**\n* `clientcasa.contacts.list()`:  `error.details.code` **Changed**\n* `clientcasa.contacts.create()`:  `error.details.code` **Changed**\n* `clientcasa.contacts.get()`:  `error.details.code` **Changed**\n* `clientcasa.contacts.delete()`:  `error.details.code` **Changed**\n* `clientcasa.contacts.update()`:  `error.details.code` **Changed**\n* `clientcasa.projects.list()`:  `error.details.code` **Changed**\n* `clientcasa.projects.create()`:  `error.details.code` **Changed**\n* `clientcasa.projects.get()`:  `error.details.code` **Changed**\n* `clientcasa.projects.delete()`:  `error.details.code` **Changed**\n* `clientcasa.projects.update()`:  `error.details.code` **Changed**\n* `clientcasa.invoices.list()`:  `error.details.code` **Changed**\n* `clientcasa.invoices.create()`:  `error.details.code` **Changed**\n* `clientcasa.invoices.get()`:  `error.details.code` **Changed**\n* `clientcasa.invoices.delete()`:  `error.details.code` **Changed**\n* `clientcasa.invoices.update()`:  `error.details.code` **Changed**\n* `clientcasa.contracts.list()`:  `error.details.code` **Changed**\n* `clientcasa.contracts.create()`:  `error.details.code` **Changed**\n* `clientcasa.contracts.get()`:  `error.details.code` **Changed**\n* `clientcasa.contracts.delete()`:  `error.details.code` **Changed**\n* `clientcasa.contracts.update()`:  `error.details.code` **Changed**\n* `clientcasa.forms&Agreements.list()`:  `error.details.code` **Changed**\n* `clientcasa.forms&Agreements.get()`:  `error.details.code` **Changed**\n* `clientcasa.documentVersions.list()`:  `error.details.code` **Changed**\n* `clientcasa.documentVersions.get()`:  `error.details.code` **Changed**\n* `clientcasa.forms.list()`:  `error.details.code` **Changed**\n* `clientcasa.forms.get()`:  `error.details.code` **Changed**\n* `clientcasa.formSubmissions.list()`:  `error.details.code` **Changed**\n* `clientcasa.formSubmissions.get()`:  `error.details.code` **Changed**\n* `clientcasa.inquiries.create()`:  `error.details.code` **Changed**\n* `clientcasa.payments.list()`:  `error.details.code` **Changed**\n* `clientcasa.payments.create()`:  `error.details.code` **Changed**\n* `clientcasa.payments.get()`:  `error.details.code` **Changed**\n* `clientcasa.payments.update()`:  `error.details.code` **Changed**\n* `clientcasa.payouts.list()`:  `error.details.code` **Changed**\n* `clientcasa.payouts.get()`:  `error.details.code` **Changed**\n* `clientcasa.sales.list()`:  `error.details.code` **Changed**\n* `clientcasa.sales.get()`:  `error.details.code` **Changed**\n* `clientcasa.timeEntries.list()`:  `error.details.code` **Changed**\n* `clientcasa.timeEntries.create()`:  `error.details.code` **Changed**\n* `clientcasa.timeEntries.get()`:  `error.details.code` **Changed**\n* `clientcasa.timeEntries.delete()`:  `error.details.code` **Changed**\n* `clientcasa.timeEntries.update()`:  `error.details.code` **Changed**\n* `clientcasa.milestones.list()`:  `error.details.code` **Changed**\n* `clientcasa.milestones.create()`:  `error.details.code` **Changed**\n* `clientcasa.milestones.get()`:  `error.details.code` **Changed**\n* `clientcasa.milestones.delete()`:  `error.details.code` **Changed**\n* `clientcasa.milestones.update()`:  `error.details.code` **Changed**\n* `clientcasa.calendarEvents.list()`:  `error.details.code` **Changed**\n* `clientcasa.calendarEvents.create()`:  `error.details.code` **Changed**\n* `clientcasa.calendarEvents.get()`:  `error.details.code` **Changed**\n* `clientcasa.calendarEvents.delete()`:  `error.details.code` **Changed**\n* `clientcasa.calendarEvents.update()`:  `error.details.code` **Changed**\n* `clientcasa.transactions.list()`: \n  *  `response.data[].assignments[]` **Changed**\n  *  `error.details.code` **Changed**\n* `clientcasa.transactions.create()`: \n  *  `request.body.assignments[]` **Changed**\n  *  `response.assignments[]` **Changed**\n  *  `error.details.code` **Changed**\n* `clientcasa.transactions.get()`: \n  *  `response.assignments[]` **Changed**\n  *  `error.details.code` **Changed**\n* `clientcasa.transactions.delete()`:  `error.details.code` **Changed**\n* `clientcasa.transactions.update()`: \n  *  `request.body.assignments[]` **Changed**\n  *  `response.assignments[]` **Changed**\n  *  `error.details.code` **Changed**\n* `clientcasa.catalogItems.list()`:  `error.details.code` **Changed**\n* `clientcasa.catalogItems.create()`:  `error.details.code` **Changed**\n* `clientcasa.catalogItems.get()`:  `error.details.code` **Changed**\n* `clientcasa.catalogItems.delete()`:  `error.details.code` **Changed**\n* `clientcasa.catalogItems.update()`:  `error.details.code` **Changed**\n* `clientcasa.eventDays.list()`:  `error.details.code` **Changed**\n* `clientcasa.eventDays.create()`:  `error.details.code` **Changed**\n* `clientcasa.eventDays.get()`:  `error.details.code` **Changed**\n* `clientcasa.eventDays.delete()`:  `error.details.code` **Changed**\n* `clientcasa.eventDays.update()`:  `error.details.code` **Changed**\n* `clientcasa.timelineItems.list()`:  `error.details.code` **Changed**\n* `clientcasa.timelineItems.create()`:  `error.details.code` **Changed**\n* `clientcasa.timelineItems.get()`:  `error.details.code` **Changed**\n* `clientcasa.timelineItems.delete()`:  `error.details.code` **Changed**\n* `clientcasa.timelineItems.update()`:  `error.details.code` **Changed**\n* `clientcasa.eventDayVendors.list()`:  `error.details.code` **Changed**\n* `clientcasa.eventDayVendors.create()`:  `error.details.code` **Changed**\n* `clientcasa.eventDayVendors.get()`:  `error.details.code` **Changed**\n* `clientcasa.eventDayVendors.delete()`:  `error.details.code` **Changed**\n* `clientcasa.eventDayVendors.update()`:  `error.details.code` **Changed**\n* `clientcasa.vendors.list()`:  `error.details.code` **Changed**\n* `clientcasa.vendors.create()`:  `error.details.code` **Changed**\n* `clientcasa.vendors.get()`:  `error.details.code` **Changed**\n* `clientcasa.vendors.delete()`:  `error.details.code` **Changed**\n* `clientcasa.vendors.update()`:  `error.details.code` **Changed**\n* `clientcasa.venues.list()`:  `error.details.code` **Changed**\n* `clientcasa.venues.create()`:  `error.details.code` **Changed**\n* `clientcasa.venues.get()`:  `error.details.code` **Changed**\n* `clientcasa.venues.delete()`:  `error.details.code` **Changed**\n* `clientcasa.venues.update()`:  `error.details.code` **Changed**\n* `clientcasa.webhooks.list()`:  `error.details.code` **Changed**\n* `clientcasa.webhooks.create()`:  `error.details.code` **Changed**\n* `clientcasa.webhooks.get()`:  `error.details.code` **Changed**\n* `clientcasa.webhooks.delete()`:  `error.details.code` **Changed**\n* `clientcasa.webhooks.update()`:  `error.details.code` **Changed**\n"

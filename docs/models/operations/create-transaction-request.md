@@ -16,6 +16,7 @@ let value: CreateTransactionRequest = {
     direction: "cost",
     assignments: [
       {
+        id: "68b9e3d1c4a2f70012ab34cd",
         projectId: "550e8400-e29b-41d4-a716-446655440000",
         clientId: "550e8400-e29b-41d4-a716-446655440000",
       },
