@@ -33,6 +33,10 @@ export type TransactionMode = OpenEnum<typeof TransactionMode>;
 
 export type TransactionAssignment = {
   /**
+   * Opaque array-row identifier (not a UUID)
+   */
+  id: string | null;
+  /**
    * UUID v4
    */
   projectId: string | null;
@@ -45,6 +49,7 @@ export type TransactionAssignment = {
   fixedAmount: number | null;
   startDate: Date | null;
   endDate: Date | null;
+  allocationKey: string | null;
 };
 
 export const TransactionStatus = {
@@ -122,6 +127,7 @@ export const TransactionAssignment$inboundSchema: z.ZodMiniType<
   TransactionAssignment,
   unknown
 > = z.object({
+  id: types.nullable(types.string()),
   projectId: types.nullable(types.string()),
   clientId: types.nullable(types.string()),
   amount: types.nullable(types.number()),
@@ -129,6 +135,7 @@ export const TransactionAssignment$inboundSchema: z.ZodMiniType<
   fixedAmount: types.nullable(types.number()),
   startDate: types.nullable(types.date()),
   endDate: types.nullable(types.date()),
+  allocationKey: types.nullable(types.string()),
 });
 
 export function transactionAssignmentFromJSON(

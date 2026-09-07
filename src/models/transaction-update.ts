@@ -32,6 +32,10 @@ export type TransactionUpdateMode = ClosedEnum<typeof TransactionUpdateMode>;
 
 export type TransactionUpdateAssignment = {
   /**
+   * Opaque array-row identifier (not a UUID)
+   */
+  id?: string | undefined;
+  /**
    * UUID v4
    */
   projectId?: string | undefined;
@@ -44,6 +48,7 @@ export type TransactionUpdateAssignment = {
   fixedAmount?: number | undefined;
   startDate?: Date | undefined;
   endDate?: Date | undefined;
+  allocationKey?: string | undefined;
 };
 
 export const TransactionUpdateStatus = {
@@ -99,6 +104,7 @@ export const TransactionUpdateMode$outboundSchema: z.ZodMiniEnum<
 
 /** @internal */
 export type TransactionUpdateAssignment$Outbound = {
+  id?: string | undefined;
   projectId?: string | undefined;
   clientId?: string | undefined;
   amount?: number | undefined;
@@ -106,6 +112,7 @@ export type TransactionUpdateAssignment$Outbound = {
   fixedAmount?: number | undefined;
   startDate?: string | undefined;
   endDate?: string | undefined;
+  allocationKey?: string | undefined;
 };
 
 /** @internal */
@@ -113,6 +120,7 @@ export const TransactionUpdateAssignment$outboundSchema: z.ZodMiniType<
   TransactionUpdateAssignment$Outbound,
   TransactionUpdateAssignment
 > = z.object({
+  id: z.optional(z.string()),
   projectId: z.optional(z.string()),
   clientId: z.optional(z.string()),
   amount: z.optional(z.number()),
@@ -130,6 +138,7 @@ export const TransactionUpdateAssignment$outboundSchema: z.ZodMiniType<
       z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
     ),
   ),
+  allocationKey: z.optional(z.string()),
 });
 
 export function transactionUpdateAssignmentToJSON(

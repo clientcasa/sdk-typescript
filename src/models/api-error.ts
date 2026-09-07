@@ -34,9 +34,16 @@ export const DetailsCode = {
   UnsupportedFileType: "unsupported_file_type",
   FileTooLarge: "file_too_large",
   CrossOrganization: "cross_organization",
+  LinkedRecordNotFound: "linked_record_not_found",
   RateLimited: "rate_limited",
   RevenueOnInternalProject: "revenue_on_internal_project",
   NumberSeriesUnlocked: "number_series_unlocked",
+  InvoiceNotDeletable: "invoice_not_deletable",
+  TaxCategoryDefault: "tax_category_default",
+  TaxCategoryReferenced: "tax_category_referenced",
+  RecipePricePropagationFailed: "recipe_price_propagation_failed",
+  PriceHistoryHeadMismatch: "price_history_head_mismatch",
+  PriceHistoryNotDerived: "price_history_not_derived",
 } as const;
 export type DetailsCode = OpenEnum<typeof DetailsCode>;
 
