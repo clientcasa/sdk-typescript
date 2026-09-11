@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Update a transaction
  *
  * @remarks
- * Transactions billed to a sent/paid invoice may be frozen — the server will return 409 if so. A `global` transaction applies org-wide (all clients for revenue, overhead for cost), so it cannot carry `assignments` — send an empty array, or use mode `each`/`split` to scope it. This constraint is enforced by the server but cannot be expressed in JSON Schema, so generated SDKs will surface it as a 400 rather than a compile error.
+ * Transactions billed to a sent/paid invoice may be frozen — the server will return 409 if so. A `global` transaction applies org-wide (all clients for revenue, overhead for cost), so it cannot carry `assignments` — send an empty array, or use mode `each`/`split` to scope it. Enforced against the *stored* row as well as the request body, so a PATCH that omits `mode` is still checked. Refused with `400 invalid_request` and `details.code: "global_mode_has_assignments"`.
  */
 export function transactionsUpdate(
   client: ClientCasaCore,
@@ -106,6 +106,11 @@ async function $do(
   const headers = new Headers(compactMap({
     "Content-Type": "application/json",
     Accept: "application/json",
+    "Idempotency-Key": encodeSimple(
+      "Idempotency-Key",
+      payload["Idempotency-Key"],
+      { explode: false, charEncoding: "none" },
+    ),
   }));
 
   const requestSecurity = resolveSecurity(
@@ -194,7 +199,7 @@ async function $do(
     | SDKValidationError
   >(
     M.json(200, models.Transaction$inboundSchema),
-    M.jsonErr([400, 401, 403, 404, 429], errors.ApiError$inboundSchema),
+    M.jsonErr([400, 401, 403, 404, 409, 429], errors.ApiError$inboundSchema),
     M.jsonErr(500, errors.ApiError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

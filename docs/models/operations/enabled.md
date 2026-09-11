@@ -1,13 +1,13 @@
-# Archived
+# Enabled
 
 Literal `true` or `false`. Any other value is rejected with 400 invalid_request.
 
 ## Example Usage
 
 ```typescript
-import { Archived } from "@clientcasa/sdk/models/operations";
+import { Enabled } from "@clientcasa/sdk/models/operations";
 
-let value: Archived = "false";
+let value: Enabled = "true";
 ```
 
 ## Values

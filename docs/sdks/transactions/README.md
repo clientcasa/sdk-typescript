@@ -88,7 +88,7 @@ run();
 
 ## create
 
-A `global` transaction applies org-wide (all clients for revenue, overhead for cost), so it cannot carry `assignments` — send an empty array, or use mode `each`/`split` to scope it. This constraint is enforced by the server but cannot be expressed in JSON Schema, so generated SDKs will surface it as a 400 rather than a compile error.
+A `global` transaction applies org-wide (all clients for revenue, overhead for cost), so it cannot carry `assignments` — send an empty array, or use mode `each`/`split` to scope it. Enforced against the *stored* row as well as the request body, so a PATCH that omits `mode` is still checked. Refused with `400 invalid_request` and `details.code: "global_mode_has_assignments"`.
 
 ### Example Usage
 
@@ -344,7 +344,7 @@ run();
 
 ## update
 
-Transactions billed to a sent/paid invoice may be frozen — the server will return 409 if so. A `global` transaction applies org-wide (all clients for revenue, overhead for cost), so it cannot carry `assignments` — send an empty array, or use mode `each`/`split` to scope it. This constraint is enforced by the server but cannot be expressed in JSON Schema, so generated SDKs will surface it as a 400 rather than a compile error.
+Transactions billed to a sent/paid invoice may be frozen — the server will return 409 if so. A `global` transaction applies org-wide (all clients for revenue, overhead for cost), so it cannot carry `assignments` — send an empty array, or use mode `each`/`split` to scope it. Enforced against the *stored* row as well as the request body, so a PATCH that omits `mode` is still checked. Refused with `400 invalid_request` and `details.code: "global_mode_has_assignments"`.
 
 ### Example Usage
 
@@ -359,6 +359,7 @@ async function run() {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
+    idempotencyKey: "create-client-2026-05-24-a1b2c3",
     body: {
       catalogItemId: "550e8400-e29b-41d4-a716-446655440000",
       taxCategoryId: "550e8400-e29b-41d4-a716-446655440000",
@@ -394,6 +395,7 @@ async function run() {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
+    idempotencyKey: "create-client-2026-05-24-a1b2c3",
     body: {
       catalogItemId: "550e8400-e29b-41d4-a716-446655440000",
       taxCategoryId: "550e8400-e29b-41d4-a716-446655440000",
@@ -434,6 +436,6 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ApiError               | 400, 401, 403, 404, 429       | application/json              |
+| errors.ApiError               | 400, 401, 403, 404, 409, 429  | application/json              |
 | errors.ApiError               | 500                           | application/json              |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |

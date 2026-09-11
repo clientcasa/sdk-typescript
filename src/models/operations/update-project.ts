@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
 import * as models from "../index.js";
 
 export type UpdateProjectSecurity = {
@@ -15,6 +16,10 @@ export type UpdateProjectRequest = {
    * UUID v4
    */
   id: string;
+  /**
+   * Optional unique key that makes this request safely retryable. Replaying the same key returns the original response instead of creating a duplicate; reusing a key with a different request body returns 409.
+   */
+  idempotencyKey?: string | undefined;
   body: models.ProjectUpdate;
 };
 
@@ -44,6 +49,7 @@ export function updateProjectSecurityToJSON(
 /** @internal */
 export type UpdateProjectRequest$Outbound = {
   id: string;
+  "Idempotency-Key"?: string | undefined;
   body: models.ProjectUpdate$Outbound;
 };
 
@@ -51,10 +57,18 @@ export type UpdateProjectRequest$Outbound = {
 export const UpdateProjectRequest$outboundSchema: z.ZodMiniType<
   UpdateProjectRequest$Outbound,
   UpdateProjectRequest
-> = z.object({
-  id: z.string(),
-  body: models.ProjectUpdate$outboundSchema,
-});
+> = z.pipe(
+  z.object({
+    id: z.string(),
+    idempotencyKey: z.optional(z.string()),
+    body: models.ProjectUpdate$outboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      idempotencyKey: "Idempotency-Key",
+    });
+  }),
+);
 
 export function updateProjectRequestToJSON(
   updateProjectRequest: UpdateProjectRequest,

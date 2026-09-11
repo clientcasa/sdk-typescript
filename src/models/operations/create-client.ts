@@ -13,7 +13,7 @@ export type CreateClientSecurity = {
 
 export type CreateClientRequest = {
   /**
-   * Optional unique key that makes this create safely retryable. Replaying the same key returns the original response instead of creating a duplicate; reusing a key with a different request body returns 409.
+   * Optional unique key that makes this request safely retryable. Replaying the same key returns the original response instead of creating a duplicate; reusing a key with a different request body returns 409.
    */
   idempotencyKey?: string | undefined;
   body: models.ClientCreate;

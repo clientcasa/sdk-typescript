@@ -17,7 +17,13 @@ export type ListEventDayVendorsSecurity = {
 export type ListEventDayVendorsRequest = {
   page?: number | undefined;
   pageSize?: number | undefined;
+  /**
+   * UUID v4
+   */
   eventDayId?: string | undefined;
+  /**
+   * UUID v4
+   */
   vendorId?: string | undefined;
 };
 

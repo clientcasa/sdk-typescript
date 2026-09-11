@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
 import * as models from "../index.js";
 
 export type UpdateInvoiceSecurity = {
@@ -15,6 +16,10 @@ export type UpdateInvoiceRequest = {
    * UUID v4
    */
   id: string;
+  /**
+   * Optional unique key that makes this request safely retryable. Replaying the same key returns the original response instead of creating a duplicate; reusing a key with a different request body returns 409.
+   */
+  idempotencyKey?: string | undefined;
   body: models.InvoiceUpdate;
 };
 
@@ -44,6 +49,7 @@ export function updateInvoiceSecurityToJSON(
 /** @internal */
 export type UpdateInvoiceRequest$Outbound = {
   id: string;
+  "Idempotency-Key"?: string | undefined;
   body: models.InvoiceUpdate$Outbound;
 };
 
@@ -51,10 +57,18 @@ export type UpdateInvoiceRequest$Outbound = {
 export const UpdateInvoiceRequest$outboundSchema: z.ZodMiniType<
   UpdateInvoiceRequest$Outbound,
   UpdateInvoiceRequest
-> = z.object({
-  id: z.string(),
-  body: models.InvoiceUpdate$outboundSchema,
-});
+> = z.pipe(
+  z.object({
+    id: z.string(),
+    idempotencyKey: z.optional(z.string()),
+    body: models.InvoiceUpdate$outboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      idempotencyKey: "Idempotency-Key",
+    });
+  }),
+);
 
 export function updateInvoiceRequestToJSON(
   updateInvoiceRequest: UpdateInvoiceRequest,

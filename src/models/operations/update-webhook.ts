@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
 import * as models from "../index.js";
 
 export type UpdateWebhookSecurity = {
@@ -15,6 +16,10 @@ export type UpdateWebhookRequest = {
    * UUID v4
    */
   id: string;
+  /**
+   * Optional unique key that makes this request safely retryable. Replaying the same key returns the original response instead of creating a duplicate; reusing a key with a different request body returns 409.
+   */
+  idempotencyKey?: string | undefined;
   body: models.WebhookUpdate;
 };
 
@@ -44,6 +49,7 @@ export function updateWebhookSecurityToJSON(
 /** @internal */
 export type UpdateWebhookRequest$Outbound = {
   id: string;
+  "Idempotency-Key"?: string | undefined;
   body: models.WebhookUpdate$Outbound;
 };
 
@@ -51,10 +57,18 @@ export type UpdateWebhookRequest$Outbound = {
 export const UpdateWebhookRequest$outboundSchema: z.ZodMiniType<
   UpdateWebhookRequest$Outbound,
   UpdateWebhookRequest
-> = z.object({
-  id: z.string(),
-  body: models.WebhookUpdate$outboundSchema,
-});
+> = z.pipe(
+  z.object({
+    id: z.string(),
+    idempotencyKey: z.optional(z.string()),
+    body: models.WebhookUpdate$outboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      idempotencyKey: "Idempotency-Key",
+    });
+  }),
+);
 
 export function updateWebhookRequestToJSON(
   updateWebhookRequest: UpdateWebhookRequest,

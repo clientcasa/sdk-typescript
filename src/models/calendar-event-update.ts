@@ -25,16 +25,16 @@ export type CalendarEventUpdate = {
    */
   clientId?: string | null | undefined;
   actionable?: boolean | undefined;
-  /**
-   * ISO 8601 timestamp (UTC)
-   */
-  completedAt?: Date | null | undefined;
   recurring?: boolean | undefined;
   rrule?: string | null | undefined;
   /**
    * ISO 8601 timestamp (UTC)
    */
   recurrenceEnd?: Date | null | undefined;
+  /**
+   * ISO 8601 timestamp (UTC)
+   */
+  completedAt?: Date | null | undefined;
 };
 
 /** @internal */
@@ -47,10 +47,10 @@ export type CalendarEventUpdate$Outbound = {
   projectId?: string | null | undefined;
   clientId?: string | null | undefined;
   actionable?: boolean | undefined;
-  completedAt?: string | null | undefined;
   recurring?: boolean | undefined;
   rrule?: string | null | undefined;
   recurrenceEnd?: string | null | undefined;
+  completedAt?: string | null | undefined;
 };
 
 /** @internal */
@@ -68,12 +68,12 @@ export const CalendarEventUpdate$outboundSchema: z.ZodMiniType<
   projectId: z.optional(z.nullable(z.string())),
   clientId: z.optional(z.nullable(z.string())),
   actionable: z.optional(z.boolean()),
-  completedAt: z.optional(
-    z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
-  ),
   recurring: z.optional(z.boolean()),
   rrule: z.optional(z.nullable(z.string())),
   recurrenceEnd: z.optional(
+    z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
+  ),
+  completedAt: z.optional(
     z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
   ),
 });
