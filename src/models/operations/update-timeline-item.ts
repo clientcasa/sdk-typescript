@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
 import * as models from "../index.js";
 
 export type UpdateTimelineItemSecurity = {
@@ -15,6 +16,10 @@ export type UpdateTimelineItemRequest = {
    * UUID v4
    */
   id: string;
+  /**
+   * Optional unique key that makes this request safely retryable. Replaying the same key returns the original response instead of creating a duplicate; reusing a key with a different request body returns 409.
+   */
+  idempotencyKey?: string | undefined;
   body: models.TimelineItemUpdate;
 };
 
@@ -44,6 +49,7 @@ export function updateTimelineItemSecurityToJSON(
 /** @internal */
 export type UpdateTimelineItemRequest$Outbound = {
   id: string;
+  "Idempotency-Key"?: string | undefined;
   body: models.TimelineItemUpdate$Outbound;
 };
 
@@ -51,10 +57,18 @@ export type UpdateTimelineItemRequest$Outbound = {
 export const UpdateTimelineItemRequest$outboundSchema: z.ZodMiniType<
   UpdateTimelineItemRequest$Outbound,
   UpdateTimelineItemRequest
-> = z.object({
-  id: z.string(),
-  body: models.TimelineItemUpdate$outboundSchema,
-});
+> = z.pipe(
+  z.object({
+    id: z.string(),
+    idempotencyKey: z.optional(z.string()),
+    body: models.TimelineItemUpdate$outboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      idempotencyKey: "Idempotency-Key",
+    });
+  }),
+);
 
 export function updateTimelineItemRequestToJSON(
   updateTimelineItemRequest: UpdateTimelineItemRequest,

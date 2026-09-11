@@ -6,7 +6,7 @@
 import { ErrorT } from "@clientcasa/sdk/models";
 
 let value: ErrorT = {
-  code: "unauthorized",
+  code: "forbidden",
   message: "<value>",
   requestId: "<id>",
 };

@@ -29,10 +29,16 @@ export type ListClientDocumentsStatus = ClosedEnum<
   typeof ListClientDocumentsStatus
 >;
 
+/**
+ * Literal `true` or `false`. Any other value is rejected with 400 invalid_request.
+ */
 export const Archived = {
   True: "true",
   False: "false",
 } as const;
+/**
+ * Literal `true` or `false`. Any other value is rejected with 400 invalid_request.
+ */
 export type Archived = ClosedEnum<typeof Archived>;
 
 export type ListClientDocumentsRequest = {
@@ -47,6 +53,9 @@ export type ListClientDocumentsRequest = {
    * UUID v4
    */
   contactId?: string | undefined;
+  /**
+   * Literal `true` or `false`. Any other value is rejected with 400 invalid_request.
+   */
   archived?: Archived | undefined;
 };
 

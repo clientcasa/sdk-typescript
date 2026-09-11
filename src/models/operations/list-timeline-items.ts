@@ -28,6 +28,9 @@ export type ListTimelineItemsStatus = ClosedEnum<
 export type ListTimelineItemsRequest = {
   page?: number | undefined;
   pageSize?: number | undefined;
+  /**
+   * UUID v4
+   */
   eventDayId?: string | undefined;
   status?: ListTimelineItemsStatus | undefined;
 };

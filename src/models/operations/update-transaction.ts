@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
 import * as models from "../index.js";
 
 export type UpdateTransactionSecurity = {
@@ -15,6 +16,10 @@ export type UpdateTransactionRequest = {
    * UUID v4
    */
   id: string;
+  /**
+   * Optional unique key that makes this request safely retryable. Replaying the same key returns the original response instead of creating a duplicate; reusing a key with a different request body returns 409.
+   */
+  idempotencyKey?: string | undefined;
   body: models.TransactionUpdate;
 };
 
@@ -44,6 +49,7 @@ export function updateTransactionSecurityToJSON(
 /** @internal */
 export type UpdateTransactionRequest$Outbound = {
   id: string;
+  "Idempotency-Key"?: string | undefined;
   body: models.TransactionUpdate$Outbound;
 };
 
@@ -51,10 +57,18 @@ export type UpdateTransactionRequest$Outbound = {
 export const UpdateTransactionRequest$outboundSchema: z.ZodMiniType<
   UpdateTransactionRequest$Outbound,
   UpdateTransactionRequest
-> = z.object({
-  id: z.string(),
-  body: models.TransactionUpdate$outboundSchema,
-});
+> = z.pipe(
+  z.object({
+    id: z.string(),
+    idempotencyKey: z.optional(z.string()),
+    body: models.TransactionUpdate$outboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      idempotencyKey: "Idempotency-Key",
+    });
+  }),
+);
 
 export function updateTransactionRequestToJSON(
   updateTransactionRequest: UpdateTransactionRequest,

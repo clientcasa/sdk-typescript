@@ -353,6 +353,7 @@ async function run() {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
+    idempotencyKey: "create-client-2026-05-24-a1b2c3",
     body: {
       projectId: "550e8400-e29b-41d4-a716-446655440000",
       memberId: "550e8400-e29b-41d4-a716-446655440000",
@@ -383,6 +384,7 @@ async function run() {
     apiKey: process.env["CLIENTCASA_API_KEY"] ?? "",
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
+    idempotencyKey: "create-client-2026-05-24-a1b2c3",
     body: {
       projectId: "550e8400-e29b-41d4-a716-446655440000",
       memberId: "550e8400-e29b-41d4-a716-446655440000",
@@ -418,6 +420,6 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ApiError               | 400, 401, 403, 404, 429       | application/json              |
+| errors.ApiError               | 400, 401, 403, 404, 409, 429  | application/json              |
 | errors.ApiError               | 500                           | application/json              |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |

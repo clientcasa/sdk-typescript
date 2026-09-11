@@ -1,13 +1,13 @@
-# Archived
+# Billable
 
 Literal `true` or `false`. Any other value is rejected with 400 invalid_request.
 
 ## Example Usage
 
 ```typescript
-import { Archived } from "@clientcasa/sdk/models/operations";
+import { Billable } from "@clientcasa/sdk/models/operations";
 
-let value: Archived = "false";
+let value: Billable = "false";
 ```
 
 ## Values

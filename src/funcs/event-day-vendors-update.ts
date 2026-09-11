@@ -103,6 +103,11 @@ async function $do(
   const headers = new Headers(compactMap({
     "Content-Type": "application/json",
     Accept: "application/json",
+    "Idempotency-Key": encodeSimple(
+      "Idempotency-Key",
+      payload["Idempotency-Key"],
+      { explode: false, charEncoding: "none" },
+    ),
   }));
 
   const requestSecurity = resolveSecurity(
@@ -191,7 +196,7 @@ async function $do(
     | SDKValidationError
   >(
     M.json(200, models.EventDayVendor$inboundSchema),
-    M.jsonErr([400, 401, 403, 404, 429], errors.ApiError$inboundSchema),
+    M.jsonErr([400, 401, 403, 404, 409, 429], errors.ApiError$inboundSchema),
     M.jsonErr(500, errors.ApiError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

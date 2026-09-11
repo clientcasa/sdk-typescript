@@ -26,11 +26,11 @@ export type ListCalendarEventsRequest = {
    */
   clientId?: string | undefined;
   /**
-   * ISO 8601 timestamp (UTC)
+   * ISO 8601 timestamp. A UTC offset (`+02:00`) is accepted as well as `Z`.
    */
   startsAfter?: Date | undefined;
   /**
-   * ISO 8601 timestamp (UTC)
+   * ISO 8601 timestamp. A UTC offset (`+02:00`) is accepted as well as `Z`.
    */
   startsBefore?: Date | undefined;
 };

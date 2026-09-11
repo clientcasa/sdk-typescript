@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
 import * as models from "../index.js";
 
 export type UpdateMilestoneSecurity = {
@@ -15,6 +16,10 @@ export type UpdateMilestoneRequest = {
    * UUID v4
    */
   id: string;
+  /**
+   * Optional unique key that makes this request safely retryable. Replaying the same key returns the original response instead of creating a duplicate; reusing a key with a different request body returns 409.
+   */
+  idempotencyKey?: string | undefined;
   body: models.MilestoneUpdate;
 };
 
@@ -44,6 +49,7 @@ export function updateMilestoneSecurityToJSON(
 /** @internal */
 export type UpdateMilestoneRequest$Outbound = {
   id: string;
+  "Idempotency-Key"?: string | undefined;
   body: models.MilestoneUpdate$Outbound;
 };
 
@@ -51,10 +57,18 @@ export type UpdateMilestoneRequest$Outbound = {
 export const UpdateMilestoneRequest$outboundSchema: z.ZodMiniType<
   UpdateMilestoneRequest$Outbound,
   UpdateMilestoneRequest
-> = z.object({
-  id: z.string(),
-  body: models.MilestoneUpdate$outboundSchema,
-});
+> = z.pipe(
+  z.object({
+    id: z.string(),
+    idempotencyKey: z.optional(z.string()),
+    body: models.MilestoneUpdate$outboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      idempotencyKey: "Idempotency-Key",
+    });
+  }),
+);
 
 export function updateMilestoneRequestToJSON(
   updateMilestoneRequest: UpdateMilestoneRequest,

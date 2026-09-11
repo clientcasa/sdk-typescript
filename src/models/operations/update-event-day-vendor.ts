@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { remap as remap$ } from "../../lib/primitives.js";
 import * as models from "../index.js";
 
 export type UpdateEventDayVendorSecurity = {
@@ -15,6 +16,10 @@ export type UpdateEventDayVendorRequest = {
    * UUID v4
    */
   id: string;
+  /**
+   * Optional unique key that makes this request safely retryable. Replaying the same key returns the original response instead of creating a duplicate; reusing a key with a different request body returns 409.
+   */
+  idempotencyKey?: string | undefined;
   body: models.EventDayVendorUpdate;
 };
 
@@ -46,6 +51,7 @@ export function updateEventDayVendorSecurityToJSON(
 /** @internal */
 export type UpdateEventDayVendorRequest$Outbound = {
   id: string;
+  "Idempotency-Key"?: string | undefined;
   body: models.EventDayVendorUpdate$Outbound;
 };
 
@@ -53,10 +59,18 @@ export type UpdateEventDayVendorRequest$Outbound = {
 export const UpdateEventDayVendorRequest$outboundSchema: z.ZodMiniType<
   UpdateEventDayVendorRequest$Outbound,
   UpdateEventDayVendorRequest
-> = z.object({
-  id: z.string(),
-  body: models.EventDayVendorUpdate$outboundSchema,
-});
+> = z.pipe(
+  z.object({
+    id: z.string(),
+    idempotencyKey: z.optional(z.string()),
+    body: models.EventDayVendorUpdate$outboundSchema,
+  }),
+  z.transform((v) => {
+    return remap$(v, {
+      idempotencyKey: "Idempotency-Key",
+    });
+  }),
+);
 
 export function updateEventDayVendorRequestToJSON(
   updateEventDayVendorRequest: UpdateEventDayVendorRequest,

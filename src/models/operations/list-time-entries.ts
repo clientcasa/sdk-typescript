@@ -5,6 +5,7 @@
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
 import { safeParse } from "../../lib/schemas.js";
+import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
@@ -13,6 +14,18 @@ export type ListTimeEntriesSecurity = {
   apiKey?: string | undefined;
   bearer?: string | undefined;
 };
+
+/**
+ * Literal `true` or `false`. Any other value is rejected with 400 invalid_request.
+ */
+export const Billable = {
+  True: "true",
+  False: "false",
+} as const;
+/**
+ * Literal `true` or `false`. Any other value is rejected with 400 invalid_request.
+ */
+export type Billable = ClosedEnum<typeof Billable>;
 
 export type ListTimeEntriesRequest = {
   page?: number | undefined;
@@ -31,7 +44,10 @@ export type ListTimeEntriesRequest = {
   memberId?: string | undefined;
   dateFrom?: Date | undefined;
   dateTo?: Date | undefined;
-  billable?: boolean | null | undefined;
+  /**
+   * Literal `true` or `false`. Any other value is rejected with 400 invalid_request.
+   */
+  billable?: Billable | undefined;
 };
 
 export type ListTimeEntriesResponse = {
@@ -62,6 +78,11 @@ export function listTimeEntriesSecurityToJSON(
 }
 
 /** @internal */
+export const Billable$outboundSchema: z.ZodMiniEnum<typeof Billable> = z.enum(
+  Billable,
+);
+
+/** @internal */
 export type ListTimeEntriesRequest$Outbound = {
   page: number;
   pageSize: number;
@@ -70,7 +91,7 @@ export type ListTimeEntriesRequest$Outbound = {
   memberId?: string | undefined;
   dateFrom?: string | undefined;
   dateTo?: string | undefined;
-  billable?: boolean | null | undefined;
+  billable?: string | undefined;
 };
 
 /** @internal */
@@ -95,7 +116,7 @@ export const ListTimeEntriesRequest$outboundSchema: z.ZodMiniType<
       z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
     ),
   ),
-  billable: z.optional(z.nullable(z.boolean())),
+  billable: z.optional(Billable$outboundSchema),
 });
 
 export function listTimeEntriesRequestToJSON(

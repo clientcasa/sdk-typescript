@@ -15,6 +15,18 @@ export type ListWebhooksSecurity = {
   bearer?: string | undefined;
 };
 
+/**
+ * Literal `true` or `false`. Any other value is rejected with 400 invalid_request.
+ */
+export const Enabled = {
+  True: "true",
+  False: "false",
+} as const;
+/**
+ * Literal `true` or `false`. Any other value is rejected with 400 invalid_request.
+ */
+export type Enabled = ClosedEnum<typeof Enabled>;
+
 export const Event = {
   InvoiceSent: "invoice_sent",
   InvoiceDueSoon: "invoice_due_soon",
@@ -91,7 +103,10 @@ export type Event = ClosedEnum<typeof Event>;
 export type ListWebhooksRequest = {
   page?: number | undefined;
   pageSize?: number | undefined;
-  enabled?: boolean | null | undefined;
+  /**
+   * Literal `true` or `false`. Any other value is rejected with 400 invalid_request.
+   */
+  enabled?: Enabled | undefined;
   event?: Event | undefined;
 };
 
@@ -123,13 +138,18 @@ export function listWebhooksSecurityToJSON(
 }
 
 /** @internal */
+export const Enabled$outboundSchema: z.ZodMiniEnum<typeof Enabled> = z.enum(
+  Enabled,
+);
+
+/** @internal */
 export const Event$outboundSchema: z.ZodMiniEnum<typeof Event> = z.enum(Event);
 
 /** @internal */
 export type ListWebhooksRequest$Outbound = {
   page: number;
   pageSize: number;
-  enabled?: boolean | null | undefined;
+  enabled?: string | undefined;
   event?: string | undefined;
 };
 
@@ -140,7 +160,7 @@ export const ListWebhooksRequest$outboundSchema: z.ZodMiniType<
 > = z.object({
   page: z._default(z.int(), 1),
   pageSize: z._default(z.int(), 25),
-  enabled: z.optional(z.nullable(z.boolean())),
+  enabled: z.optional(Enabled$outboundSchema),
   event: z.optional(Event$outboundSchema),
 });
 

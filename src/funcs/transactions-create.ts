@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Create a transaction (expense or charge)
  *
  * @remarks
- * A `global` transaction applies org-wide (all clients for revenue, overhead for cost), so it cannot carry `assignments` — send an empty array, or use mode `each`/`split` to scope it. This constraint is enforced by the server but cannot be expressed in JSON Schema, so generated SDKs will surface it as a 400 rather than a compile error.
+ * A `global` transaction applies org-wide (all clients for revenue, overhead for cost), so it cannot carry `assignments` — send an empty array, or use mode `each`/`split` to scope it. Enforced against the *stored* row as well as the request body, so a PATCH that omits `mode` is still checked. Refused with `400 invalid_request` and `details.code: "global_mode_has_assignments"`.
  */
 export function transactionsCreate(
   client: ClientCasaCore,
