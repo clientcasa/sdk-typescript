@@ -48,9 +48,15 @@ export type TimelineItemCreateStatus = ClosedEnum<
 >;
 
 export type TimelineItemCreate = {
+  /**
+   * UUID v4
+   */
   eventDayId: string;
   title: string;
   description?: string | undefined;
+  /**
+   * UUID v4
+   */
   categoryId?: string | undefined;
   sortOrder?: number | undefined;
   trackId?: string | undefined;

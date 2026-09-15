@@ -51,9 +51,15 @@ export type TimelineItem = {
    * UUID v4
    */
   id: string;
+  /**
+   * UUID v4
+   */
   eventDayId: string;
   title: string;
   description: string | null;
+  /**
+   * UUID v4
+   */
   categoryId: string | null;
   sortOrder: number;
   trackId: string | null;

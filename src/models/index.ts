@@ -37,6 +37,7 @@ export * from "./event-day-vendor-list.js";
 export * from "./event-day-vendor-update.js";
 export * from "./event-day-vendor.js";
 export * from "./event-day.js";
+export * from "./form-attachment-download.js";
 export * from "./form-list.js";
 export * from "./form-submission-answer.js";
 export * from "./form-submission-attachment.js";

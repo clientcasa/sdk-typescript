@@ -45,6 +45,7 @@ export * from "./get-contract.js";
 export * from "./get-document-version.js";
 export * from "./get-event-day-vendor.js";
 export * from "./get-event-day.js";
+export * from "./get-form-attachment.js";
 export * from "./get-form-submission.js";
 export * from "./get-form.js";
 export * from "./get-invoice.js";

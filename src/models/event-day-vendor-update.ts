@@ -15,7 +15,13 @@ export type EventDayVendorUpdateConfirmationStatus = ClosedEnum<
 >;
 
 export type EventDayVendorUpdate = {
+  /**
+   * UUID v4
+   */
   eventDayId?: string | undefined;
+  /**
+   * UUID v4
+   */
   vendorId?: string | undefined;
   role?: string | undefined;
   callTime?: string | undefined;

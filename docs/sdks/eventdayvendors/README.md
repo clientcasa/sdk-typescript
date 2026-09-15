@@ -324,7 +324,7 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ApiError               | 401, 403, 404, 429            | application/json              |
+| errors.ApiError               | 401, 403, 404, 409, 429       | application/json              |
 | errors.ApiError               | 500                           | application/json              |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 
@@ -346,7 +346,10 @@ async function run() {
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
     idempotencyKey: "create-client-2026-05-24-a1b2c3",
-    body: {},
+    body: {
+      eventDayId: "550e8400-e29b-41d4-a716-446655440000",
+      vendorId: "550e8400-e29b-41d4-a716-446655440000",
+    },
   });
 
   console.log(result);
@@ -373,7 +376,10 @@ async function run() {
   }, {
     id: "550e8400-e29b-41d4-a716-446655440000",
     idempotencyKey: "create-client-2026-05-24-a1b2c3",
-    body: {},
+    body: {
+      eventDayId: "550e8400-e29b-41d4-a716-446655440000",
+      vendorId: "550e8400-e29b-41d4-a716-446655440000",
+    },
   });
   if (res.ok) {
     const { value: result } = res;

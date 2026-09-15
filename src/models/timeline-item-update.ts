@@ -48,9 +48,15 @@ export type TimelineItemUpdateStatus = ClosedEnum<
 >;
 
 export type TimelineItemUpdate = {
+  /**
+   * UUID v4
+   */
   eventDayId?: string | undefined;
   title?: string | undefined;
   description?: string | null | undefined;
+  /**
+   * UUID v4
+   */
   categoryId?: string | null | undefined;
   sortOrder?: number | undefined;
   trackId?: string | null | undefined;

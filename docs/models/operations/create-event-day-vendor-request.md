@@ -8,8 +8,8 @@ import { CreateEventDayVendorRequest } from "@clientcasa/sdk/models/operations";
 let value: CreateEventDayVendorRequest = {
   idempotencyKey: "create-client-2026-05-24-a1b2c3",
   body: {
-    eventDayId: "<id>",
-    vendorId: "<id>",
+    eventDayId: "550e8400-e29b-41d4-a716-446655440000",
+    vendorId: "550e8400-e29b-41d4-a716-446655440000",
   },
 };
 ```

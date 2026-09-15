@@ -8,7 +8,13 @@ import { UpdateTimelineItemRequest } from "@clientcasa/sdk/models/operations";
 let value: UpdateTimelineItemRequest = {
   id: "550e8400-e29b-41d4-a716-446655440000",
   idempotencyKey: "create-client-2026-05-24-a1b2c3",
-  body: {},
+  body: {
+    eventDayId: "550e8400-e29b-41d4-a716-446655440000",
+    categoryId: "550e8400-e29b-41d4-a716-446655440000",
+    vendorIds: [
+      "550e8400-e29b-41d4-a716-446655440000",
+    ],
+  },
 };
 ```
 

@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 845b3ae5-0c5c-44ad-9b76-21e1d9e24151
 management:
-  docChecksum: 8c47cb2632cb1e15d50f6afaed629508
+  docChecksum: 000784c7677855cc42a6e4d6b2d4c02f
   docVersion: 1.0.0
-  speakeasyVersion: 1.796.4
-  generationVersion: 2.935.1
-  releaseVersion: 0.7.5
-  configChecksum: 35101ed4e37c4f93e1be909c0cc26337
+  speakeasyVersion: 1.797.0
+  generationVersion: 2.937.18
+  releaseVersion: 0.7.6
+  configChecksum: e6e32200e62fab6f07d61524fa53845f
   repoURL: https://github.com/clientcasa/sdk-typescript.git
   installationURL: https://github.com/clientcasa/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: 75e16c1a-f7c2-47fd-ab51-eaaee85c8f2f
-  pristine_commit_hash: 2c6772facd3a4d0ce74f1eb740fe3dd6e817876e
-  pristine_tree_hash: adf869c686d37418d30fa6f56a3fbd1981bf37f1
+  generation_id: d6cc6a4c-d448-4856-99b6-8a0e78395191
+  pristine_commit_hash: ebd79b9203042412f9b0ee387eb5d467a618f9dc
+  pristine_tree_hash: 1bd8481ec29aede94797a82837afe8b2b69ee214
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -296,8 +296,8 @@ trackedFiles:
     pristine_git_object: ab7d87059a9ab10681ca5a14a1372055f1039a13
   docs/models/details-code.md:
     id: f59269204db0
-    last_write_checksum: sha1:bd736ad73fde3b7ebb788fa6c4385500223d042e
-    pristine_git_object: 4d2cc38c9a99c2e2aa70a2a8981c313b375d851d
+    last_write_checksum: sha1:89f60046e19e2651afd74f2863110b6adc7a2bb2
+    pristine_git_object: 7824698193c772e7699df99321c0787bc54a2d0d
   docs/models/details.md:
     id: 78f6f9d989a9
     last_write_checksum: sha1:508bb311aadf58ff6a2d7914bf21ff673cf774b8
@@ -388,24 +388,24 @@ trackedFiles:
     pristine_git_object: 40ce3994f6ed04df303297d60609140ce0d5beca
   docs/models/event-day-vendor-create.md:
     id: b37cd5fa2df6
-    last_write_checksum: sha1:b359af0f598bb710ffbf2ae4a6f36ab759b6ef3f
-    pristine_git_object: b669ec8ceecde0abebda3e4d9c562c3b8cc36e43
+    last_write_checksum: sha1:f396df0e6b2218ad8abd955ffdc6eac16d37b1f2
+    pristine_git_object: 8df3f8ad22f6dce81a85515b422b8a7b80c0a0ad
   docs/models/event-day-vendor-list.md:
     id: c8e64faf4003
-    last_write_checksum: sha1:a623a908d44ba69b34b8d543b46abd37e6c391cc
-    pristine_git_object: b773bcaafeba1cd394287b107b1414ca436d2114
+    last_write_checksum: sha1:f38e4e9476199e0cba01650abe676f88c71b3dab
+    pristine_git_object: 4403a02a93bf8d812b4dbf2bd838363cb659f839
   docs/models/event-day-vendor-update-confirmation-status.md:
     id: 830efabda6ba
     last_write_checksum: sha1:687dde57a6f99e2545ce594eba90467594483918
     pristine_git_object: cffa42ce2ab8991df101b7fb114defd142e26025
   docs/models/event-day-vendor-update.md:
     id: 72b0c02f61d0
-    last_write_checksum: sha1:6fed643996c02d5c39d6d8fe907de89d7c74cc82
-    pristine_git_object: e5e3b90ab73f60d0dc33ffd993770bc4cdc7c123
+    last_write_checksum: sha1:8b46d963767bec9b504e388007544c0b8e789be9
+    pristine_git_object: a1c2b3d44ac5692e79880767f5e7b9bf26817769
   docs/models/event-day-vendor.md:
     id: 75fd18fed669
-    last_write_checksum: sha1:a20f167659676e02cbebd32f9377b815e2d56ba3
-    pristine_git_object: e82c7f7b8583bb3d1df87a79411c826e57b220b2
+    last_write_checksum: sha1:0c375b43f211ba7a3594170022cf0781387a1912
+    pristine_git_object: 36e63948499f6ccde7206b715e5593963591337c
   docs/models/event-day.md:
     id: e90039c8e153
     last_write_checksum: sha1:66df8a00529a9ced14045acf5083b49e05812599
@@ -414,6 +414,10 @@ trackedFiles:
     id: a0e8b6b2567f
     last_write_checksum: sha1:66945615d40020f8c1d11d46eb463d262aa221c2
     pristine_git_object: df48d65b9692eb1c25398cbf7e22974f47046361
+  docs/models/form-attachment-download.md:
+    id: 90c4e56ccecb
+    last_write_checksum: sha1:436450634e0838476456f68bfd84c314cf7262f4
+    pristine_git_object: 1e774a2d0984f25b5ace660786a98df3ee95193e
   docs/models/form-kind.md:
     id: 32e8893d1e06
     last_write_checksum: sha1:3d1f94379e83b966e913afc7b2baf47f1c1fbd51
@@ -600,8 +604,8 @@ trackedFiles:
     pristine_git_object: de0d2fc66c5a6c51a19c8f432c63243bd31b3e35
   docs/models/operations/create-event-day-vendor-request.md:
     id: 0a0f062d7a1b
-    last_write_checksum: sha1:83c456057a89ff530b80dc07be34328a58d101b3
-    pristine_git_object: 3f349046d6bdabba9e82a965ff3f6651ee07aef2
+    last_write_checksum: sha1:3e01b91c0d05e1791b3c4236eeddb12826fc0e78
+    pristine_git_object: b89e708ae42ededddfb2369289be27c6147ec975
   docs/models/operations/create-event-day-vendor-security.md:
     id: d598483ca04a
     last_write_checksum: sha1:ee7593e01efa0831616515c598588a047a301747
@@ -656,8 +660,8 @@ trackedFiles:
     pristine_git_object: afc1fec1cf291b7710f5ac72069c276c79cd1795
   docs/models/operations/create-timeline-item-request.md:
     id: 5f010f98a26a
-    last_write_checksum: sha1:37e0a190b8aeb642424a5029a095e163088c7122
-    pristine_git_object: 02bbe7cb9e85a839ea805a5cd51f04932b29be5e
+    last_write_checksum: sha1:4b1d4ed25ec3e54b6eda414352ad57aa6a2aa4d2
+    pristine_git_object: f9dcf3b61060b37225d7b27cea9b97f67e09ec6a
   docs/models/operations/create-timeline-item-security.md:
     id: 8d8a6d2f66b9
     last_write_checksum: sha1:d2b75ef5395e1afab3e278f172e8ed8ce1393710
@@ -914,6 +918,14 @@ trackedFiles:
     id: 539128e572a7
     last_write_checksum: sha1:384c6abb853afdd1056e9913117f99743e9f4ca9
     pristine_git_object: 2a08e1869d324105b06f7e07650f45b3ebcd48f6
+  docs/models/operations/get-form-attachment-request.md:
+    id: b53d63eb745b
+    last_write_checksum: sha1:117ef23f58368d0a3c02e67bab63c56619adfe45
+    pristine_git_object: e72351a3396462374c0b32d9381e2bb3a0192ed7
+  docs/models/operations/get-form-attachment-security.md:
+    id: defc40b039fd
+    last_write_checksum: sha1:bad2c6dbbd26f7e1e4579c271f169b4f5bc2a835
+    pristine_git_object: 50c49cf86b5f20b921a305df59d4ac4bdb4f4afd
   docs/models/operations/get-form-request.md:
     id: 365fb7744bc5
     last_write_checksum: sha1:f1d7c77563516c05215294090da996a419562aea
@@ -1308,8 +1320,8 @@ trackedFiles:
     pristine_git_object: 2c1c5d246e144f7490340d39e5c7ab14d36da74d
   docs/models/operations/list-timeline-items-response.md:
     id: fc980df7cc9a
-    last_write_checksum: sha1:9424520e08d6a2d44c73735cf436c28b594530a4
-    pristine_git_object: 309a93ef6511b8dfbaad07b255ff31c44c5f05ff
+    last_write_checksum: sha1:1f0b6547de5b9bec7b93c3d7b0bd6707b0e82cc2
+    pristine_git_object: 741cba339f33ca7e67e042abeb90b9aa8b70b74f
   docs/models/operations/list-timeline-items-security.md:
     id: 060d011ddab9
     last_write_checksum: sha1:2187170b8031aa475baa41dcfbd13adf3cfed9a7
@@ -1444,8 +1456,8 @@ trackedFiles:
     pristine_git_object: 17575a3781140b5ede7bfc7e0e0bc5b5960c44cd
   docs/models/operations/update-event-day-vendor-request.md:
     id: 7c8d50993394
-    last_write_checksum: sha1:9661ff7d53f6e56af88c87be7bd0e4023b475bf0
-    pristine_git_object: f9a16406b5f34f8e252cd0b5406a4e939dfc6d1a
+    last_write_checksum: sha1:e53bf74698a30f5251d950bf4b4f76f0307709b5
+    pristine_git_object: 257ddbb2eeb09eace30c67eb6b8efaeb101882c1
   docs/models/operations/update-event-day-vendor-security.md:
     id: 201c23048bf9
     last_write_checksum: sha1:8c27976a5f8085de9f46d6f2424bd19e29666f07
@@ -1492,8 +1504,8 @@ trackedFiles:
     pristine_git_object: b77f685de7e7efc3b12650f044fa8f8cca4b4e6f
   docs/models/operations/update-timeline-item-request.md:
     id: cf19b0086ac3
-    last_write_checksum: sha1:c3c2b23a72570677db3f37162cf72cc6bd905f4c
-    pristine_git_object: 78db254fd6726b11f2abcf20fcb5d7b834505c5b
+    last_write_checksum: sha1:14edb9712313b20e6d489f9261a94787b26d9093
+    pristine_git_object: 1af5bd54a05744c475bf054697fc337b811344f1
   docs/models/operations/update-timeline-item-security.md:
     id: e0d2f6c87f98
     last_write_checksum: sha1:0fd5441f8b42cda65a0e35388a992ec25780abbe
@@ -1688,12 +1700,12 @@ trackedFiles:
     pristine_git_object: f1c7f20138303428507a9abc0567658ad1bb5cd7
   docs/models/timeline-item-create.md:
     id: 7e781aa12dfb
-    last_write_checksum: sha1:190de611dd64e64e1ba763bf0ffc884a09382c8d
-    pristine_git_object: 96c7ba5333750ae4ca58df10cdf599568606898b
+    last_write_checksum: sha1:e37abac02129f263ccc2ed39bf5ebef429128d21
+    pristine_git_object: 1aff639c7563cd11bfdd6954c2aa7593a705e2f2
   docs/models/timeline-item-list.md:
     id: 2b53766fb308
-    last_write_checksum: sha1:4e986b0b3899b010fa11ef970049ed22490fe084
-    pristine_git_object: 7df2ff688ed0e9e9f46e6aaf674ad7dbc33fb82b
+    last_write_checksum: sha1:934665d131a702156f3d831f21efb459ae8ddc80
+    pristine_git_object: 9c2ea7f4acc9267437d63a4486124997c5b47578
   docs/models/timeline-item-status.md:
     id: e25e54bf8373
     last_write_checksum: sha1:c4c4a4b9a18519a6b19c12a11266299a2f09f247
@@ -1712,16 +1724,16 @@ trackedFiles:
     pristine_git_object: 025ff74c3fb223f26452f8197894222a7555ccd8
   docs/models/timeline-item-update.md:
     id: cb8c40a9ad70
-    last_write_checksum: sha1:c49a6e498b0e6db3952e9d0eef3c0b277c5e7d9d
-    pristine_git_object: 481a6f2d3331618f45281977987faa9aee8c2cf0
+    last_write_checksum: sha1:61e54d9da8409613597e7d11ac4887b5524a14ea
+    pristine_git_object: 425537ed34d94fa15b2d359f8eab9fdf707d8480
   docs/models/timeline-item-visible-to.md:
     id: 587d65b3a4d2
     last_write_checksum: sha1:717cd209ec252048f8a8766a396c43b6cd4593ce
     pristine_git_object: f41df7f55a9952e1a470497d37032b8f6d1e9b82
   docs/models/timeline-item.md:
     id: b6f5fae7ea8d
-    last_write_checksum: sha1:573ff80eb0aea6b6e22cbe6f7610ee3eb9e3339b
-    pristine_git_object: 86c8e8c184b8f631a30a29404fd74c30475d3dd4
+    last_write_checksum: sha1:29f7f40f4fbc5783b18d7f4357482a34ebd4f226
+    pristine_git_object: 75059264eda619158456ba89978f83c2061a06a8
   docs/models/transaction-assignment.md:
     id: d58c3d7f59dc
     last_write_checksum: sha1:6fcfc95c65f4c8ee98ff7ca860be036b902f38c1
@@ -1956,36 +1968,40 @@ trackedFiles:
     pristine_git_object: 36480f43418b6211e732819ad289d5b68a194be9
   docs/sdks/calendarevents/README.md:
     id: bed80efa25ed
-    last_write_checksum: sha1:1f4883098c5ab4c187fecad56b7a633aeb5bc8c7
-    pristine_git_object: 890ab62edc378f14d5066f35d16bfb2baf48ea27
+    last_write_checksum: sha1:b10ed0b30f9e51f14ec18b9caf316a8e1712bdef
+    pristine_git_object: a7c828d2ccff4c195e8505c6011b830dc167a804
   docs/sdks/catalogitems/README.md:
     id: 6fc4de4117c6
-    last_write_checksum: sha1:2c66fdc572f92b81399db9a2a7822969a4736c18
-    pristine_git_object: 222790770cefe6d6bca5e6a8cc012dc3cdffeaa4
+    last_write_checksum: sha1:a192ca3d76c8ea822ca7a842d0b717c9b724cb8c
+    pristine_git_object: cb2d7d2dfb336b92919da7c9872d3d398bf14e89
   docs/sdks/clients/README.md:
     id: ba883fd0c1cf
-    last_write_checksum: sha1:b76424ba603d539229a9cacb9b19f06d3eefd3dd
-    pristine_git_object: 1b974ebbfba1799bbee37b559bc9f71c1eb52d5d
+    last_write_checksum: sha1:17b4cadaa57146490021a74d736203fb34d1b7a1
+    pristine_git_object: c391c060a8a1b284545c7dfa8df2c20a2155d433
   docs/sdks/contacts/README.md:
     id: 4174fb287a81
-    last_write_checksum: sha1:755bc292c788594d08401445c005e8a1ac4284c9
-    pristine_git_object: a6a074f27e4f29750813a945ca411c569f6ba6cb
+    last_write_checksum: sha1:81bfa2f23550d8762c2275910924668e9edd2f85
+    pristine_git_object: 86e9bbdf1d44a96e76d1a56706c93ba6adc47a35
   docs/sdks/contracts/README.md:
     id: da897d096992
-    last_write_checksum: sha1:4d9a294e093681d35cc153608cc5b6ce30eaf6ce
-    pristine_git_object: a284534f379f18aa8d1d7af113be79cb2d897df1
+    last_write_checksum: sha1:70b9314c4665fd54d7c503d3e17d62112a5f7e53
+    pristine_git_object: 59b951ef69bcda39366009f883342ef6a60b3c1b
   docs/sdks/documentversions/README.md:
     id: 87ef6269fb10
     last_write_checksum: sha1:4bd5eebd8307a4f66936176d818ea2e225d7d8a8
     pristine_git_object: 24badd095c240be255c919caee1f1b9eb709db50
   docs/sdks/eventdays/README.md:
     id: 90b72c716ad5
-    last_write_checksum: sha1:f2ed8525e4bdd8744b0174c82451f763ce2eeb8f
-    pristine_git_object: 964ce1fb431e522e07e6b2d64a589485b26e8122
+    last_write_checksum: sha1:99394b5eb81a54d2880bddb06d4f6d2eb11030bc
+    pristine_git_object: 2763742644b36ed8874f0c54f623098f675b2cd2
   docs/sdks/eventdayvendors/README.md:
     id: 23c536a82e29
-    last_write_checksum: sha1:a0f7863351769be7a51577dc5677f75150fbc075
-    pristine_git_object: 2802e8b3b177554f5f0de9033299152a3861582e
+    last_write_checksum: sha1:30d977bc8b64fccecb5e2f5fd852936903766b04
+    pristine_git_object: c38a2853cd0be7025d60fa93bc7f7e4679fcdeae
+  docs/sdks/formattachments/README.md:
+    id: 73c26ecf40a6
+    last_write_checksum: sha1:e647f63d2632bccd659f5c3b1ed2c17903b7754e
+    pristine_git_object: b905b1b4349cdc5b5c8a3436f314757a0ebfc9a7
   docs/sdks/forms/README.md:
     id: fbba6f47c69c
     last_write_checksum: sha1:c47fb185da18366ca4280af5f9f26e549f026a5c
@@ -2004,12 +2020,12 @@ trackedFiles:
     pristine_git_object: d3df534b8b8683e8e79306c5fc9300299a8f7560
   docs/sdks/invoices/README.md:
     id: a3f76a06eded
-    last_write_checksum: sha1:dce388df5fcb517203374cb2907f6fe1f425d31d
-    pristine_git_object: 6ffa8954ad90e991d97cfd7e235e195753f14235
+    last_write_checksum: sha1:88a5242589bb07a81e93119e56e08bfc4384e524
+    pristine_git_object: e2d4cd05b9724f9910ac61933337c40877b999e0
   docs/sdks/milestones/README.md:
     id: 186be158f715
-    last_write_checksum: sha1:cc0989a4a1bcd0fe06fd50a50bb88376cf5ffff2
-    pristine_git_object: 3c19dc80067f3381fc9839f21e7eabb9dfe626ac
+    last_write_checksum: sha1:5ba92c44652bf360c110a11c9c9d53fb8c57c7b1
+    pristine_git_object: e7f2d834c7894c3e7e810f6eda8576078e3ee578
   docs/sdks/payments/README.md:
     id: 0ddb15ec8c20
     last_write_checksum: sha1:4efa5782e9813359f9a6d01473a97f22350ecaf6
@@ -2020,36 +2036,36 @@ trackedFiles:
     pristine_git_object: 1f18151895f315b35679942d3f65ae4605be5a38
   docs/sdks/projects/README.md:
     id: 1c5f71754e17
-    last_write_checksum: sha1:25db4666268fcbca5b17ddbe12497985e545f74d
-    pristine_git_object: e6f752a0bd2cf5ba4042a44fa884e6a15abe7b43
+    last_write_checksum: sha1:e3aa6adf1fe78ec095759483c218859307013302
+    pristine_git_object: b335383771bd160d903bb77abd1b794531cb4871
   docs/sdks/sales/README.md:
     id: cbcdee0da0e9
     last_write_checksum: sha1:9a011c70321f9db2535964ce6ecde206530e5a8a
     pristine_git_object: da62d46a062b320932b0a6110cc7ac747863b8d4
   docs/sdks/timeentries/README.md:
     id: cce86ed4959c
-    last_write_checksum: sha1:ead76b017ed7142e761909e941d57931100c0b88
-    pristine_git_object: b1423ec66d9349fe5dd77b33034fa37aca03cc65
+    last_write_checksum: sha1:1996a08a8109b1dc1410a59cc6943f372893bd07
+    pristine_git_object: a7834b2a99ec526b8519f7ce5834870ee8c28a73
   docs/sdks/timelineitems/README.md:
     id: 7c0400da81fe
-    last_write_checksum: sha1:c4f971713d4715ca1279398c5b8db792e26e4784
-    pristine_git_object: c2df60b5ab4e4704445493f4854e9576f5f0d983
+    last_write_checksum: sha1:ca2dd657f49485d052efa1fbb812f59c0b3b0bc6
+    pristine_git_object: ae5397b3161994ac27f17dc53cafcccda21d3712
   docs/sdks/transactions/README.md:
     id: 85592abe3c6b
-    last_write_checksum: sha1:3743b101f67ec973f695565ded04df847d7a11d8
-    pristine_git_object: 47fc8c89baa394e098ade8e22950c24ee2efd3cc
+    last_write_checksum: sha1:df77dd6813df85caf5efc6703db82d1a63ef7796
+    pristine_git_object: 08a262a66fae89181eaa59bb33b6adcfb77d8455
   docs/sdks/vendors/README.md:
     id: e074853ab7b5
-    last_write_checksum: sha1:14552eefdc375e2054537448bf04909b8b884d04
-    pristine_git_object: b07139a611780f07d22893aba515403ea6a8796f
+    last_write_checksum: sha1:790300d1d7a3560f921c0918ec5de39c7af83118
+    pristine_git_object: 6f9422abcac3f34d05014b6d97321fb4d1bfe2f5
   docs/sdks/venues/README.md:
     id: 5b2458508a6b
-    last_write_checksum: sha1:481cc14d0cdd5dcda2dc2a42849183dafe494d8b
-    pristine_git_object: 038e58068f2799ac7b0d1b4bc2b137c8f856174c
+    last_write_checksum: sha1:bf4250068a90811d351c5351976d1394d78d257c
+    pristine_git_object: e7d946c787cb068a8dafb1de7aa2491b8c34e6ee
   docs/sdks/webhooks/README.md:
     id: e21b32d786a4
-    last_write_checksum: sha1:937f336b21914463682bbdeae3d8514af338c28c
-    pristine_git_object: dd013fc8615a01aff8deabed6f70c9c516bbf07f
+    last_write_checksum: sha1:c609ce0b9897bdd6df66a648faaaf18c4bc6f047
+    pristine_git_object: 679d4ca7615a4cedc9df4d7f526ecaababbe3247
   docs/types/rfcdate.md:
     id: 5f9756408fae
     last_write_checksum: sha1:57b4b3cec635cbd12767ed8672f96e257ef88845
@@ -2072,12 +2088,12 @@ trackedFiles:
     pristine_git_object: dca8b77bfe9ec131b8e55da6a49883996f4ea14e
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:a9c3d320520b6b071b26e0d43d9e050769ce027d
-    pristine_git_object: e7d1767d1fd645f8922298a46cc804180e788e4d
+    last_write_checksum: sha1:16a2240db0a698f127d0ebae538ca2161be746ce
+    pristine_git_object: dce4f2538f4384df6780c896a808c09a4f946074
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:1adbc8cf397ade0de023efa36e8af380ca143bb3
-    pristine_git_object: 7975aeb37b03a138a8c775ff45daf36ae18d33bb
+    last_write_checksum: sha1:d70d0875b77f7d739ea01e38ed7d216753d2e1d9
+    pristine_git_object: 39a74666784d4b619ed78d74e15feb4215f1873c
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:473b76edf3d30ed53981d70a75feb9a4318c3ec1
@@ -2088,8 +2104,8 @@ trackedFiles:
     pristine_git_object: 782510c3ab1d2eca5e2e6a3a593886eaf7e47091
   src/funcs/calendar-events-delete.ts:
     id: 07b7971cd53b
-    last_write_checksum: sha1:a4b9e5ffaabe01c2e181f1eaba794027a5c95b21
-    pristine_git_object: a89465d840d311e7c42aba6c834a2580cce10712
+    last_write_checksum: sha1:950daea80280d6ded8517f25c4724f9db28cda90
+    pristine_git_object: b9673e1b8aef4fd723501c314a93a3b011e464c4
   src/funcs/calendar-events-get.ts:
     id: 9ac6a39c145e
     last_write_checksum: sha1:6b687b8da54a22d2f20bf1df8283b1704d477a5b
@@ -2108,8 +2124,8 @@ trackedFiles:
     pristine_git_object: f1f17d080951eb763b83922e2b6a135f44f6444c
   src/funcs/catalog-items-delete.ts:
     id: 9d2bd67d3e02
-    last_write_checksum: sha1:4c19f8c1ec5c27c8e765a7ed79943ab86daa9cd9
-    pristine_git_object: 1e99065cc48dca19648dc0d4c680261a217b04c1
+    last_write_checksum: sha1:a1bbab9ccd848d7a41e5fda5f38aeff5f8640fc0
+    pristine_git_object: 6389a4b2a9592a965c0aa1370e31df93a8e9cd7f
   src/funcs/catalog-items-get.ts:
     id: a373e5b002fd
     last_write_checksum: sha1:13d3d1073a54c96308197b3d925a20247bb4d0cd
@@ -2128,8 +2144,8 @@ trackedFiles:
     pristine_git_object: 3a3aaa93de2542d788ce6a4e4258521527fe0f74
   src/funcs/clients-delete.ts:
     id: 5c899f765f4c
-    last_write_checksum: sha1:8b3d5a55de883771e52c645883e16d042580fb4a
-    pristine_git_object: 164c7ee77a225295c7ba0fb1e7734da5b34da801
+    last_write_checksum: sha1:cb0d596f8d51c22aa4c20436586c7b2d449c0c4a
+    pristine_git_object: 9ad0a44702897952bbd5fdbc42071be56f068b4f
   src/funcs/clients-get.ts:
     id: 54246f4a95ed
     last_write_checksum: sha1:37f3eb37a2aca9a76b27243d6fa89fed895c72fd
@@ -2148,8 +2164,8 @@ trackedFiles:
     pristine_git_object: 05d3c97ab8a465c9c030174b3680145cd244029f
   src/funcs/contacts-delete.ts:
     id: 151b943164d1
-    last_write_checksum: sha1:b6c85d78fa12232ce3956f1c3feadf07640b78a4
-    pristine_git_object: ac3830e12236dad161aafb329df4f98de20e8cfe
+    last_write_checksum: sha1:e5cfe52e48c43b08786512656f52af2d8f6983c1
+    pristine_git_object: 29f88fa1d005236fd79aba8e00afeac4c94eda03
   src/funcs/contacts-get.ts:
     id: b3d49354077e
     last_write_checksum: sha1:254322a891e33cc2f353bf776d96ea757657390a
@@ -2168,8 +2184,8 @@ trackedFiles:
     pristine_git_object: 80cd7285b9174967b40d8be58be71f97607d46b7
   src/funcs/contracts-delete.ts:
     id: 4236123db8cf
-    last_write_checksum: sha1:25a74cae88f57d9a1b7aa6b787b6d6adabfdb5b5
-    pristine_git_object: df8cf9e0cf27ae984ec41bd87fa51c2c2ae2d8d9
+    last_write_checksum: sha1:c1a8d7d0c691f525e628dba564c5a46377d17bef
+    pristine_git_object: 8539b5d24f3ecae120b5e3b7d640192a02a92a0f
   src/funcs/contracts-get.ts:
     id: b79d6ef4c9c9
     last_write_checksum: sha1:b975eab6396f42fdac9ca16f1a2420ba29c88358
@@ -2196,8 +2212,8 @@ trackedFiles:
     pristine_git_object: ab8a88d805bee2188f6e4bfcad9886be03d86ee5
   src/funcs/event-day-vendors-delete.ts:
     id: bac9b6ceaf81
-    last_write_checksum: sha1:17bf5569f01bcaf842ef26001a261138883271ee
-    pristine_git_object: a6161523d170e8055ed81cf5a5ea6211292b7b20
+    last_write_checksum: sha1:812d95cdc472d30f89399ac42bedaadaa873e755
+    pristine_git_object: bc485071bd7a66b057f0e6064e226f8cc90fa265
   src/funcs/event-day-vendors-get.ts:
     id: cca7d9b5328a
     last_write_checksum: sha1:cec7580cae61b9ad6dff3b1dd294f51617462e40
@@ -2216,8 +2232,8 @@ trackedFiles:
     pristine_git_object: c37029e0acc5a6fbd0146e1c93dcb4cf97113bb1
   src/funcs/event-days-delete.ts:
     id: b948e89ce7e7
-    last_write_checksum: sha1:0c4f08516433d7e87db2276486209f4563ec107b
-    pristine_git_object: 65eb739ca435db74ef53c4c76509a69985bba07b
+    last_write_checksum: sha1:beac595e1c4984172c2e1278e3493b6d13bf8676
+    pristine_git_object: 663c8496f1896f630223f6db99673dafda099c92
   src/funcs/event-days-get.ts:
     id: 78ad63bea886
     last_write_checksum: sha1:a0fa485d26cd086509746640f77446710b6f3fe4
@@ -2230,6 +2246,10 @@ trackedFiles:
     id: 9f5f781e9747
     last_write_checksum: sha1:c27f2640991938cf85423f0d240fa66fb0fc3072
     pristine_git_object: 08c2a1c63e0b7cc66b7b4fb08ecfba0dc154bf74
+  src/funcs/form-attachments-get.ts:
+    id: 6d16096be19f
+    last_write_checksum: sha1:5a59db40cc800dce092e0af0ca31fe938ab27546
+    pristine_git_object: a93b116114713d27b46ff07421aa3c2f18c5bfe0
   src/funcs/form-submissions-get.ts:
     id: 5e733c2ee807
     last_write_checksum: sha1:0a5ff478ed541dba4c7181dcc4ff60f0f8e2bf33
@@ -2264,8 +2284,8 @@ trackedFiles:
     pristine_git_object: 8ebe305e26c8e016020e92bd4c23de23c81f1fe8
   src/funcs/invoices-delete.ts:
     id: f36be08a5d45
-    last_write_checksum: sha1:1e1c18e9132c96d06c631f45d9bcfa1618ea9f12
-    pristine_git_object: 03a65d2f1a292b071575dc388686b5870f3713e5
+    last_write_checksum: sha1:07de5493a89aa41eed0d72cd31d895f7f2feab12
+    pristine_git_object: 541c5231a3c41650defac9c978b2c17c4f869371
   src/funcs/invoices-get.ts:
     id: 4f5b5d50bf85
     last_write_checksum: sha1:0b98d3c8d82e8b219e95c81054ee97ddb162b2ec
@@ -2284,8 +2304,8 @@ trackedFiles:
     pristine_git_object: 2ebcb6e26153df18cc6f9d0b9fdce9fb8d5ffde1
   src/funcs/milestones-delete.ts:
     id: 4e9c78676bb5
-    last_write_checksum: sha1:9d318c5ef8ebfd0aeabd82643349ce10146552e4
-    pristine_git_object: 4301b4b200efb6cd99051a2761b64821eb5fbabd
+    last_write_checksum: sha1:d7b7e91e600f18f9d0368dbcf909bb3504415694
+    pristine_git_object: 96b320183b8449d38f4aa2c7e3491e85c7d86073
   src/funcs/milestones-get.ts:
     id: f9c637b2686b
     last_write_checksum: sha1:0d401493c7e73743c1e3366040525e39d50df4bf
@@ -2328,8 +2348,8 @@ trackedFiles:
     pristine_git_object: 68e565000ec4422d54071f18960b0f90b057392b
   src/funcs/projects-delete.ts:
     id: d2a1b0e284e6
-    last_write_checksum: sha1:44937c9b72c5b4825f62454418365bd5031f86f4
-    pristine_git_object: 27f1d82435e6e36c7294264fa3c6eaee6cb59ada
+    last_write_checksum: sha1:1cc634966da54d7a9f0d6319bc37d8009afac1d3
+    pristine_git_object: be3b51d5b8eac2e59b59c1d5ec0295d788453181
   src/funcs/projects-get.ts:
     id: 32b4a7124e5e
     last_write_checksum: sha1:cf159f0a67664dd6eb30156c012f908bf406d2f2
@@ -2356,8 +2376,8 @@ trackedFiles:
     pristine_git_object: 2401e808120cbea9275136fa4fe167abae0890f2
   src/funcs/time-entries-delete.ts:
     id: 0f1b452a8398
-    last_write_checksum: sha1:35566ac469c413b9c546089f57b06ff531eeea50
-    pristine_git_object: f9ad15b7390bf98e888ced4e0c3e5e518f325c51
+    last_write_checksum: sha1:9342756e684abbe033ce68668a792e2e03458391
+    pristine_git_object: c7c021dcc602be45ffb4934ff6b5f2bc80f1f0f0
   src/funcs/time-entries-get.ts:
     id: dc5c6e20397b
     last_write_checksum: sha1:093221bdd099adba4c3b246cf68a416413b60d68
@@ -2376,8 +2396,8 @@ trackedFiles:
     pristine_git_object: 3bed07ad65eed898be7d55c413641671b3e86858
   src/funcs/timeline-items-delete.ts:
     id: 30e479812cde
-    last_write_checksum: sha1:6ba884eec69ff4c56f4944f49cf0a3d9edaf87b5
-    pristine_git_object: 614bd631a6be09d0a5894734f811aa13c3abaec8
+    last_write_checksum: sha1:5f4bff31f11bffb114661dc4cd03f98ea8d6e1c5
+    pristine_git_object: 2f4ccc969eeefda66cae377245396aa94ebcea90
   src/funcs/timeline-items-get.ts:
     id: 98e05eb4ee48
     last_write_checksum: sha1:f4e80df2941eb7e4d9567bb82c9d5db353800418
@@ -2396,8 +2416,8 @@ trackedFiles:
     pristine_git_object: 3380cb253299c089d76731a304ffe1eeab879983
   src/funcs/transactions-delete.ts:
     id: 4edc4df50808
-    last_write_checksum: sha1:d7df0ccf0d170098f4f3d96a4c095fd53754c455
-    pristine_git_object: 5704f4371cba702bcaaabcfda134ff49eedcbfbd
+    last_write_checksum: sha1:39c2cc826c9cd9aec9db51f8489a332891a7d716
+    pristine_git_object: cae90ee049f0f4fe07659ccce627f0185827d471
   src/funcs/transactions-get.ts:
     id: 235a75e36aae
     last_write_checksum: sha1:5a3aba4bce4ae9befecba280e74bbb686f1fbc92
@@ -2416,8 +2436,8 @@ trackedFiles:
     pristine_git_object: 6ea6fd5da392dade5bdd05422f9491a55a88da73
   src/funcs/vendors-delete.ts:
     id: 79a1567dc9f5
-    last_write_checksum: sha1:aeef9af99bc95e4c901dcd52d8382d848b3457b4
-    pristine_git_object: 1d9524b35709440cb9d65f433ee4666539113d0e
+    last_write_checksum: sha1:cb47f4cb0e8565d57fb2b1f0df68cc2a3bf9106d
+    pristine_git_object: ff0c0fb07e59dfab8cc838574c1e13c1985c0964
   src/funcs/vendors-get.ts:
     id: 8452f397970d
     last_write_checksum: sha1:9b40fcad2d1ce1f4d4a11cdbe7d99c6c1fa07394
@@ -2436,8 +2456,8 @@ trackedFiles:
     pristine_git_object: 9018cb6e03e54cea7398eb4b7359d2ebbc6efe16
   src/funcs/venues-delete.ts:
     id: a793f8661948
-    last_write_checksum: sha1:74168a5a051cf1494db10c59a0491e4f8f00ed87
-    pristine_git_object: da7da2126a14b0d4bea79ff5dceb39c6e1183bb8
+    last_write_checksum: sha1:1faf517b3508bf77ac241e75ef216f1ccb77ea2f
+    pristine_git_object: 3532be1a1865b4d80972f43ab4b6fa879ee87455
   src/funcs/venues-get.ts:
     id: b7c9b19ac8d5
     last_write_checksum: sha1:26d89563c49359900b8210f73d7404fe402fc23a
@@ -2456,8 +2476,8 @@ trackedFiles:
     pristine_git_object: e863847b014f1cafd4aff7d38845d7cfabca90b7
   src/funcs/webhooks-delete.ts:
     id: ed7dd39ffda0
-    last_write_checksum: sha1:4ad31a43d5b6c5b37d817479967b044cf11f382d
-    pristine_git_object: 81525be17f1224ab067452afcfd074a57fdd4ef7
+    last_write_checksum: sha1:79768ad8fa977c102588a35c5fa35aa6e21f3a71
+    pristine_git_object: 0c1ad9b8881d0b9f17128520e4dbb5d69d3e43c2
   src/funcs/webhooks-get.ts:
     id: 8b371cbc2194
     last_write_checksum: sha1:6d9b9e1f8f22f24d27eab191b814e9908657e0cd
@@ -2492,8 +2512,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:1383d2fda7bd0a50e912422a9717684aec5d15f1
-    pristine_git_object: 7086d6984ce661bac1405cdc2b4bd4a862bf9d83
+    last_write_checksum: sha1:5934b7bf16d4bb43f09600f84a98af6d8b628836
+    pristine_git_object: 6c06c6a8495e7298ef44e64795db27b851bce154
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -2544,8 +2564,8 @@ trackedFiles:
     pristine_git_object: 79e7ce660b3732053e3adcbb5a4cdeb51496e8aa
   src/models/api-error.ts:
     id: 1f7b1c091e2a
-    last_write_checksum: sha1:8717c781c5417046e58dfafbf4d97072dca11e6a
-    pristine_git_object: 76c6e34abc772bbbbdb4785accc029d502434d31
+    last_write_checksum: sha1:96576b827f6554e4e266999c4cb62e3eaa7745e4
+    pristine_git_object: 3bbb0777f7e4aa094379fed507d804bdaf115ea2
   src/models/calendar-event-create.ts:
     id: b551e2d3e0b9
     last_write_checksum: sha1:4004e92e853a8f229666514dc2eda208af43912a
@@ -2692,24 +2712,28 @@ trackedFiles:
     pristine_git_object: 38665a9da0d5a2e989499d348ab5bddaf27056aa
   src/models/event-day-vendor-create.ts:
     id: 1c6e6eed395a
-    last_write_checksum: sha1:1a7c65080b9ab44822715ecf6b8734d59de2c90d
-    pristine_git_object: 94df772f7a833d15995b4703fa3d1f6b52ae9f74
+    last_write_checksum: sha1:76e3c9ad7a2114acfb6c0fe6f36526de0b7274e9
+    pristine_git_object: ed7dc8c95a35b17a14478fd4fff6432144c71593
   src/models/event-day-vendor-list.ts:
     id: 0ff0224c329c
     last_write_checksum: sha1:9e37ae03adf6303fac7f06e8e3c27170c8120f83
     pristine_git_object: 28fe02df4f14b64439d23a5d4757fbf35fa3285f
   src/models/event-day-vendor-update.ts:
     id: c2f0008624b6
-    last_write_checksum: sha1:46e81cc1c7affe9d7589624801800b8daa97df37
-    pristine_git_object: bbfd871b9555b61a741b4f683e0568640ebb812a
+    last_write_checksum: sha1:0f0805242f4d5679d9f861318a3b9aba8bda498d
+    pristine_git_object: 02f003aebcb6429635c3bc74da0a8794c105ad06
   src/models/event-day-vendor.ts:
     id: f856d1c916bf
-    last_write_checksum: sha1:531bb7ca7afb94b7aed8d75e81338d99eaae49bd
-    pristine_git_object: bf61262d9c7df6104280ba03503d8f23f84e0642
+    last_write_checksum: sha1:4050667a68a6e1620bd49d72536ef2d4b3e9c914
+    pristine_git_object: c4288430bf303ad14adbc1fdc546525896bed936
   src/models/event-day.ts:
     id: 2931ceb2f99a
     last_write_checksum: sha1:3b944d8bca551c9a072738806263d4e3cd31837a
     pristine_git_object: 1d888de9ea34c8e3a10347046be67a7b3960c35f
+  src/models/form-attachment-download.ts:
+    id: 0f31e6953e60
+    last_write_checksum: sha1:ecc2f8bce4822d78eedd7d2cc2cf91903319b5c3
+    pristine_git_object: db0a692b69da9987d23c2d5101d84509c87ebc64
   src/models/form-list.ts:
     id: c76a7b797fda
     last_write_checksum: sha1:a266331cb63818c75417b154cf630445eacf1de4
@@ -2736,8 +2760,8 @@ trackedFiles:
     pristine_git_object: a664058ac0175a311b118952bbf1104915de513c
   src/models/index.ts:
     id: f93644b0f37e
-    last_write_checksum: sha1:1a053953c3af58870eb1b25b06bc5e394e2c8eea
-    pristine_git_object: d19935002932c39dcd6e73723f996473afe922de
+    last_write_checksum: sha1:dfbdb31ab51318b3da28072cc2544906b705c6d1
+    pristine_git_object: ab6cba79f09ed68fd76e27555c302d1a3106258e
   src/models/inquiry-create.ts:
     id: b8f2cb1f3dc1
     last_write_checksum: sha1:3aedcfc627d68bab8384afa35e7ca785e6fd31bc
@@ -2954,6 +2978,10 @@ trackedFiles:
     id: 6842adc48b03
     last_write_checksum: sha1:52028f85bd4f2a1bdfdd0b0a3550691dad6cc5a5
     pristine_git_object: 25bb6d70829369a530fb94e09796bfe68de8ee62
+  src/models/operations/get-form-attachment.ts:
+    id: 013880f9230a
+    last_write_checksum: sha1:be5500a53930a88b1e824aa654682fca1fb0bba1
+    pristine_git_object: 634e2ac36db78c76cea619943588580b4b7bab4a
   src/models/operations/get-form-submission.ts:
     id: ff7488f3cbc2
     last_write_checksum: sha1:7e5f62b3d58a04861962593e5dd9d941ed059c31
@@ -3012,8 +3040,8 @@ trackedFiles:
     pristine_git_object: b7e36589ca00a4a71e26c24528bb12b59f364d35
   src/models/operations/index.ts:
     id: 0d9ffaf774d2
-    last_write_checksum: sha1:bee859d7b54f2dca5875435ff8f6bf755d7da64c
-    pristine_git_object: 9167dffd6b25fd0dc213113d395a8b1e1a4e2033
+    last_write_checksum: sha1:a090aac32c706e0b0d96bb7d9104b91c34213d51
+    pristine_git_object: c7c20d1b76183978956bdaae738bd51810f9ad3e
   src/models/operations/list-calendar-events.ts:
     id: e1d081b766e7
     last_write_checksum: sha1:5e0c296383560ce7ba23428bfaf50ae31f7527c0
@@ -3248,20 +3276,20 @@ trackedFiles:
     pristine_git_object: 61dd584dc0e6407c28792833b9f0f30eef52f5d5
   src/models/timeline-item-create.ts:
     id: a80acb957b9b
-    last_write_checksum: sha1:6ca0bc22ab8a36e06e86101259cc641c3183eb0e
-    pristine_git_object: 86b968038bb59d76bd06bca886f8f0ccaa0f5bb2
+    last_write_checksum: sha1:07b21d358d57dc475e4d4919641e3ee79f9bc7b2
+    pristine_git_object: d3ec7d0c018d02cd2be3b7e0b43c7600a87b8e96
   src/models/timeline-item-list.ts:
     id: 2df84d06d949
     last_write_checksum: sha1:81368e2debf6d25d07baaf3eb7fc36cb22b6ab97
     pristine_git_object: 38d2234b6584e26c24c94e924fa8eedef840bf7d
   src/models/timeline-item-update.ts:
     id: 9133707ceb24
-    last_write_checksum: sha1:722922878c47a3de4c0487fad27117ccc80b818c
-    pristine_git_object: 9cd94a1e381e9bbd900ca601b7f64362a3311eaf
+    last_write_checksum: sha1:f7cca504fd19e9baa16397ceb876b0ce015778de
+    pristine_git_object: ddd046c6fe294292ecdbdc470b05a5818157158c
   src/models/timeline-item.ts:
     id: 37fe28a88133
-    last_write_checksum: sha1:eb8c2ad058778ba01ef2f1b36b1c7e9cb104370c
-    pristine_git_object: 33eba6a6f92c37a02472dd07596ead6283366a3a
+    last_write_checksum: sha1:658a88b4b23b90dc7eefa318923cd4d261cf339d
+    pristine_git_object: 489e7f67990beb5bcaf068dc9e1b2f28b55db465
   src/models/transaction-create.ts:
     id: 44e0587c63e0
     last_write_checksum: sha1:e6cc37888472e80568c0298614a22da9ca2a3cd0
@@ -3362,6 +3390,10 @@ trackedFiles:
     id: bc1d855b7123
     last_write_checksum: sha1:c7b3a328cac99e719c989ab123c5e338657f0419
     pristine_git_object: 7098c9bdb9d3fabd7db96c215c55323030396fbb
+  src/sdk/form-attachments.ts:
+    id: 2c79ab08a617
+    last_write_checksum: sha1:3467b0a7ed84d626df1a8ba018f46c0680dbb2da
+    pristine_git_object: 11abc5e9ea78d47471579c17291422558a096298
   src/sdk/form-submissions.ts:
     id: a31b139bdf50
     last_write_checksum: sha1:c4e135ec5a4536072a036abf36039b1663f0f27d
@@ -3408,8 +3440,8 @@ trackedFiles:
     pristine_git_object: 3ca252a1e260e2249f487a79a4d890fa02a93164
   src/sdk/sdk.ts:
     id: 784571af2f69
-    last_write_checksum: sha1:a84d5273cde1e15b87dadb6c035854d748226562
-    pristine_git_object: b432a0cb1ac4f86b553220caba1a4207d9ec80c0
+    last_write_checksum: sha1:938bd570fe68c7752018dab8359eb42144b8ee2f
+    pristine_git_object: 1fabc4262fcd35283a15092087e33f4916ec8d55
   src/sdk/time-entries.ts:
     id: 1d275c540d29
     last_write_checksum: sha1:2e9e715aa0e9cb6732b38c0047dfb2b2cdf23635
@@ -5194,7 +5226,7 @@ examples:
         header:
           Idempotency-Key: "create-client-2026-05-24-a1b2c3"
       requestBody:
-        application/json: {"eventDayId": "<id>", "title": "<value>", "durationMinutes": 15005}
+        application/json: {"eventDayId": "<id>", "title": "<value>", "categoryId": "550e8400-e29b-41d4-a716-446655440000", "durationMinutes": 15005, "vendorIds": ["550e8400-e29b-41d4-a716-446655440000"]}
       responses:
         "201":
           application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "eventDayId": "<id>", "title": "<value>", "description": "nicely ugh dazzling", "categoryId": "<id>", "sortOrder": 7742.96, "trackId": "<id>", "requestedStartTime": null, "durationMinutes": 2668.25, "bufferBeforeMinutes": 5255.9, "bufferAfterMinutes": 8692.73, "travelTimeMinutes": 5147.1, "locked": true, "anchorType": "sunrise", "anchorKey": "<value>", "location": "<value>", "visibleTo": ["vendor-all"], "vendorIds": [], "status": "completed", "createdAt": "2026-08-15T04:38:42.031Z", "updatedAt": "2025-05-01T12:41:58.452Z"}
@@ -5232,7 +5264,7 @@ examples:
         header:
           Idempotency-Key: "create-client-2026-05-24-a1b2c3"
       requestBody:
-        application/json: {}
+        application/json: {"eventDayId": "550e8400-e29b-41d4-a716-446655440000", "categoryId": "550e8400-e29b-41d4-a716-446655440000", "vendorIds": ["550e8400-e29b-41d4-a716-446655440000"]}
       responses:
         "200":
           application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "eventDayId": "<id>", "title": "<value>", "description": "proofread unless sniveling dishonor colligate personal status which idolized neatly", "categoryId": "<id>", "sortOrder": 1469.26, "trackId": "<id>", "requestedStartTime": "<value>", "durationMinutes": 209.36, "bufferBeforeMinutes": 794.77, "bufferAfterMinutes": null, "travelTimeMinutes": 1383.98, "locked": false, "anchorType": "sunrise", "anchorKey": "<value>", "location": null, "visibleTo": [], "vendorIds": ["<value 1>"], "status": "skipped", "createdAt": "2024-08-03T13:41:46.669Z", "updatedAt": "2026-11-22T12:30:01.802Z"}
@@ -5299,7 +5331,7 @@ examples:
         header:
           Idempotency-Key: "create-client-2026-05-24-a1b2c3"
       requestBody:
-        application/json: {}
+        application/json: {"eventDayId": "550e8400-e29b-41d4-a716-446655440000", "vendorId": "550e8400-e29b-41d4-a716-446655440000"}
       responses:
         "200":
           application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "eventDayId": "<id>", "vendorId": "<id>", "role": "<value>", "callTime": "<value>", "coverageStartTime": "<value>", "coverageEndTime": "<value>", "mealProvided": false, "mealNotes": "<value>", "pointOfContact": "<value>", "pointOfContactPhone": null, "internalNotes": null, "confirmationStatus": "declined", "createdAt": "2024-10-25T02:42:22.456Z", "updatedAt": "2025-06-28T03:13:08.002Z"}
@@ -5465,5 +5497,116 @@ examples:
           application/json: {"error": {"code": "invalid_request", "message": "<value>", "requestId": "<id>"}}
         "500":
           application/json: {"error": {"code": "invalid_request", "message": "<value>", "requestId": "<id>"}}
+  getFormAttachment:
+    speakeasy-default-get-form-attachment:
+      parameters:
+        path:
+          id: "550e8400-e29b-41d4-a716-446655440000"
+      responses:
+        "200":
+          application/json: {"id": "550e8400-e29b-41d4-a716-446655440000", "filename": "example.file", "mimeType": "<value>", "filesize": 338891, "downloadUrl": "https://exhausted-piglet.org/", "expiresAt": "2026-08-23T16:05:17.054Z"}
+        "401":
+          application/json: {"error": {"code": "conflict", "message": "<value>", "requestId": "<id>"}}
+        "500":
+          application/json: {"error": {"code": "conflict", "message": "<value>", "requestId": "<id>"}}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `clientcasa.timeEntries.list()`: \n  *  `request.billable` **Changed** (Breaking ⚠️)\n  *  `error` **Changed**\n* `clientcasa.webhooks.list()`: \n  *  `request.enabled` **Changed** (Breaking ⚠️)\n  *  `error` **Changed**\n* `clientcasa.clients.list()`:  `error` **Changed**\n* `clientcasa.clients.create()`:  `error` **Changed**\n* `clientcasa.clients.get()`:  `error` **Changed**\n* `clientcasa.clients.delete()`:  `error` **Changed**\n* `clientcasa.clients.update()`: \n  *  `request.idempotencyKey` **Added**\n  *  `error` **Changed**\n* `clientcasa.contacts.list()`:  `error` **Changed**\n* `clientcasa.contacts.create()`:  `error` **Changed**\n* `clientcasa.contacts.get()`:  `error` **Changed**\n* `clientcasa.contacts.delete()`:  `error` **Changed**\n* `clientcasa.contacts.update()`: \n  *  `request.idempotencyKey` **Added**\n  *  `error` **Changed**\n* `clientcasa.projects.list()`:  `error` **Changed**\n* `clientcasa.projects.create()`:  `error` **Changed**\n* `clientcasa.projects.get()`:  `error` **Changed**\n* `clientcasa.projects.delete()`:  `error` **Changed**\n* `clientcasa.projects.update()`: \n  *  `request.idempotencyKey` **Added**\n  *  `error` **Changed**\n* `clientcasa.invoices.list()`:  `error` **Changed**\n* `clientcasa.invoices.create()`:  `error` **Changed**\n* `clientcasa.invoices.get()`:  `error` **Changed**\n* `clientcasa.invoices.delete()`:  `error` **Changed**\n* `clientcasa.invoices.update()`: \n  *  `request.idempotencyKey` **Added**\n  *  `error` **Changed**\n* `clientcasa.contracts.list()`:  `error` **Changed**\n* `clientcasa.contracts.create()`:  `error` **Changed**\n* `clientcasa.contracts.get()`:  `error` **Changed**\n* `clientcasa.contracts.delete()`:  `error` **Changed**\n* `clientcasa.contracts.update()`: \n  *  `request.idempotencyKey` **Added**\n  *  `error` **Changed**\n* `clientcasa.forms&Agreements.list()`:  `error` **Changed**\n* `clientcasa.forms&Agreements.get()`:  `error` **Changed**\n* `clientcasa.documentVersions.list()`:  `error` **Changed**\n* `clientcasa.documentVersions.get()`:  `error` **Changed**\n* `clientcasa.forms.list()`:  `error` **Changed**\n* `clientcasa.forms.get()`:  `error` **Changed**\n* `clientcasa.formSubmissions.list()`:  `error` **Changed**\n* `clientcasa.formSubmissions.get()`:  `error` **Changed**\n* `clientcasa.inquiries.create()`:  `error` **Changed**\n* `clientcasa.payments.list()`:  `error` **Changed**\n* `clientcasa.payments.create()`:  `error` **Changed**\n* `clientcasa.payments.get()`:  `error` **Changed**\n* `clientcasa.payments.update()`: \n  *  `request.idempotencyKey` **Added**\n  *  `error` **Changed**\n* `clientcasa.payouts.list()`:  `error` **Changed**\n* `clientcasa.payouts.get()`:  `error` **Changed**\n* `clientcasa.sales.list()`:  `error` **Changed**\n* `clientcasa.sales.get()`:  `error` **Changed**\n* `clientcasa.timeEntries.create()`:  `error` **Changed**\n* `clientcasa.timeEntries.get()`:  `error` **Changed**\n* `clientcasa.timeEntries.delete()`:  `error` **Changed**\n* `clientcasa.timeEntries.update()`: \n  *  `request.idempotencyKey` **Added**\n  *  `error` **Changed**\n* `clientcasa.milestones.list()`:  `error` **Changed**\n* `clientcasa.milestones.create()`:  `error` **Changed**\n* `clientcasa.milestones.get()`:  `error` **Changed**\n* `clientcasa.milestones.delete()`:  `error` **Changed**\n* `clientcasa.milestones.update()`: \n  *  `request.idempotencyKey` **Added**\n  *  `error` **Changed**\n* `clientcasa.calendarEvents.list()`:  `error` **Changed**\n* `clientcasa.calendarEvents.create()`:  `error` **Changed**\n* `clientcasa.calendarEvents.get()`:  `error` **Changed**\n* `clientcasa.calendarEvents.delete()`:  `error` **Changed**\n* `clientcasa.calendarEvents.update()`: \n  *  `request.idempotencyKey` **Added**\n  *  `error` **Changed**\n* `clientcasa.transactions.list()`:  `error` **Changed**\n* `clientcasa.transactions.create()`:  `error` **Changed**\n* `clientcasa.transactions.get()`:  `error` **Changed**\n* `clientcasa.transactions.delete()`:  `error` **Changed**\n* `clientcasa.transactions.update()`: \n  *  `request.idempotencyKey` **Added**\n  *  `error` **Changed**\n* `clientcasa.catalogItems.list()`:  `error` **Changed**\n* `clientcasa.catalogItems.create()`:  `error` **Changed**\n* `clientcasa.catalogItems.get()`:  `error` **Changed**\n* `clientcasa.catalogItems.delete()`:  `error` **Changed**\n* `clientcasa.catalogItems.update()`: \n  *  `request.idempotencyKey` **Added**\n  *  `error` **Changed**\n* `clientcasa.eventDays.list()`:  `error` **Changed**\n* `clientcasa.eventDays.create()`:  `error` **Changed**\n* `clientcasa.eventDays.get()`:  `error` **Changed**\n* `clientcasa.eventDays.delete()`:  `error` **Changed**\n* `clientcasa.eventDays.update()`: \n  *  `request.idempotencyKey` **Added**\n  *  `error` **Changed**\n* `clientcasa.timelineItems.list()`:  `error` **Changed**\n* `clientcasa.timelineItems.create()`:  `error` **Changed**\n* `clientcasa.timelineItems.get()`:  `error` **Changed**\n* `clientcasa.timelineItems.delete()`:  `error` **Changed**\n* `clientcasa.timelineItems.update()`: \n  *  `request.idempotencyKey` **Added**\n  *  `error` **Changed**\n* `clientcasa.eventDayVendors.list()`:  `error` **Changed**\n* `clientcasa.eventDayVendors.create()`:  `error` **Changed**\n* `clientcasa.eventDayVendors.get()`:  `error` **Changed**\n* `clientcasa.eventDayVendors.delete()`:  `error` **Changed**\n* `clientcasa.eventDayVendors.update()`: \n  *  `request.idempotencyKey` **Added**\n  *  `error` **Changed**\n* `clientcasa.vendors.list()`:  `error` **Changed**\n* `clientcasa.vendors.create()`:  `error` **Changed**\n* `clientcasa.vendors.get()`:  `error` **Changed**\n* `clientcasa.vendors.delete()`:  `error` **Changed**\n* `clientcasa.vendors.update()`: \n  *  `request.idempotencyKey` **Added**\n  *  `error` **Changed**\n* `clientcasa.venues.list()`:  `error` **Changed**\n* `clientcasa.venues.create()`:  `error` **Changed**\n* `clientcasa.venues.get()`:  `error` **Changed**\n* `clientcasa.venues.delete()`:  `error` **Changed**\n* `clientcasa.venues.update()`: \n  *  `request.idempotencyKey` **Added**\n  *  `error` **Changed**\n* `clientcasa.webhooks.create()`:  `error` **Changed**\n* `clientcasa.webhooks.get()`:  `error` **Changed**\n* `clientcasa.webhooks.delete()`:  `error` **Changed**\n* `clientcasa.webhooks.update()`: \n  *  `request.idempotencyKey` **Added**\n  *  `error` **Changed**\n"
+releaseNotes: |
+  ## Typescript SDK Changes:
+  * `clientcasa.formAttachments.get()`: **Added**
+  * `clientcasa.clients.list()`:  `error.details.code` **Changed**
+  * `clientcasa.clients.create()`:  `error.details.code` **Changed**
+  * `clientcasa.clients.get()`:  `error.details.code` **Changed**
+  * `clientcasa.clients.delete()`:  `error` **Changed**
+  * `clientcasa.clients.update()`:  `error.details.code` **Changed**
+  * `clientcasa.contacts.list()`:  `error.details.code` **Changed**
+  * `clientcasa.contacts.create()`:  `error.details.code` **Changed**
+  * `clientcasa.contacts.get()`:  `error.details.code` **Changed**
+  * `clientcasa.contacts.delete()`:  `error` **Changed**
+  * `clientcasa.contacts.update()`:  `error.details.code` **Changed**
+  * `clientcasa.projects.list()`:  `error.details.code` **Changed**
+  * `clientcasa.projects.create()`:  `error.details.code` **Changed**
+  * `clientcasa.projects.get()`:  `error.details.code` **Changed**
+  * `clientcasa.projects.delete()`:  `error` **Changed**
+  * `clientcasa.projects.update()`:  `error.details.code` **Changed**
+  * `clientcasa.invoices.list()`:  `error.details.code` **Changed**
+  * `clientcasa.invoices.create()`:  `error.details.code` **Changed**
+  * `clientcasa.invoices.get()`:  `error.details.code` **Changed**
+  * `clientcasa.invoices.delete()`:  `error` **Changed**
+  * `clientcasa.invoices.update()`:  `error.details.code` **Changed**
+  * `clientcasa.contracts.list()`:  `error.details.code` **Changed**
+  * `clientcasa.contracts.create()`:  `error.details.code` **Changed**
+  * `clientcasa.contracts.get()`:  `error.details.code` **Changed**
+  * `clientcasa.contracts.delete()`:  `error` **Changed**
+  * `clientcasa.contracts.update()`:  `error.details.code` **Changed**
+  * `clientcasa.forms&Agreements.list()`:  `error.details.code` **Changed**
+  * `clientcasa.forms&Agreements.get()`:  `error.details.code` **Changed**
+  * `clientcasa.documentVersions.list()`:  `error.details.code` **Changed**
+  * `clientcasa.documentVersions.get()`:  `error.details.code` **Changed**
+  * `clientcasa.forms.list()`:  `error.details.code` **Changed**
+  * `clientcasa.forms.get()`:  `error.details.code` **Changed**
+  * `clientcasa.formSubmissions.list()`:  `error.details.code` **Changed**
+  * `clientcasa.formSubmissions.get()`:  `error.details.code` **Changed**
+  * `clientcasa.inquiries.create()`:  `error.details.code` **Changed**
+  * `clientcasa.payments.list()`:  `error.details.code` **Changed**
+  * `clientcasa.payments.create()`:  `error.details.code` **Changed**
+  * `clientcasa.payments.get()`:  `error.details.code` **Changed**
+  * `clientcasa.payments.update()`:  `error.details.code` **Changed**
+  * `clientcasa.payouts.list()`:  `error.details.code` **Changed**
+  * `clientcasa.payouts.get()`:  `error.details.code` **Changed**
+  * `clientcasa.sales.list()`:  `error.details.code` **Changed**
+  * `clientcasa.sales.get()`:  `error.details.code` **Changed**
+  * `clientcasa.timeEntries.list()`:  `error.details.code` **Changed**
+  * `clientcasa.timeEntries.create()`:  `error.details.code` **Changed**
+  * `clientcasa.timeEntries.get()`:  `error.details.code` **Changed**
+  * `clientcasa.timeEntries.delete()`:  `error` **Changed**
+  * `clientcasa.timeEntries.update()`:  `error.details.code` **Changed**
+  * `clientcasa.milestones.list()`:  `error.details.code` **Changed**
+  * `clientcasa.milestones.create()`:  `error.details.code` **Changed**
+  * `clientcasa.milestones.get()`:  `error.details.code` **Changed**
+  * `clientcasa.milestones.delete()`:  `error` **Changed**
+  * `clientcasa.milestones.update()`:  `error.details.code` **Changed**
+  * `clientcasa.calendarEvents.list()`:  `error.details.code` **Changed**
+  * `clientcasa.calendarEvents.create()`:  `error.details.code` **Changed**
+  * `clientcasa.calendarEvents.get()`:  `error.details.code` **Changed**
+  * `clientcasa.calendarEvents.delete()`:  `error` **Changed**
+  * `clientcasa.calendarEvents.update()`:  `error.details.code` **Changed**
+  * `clientcasa.transactions.list()`:  `error.details.code` **Changed**
+  * `clientcasa.transactions.create()`:  `error.details.code` **Changed**
+  * `clientcasa.transactions.get()`:  `error.details.code` **Changed**
+  * `clientcasa.transactions.delete()`:  `error` **Changed**
+  * `clientcasa.transactions.update()`:  `error.details.code` **Changed**
+  * `clientcasa.catalogItems.list()`:  `error.details.code` **Changed**
+  * `clientcasa.catalogItems.create()`:  `error.details.code` **Changed**
+  * `clientcasa.catalogItems.get()`:  `error.details.code` **Changed**
+  * `clientcasa.catalogItems.delete()`:  `error` **Changed**
+  * `clientcasa.catalogItems.update()`:  `error.details.code` **Changed**
+  * `clientcasa.eventDays.list()`:  `error.details.code` **Changed**
+  * `clientcasa.eventDays.create()`:  `error.details.code` **Changed**
+  * `clientcasa.eventDays.get()`:  `error.details.code` **Changed**
+  * `clientcasa.eventDays.delete()`:  `error` **Changed**
+  * `clientcasa.eventDays.update()`:  `error.details.code` **Changed**
+  * `clientcasa.timelineItems.list()`:  `error.details.code` **Changed**
+  * `clientcasa.timelineItems.create()`:  `error.details.code` **Changed**
+  * `clientcasa.timelineItems.get()`:  `error.details.code` **Changed**
+  * `clientcasa.timelineItems.delete()`:  `error` **Changed**
+  * `clientcasa.timelineItems.update()`:  `error.details.code` **Changed**
+  * `clientcasa.eventDayVendors.list()`:  `error.details.code` **Changed**
+  * `clientcasa.eventDayVendors.create()`:  `error.details.code` **Changed**
+  * `clientcasa.eventDayVendors.get()`:  `error.details.code` **Changed**
+  * `clientcasa.eventDayVendors.delete()`:  `error` **Changed**
+  * `clientcasa.eventDayVendors.update()`:  `error.details.code` **Changed**
+  * `clientcasa.vendors.list()`:  `error.details.code` **Changed**
+  * `clientcasa.vendors.create()`:  `error.details.code` **Changed**
+  * `clientcasa.vendors.get()`:  `error.details.code` **Changed**
+  * `clientcasa.vendors.delete()`:  `error` **Changed**
+  * `clientcasa.vendors.update()`:  `error.details.code` **Changed**
+  * `clientcasa.venues.list()`:  `error.details.code` **Changed**
+  * `clientcasa.venues.create()`:  `error.details.code` **Changed**
+  * `clientcasa.venues.get()`:  `error.details.code` **Changed**
+  * `clientcasa.venues.delete()`:  `error` **Changed**
+  * `clientcasa.venues.update()`:  `error.details.code` **Changed**
+  * `clientcasa.webhooks.list()`:  `error.details.code` **Changed**
+  * `clientcasa.webhooks.create()`:  `error.details.code` **Changed**
+  * `clientcasa.webhooks.get()`:  `error.details.code` **Changed**
+  * `clientcasa.webhooks.delete()`:  `error` **Changed**
+  * `clientcasa.webhooks.update()`:  `error.details.code` **Changed**
