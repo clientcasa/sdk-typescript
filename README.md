@@ -383,6 +383,10 @@ run();
 * [list](docs/sdks/formsubmissions/README.md#list) - List form submissions
 * [get](docs/sdks/formsubmissions/README.md#get) - Get a form submission (with answers)
 
+### [FormAttachments](docs/sdks/formattachments/README.md)
+
+* [get](docs/sdks/formattachments/README.md#get) - Get a form attachment download link
+
 ### [Forms](docs/sdks/forms/README.md)
 
 * [list](docs/sdks/forms/README.md#list) - List forms
@@ -541,6 +545,7 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`eventDayVendorsGet`](docs/sdks/eventdayvendors/README.md#get) - Get an event day vendor
 - [`eventDayVendorsList`](docs/sdks/eventdayvendors/README.md#list) - List event day vendors
 - [`eventDayVendorsUpdate`](docs/sdks/eventdayvendors/README.md#update) - Update an event day vendor
+- [`formAttachmentsGet`](docs/sdks/formattachments/README.md#get) - Get a form attachment download link
 - [`formsAndAgreementsGet`](docs/sdks/formsandagreements/README.md#get) - Get a proposal
 - [`formsAndAgreementsList`](docs/sdks/formsandagreements/README.md#list) - List proposals
 - [`formsGet`](docs/sdks/forms/README.md#get) - Get a form

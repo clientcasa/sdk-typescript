@@ -8,9 +8,13 @@ import { CreateTimelineItemRequest } from "@clientcasa/sdk/models/operations";
 let value: CreateTimelineItemRequest = {
   idempotencyKey: "create-client-2026-05-24-a1b2c3",
   body: {
-    eventDayId: "<id>",
+    eventDayId: "550e8400-e29b-41d4-a716-446655440000",
     title: "<value>",
+    categoryId: "550e8400-e29b-41d4-a716-446655440000",
     durationMinutes: 729957,
+    vendorIds: [
+      "550e8400-e29b-41d4-a716-446655440000",
+    ],
   },
 };
 ```

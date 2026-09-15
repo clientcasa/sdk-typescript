@@ -24,7 +24,13 @@ export type EventDayVendor = {
    * UUID v4
    */
   id: string;
+  /**
+   * UUID v4
+   */
   eventDayId: string;
+  /**
+   * UUID v4
+   */
   vendorId: string;
   role: string | null;
   callTime: string | null;

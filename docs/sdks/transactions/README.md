@@ -338,7 +338,7 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ApiError               | 401, 403, 404, 429            | application/json              |
+| errors.ApiError               | 401, 403, 404, 409, 429       | application/json              |
 | errors.ApiError               | 500                           | application/json              |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 

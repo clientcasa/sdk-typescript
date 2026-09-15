@@ -40,6 +40,7 @@ export const DetailsCode = {
   FileTooLarge: "file_too_large",
   CrossOrganization: "cross_organization",
   LinkedRecordNotFound: "linked_record_not_found",
+  LinkedRecordsMultipleOrganizations: "linked_records_multiple_organizations",
   RateLimited: "rate_limited",
   RevenueOnInternalProject: "revenue_on_internal_project",
   NumberSeriesUnlocked: "number_series_unlocked",
@@ -56,6 +57,8 @@ export const DetailsCode = {
   PaymentClientMismatch: "payment_client_mismatch",
   PaymentTargetNotCollectible: "payment_target_not_collectible",
   CurrencyLocked: "currency_locked",
+  EventDayCompanionWriteFailed: "event_day_companion_write_failed",
+  TimelineAnchorMissing: "timeline_anchor_missing",
   UnknownAssignmentId: "unknown_assignment_id",
 } as const;
 export type DetailsCode = OpenEnum<typeof DetailsCode>;

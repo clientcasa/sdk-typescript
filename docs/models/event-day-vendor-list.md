@@ -9,8 +9,8 @@ let value: EventDayVendorList = {
   data: [
     {
       id: "550e8400-e29b-41d4-a716-446655440000",
-      eventDayId: "<id>",
-      vendorId: "<id>",
+      eventDayId: "550e8400-e29b-41d4-a716-446655440000",
+      vendorId: "550e8400-e29b-41d4-a716-446655440000",
       role: null,
       callTime: "<value>",
       coverageStartTime: "<value>",
