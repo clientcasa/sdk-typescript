@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 845b3ae5-0c5c-44ad-9b76-21e1d9e24151
 management:
-  docChecksum: 000784c7677855cc42a6e4d6b2d4c02f
+  docChecksum: 70c4c64d6409e84ff6cfa0ab91e85f01
   docVersion: 1.0.0
-  speakeasyVersion: 1.797.0
-  generationVersion: 2.937.18
-  releaseVersion: 0.7.6
-  configChecksum: e6e32200e62fab6f07d61524fa53845f
+  speakeasyVersion: 1.798.0
+  generationVersion: 2.938.0
+  releaseVersion: 0.7.7
+  configChecksum: fecf30a6f68c91210336b4107e72ca9b
   repoURL: https://github.com/clientcasa/sdk-typescript.git
   installationURL: https://github.com/clientcasa/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: d6cc6a4c-d448-4856-99b6-8a0e78395191
-  pristine_commit_hash: ebd79b9203042412f9b0ee387eb5d467a618f9dc
-  pristine_tree_hash: 1bd8481ec29aede94797a82837afe8b2b69ee214
+  generation_id: ca89acd2-0984-4f62-8253-10cb21a7d6e9
+  pristine_commit_hash: 7de994914364ad88774699cb2d7f5e567c63b372
+  pristine_tree_hash: f1eb697ab49415a41d5f4dcbd233f54144ae9702
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -296,8 +296,8 @@ trackedFiles:
     pristine_git_object: ab7d87059a9ab10681ca5a14a1372055f1039a13
   docs/models/details-code.md:
     id: f59269204db0
-    last_write_checksum: sha1:89f60046e19e2651afd74f2863110b6adc7a2bb2
-    pristine_git_object: 7824698193c772e7699df99321c0787bc54a2d0d
+    last_write_checksum: sha1:93057b27dc7c036b8421ef76cbd99139f7623d41
+    pristine_git_object: a727cafd27ad956a8ecf0b03fe938fb185dbd3e7
   docs/models/details.md:
     id: 78f6f9d989a9
     last_write_checksum: sha1:508bb311aadf58ff6a2d7914bf21ff673cf774b8
@@ -2088,12 +2088,12 @@ trackedFiles:
     pristine_git_object: dca8b77bfe9ec131b8e55da6a49883996f4ea14e
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:16a2240db0a698f127d0ebae538ca2161be746ce
-    pristine_git_object: dce4f2538f4384df6780c896a808c09a4f946074
+    last_write_checksum: sha1:bd09dc2d707e624aa2c254fb73f9bb8563c076e4
+    pristine_git_object: 396f2d40a5803aa93e3275ba1b62b2e8b112a80f
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:d70d0875b77f7d739ea01e38ed7d216753d2e1d9
-    pristine_git_object: 39a74666784d4b619ed78d74e15feb4215f1873c
+    last_write_checksum: sha1:776fe383f4332eb113bcf752e9a349f1b3444ebb
+    pristine_git_object: e3ea84223f40c00a3312f72ba84a340d81fed705
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:473b76edf3d30ed53981d70a75feb9a4318c3ec1
@@ -2512,8 +2512,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:5934b7bf16d4bb43f09600f84a98af6d8b628836
-    pristine_git_object: 6c06c6a8495e7298ef44e64795db27b851bce154
+    last_write_checksum: sha1:68f170f2141b84ac1199ccb197f5478f2979e79d
+    pristine_git_object: 08f3953b8126cb644bb3ea261bd442a9156ffc44
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:4481b2a380f8a16856ef92c66fb370299f56d135
@@ -2564,8 +2564,8 @@ trackedFiles:
     pristine_git_object: 79e7ce660b3732053e3adcbb5a4cdeb51496e8aa
   src/models/api-error.ts:
     id: 1f7b1c091e2a
-    last_write_checksum: sha1:96576b827f6554e4e266999c4cb62e3eaa7745e4
-    pristine_git_object: 3bbb0777f7e4aa094379fed507d804bdaf115ea2
+    last_write_checksum: sha1:f6e4e3e557adcca244b4da1ae4908e7ca9b42bb2
+    pristine_git_object: d6ba12327b38c4ab8f72f57192f17c3b90843bd6
   src/models/calendar-event-create.ts:
     id: b551e2d3e0b9
     last_write_checksum: sha1:4004e92e853a8f229666514dc2eda208af43912a
@@ -5512,31 +5512,30 @@ examples:
 examplesVersion: 1.0.2
 releaseNotes: |
   ## Typescript SDK Changes:
-  * `clientcasa.formAttachments.get()`: **Added**
   * `clientcasa.clients.list()`:  `error.details.code` **Changed**
   * `clientcasa.clients.create()`:  `error.details.code` **Changed**
   * `clientcasa.clients.get()`:  `error.details.code` **Changed**
-  * `clientcasa.clients.delete()`:  `error` **Changed**
+  * `clientcasa.clients.delete()`:  `error.details.code` **Changed**
   * `clientcasa.clients.update()`:  `error.details.code` **Changed**
   * `clientcasa.contacts.list()`:  `error.details.code` **Changed**
   * `clientcasa.contacts.create()`:  `error.details.code` **Changed**
   * `clientcasa.contacts.get()`:  `error.details.code` **Changed**
-  * `clientcasa.contacts.delete()`:  `error` **Changed**
+  * `clientcasa.contacts.delete()`:  `error.details.code` **Changed**
   * `clientcasa.contacts.update()`:  `error.details.code` **Changed**
   * `clientcasa.projects.list()`:  `error.details.code` **Changed**
   * `clientcasa.projects.create()`:  `error.details.code` **Changed**
   * `clientcasa.projects.get()`:  `error.details.code` **Changed**
-  * `clientcasa.projects.delete()`:  `error` **Changed**
+  * `clientcasa.projects.delete()`:  `error.details.code` **Changed**
   * `clientcasa.projects.update()`:  `error.details.code` **Changed**
   * `clientcasa.invoices.list()`:  `error.details.code` **Changed**
   * `clientcasa.invoices.create()`:  `error.details.code` **Changed**
   * `clientcasa.invoices.get()`:  `error.details.code` **Changed**
-  * `clientcasa.invoices.delete()`:  `error` **Changed**
+  * `clientcasa.invoices.delete()`:  `error.details.code` **Changed**
   * `clientcasa.invoices.update()`:  `error.details.code` **Changed**
   * `clientcasa.contracts.list()`:  `error.details.code` **Changed**
   * `clientcasa.contracts.create()`:  `error.details.code` **Changed**
   * `clientcasa.contracts.get()`:  `error.details.code` **Changed**
-  * `clientcasa.contracts.delete()`:  `error` **Changed**
+  * `clientcasa.contracts.delete()`:  `error.details.code` **Changed**
   * `clientcasa.contracts.update()`:  `error.details.code` **Changed**
   * `clientcasa.forms&Agreements.list()`:  `error.details.code` **Changed**
   * `clientcasa.forms&Agreements.get()`:  `error.details.code` **Changed**
@@ -5546,6 +5545,7 @@ releaseNotes: |
   * `clientcasa.forms.get()`:  `error.details.code` **Changed**
   * `clientcasa.formSubmissions.list()`:  `error.details.code` **Changed**
   * `clientcasa.formSubmissions.get()`:  `error.details.code` **Changed**
+  * `clientcasa.formAttachments.get()`:  `error.details.code` **Changed**
   * `clientcasa.inquiries.create()`:  `error.details.code` **Changed**
   * `clientcasa.payments.list()`:  `error.details.code` **Changed**
   * `clientcasa.payments.create()`:  `error.details.code` **Changed**
@@ -5558,55 +5558,55 @@ releaseNotes: |
   * `clientcasa.timeEntries.list()`:  `error.details.code` **Changed**
   * `clientcasa.timeEntries.create()`:  `error.details.code` **Changed**
   * `clientcasa.timeEntries.get()`:  `error.details.code` **Changed**
-  * `clientcasa.timeEntries.delete()`:  `error` **Changed**
+  * `clientcasa.timeEntries.delete()`:  `error.details.code` **Changed**
   * `clientcasa.timeEntries.update()`:  `error.details.code` **Changed**
   * `clientcasa.milestones.list()`:  `error.details.code` **Changed**
   * `clientcasa.milestones.create()`:  `error.details.code` **Changed**
   * `clientcasa.milestones.get()`:  `error.details.code` **Changed**
-  * `clientcasa.milestones.delete()`:  `error` **Changed**
+  * `clientcasa.milestones.delete()`:  `error.details.code` **Changed**
   * `clientcasa.milestones.update()`:  `error.details.code` **Changed**
   * `clientcasa.calendarEvents.list()`:  `error.details.code` **Changed**
   * `clientcasa.calendarEvents.create()`:  `error.details.code` **Changed**
   * `clientcasa.calendarEvents.get()`:  `error.details.code` **Changed**
-  * `clientcasa.calendarEvents.delete()`:  `error` **Changed**
+  * `clientcasa.calendarEvents.delete()`:  `error.details.code` **Changed**
   * `clientcasa.calendarEvents.update()`:  `error.details.code` **Changed**
   * `clientcasa.transactions.list()`:  `error.details.code` **Changed**
   * `clientcasa.transactions.create()`:  `error.details.code` **Changed**
   * `clientcasa.transactions.get()`:  `error.details.code` **Changed**
-  * `clientcasa.transactions.delete()`:  `error` **Changed**
+  * `clientcasa.transactions.delete()`:  `error.details.code` **Changed**
   * `clientcasa.transactions.update()`:  `error.details.code` **Changed**
   * `clientcasa.catalogItems.list()`:  `error.details.code` **Changed**
   * `clientcasa.catalogItems.create()`:  `error.details.code` **Changed**
   * `clientcasa.catalogItems.get()`:  `error.details.code` **Changed**
-  * `clientcasa.catalogItems.delete()`:  `error` **Changed**
+  * `clientcasa.catalogItems.delete()`:  `error.details.code` **Changed**
   * `clientcasa.catalogItems.update()`:  `error.details.code` **Changed**
   * `clientcasa.eventDays.list()`:  `error.details.code` **Changed**
   * `clientcasa.eventDays.create()`:  `error.details.code` **Changed**
   * `clientcasa.eventDays.get()`:  `error.details.code` **Changed**
-  * `clientcasa.eventDays.delete()`:  `error` **Changed**
+  * `clientcasa.eventDays.delete()`:  `error.details.code` **Changed**
   * `clientcasa.eventDays.update()`:  `error.details.code` **Changed**
   * `clientcasa.timelineItems.list()`:  `error.details.code` **Changed**
   * `clientcasa.timelineItems.create()`:  `error.details.code` **Changed**
   * `clientcasa.timelineItems.get()`:  `error.details.code` **Changed**
-  * `clientcasa.timelineItems.delete()`:  `error` **Changed**
+  * `clientcasa.timelineItems.delete()`:  `error.details.code` **Changed**
   * `clientcasa.timelineItems.update()`:  `error.details.code` **Changed**
   * `clientcasa.eventDayVendors.list()`:  `error.details.code` **Changed**
   * `clientcasa.eventDayVendors.create()`:  `error.details.code` **Changed**
   * `clientcasa.eventDayVendors.get()`:  `error.details.code` **Changed**
-  * `clientcasa.eventDayVendors.delete()`:  `error` **Changed**
+  * `clientcasa.eventDayVendors.delete()`:  `error.details.code` **Changed**
   * `clientcasa.eventDayVendors.update()`:  `error.details.code` **Changed**
   * `clientcasa.vendors.list()`:  `error.details.code` **Changed**
   * `clientcasa.vendors.create()`:  `error.details.code` **Changed**
   * `clientcasa.vendors.get()`:  `error.details.code` **Changed**
-  * `clientcasa.vendors.delete()`:  `error` **Changed**
+  * `clientcasa.vendors.delete()`:  `error.details.code` **Changed**
   * `clientcasa.vendors.update()`:  `error.details.code` **Changed**
   * `clientcasa.venues.list()`:  `error.details.code` **Changed**
   * `clientcasa.venues.create()`:  `error.details.code` **Changed**
   * `clientcasa.venues.get()`:  `error.details.code` **Changed**
-  * `clientcasa.venues.delete()`:  `error` **Changed**
+  * `clientcasa.venues.delete()`:  `error.details.code` **Changed**
   * `clientcasa.venues.update()`:  `error.details.code` **Changed**
   * `clientcasa.webhooks.list()`:  `error.details.code` **Changed**
   * `clientcasa.webhooks.create()`:  `error.details.code` **Changed**
   * `clientcasa.webhooks.get()`:  `error.details.code` **Changed**
-  * `clientcasa.webhooks.delete()`:  `error` **Changed**
+  * `clientcasa.webhooks.delete()`:  `error.details.code` **Changed**
   * `clientcasa.webhooks.update()`:  `error.details.code` **Changed**

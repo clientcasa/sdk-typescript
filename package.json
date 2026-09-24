@@ -1,6 +1,6 @@
 {
   "name": "@clientcasa/sdk",
-  "version": "0.7.6",
+  "version": "0.7.7",
   "author": "Speakeasy",
   "type": "module",
   "main": "./esm/index.js",
