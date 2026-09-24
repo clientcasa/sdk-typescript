@@ -59,6 +59,14 @@ export const DetailsCode = {
   CurrencyLocked: "currency_locked",
   EventDayCompanionWriteFailed: "event_day_companion_write_failed",
   TimelineAnchorMissing: "timeline_anchor_missing",
+  DocumentCompanionWriteFailed: "document_companion_write_failed",
+  TimelineCompanionWriteFailed: "timeline_companion_write_failed",
+  PaymentCompanionWriteFailed: "payment_companion_write_failed",
+  PayoutCompanionWriteFailed: "payout_companion_write_failed",
+  TransactionCompanionWriteFailed: "transaction_companion_write_failed",
+  RecordCompanionWriteFailed: "record_companion_write_failed",
+  ScheduleCompanionWriteFailed: "schedule_companion_write_failed",
+  PlatformCompanionWriteFailed: "platform_companion_write_failed",
   UnknownAssignmentId: "unknown_assignment_id",
 } as const;
 export type DetailsCode = OpenEnum<typeof DetailsCode>;
