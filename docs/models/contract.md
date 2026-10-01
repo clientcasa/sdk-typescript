@@ -14,19 +14,28 @@ let value: Contract = {
   projectId: "550e8400-e29b-41d4-a716-446655440000",
   sourceTemplateId: "550e8400-e29b-41d4-a716-446655440000",
   status: "voided",
-  signingMode: "client_only",
   contentType: "tiptap",
-  issueDate: new Date("2024-08-18"),
-  effectiveDate: new Date("2026-11-22"),
-  expirationDate: new Date("2025-04-23"),
-  signedDate: new Date("2026-08-29T22:02:15.091Z"),
-  currency: "Sudanese Pound",
-  contractValue: 5811.73,
-  signers: [],
+  issueDate: new Date("2025-02-11"),
+  effectiveDate: new Date("2025-08-16"),
+  expirationDate: new Date("2024-08-30"),
+  signedDate: new Date("2024-09-06T19:00:57.168Z"),
+  currency: "Uganda Shilling",
+  contractValue: 5068.39,
+  signers: [
+    {
+      contactId: "550e8400-e29b-41d4-a716-446655440000",
+      name: "<value>",
+      email: "",
+      role: "<value>",
+      order: 934500,
+      status: "<value>",
+      signedAt: new Date("2026-03-21T16:10:44.851Z"),
+    },
+  ],
   archived: true,
-  archivedAt: new Date("2024-02-24T21:20:38.669Z"),
-  createdAt: new Date("2026-02-02T08:21:47.241Z"),
-  updatedAt: new Date("2026-12-05T19:41:18.347Z"),
+  archivedAt: new Date("2026-12-07T18:15:53.435Z"),
+  createdAt: new Date("2024-02-24T21:20:38.669Z"),
+  updatedAt: new Date("2026-02-02T08:21:47.241Z"),
 };
 ```
 
@@ -42,7 +51,6 @@ let value: Contract = {
 | `projectId`                                                                                   | *string*                                                                                      | :heavy_check_mark:                                                                            | UUID v4                                                                                       | 550e8400-e29b-41d4-a716-446655440000                                                          |
 | `sourceTemplateId`                                                                            | *string*                                                                                      | :heavy_check_mark:                                                                            | UUID v4                                                                                       | 550e8400-e29b-41d4-a716-446655440000                                                          |
 | `status`                                                                                      | [models.ContractStatus](../models/contract-status.md)                                         | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
-| `signingMode`                                                                                 | [models.SigningMode](../models/signing-mode.md)                                               | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
 | `contentType`                                                                                 | [models.ContentType](../models/content-type.md)                                               | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
 | `issueDate`                                                                                   | [Date](../types/rfcdate.md)                                                                   | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
 | `effectiveDate`                                                                               | [Date](../types/rfcdate.md)                                                                   | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |

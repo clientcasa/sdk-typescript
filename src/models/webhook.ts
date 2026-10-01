@@ -17,6 +17,7 @@ export const WebhookEvent = {
   InvoicePaid: "invoice_paid",
   InvoicePaymentFailed: "invoice_payment_failed",
   InvoiceDisputed: "invoice_disputed",
+  InvoiceClosedPaymentReceived: "invoice_closed_payment_received",
   InvoicePaymentReminder: "invoice_payment_reminder",
   PaymentReceived: "payment_received",
   PaymentRefunded: "payment_refunded",
@@ -80,6 +81,8 @@ export const WebhookEvent = {
   SaleVoided: "sale_voided",
   SaleReceiptSent: "sale_receipt_sent",
   SaleViewed: "sale_viewed",
+  RecurringBillingRestarted: "recurring_billing_restarted",
+  AutoChargeSkipped: "auto_charge_skipped",
 } as const;
 export type WebhookEvent = OpenEnum<typeof WebhookEvent>;
 
