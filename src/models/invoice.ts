@@ -48,6 +48,9 @@ export type Invoice = {
   taxAmount: number;
   total: number;
   amountPaid: number;
+  /**
+   * What is outstanding on the invoice: total − amountPaid while it is open (`sent`); 0 for a draft, paid, void or written-off invoice — a written-off balance is forgiven, not owed.
+   */
   balanceDue: number;
   /**
    * Derived (read-only): true when the invoice is past its due date with a balance still owing (an open `sent` invoice). Not a stored status.

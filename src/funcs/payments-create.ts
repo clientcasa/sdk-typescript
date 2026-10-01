@@ -32,7 +32,7 @@ import { Result } from "../types/fp.js";
  * Record a manual payment
  *
  * @remarks
- * Records a manually-collected payment (check, bank transfer, cash, etc.). Stripe payments are recorded automatically via webhooks and cannot be created here. Payments are immutable after creation except for `reference` and `notes`. To reverse a payment, record a refund (kind=refund, negative amount, refundOfId pointing at the original).
+ * Records a manually-collected payment (check, bank transfer, cash, etc.). Stripe payments are recorded automatically via webhooks and cannot be created here. Payments are immutable after creation except for `reference` and `notes`. To reverse a payment, record a refund (kind=refund, negative amount, refundOfId pointing at the original). `sendReceipt` defaults to false; the API never emails your client — send a receipt from the dashboard (Receipts → Send).
  */
 export function paymentsCreate(
   client: ClientCasaCore,

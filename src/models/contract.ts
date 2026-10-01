@@ -22,13 +22,6 @@ export const ContractStatus = {
 } as const;
 export type ContractStatus = OpenEnum<typeof ContractStatus>;
 
-export const SigningMode = {
-  ClientOnly: "client_only",
-  CounterSign: "counter_sign",
-  AutoCounterSign: "auto_counter_sign",
-} as const;
-export type SigningMode = OpenEnum<typeof SigningMode>;
-
 export const ContentType = {
   Tiptap: "tiptap",
   Pdf: "pdf",
@@ -82,7 +75,6 @@ export type Contract = {
    */
   sourceTemplateId: string | null;
   status: ContractStatus;
-  signingMode: SigningMode;
   contentType: ContentType;
   issueDate: Date | null;
   effectiveDate: Date | null;
@@ -114,10 +106,6 @@ export const ContractStatus$inboundSchema: z.ZodMiniType<
   ContractStatus,
   unknown
 > = openEnums.inboundSchema(ContractStatus);
-
-/** @internal */
-export const SigningMode$inboundSchema: z.ZodMiniType<SigningMode, unknown> =
-  openEnums.inboundSchema(SigningMode);
 
 /** @internal */
 export const ContentType$inboundSchema: z.ZodMiniType<ContentType, unknown> =
@@ -176,7 +164,6 @@ export const Contract$inboundSchema: z.ZodMiniType<Contract, unknown> = z
     projectId: types.nullable(types.string()),
     sourceTemplateId: types.nullable(types.string()),
     status: ContractStatus$inboundSchema,
-    signingMode: SigningMode$inboundSchema,
     contentType: ContentType$inboundSchema,
     issueDate: types.nullable(types.date()),
     effectiveDate: types.nullable(types.date()),

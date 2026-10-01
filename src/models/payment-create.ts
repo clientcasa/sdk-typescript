@@ -44,6 +44,10 @@ export type PaymentCreate = {
    * UUID v4
    */
   refundOfId?: string | undefined;
+  /**
+   * Defaults to false. true is refused — the API never emails your client.
+   */
+  sendReceipt?: boolean | undefined;
 };
 
 /** @internal */
@@ -68,6 +72,7 @@ export type PaymentCreate$Outbound = {
   reference?: string | undefined;
   notes?: string | undefined;
   refundOfId?: string | undefined;
+  sendReceipt: boolean;
 };
 
 /** @internal */
@@ -88,6 +93,7 @@ export const PaymentCreate$outboundSchema: z.ZodMiniType<
   reference: z.optional(z.string()),
   notes: z.optional(z.string()),
   refundOfId: z.optional(z.string()),
+  sendReceipt: z._default(z.boolean(), false),
 });
 
 export function paymentCreateToJSON(paymentCreate: PaymentCreate): string {
