@@ -34,7 +34,7 @@ generation:
     generateNewTests: true
     skipResponseBodyAssertions: false
 typescript:
-  version: 0.7.8
+  version: 0.7.9
   acceptHeaderEnum: false
   additionalDependencies:
     dependencies: {}
@@ -82,6 +82,7 @@ typescript:
   modelPropertyCasing: camel
   moduleFormat: esm
   multipartArrayFormat: standard
+  numericEnumMemberNames: legacy
   outputModelSuffix: output
   packageName: '@clientcasa/sdk'
   preApplyUnionDiscriminators: true

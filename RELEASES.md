@@ -195,3 +195,13 @@ Based on:
 - [typescript v0.7.8] .
 ### Releases
 - [NPM v0.7.8] https://www.npmjs.com/package/@clientcasa/sdk/v/0.7.8 - .
+
+## 2026-10-08 03:37:25
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.801.0 (2.946.0) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v0.7.9] .
+### Releases
+- [NPM v0.7.9] https://www.npmjs.com/package/@clientcasa/sdk/v/0.7.9 - .
