@@ -179,7 +179,7 @@ MIT
 <!-- Start Summary [summary] -->
 ## Summary
 
-ClientCasa API: REST API for ClientCasa — proposals, contracts, time tracking, expenses, invoicing, payments, and CRM for solo operators and small teams.
+ClientCasa API: REST API for ClientCasa — proposals, contracts, time tracking, expenses, invoicing, payments, and CRM for solo operators and small teams. Error-contract update (2026-10-21): actionable refusals retain their declared message; internal faults use safe generic copy. Several details.code values formerly grouped under invalid_payload or record_immutable now have specific codes. Integrations must branch on details.code, never message text; see the API changelog. New specific codes: invoice_amounts_locked, contract_not_deletable, receipt_lines_locked, sale_amounts_locked, quote_lines_locked, time_entry_billed_locked, primary_contact_not_deletable, account_address_reserved, email_address_suppressed, email_sending_limit, email_send_too_large, testimonial_archived, installment_required, installment_remainder_duplicate, installment_remainder_order, installment_percent_total, depreciation_months_invalid, account_address_invalid, receipt_client_required, receipt_recipients_required, receipt_email_required, email_subject_invalid, email_message_invalid, time_entry_client_required, form_address_required, form_address_invalid, form_condition_invalid, form_step_required, signed_document_revision_forbidden, deposit_invoice_required.
 <!-- End Summary [summary] -->
 
 <!-- Start Table of Contents [toc] -->
