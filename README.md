@@ -249,6 +249,26 @@ yarn add @clientcasa/sdk
 ## Requirements
 
 For supported JavaScript runtimes, please consult [RUNTIMES.md](RUNTIMES.md).
+
+### Lazy operation loading in Node.js
+
+The `/node` entry point and its lazy SDK classes are generated for every SDK. No `gen.yaml` flag is needed; Node.js applications opt in to loading operation functions on first use by changing their import:
+
+```typescript
+import { ClientCasa } from "@clientcasa/sdk/node";
+
+const sdk = new ClientCasa();
+```
+
+The `/node` entry point keeps the same method signatures, pagination behaviour, and response helpers. Operation modules load through dynamic imports when a method is called. Models and error classes are shared with the standard entry points, rather than bundled into separate copies.
+
+The standard package entry point and SDK subpaths retain their static imports. Keep using those entry points in browser bundles, including IIFE and UMD builds, to avoid dynamic-import chunks. Custom root exports may still load additional modules.
+
+The Node SDK classes live in `src/sdk/*.lazy.ts`. Custom code regions in the standard SDK classes are not copied to these classes; apply any required customisations to their separate regions. Accept-header enums have the same values, but their enum objects are specific to each entry point.
+
+Generated model schemas are constructed synchronously and cached on first use with either entry point. Importing a model does not construct its schema; parsing or inspecting a schema does. This does not require changing the configured Zod version.
+
+`Object.freeze`, `Object.seal`, and `Object.preventExtensions` construct the schema and apply to the cached Zod object. Zod's own restrictions on frozen schemas still apply, including methods that install properties on first access.
 <!-- End Requirements [requirements] -->
 
 <!-- Start SDK Example Usage [usage] -->
@@ -429,6 +449,22 @@ run();
 * [list](docs/sdks/payouts/README.md#list) - List payouts
 * [get](docs/sdks/payouts/README.md#get) - Get a payout
 
+### [ProjectPlan](docs/sdks/projectplan/README.md)
+
+* [startTodo](docs/sdks/projectplan/README.md#starttodo) - start Todo
+* [completeTodo](docs/sdks/projectplan/README.md#completetodo) - complete Todo
+* [reopenTodo](docs/sdks/projectplan/README.md#reopentodo) - reopen Todo
+* [cancelTodo](docs/sdks/projectplan/README.md#canceltodo) - cancel Todo
+* [restoreTodo](docs/sdks/projectplan/README.md#restoretodo) - restore Todo
+* [changeTodoOccurrence](docs/sdks/projectplan/README.md#changetodooccurrence) - change Todo Occurrence
+* [list](docs/sdks/projectplan/README.md#list) - Read a project plan
+* [previewPlanTemplate](docs/sdks/projectplan/README.md#previewplantemplate) - preview Plan Template
+* [applyPlanTemplate](docs/sdks/projectplan/README.md#applyplantemplate) - apply Plan Template
+* [previewPlanDateChange](docs/sdks/projectplan/README.md#previewplandatechange) - preview Plan Date Change
+* [applyPlanDateChange](docs/sdks/projectplan/README.md#applyplandatechange) - apply Plan Date Change
+* [recordProjectAct](docs/sdks/projectplan/README.md#recordprojectact) - record Project Act
+* [listEvents](docs/sdks/projectplan/README.md#listevents) - Sample actual announced plan events
+
 ### [Projects](docs/sdks/projects/README.md)
 
 * [list](docs/sdks/projects/README.md#list) - List projects
@@ -457,6 +493,13 @@ run();
 * [get](docs/sdks/timelineitems/README.md#get) - Get a timeline item
 * [delete](docs/sdks/timelineitems/README.md#delete) - Delete a timeline item
 * [update](docs/sdks/timelineitems/README.md#update) - Update a timeline item
+
+### [ToDos](docs/sdks/todos/README.md)
+
+* [list](docs/sdks/todos/README.md#list) - List to-dos
+* [create](docs/sdks/todos/README.md#create) - Create a to-do
+* [get](docs/sdks/todos/README.md#get) - Get a to-do
+* [update](docs/sdks/todos/README.md#update) - Update a to-do
 
 ### [Transactions](docs/sdks/transactions/README.md)
 
@@ -569,6 +612,19 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`paymentsUpdate`](docs/sdks/payments/README.md#update) - Update a payment (notes/reference only — payments are otherwise immutable)
 - [`payoutsGet`](docs/sdks/payouts/README.md#get) - Get a payout
 - [`payoutsList`](docs/sdks/payouts/README.md#list) - List payouts
+- [`projectPlanApplyPlanDateChange`](docs/sdks/projectplan/README.md#applyplandatechange) - apply Plan Date Change
+- [`projectPlanApplyPlanTemplate`](docs/sdks/projectplan/README.md#applyplantemplate) - apply Plan Template
+- [`projectPlanCancelTodo`](docs/sdks/projectplan/README.md#canceltodo) - cancel Todo
+- [`projectPlanChangeTodoOccurrence`](docs/sdks/projectplan/README.md#changetodooccurrence) - change Todo Occurrence
+- [`projectPlanCompleteTodo`](docs/sdks/projectplan/README.md#completetodo) - complete Todo
+- [`projectPlanList`](docs/sdks/projectplan/README.md#list) - Read a project plan
+- [`projectPlanListEvents`](docs/sdks/projectplan/README.md#listevents) - Sample actual announced plan events
+- [`projectPlanPreviewPlanDateChange`](docs/sdks/projectplan/README.md#previewplandatechange) - preview Plan Date Change
+- [`projectPlanPreviewPlanTemplate`](docs/sdks/projectplan/README.md#previewplantemplate) - preview Plan Template
+- [`projectPlanRecordProjectAct`](docs/sdks/projectplan/README.md#recordprojectact) - record Project Act
+- [`projectPlanReopenTodo`](docs/sdks/projectplan/README.md#reopentodo) - reopen Todo
+- [`projectPlanRestoreTodo`](docs/sdks/projectplan/README.md#restoretodo) - restore Todo
+- [`projectPlanStartTodo`](docs/sdks/projectplan/README.md#starttodo) - start Todo
 - [`projectsCreate`](docs/sdks/projects/README.md#create) - Create a project
 - [`projectsDelete`](docs/sdks/projects/README.md#delete) - Delete a project
 - [`projectsGet`](docs/sdks/projects/README.md#get) - Get a project
@@ -586,6 +642,10 @@ To read more about standalone functions, check [FUNCTIONS.md](./FUNCTIONS.md).
 - [`timelineItemsGet`](docs/sdks/timelineitems/README.md#get) - Get a timeline item
 - [`timelineItemsList`](docs/sdks/timelineitems/README.md#list) - List timeline items
 - [`timelineItemsUpdate`](docs/sdks/timelineitems/README.md#update) - Update a timeline item
+- [`toDosCreate`](docs/sdks/todos/README.md#create) - Create a to-do
+- [`toDosGet`](docs/sdks/todos/README.md#get) - Get a to-do
+- [`toDosList`](docs/sdks/todos/README.md#list) - List to-dos
+- [`toDosUpdate`](docs/sdks/todos/README.md#update) - Update a to-do
 - [`transactionsCreate`](docs/sdks/transactions/README.md#create) - Create a transaction (expense or charge)
 - [`transactionsDelete`](docs/sdks/transactions/README.md#delete) - Delete a transaction
 - [`transactionsGet`](docs/sdks/transactions/README.md#get) - Get a transaction
@@ -884,7 +944,7 @@ import { ClientCasa } from "@clientcasa/sdk";
 const sdk = new ClientCasa({ debugLogger: console });
 ```
 
-You can also enable a default debug logger by setting an environment variable `CLIENTCASA_DEBUG` to true.
+You can also enable a default debug logger by setting an environment variable `CLIENTCASA_DEBUG` to `true`, `1`, `yes` or `on` (case-insensitive). Any other value leaves it off.
 <!-- End Debugging [debug] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->

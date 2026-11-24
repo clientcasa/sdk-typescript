@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import {
   DocumentVersion,
@@ -24,10 +24,12 @@ export type DocumentVersionList = {
 export const DocumentVersionList$inboundSchema: z.ZodMiniType<
   DocumentVersionList,
   unknown
-> = z.object({
-  data: z.array(DocumentVersion$inboundSchema),
-  pagination: PaginationMeta$inboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    data: z.array(DocumentVersion$inboundSchema),
+    pagination: PaginationMeta$inboundSchema,
+  })
+);
 
 export function documentVersionListFromJSON(
   jsonString: string,

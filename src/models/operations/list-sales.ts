@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -65,10 +65,12 @@ export type ListSalesSecurity$Outbound = {
 export const ListSalesSecurity$outboundSchema: z.ZodMiniType<
   ListSalesSecurity$Outbound,
   ListSalesSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function listSalesSecurityToJSON(
   listSalesSecurity: ListSalesSecurity,
@@ -81,12 +83,11 @@ export function listSalesSecurityToJSON(
 /** @internal */
 export const ListSalesStatus$outboundSchema: z.ZodMiniEnum<
   typeof ListSalesStatus
-> = z.enum(ListSalesStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(ListSalesStatus));
 
 /** @internal */
-export const Channel$outboundSchema: z.ZodMiniEnum<typeof Channel> = z.enum(
-  Channel,
-);
+export const Channel$outboundSchema: z.ZodMiniEnum<typeof Channel> =
+  /* @__PURE__ */ lazySchema$(() => z.enum(Channel));
 
 /** @internal */
 export type ListSalesRequest$Outbound = {
@@ -104,26 +105,24 @@ export type ListSalesRequest$Outbound = {
 export const ListSalesRequest$outboundSchema: z.ZodMiniType<
   ListSalesRequest$Outbound,
   ListSalesRequest
-> = z.object({
-  page: z._default(z.int(), 1),
-  pageSize: z._default(z.int(), 25),
-  status: z.optional(ListSalesStatus$outboundSchema),
-  channel: z.optional(Channel$outboundSchema),
-  clientId: z.optional(z.string()),
-  businessId: z.optional(z.string()),
-  saleDateFrom: z.optional(
-    z.pipe(
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z._default(z.int(), 1),
+    pageSize: z._default(z.int(), 25),
+    status: z.optional(ListSalesStatus$outboundSchema),
+    channel: z.optional(Channel$outboundSchema),
+    clientId: z.optional(z.string()),
+    businessId: z.optional(z.string()),
+    saleDateFrom: z.optional(z.pipe(
       z.date(),
       z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
-    ),
-  ),
-  saleDateTo: z.optional(
-    z.pipe(
+    )),
+    saleDateTo: z.optional(z.pipe(
       z.date(),
       z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
-    ),
-  ),
-});
+    )),
+  })
+);
 
 export function listSalesRequestToJSON(
   listSalesRequest: ListSalesRequest,
@@ -137,15 +136,17 @@ export function listSalesRequestToJSON(
 export const ListSalesResponse$inboundSchema: z.ZodMiniType<
   ListSalesResponse,
   unknown
-> = z.pipe(
-  z.object({
-    Result: models.SaleList$inboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      "Result": "result",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      Result: models.SaleList$inboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        "Result": "result",
+      });
+    }),
+  )
 );
 
 export function listSalesResponseFromJSON(

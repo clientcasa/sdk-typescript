@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -54,10 +54,12 @@ export type ListDocumentVersionsSecurity$Outbound = {
 export const ListDocumentVersionsSecurity$outboundSchema: z.ZodMiniType<
   ListDocumentVersionsSecurity$Outbound,
   ListDocumentVersionsSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function listDocumentVersionsSecurityToJSON(
   listDocumentVersionsSecurity: ListDocumentVersionsSecurity,
@@ -70,8 +72,8 @@ export function listDocumentVersionsSecurityToJSON(
 }
 
 /** @internal */
-export const DocumentType$outboundSchema: z.ZodMiniEnum<typeof DocumentType> = z
-  .enum(DocumentType);
+export const DocumentType$outboundSchema: z.ZodMiniEnum<typeof DocumentType> =
+  /* @__PURE__ */ lazySchema$(() => z.enum(DocumentType));
 
 /** @internal */
 export type ListDocumentVersionsRequest$Outbound = {
@@ -87,14 +89,16 @@ export type ListDocumentVersionsRequest$Outbound = {
 export const ListDocumentVersionsRequest$outboundSchema: z.ZodMiniType<
   ListDocumentVersionsRequest$Outbound,
   ListDocumentVersionsRequest
-> = z.object({
-  page: z._default(z.int(), 1),
-  pageSize: z._default(z.int(), 25),
-  documentType: z.optional(DocumentType$outboundSchema),
-  documentId: z.optional(z.string()),
-  invoiceId: z.optional(z.string()),
-  contractId: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z._default(z.int(), 1),
+    pageSize: z._default(z.int(), 25),
+    documentType: z.optional(DocumentType$outboundSchema),
+    documentId: z.optional(z.string()),
+    invoiceId: z.optional(z.string()),
+    contractId: z.optional(z.string()),
+  })
+);
 
 export function listDocumentVersionsRequestToJSON(
   listDocumentVersionsRequest: ListDocumentVersionsRequest,
@@ -110,15 +114,17 @@ export function listDocumentVersionsRequestToJSON(
 export const ListDocumentVersionsResponse$inboundSchema: z.ZodMiniType<
   ListDocumentVersionsResponse,
   unknown
-> = z.pipe(
-  z.object({
-    Result: models.DocumentVersionList$inboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      "Result": "result",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      Result: models.DocumentVersionList$inboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        "Result": "result",
+      });
+    }),
+  )
 );
 
 export function listDocumentVersionsResponseFromJSON(

@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -31,6 +31,10 @@ export type ListMilestonesStatus = ClosedEnum<typeof ListMilestonesStatus>;
 export type ListMilestonesRequest = {
   page?: number | undefined;
   pageSize?: number | undefined;
+  /**
+   * Opaque date and identity continuation from pagination.nextCursor.
+   */
+  after?: string | undefined;
   parentType?: ParentType | undefined;
   /**
    * UUID v4
@@ -53,10 +57,12 @@ export type ListMilestonesSecurity$Outbound = {
 export const ListMilestonesSecurity$outboundSchema: z.ZodMiniType<
   ListMilestonesSecurity$Outbound,
   ListMilestonesSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function listMilestonesSecurityToJSON(
   listMilestonesSecurity: ListMilestonesSecurity,
@@ -67,18 +73,19 @@ export function listMilestonesSecurityToJSON(
 }
 
 /** @internal */
-export const ParentType$outboundSchema: z.ZodMiniEnum<typeof ParentType> = z
-  .enum(ParentType);
+export const ParentType$outboundSchema: z.ZodMiniEnum<typeof ParentType> =
+  /* @__PURE__ */ lazySchema$(() => z.enum(ParentType));
 
 /** @internal */
 export const ListMilestonesStatus$outboundSchema: z.ZodMiniEnum<
   typeof ListMilestonesStatus
-> = z.enum(ListMilestonesStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(ListMilestonesStatus));
 
 /** @internal */
 export type ListMilestonesRequest$Outbound = {
   page: number;
   pageSize: number;
+  after?: string | undefined;
   parentType?: string | undefined;
   parentId?: string | undefined;
   status?: string | undefined;
@@ -88,13 +95,16 @@ export type ListMilestonesRequest$Outbound = {
 export const ListMilestonesRequest$outboundSchema: z.ZodMiniType<
   ListMilestonesRequest$Outbound,
   ListMilestonesRequest
-> = z.object({
-  page: z._default(z.int(), 1),
-  pageSize: z._default(z.int(), 25),
-  parentType: z.optional(ParentType$outboundSchema),
-  parentId: z.optional(z.string()),
-  status: z.optional(ListMilestonesStatus$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z._default(z.int(), 1),
+    pageSize: z._default(z.int(), 25),
+    after: z.optional(z.string()),
+    parentType: z.optional(ParentType$outboundSchema),
+    parentId: z.optional(z.string()),
+    status: z.optional(ListMilestonesStatus$outboundSchema),
+  })
+);
 
 export function listMilestonesRequestToJSON(
   listMilestonesRequest: ListMilestonesRequest,
@@ -108,15 +118,17 @@ export function listMilestonesRequestToJSON(
 export const ListMilestonesResponse$inboundSchema: z.ZodMiniType<
   ListMilestonesResponse,
   unknown
-> = z.pipe(
-  z.object({
-    Result: models.MilestoneList$inboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      "Result": "result",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      Result: models.MilestoneList$inboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        "Result": "result",
+      });
+    }),
+  )
 );
 
 export function listMilestonesResponseFromJSON(

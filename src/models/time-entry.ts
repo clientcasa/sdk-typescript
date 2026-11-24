@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
@@ -62,28 +62,32 @@ export type TimeEntry = {
 export const TimeEntryRateType$inboundSchema: z.ZodMiniType<
   TimeEntryRateType,
   unknown
-> = openEnums.inboundSchema(TimeEntryRateType);
+> = /* @__PURE__ */ lazySchema$(() =>
+  openEnums.inboundSchema(TimeEntryRateType)
+);
 
 /** @internal */
-export const TimeEntry$inboundSchema: z.ZodMiniType<TimeEntry, unknown> = z
-  .object({
-    id: types.string(),
-    projectId: types.nullable(types.string()),
-    clientId: types.nullable(types.string()),
-    memberId: types.nullable(types.string()),
-    catalogItemId: types.nullable(types.string()),
-    date: types.date(),
-    hours: types.number(),
-    description: types.nullable(types.string()),
-    billable: types.boolean(),
-    rateType: TimeEntryRateType$inboundSchema,
-    customMultiplierName: types.nullable(types.string()),
-    rateOverride: types.nullable(types.number()),
-    effectiveRate: types.nullable(types.number()),
-    workerName: types.nullable(types.string()),
-    createdAt: types.date(),
-    updatedAt: types.date(),
-  });
+export const TimeEntry$inboundSchema: z.ZodMiniType<TimeEntry, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      id: types.string(),
+      projectId: types.nullable(types.string()),
+      clientId: types.nullable(types.string()),
+      memberId: types.nullable(types.string()),
+      catalogItemId: types.nullable(types.string()),
+      date: types.date(),
+      hours: types.number(),
+      description: types.nullable(types.string()),
+      billable: types.boolean(),
+      rateType: TimeEntryRateType$inboundSchema,
+      customMultiplierName: types.nullable(types.string()),
+      rateOverride: types.nullable(types.number()),
+      effectiveRate: types.nullable(types.number()),
+      workerName: types.nullable(types.string()),
+      createdAt: types.date(),
+      updatedAt: types.date(),
+    })
+  );
 
 export function timeEntryFromJSON(
   jsonString: string,

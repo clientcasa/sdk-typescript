@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
@@ -65,14 +65,16 @@ export type Venue = {
 export const VenueAddress1$inboundSchema: z.ZodMiniType<
   VenueAddress1,
   unknown
-> = z.object({
-  line1: types.nullable(types.string()),
-  line2: types.nullable(types.string()),
-  city: types.nullable(types.string()),
-  state: types.nullable(types.string()),
-  postalCode: types.nullable(types.string()),
-  country: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    line1: types.nullable(types.string()),
+    line2: types.nullable(types.string()),
+    city: types.nullable(types.string()),
+    state: types.nullable(types.string()),
+    postalCode: types.nullable(types.string()),
+    country: types.nullable(types.string()),
+  })
+);
 
 export function venueAddress1FromJSON(
   jsonString: string,
@@ -86,12 +88,14 @@ export function venueAddress1FromJSON(
 
 /** @internal */
 export const VenueContact$inboundSchema: z.ZodMiniType<VenueContact, unknown> =
-  z.object({
-    name: types.nullable(types.string()),
-    role: types.nullable(types.string()),
-    email: types.nullable(types.string()),
-    phone: types.nullable(types.string()),
-  });
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      name: types.nullable(types.string()),
+      role: types.nullable(types.string()),
+      email: types.nullable(types.string()),
+      phone: types.nullable(types.string()),
+    })
+  );
 
 export function venueContactFromJSON(
   jsonString: string,
@@ -104,11 +108,13 @@ export function venueContactFromJSON(
 }
 
 /** @internal */
-export const VenueSpace$inboundSchema: z.ZodMiniType<VenueSpace, unknown> = z
-  .object({
-    name: types.string(),
-    notes: types.nullable(types.string()),
-  });
+export const VenueSpace$inboundSchema: z.ZodMiniType<VenueSpace, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      name: types.string(),
+      notes: types.nullable(types.string()),
+    })
+  );
 
 export function venueSpaceFromJSON(
   jsonString: string,
@@ -122,23 +128,26 @@ export function venueSpaceFromJSON(
 
 /** @internal */
 export const VenueStatus$inboundSchema: z.ZodMiniType<VenueStatus, unknown> =
-  openEnums.inboundSchema(VenueStatus);
+  /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(VenueStatus));
 
 /** @internal */
-export const Venue$inboundSchema: z.ZodMiniType<Venue, unknown> = z.object({
-  id: types.string(),
-  name: types.string(),
-  website: types.nullable(types.string()),
-  address: types.nullable(z.lazy(() => VenueAddress1$inboundSchema)),
-  timezone: types.nullable(types.string()),
-  contacts: z.array(z.lazy(() => VenueContact$inboundSchema)),
-  spaces: z.array(z.lazy(() => VenueSpace$inboundSchema)),
-  notes: types.nullable(types.string()),
-  tagIds: z.array(types.string()),
-  status: VenueStatus$inboundSchema,
-  createdAt: types.date(),
-  updatedAt: types.date(),
-});
+export const Venue$inboundSchema: z.ZodMiniType<Venue, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      id: types.string(),
+      name: types.string(),
+      website: types.nullable(types.string()),
+      address: types.nullable(z.lazy(() => VenueAddress1$inboundSchema)),
+      timezone: types.nullable(types.string()),
+      contacts: z.array(z.lazy(() => VenueContact$inboundSchema)),
+      spaces: z.array(z.lazy(() => VenueSpace$inboundSchema)),
+      notes: types.nullable(types.string()),
+      tagIds: z.array(types.string()),
+      status: VenueStatus$inboundSchema,
+      createdAt: types.date(),
+      updatedAt: types.date(),
+    })
+  );
 
 export function venueFromJSON(
   jsonString: string,

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import {
   CalendarEvent,
@@ -24,10 +24,12 @@ export type CalendarEventList = {
 export const CalendarEventList$inboundSchema: z.ZodMiniType<
   CalendarEventList,
   unknown
-> = z.object({
-  data: z.array(CalendarEvent$inboundSchema),
-  pagination: PaginationMeta$inboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    data: z.array(CalendarEvent$inboundSchema),
+    pagination: PaginationMeta$inboundSchema,
+  })
+);
 
 export function calendarEventListFromJSON(
   jsonString: string,

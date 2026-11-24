@@ -11,5 +11,5 @@ let value: TimelineItemUpdateVisibleTo = "party";
 ## Values
 
 ```typescript
-"master" | "couple" | "vendor-all" | "venue" | "shot-list" | "party"
+"master" | "public-master" | "custom" | "vendor-selected" | "couple" | "vendor-all" | "venue" | "shot-list" | "party"
 ```

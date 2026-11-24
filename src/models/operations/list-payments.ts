@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -65,10 +65,12 @@ export type ListPaymentsSecurity$Outbound = {
 export const ListPaymentsSecurity$outboundSchema: z.ZodMiniType<
   ListPaymentsSecurity$Outbound,
   ListPaymentsSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function listPaymentsSecurityToJSON(
   listPaymentsSecurity: ListPaymentsSecurity,
@@ -81,12 +83,12 @@ export function listPaymentsSecurityToJSON(
 /** @internal */
 export const ListPaymentsStatus$outboundSchema: z.ZodMiniEnum<
   typeof ListPaymentsStatus
-> = z.enum(ListPaymentsStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(ListPaymentsStatus));
 
 /** @internal */
 export const ListPaymentsKind$outboundSchema: z.ZodMiniEnum<
   typeof ListPaymentsKind
-> = z.enum(ListPaymentsKind);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(ListPaymentsKind));
 
 /** @internal */
 export type ListPaymentsRequest$Outbound = {
@@ -103,15 +105,17 @@ export type ListPaymentsRequest$Outbound = {
 export const ListPaymentsRequest$outboundSchema: z.ZodMiniType<
   ListPaymentsRequest$Outbound,
   ListPaymentsRequest
-> = z.object({
-  page: z._default(z.int(), 1),
-  pageSize: z._default(z.int(), 25),
-  clientId: z.optional(z.string()),
-  invoiceId: z.optional(z.string()),
-  saleId: z.optional(z.string()),
-  status: z.optional(ListPaymentsStatus$outboundSchema),
-  kind: z.optional(ListPaymentsKind$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z._default(z.int(), 1),
+    pageSize: z._default(z.int(), 25),
+    clientId: z.optional(z.string()),
+    invoiceId: z.optional(z.string()),
+    saleId: z.optional(z.string()),
+    status: z.optional(ListPaymentsStatus$outboundSchema),
+    kind: z.optional(ListPaymentsKind$outboundSchema),
+  })
+);
 
 export function listPaymentsRequestToJSON(
   listPaymentsRequest: ListPaymentsRequest,
@@ -125,15 +129,17 @@ export function listPaymentsRequestToJSON(
 export const ListPaymentsResponse$inboundSchema: z.ZodMiniType<
   ListPaymentsResponse,
   unknown
-> = z.pipe(
-  z.object({
-    Result: models.PaymentList$inboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      "Result": "result",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      Result: models.PaymentList$inboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        "Result": "result",
+      });
+    }),
+  )
 );
 
 export function listPaymentsResponseFromJSON(

@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 export const CatalogItemCreateUnit = {
@@ -74,27 +75,29 @@ export type CatalogItemCreate = {
 /** @internal */
 export const CatalogItemCreateUnit$outboundSchema: z.ZodMiniEnum<
   typeof CatalogItemCreateUnit
-> = z.enum(CatalogItemCreateUnit);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CatalogItemCreateUnit));
 
 /** @internal */
 export const CatalogItemCreateDefaultFrequency$outboundSchema: z.ZodMiniEnum<
   typeof CatalogItemCreateDefaultFrequency
-> = z.enum(CatalogItemCreateDefaultFrequency);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(CatalogItemCreateDefaultFrequency)
+);
 
 /** @internal */
 export const CatalogItemCreateType$outboundSchema: z.ZodMiniEnum<
   typeof CatalogItemCreateType
-> = z.enum(CatalogItemCreateType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CatalogItemCreateType));
 
 /** @internal */
 export const CatalogItemCreatePricingMode$outboundSchema: z.ZodMiniEnum<
   typeof CatalogItemCreatePricingMode
-> = z.enum(CatalogItemCreatePricingMode);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CatalogItemCreatePricingMode));
 
 /** @internal */
 export const CatalogItemCreateStatus$outboundSchema: z.ZodMiniEnum<
   typeof CatalogItemCreateStatus
-> = z.enum(CatalogItemCreateStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CatalogItemCreateStatus));
 
 /** @internal */
 export type CatalogItemCreate$Outbound = {
@@ -117,24 +120,29 @@ export type CatalogItemCreate$Outbound = {
 export const CatalogItemCreate$outboundSchema: z.ZodMiniType<
   CatalogItemCreate$Outbound,
   CatalogItemCreate
-> = z.object({
-  name: z.string(),
-  businessId: z.optional(z.string()),
-  invoiceLabel: z.optional(z.string()),
-  description: z.optional(z.string()),
-  invoiceDescription: z.optional(z.string()),
-  defaultRate: z.optional(z.number()),
-  unit: z._default(CatalogItemCreateUnit$outboundSchema, "flat"),
-  defaultFrequency: z._default(
-    CatalogItemCreateDefaultFrequency$outboundSchema,
-    "one-time",
-  ),
-  type: CatalogItemCreateType$outboundSchema,
-  pricingMode: z._default(CatalogItemCreatePricingMode$outboundSchema, "fixed"),
-  taxCategoryId: z.optional(z.string()),
-  status: z._default(CatalogItemCreateStatus$outboundSchema, "active"),
-  clientId: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    name: z.string(),
+    businessId: z.optional(z.string()),
+    invoiceLabel: z.optional(z.string()),
+    description: z.optional(z.string()),
+    invoiceDescription: z.optional(z.string()),
+    defaultRate: z.optional(z.number()),
+    unit: z._default(CatalogItemCreateUnit$outboundSchema, "flat"),
+    defaultFrequency: z._default(
+      CatalogItemCreateDefaultFrequency$outboundSchema,
+      "one-time",
+    ),
+    type: CatalogItemCreateType$outboundSchema,
+    pricingMode: z._default(
+      CatalogItemCreatePricingMode$outboundSchema,
+      "fixed",
+    ),
+    taxCategoryId: z.optional(z.string()),
+    status: z._default(CatalogItemCreateStatus$outboundSchema, "active"),
+    clientId: z.optional(z.string()),
+  })
+);
 
 export function catalogItemCreateToJSON(
   catalogItemCreate: CatalogItemCreate,

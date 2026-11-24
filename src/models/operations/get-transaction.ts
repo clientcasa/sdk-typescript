@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 
 export type GetTransactionSecurity = {
   apiKey?: string | undefined;
@@ -26,10 +27,12 @@ export type GetTransactionSecurity$Outbound = {
 export const GetTransactionSecurity$outboundSchema: z.ZodMiniType<
   GetTransactionSecurity$Outbound,
   GetTransactionSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function getTransactionSecurityToJSON(
   getTransactionSecurity: GetTransactionSecurity,
@@ -48,9 +51,11 @@ export type GetTransactionRequest$Outbound = {
 export const GetTransactionRequest$outboundSchema: z.ZodMiniType<
   GetTransactionRequest$Outbound,
   GetTransactionRequest
-> = z.object({
-  id: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+  })
+);
 
 export function getTransactionRequestToJSON(
   getTransactionRequest: GetTransactionRequest,

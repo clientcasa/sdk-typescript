@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 import { Form, Form$inboundSchema } from "./form.js";
@@ -18,11 +18,13 @@ export type FormList = {
 };
 
 /** @internal */
-export const FormList$inboundSchema: z.ZodMiniType<FormList, unknown> = z
-  .object({
-    data: z.array(Form$inboundSchema),
-    pagination: PaginationMeta$inboundSchema,
-  });
+export const FormList$inboundSchema: z.ZodMiniType<FormList, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      data: z.array(Form$inboundSchema),
+      pagination: PaginationMeta$inboundSchema,
+    })
+  );
 
 export function formListFromJSON(
   jsonString: string,

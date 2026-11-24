@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -46,10 +46,12 @@ export type ListClientsSecurity$Outbound = {
 export const ListClientsSecurity$outboundSchema: z.ZodMiniType<
   ListClientsSecurity$Outbound,
   ListClientsSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function listClientsSecurityToJSON(
   listClientsSecurity: ListClientsSecurity,
@@ -62,7 +64,7 @@ export function listClientsSecurityToJSON(
 /** @internal */
 export const ListClientsStatus$outboundSchema: z.ZodMiniEnum<
   typeof ListClientsStatus
-> = z.enum(ListClientsStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(ListClientsStatus));
 
 /** @internal */
 export type ListClientsRequest$Outbound = {
@@ -75,11 +77,13 @@ export type ListClientsRequest$Outbound = {
 export const ListClientsRequest$outboundSchema: z.ZodMiniType<
   ListClientsRequest$Outbound,
   ListClientsRequest
-> = z.object({
-  page: z._default(z.int(), 1),
-  pageSize: z._default(z.int(), 25),
-  status: z.optional(ListClientsStatus$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z._default(z.int(), 1),
+    pageSize: z._default(z.int(), 25),
+    status: z.optional(ListClientsStatus$outboundSchema),
+  })
+);
 
 export function listClientsRequestToJSON(
   listClientsRequest: ListClientsRequest,
@@ -93,15 +97,17 @@ export function listClientsRequestToJSON(
 export const ListClientsResponse$inboundSchema: z.ZodMiniType<
   ListClientsResponse,
   unknown
-> = z.pipe(
-  z.object({
-    Result: models.ClientList$inboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      "Result": "result",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      Result: models.ClientList$inboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        "Result": "result",
+      });
+    }),
+  )
 );
 
 export function listClientsResponseFromJSON(

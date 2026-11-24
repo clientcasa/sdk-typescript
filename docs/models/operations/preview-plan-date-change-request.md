@@ -1,0 +1,23 @@
+# PreviewPlanDateChangeRequest
+
+## Example Usage
+
+```typescript
+import { PreviewPlanDateChangeRequest } from "@clientcasa/sdk/models/operations";
+
+let value: PreviewPlanDateChangeRequest = {
+  idempotencyKey: "create-client-2026-05-24-a1b2c3",
+  body: {
+    commandId: "38ee8c7d-64b7-47a1-9ca4-0324fd8e9356",
+    eventDayId: "228c98bb-a3d4-4b59-8618-08d2cae0b364",
+    day: "<value>",
+  },
+};
+```
+
+## Fields
+
+| Field                                                                                                                                                                                                        | Type                                                                                                                                                                                                         | Required                                                                                                                                                                                                     | Description                                                                                                                                                                                                  | Example                                                                                                                                                                                                      |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `idempotencyKey`                                                                                                                                                                                             | *string*                                                                                                                                                                                                     | :heavy_minus_sign:                                                                                                                                                                                           | Optional unique key that makes this request safely retryable. Replaying the same key returns the original response instead of creating a duplicate; reusing a key with a different request body returns 409. | create-client-2026-05-24-a1b2c3                                                                                                                                                                              |
+| `body`                                                                                                                                                                                                       | *operations.PreviewPlanDateChangeRequestBody*                                                                                                                                                                | :heavy_check_mark:                                                                                                                                                                                           | N/A                                                                                                                                                                                                          |                                                                                                                                                                                                              |

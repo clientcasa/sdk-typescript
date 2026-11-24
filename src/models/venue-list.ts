@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 import {
@@ -18,11 +18,13 @@ export type VenueList = {
 };
 
 /** @internal */
-export const VenueList$inboundSchema: z.ZodMiniType<VenueList, unknown> = z
-  .object({
-    data: z.array(Venue$inboundSchema),
-    pagination: PaginationMeta$inboundSchema,
-  });
+export const VenueList$inboundSchema: z.ZodMiniType<VenueList, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      data: z.array(Venue$inboundSchema),
+      pagination: PaginationMeta$inboundSchema,
+    })
+  );
 
 export function venueListFromJSON(
   jsonString: string,

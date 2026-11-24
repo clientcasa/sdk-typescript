@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 
 export type GetCatalogItemSecurity = {
   apiKey?: string | undefined;
@@ -26,10 +27,12 @@ export type GetCatalogItemSecurity$Outbound = {
 export const GetCatalogItemSecurity$outboundSchema: z.ZodMiniType<
   GetCatalogItemSecurity$Outbound,
   GetCatalogItemSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function getCatalogItemSecurityToJSON(
   getCatalogItemSecurity: GetCatalogItemSecurity,
@@ -48,9 +51,11 @@ export type GetCatalogItemRequest$Outbound = {
 export const GetCatalogItemRequest$outboundSchema: z.ZodMiniType<
   GetCatalogItemRequest$Outbound,
   GetCatalogItemRequest
-> = z.object({
-  id: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+  })
+);
 
 export function getCatalogItemRequestToJSON(
   getCatalogItemRequest: GetCatalogItemRequest,

@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 export const TimeEntryCreateRateType = {
@@ -41,7 +42,7 @@ export type TimeEntryCreate = {
 /** @internal */
 export const TimeEntryCreateRateType$outboundSchema: z.ZodMiniEnum<
   typeof TimeEntryCreateRateType
-> = z.enum(TimeEntryCreateRateType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(TimeEntryCreateRateType));
 
 /** @internal */
 export type TimeEntryCreate$Outbound = {
@@ -62,22 +63,24 @@ export type TimeEntryCreate$Outbound = {
 export const TimeEntryCreate$outboundSchema: z.ZodMiniType<
   TimeEntryCreate$Outbound,
   TimeEntryCreate
-> = z.object({
-  projectId: z.string(),
-  memberId: z.string(),
-  catalogItemId: z.optional(z.string()),
-  date: z.pipe(
-    z.date(),
-    z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
-  ),
-  hours: z.number(),
-  description: z.optional(z.string()),
-  billable: z._default(z.boolean(), true),
-  rateType: z._default(TimeEntryCreateRateType$outboundSchema, "standard"),
-  customMultiplierName: z.optional(z.string()),
-  rateOverride: z.optional(z.number()),
-  workerName: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    projectId: z.string(),
+    memberId: z.string(),
+    catalogItemId: z.optional(z.string()),
+    date: z.pipe(
+      z.date(),
+      z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
+    ),
+    hours: z.number(),
+    description: z.optional(z.string()),
+    billable: z._default(z.boolean(), true),
+    rateType: z._default(TimeEntryCreateRateType$outboundSchema, "standard"),
+    customMultiplierName: z.optional(z.string()),
+    rateOverride: z.optional(z.number()),
+    workerName: z.optional(z.string()),
+  })
+);
 
 export function timeEntryCreateToJSON(
   timeEntryCreate: TimeEntryCreate,

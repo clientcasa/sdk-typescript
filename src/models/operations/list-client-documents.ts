@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -73,10 +73,12 @@ export type ListClientDocumentsSecurity$Outbound = {
 export const ListClientDocumentsSecurity$outboundSchema: z.ZodMiniType<
   ListClientDocumentsSecurity$Outbound,
   ListClientDocumentsSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function listClientDocumentsSecurityToJSON(
   listClientDocumentsSecurity: ListClientDocumentsSecurity,
@@ -91,12 +93,11 @@ export function listClientDocumentsSecurityToJSON(
 /** @internal */
 export const ListClientDocumentsStatus$outboundSchema: z.ZodMiniEnum<
   typeof ListClientDocumentsStatus
-> = z.enum(ListClientDocumentsStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(ListClientDocumentsStatus));
 
 /** @internal */
-export const Archived$outboundSchema: z.ZodMiniEnum<typeof Archived> = z.enum(
-  Archived,
-);
+export const Archived$outboundSchema: z.ZodMiniEnum<typeof Archived> =
+  /* @__PURE__ */ lazySchema$(() => z.enum(Archived));
 
 /** @internal */
 export type ListClientDocumentsRequest$Outbound = {
@@ -112,14 +113,16 @@ export type ListClientDocumentsRequest$Outbound = {
 export const ListClientDocumentsRequest$outboundSchema: z.ZodMiniType<
   ListClientDocumentsRequest$Outbound,
   ListClientDocumentsRequest
-> = z.object({
-  page: z._default(z.int(), 1),
-  pageSize: z._default(z.int(), 25),
-  status: z.optional(ListClientDocumentsStatus$outboundSchema),
-  clientId: z.optional(z.string()),
-  contactId: z.optional(z.string()),
-  archived: z.optional(Archived$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z._default(z.int(), 1),
+    pageSize: z._default(z.int(), 25),
+    status: z.optional(ListClientDocumentsStatus$outboundSchema),
+    clientId: z.optional(z.string()),
+    contactId: z.optional(z.string()),
+    archived: z.optional(Archived$outboundSchema),
+  })
+);
 
 export function listClientDocumentsRequestToJSON(
   listClientDocumentsRequest: ListClientDocumentsRequest,
@@ -133,15 +136,17 @@ export function listClientDocumentsRequestToJSON(
 export const ListClientDocumentsResponse$inboundSchema: z.ZodMiniType<
   ListClientDocumentsResponse,
   unknown
-> = z.pipe(
-  z.object({
-    Result: models.ClientDocumentList$inboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      "Result": "result",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      Result: models.ClientDocumentList$inboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        "Result": "result",
+      });
+    }),
+  )
 );
 
 export function listClientDocumentsResponseFromJSON(

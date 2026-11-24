@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -19,14 +19,16 @@ export type VenueAddress = {
 
 /** @internal */
 export const VenueAddress$inboundSchema: z.ZodMiniType<VenueAddress, unknown> =
-  z.object({
-    name: types.nullable(types.string()),
-    street: types.nullable(types.string()),
-    city: types.nullable(types.string()),
-    state: types.nullable(types.string()),
-    zip: types.nullable(types.string()),
-    country: types.nullable(types.string()),
-  });
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      name: types.nullable(types.string()),
+      street: types.nullable(types.string()),
+      city: types.nullable(types.string()),
+      state: types.nullable(types.string()),
+      zip: types.nullable(types.string()),
+      country: types.nullable(types.string()),
+    })
+  );
 
 export function venueAddressFromJSON(
   jsonString: string,

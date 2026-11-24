@@ -29,7 +29,10 @@ let value: TimelineItemList = {
       vendorIds: [
         "550e8400-e29b-41d4-a716-446655440000",
       ],
-      status: "skipped",
+      publicVendorIds: [
+        "550e8400-e29b-41d4-a716-446655440000",
+      ],
+      status: "informational",
       createdAt: new Date("2026-04-13T01:55:12.896Z"),
       updatedAt: new Date("2025-08-01T05:47:17.016Z"),
     },

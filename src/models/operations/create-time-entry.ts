@@ -4,6 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 import * as models from "../index.js";
 
 export type CreateTimeEntrySecurity = {
@@ -29,10 +30,12 @@ export type CreateTimeEntrySecurity$Outbound = {
 export const CreateTimeEntrySecurity$outboundSchema: z.ZodMiniType<
   CreateTimeEntrySecurity$Outbound,
   CreateTimeEntrySecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function createTimeEntrySecurityToJSON(
   createTimeEntrySecurity: CreateTimeEntrySecurity,
@@ -52,16 +55,18 @@ export type CreateTimeEntryRequest$Outbound = {
 export const CreateTimeEntryRequest$outboundSchema: z.ZodMiniType<
   CreateTimeEntryRequest$Outbound,
   CreateTimeEntryRequest
-> = z.pipe(
-  z.object({
-    idempotencyKey: z.optional(z.string()),
-    body: models.TimeEntryCreate$outboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      idempotencyKey: "Idempotency-Key",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      idempotencyKey: z.optional(z.string()),
+      body: models.TimeEntryCreate$outboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        idempotencyKey: "Idempotency-Key",
+      });
+    }),
+  )
 );
 
 export function createTimeEntryRequestToJSON(

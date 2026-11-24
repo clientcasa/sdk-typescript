@@ -3,11 +3,12 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import * as openEnums from "../types/enums.js";
-import { OpenEnum } from "../types/enums.js";
+import { ClosedEnum, OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
+import { smartUnion } from "../types/smart-union.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 /**
@@ -30,6 +31,9 @@ export type TimelineItemAnchorType = OpenEnum<typeof TimelineItemAnchorType>;
 
 export const TimelineItemVisibleTo = {
   Master: "master",
+  PublicMaster: "public-master",
+  Custom: "custom",
+  VendorSelected: "vendor-selected",
   Couple: "couple",
   VendorAll: "vendor-all",
   Venue: "venue",
@@ -38,13 +42,20 @@ export const TimelineItemVisibleTo = {
 } as const;
 export type TimelineItemVisibleTo = OpenEnum<typeof TimelineItemVisibleTo>;
 
-export const TimelineItemStatus = {
+export const StatusInformational = {
+  Informational: "informational",
+} as const;
+export type StatusInformational = ClosedEnum<typeof StatusInformational>;
+
+export const TimelineItemStatusEnum = {
   Pending: "pending",
   InProgress: "in-progress",
   Completed: "completed",
   Skipped: "skipped",
 } as const;
-export type TimelineItemStatus = OpenEnum<typeof TimelineItemStatus>;
+export type TimelineItemStatusEnum = OpenEnum<typeof TimelineItemStatusEnum>;
+
+export type Status = TimelineItemStatusEnum | StatusInformational;
 
 export type TimelineItem = {
   /**
@@ -77,7 +88,8 @@ export type TimelineItem = {
   location: string | null;
   visibleTo: Array<TimelineItemVisibleTo>;
   vendorIds: Array<string>;
-  status: TimelineItemStatus;
+  publicVendorIds: Array<string>;
+  status: TimelineItemStatusEnum | StatusInformational;
   /**
    * ISO 8601 timestamp (UTC)
    */
@@ -92,45 +104,81 @@ export type TimelineItem = {
 export const TimelineItemAnchorType$inboundSchema: z.ZodMiniType<
   TimelineItemAnchorType,
   unknown
-> = openEnums.inboundSchema(TimelineItemAnchorType);
+> = /* @__PURE__ */ lazySchema$(() =>
+  openEnums.inboundSchema(TimelineItemAnchorType)
+);
 
 /** @internal */
 export const TimelineItemVisibleTo$inboundSchema: z.ZodMiniType<
   TimelineItemVisibleTo,
   unknown
-> = openEnums.inboundSchema(TimelineItemVisibleTo);
+> = /* @__PURE__ */ lazySchema$(() =>
+  openEnums.inboundSchema(TimelineItemVisibleTo)
+);
 
 /** @internal */
-export const TimelineItemStatus$inboundSchema: z.ZodMiniType<
-  TimelineItemStatus,
+export const StatusInformational$inboundSchema: z.ZodMiniEnum<
+  typeof StatusInformational
+> = /* @__PURE__ */ lazySchema$(() => z.enum(StatusInformational));
+
+/** @internal */
+export const TimelineItemStatusEnum$inboundSchema: z.ZodMiniType<
+  TimelineItemStatusEnum,
   unknown
-> = openEnums.inboundSchema(TimelineItemStatus);
+> = /* @__PURE__ */ lazySchema$(() =>
+  openEnums.inboundSchema(TimelineItemStatusEnum)
+);
+
+/** @internal */
+export const Status$inboundSchema: z.ZodMiniType<Status, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    smartUnion([
+      TimelineItemStatusEnum$inboundSchema,
+      StatusInformational$inboundSchema,
+    ])
+  );
+
+export function statusFromJSON(
+  jsonString: string,
+): SafeParseResult<Status, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Status$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Status' from JSON`,
+  );
+}
 
 /** @internal */
 export const TimelineItem$inboundSchema: z.ZodMiniType<TimelineItem, unknown> =
-  z.object({
-    id: types.string(),
-    eventDayId: types.string(),
-    title: types.string(),
-    description: types.nullable(types.string()),
-    categoryId: types.nullable(types.string()),
-    sortOrder: types.number(),
-    trackId: types.nullable(types.string()),
-    requestedStartTime: types.nullable(types.string()),
-    durationMinutes: types.number(),
-    bufferBeforeMinutes: types.nullable(types.number()),
-    bufferAfterMinutes: types.nullable(types.number()),
-    travelTimeMinutes: types.nullable(types.number()),
-    locked: types.boolean(),
-    anchorType: TimelineItemAnchorType$inboundSchema,
-    anchorKey: types.nullable(types.string()),
-    location: types.nullable(types.string()),
-    visibleTo: z.array(TimelineItemVisibleTo$inboundSchema),
-    vendorIds: z.array(types.string()),
-    status: TimelineItemStatus$inboundSchema,
-    createdAt: types.date(),
-    updatedAt: types.date(),
-  });
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      id: types.string(),
+      eventDayId: types.string(),
+      title: types.string(),
+      description: types.nullable(types.string()),
+      categoryId: types.nullable(types.string()),
+      sortOrder: types.number(),
+      trackId: types.nullable(types.string()),
+      requestedStartTime: types.nullable(types.string()),
+      durationMinutes: types.number(),
+      bufferBeforeMinutes: types.nullable(types.number()),
+      bufferAfterMinutes: types.nullable(types.number()),
+      travelTimeMinutes: types.nullable(types.number()),
+      locked: types.boolean(),
+      anchorType: TimelineItemAnchorType$inboundSchema,
+      anchorKey: types.nullable(types.string()),
+      location: types.nullable(types.string()),
+      visibleTo: z.array(TimelineItemVisibleTo$inboundSchema),
+      vendorIds: z.array(types.string()),
+      publicVendorIds: z.array(types.string()),
+      status: smartUnion([
+        TimelineItemStatusEnum$inboundSchema,
+        StatusInformational$inboundSchema,
+      ]),
+      createdAt: types.date(),
+      updatedAt: types.date(),
+    })
+  );
 
 export function timelineItemFromJSON(
   jsonString: string,

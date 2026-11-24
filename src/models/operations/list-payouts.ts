@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -46,10 +46,12 @@ export type ListPayoutsSecurity$Outbound = {
 export const ListPayoutsSecurity$outboundSchema: z.ZodMiniType<
   ListPayoutsSecurity$Outbound,
   ListPayoutsSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function listPayoutsSecurityToJSON(
   listPayoutsSecurity: ListPayoutsSecurity,
@@ -62,7 +64,7 @@ export function listPayoutsSecurityToJSON(
 /** @internal */
 export const ListPayoutsStatus$outboundSchema: z.ZodMiniEnum<
   typeof ListPayoutsStatus
-> = z.enum(ListPayoutsStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(ListPayoutsStatus));
 
 /** @internal */
 export type ListPayoutsRequest$Outbound = {
@@ -77,23 +79,21 @@ export type ListPayoutsRequest$Outbound = {
 export const ListPayoutsRequest$outboundSchema: z.ZodMiniType<
   ListPayoutsRequest$Outbound,
   ListPayoutsRequest
-> = z.object({
-  page: z._default(z.int(), 1),
-  pageSize: z._default(z.int(), 25),
-  status: z.optional(ListPayoutsStatus$outboundSchema),
-  arrivalDateFrom: z.optional(
-    z.pipe(
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z._default(z.int(), 1),
+    pageSize: z._default(z.int(), 25),
+    status: z.optional(ListPayoutsStatus$outboundSchema),
+    arrivalDateFrom: z.optional(z.pipe(
       z.date(),
       z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
-    ),
-  ),
-  arrivalDateTo: z.optional(
-    z.pipe(
+    )),
+    arrivalDateTo: z.optional(z.pipe(
       z.date(),
       z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
-    ),
-  ),
-});
+    )),
+  })
+);
 
 export function listPayoutsRequestToJSON(
   listPayoutsRequest: ListPayoutsRequest,
@@ -107,15 +107,17 @@ export function listPayoutsRequestToJSON(
 export const ListPayoutsResponse$inboundSchema: z.ZodMiniType<
   ListPayoutsResponse,
   unknown
-> = z.pipe(
-  z.object({
-    Result: models.PayoutList$inboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      "Result": "result",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      Result: models.PayoutList$inboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        "Result": "result",
+      });
+    }),
+  )
 );
 
 export function listPayoutsResponseFromJSON(

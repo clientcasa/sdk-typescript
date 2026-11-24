@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 export type VendorUpdateAddress = {
@@ -60,12 +61,14 @@ export type VendorUpdateAddress$Outbound = {
 export const VendorUpdateAddress$outboundSchema: z.ZodMiniType<
   VendorUpdateAddress$Outbound,
   VendorUpdateAddress
-> = z.object({
-  street: z.optional(z.string()),
-  city: z.optional(z.string()),
-  state: z.optional(z.string()),
-  zip: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    street: z.optional(z.string()),
+    city: z.optional(z.string()),
+    state: z.optional(z.string()),
+    zip: z.optional(z.string()),
+  })
+);
 
 export function vendorUpdateAddressToJSON(
   vendorUpdateAddress: VendorUpdateAddress,
@@ -78,12 +81,12 @@ export function vendorUpdateAddressToJSON(
 /** @internal */
 export const VendorUpdateRating$outboundSchema: z.ZodMiniEnum<
   typeof VendorUpdateRating
-> = z.enum(VendorUpdateRating);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(VendorUpdateRating));
 
 /** @internal */
 export const VendorUpdateStatus$outboundSchema: z.ZodMiniEnum<
   typeof VendorUpdateStatus
-> = z.enum(VendorUpdateStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(VendorUpdateStatus));
 
 /** @internal */
 export type VendorUpdate$Outbound = {
@@ -106,21 +109,23 @@ export type VendorUpdate$Outbound = {
 export const VendorUpdate$outboundSchema: z.ZodMiniType<
   VendorUpdate$Outbound,
   VendorUpdate
-> = z.object({
-  name: z.optional(z.string()),
-  companyName: z.optional(z.nullable(z.string())),
-  categoryId: z.optional(z.nullable(z.string())),
-  email: z.optional(z.nullable(z.string())),
-  phone: z.optional(z.nullable(z.string())),
-  website: z.optional(z.nullable(z.string())),
-  address: z.optional(z.lazy(() => VendorUpdateAddress$outboundSchema)),
-  notes: z.optional(z.nullable(z.string())),
-  rating: z.optional(VendorUpdateRating$outboundSchema),
-  defaultSetupMinutes: z.optional(z.nullable(z.int())),
-  defaultTeardownMinutes: z.optional(z.nullable(z.int())),
-  linkedContactId: z.optional(z.nullable(z.string())),
-  status: z.optional(VendorUpdateStatus$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    name: z.optional(z.string()),
+    companyName: z.optional(z.nullable(z.string())),
+    categoryId: z.optional(z.nullable(z.string())),
+    email: z.optional(z.nullable(z.string())),
+    phone: z.optional(z.nullable(z.string())),
+    website: z.optional(z.nullable(z.string())),
+    address: z.optional(z.lazy(() => VendorUpdateAddress$outboundSchema)),
+    notes: z.optional(z.nullable(z.string())),
+    rating: z.optional(VendorUpdateRating$outboundSchema),
+    defaultSetupMinutes: z.optional(z.nullable(z.int())),
+    defaultTeardownMinutes: z.optional(z.nullable(z.int())),
+    linkedContactId: z.optional(z.nullable(z.string())),
+    status: z.optional(VendorUpdateStatus$outboundSchema),
+  })
+);
 
 export function vendorUpdateToJSON(vendorUpdate: VendorUpdate): string {
   return JSON.stringify(VendorUpdate$outboundSchema.parse(vendorUpdate));

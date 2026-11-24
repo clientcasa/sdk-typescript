@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 export const PaymentCreateMethod = {
@@ -33,6 +34,10 @@ export type PaymentCreate = {
    * UUID v4
    */
   invoiceId?: string | undefined;
+  /**
+   * Pass the immutable invoiceVersion from the invoice read to get a version-bound receipt. A stale version is refused. Without invoiceVersion, the receipt shows the payment only.
+   */
+  invoiceVersion?: number | undefined;
   amount: number;
   currency?: string | undefined;
   receivedDate: Date;
@@ -53,17 +58,18 @@ export type PaymentCreate = {
 /** @internal */
 export const PaymentCreateMethod$outboundSchema: z.ZodMiniEnum<
   typeof PaymentCreateMethod
-> = z.enum(PaymentCreateMethod);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(PaymentCreateMethod));
 
 /** @internal */
 export const PaymentCreateKind$outboundSchema: z.ZodMiniEnum<
   typeof PaymentCreateKind
-> = z.enum(PaymentCreateKind);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(PaymentCreateKind));
 
 /** @internal */
 export type PaymentCreate$Outbound = {
   clientId: string;
   invoiceId?: string | undefined;
+  invoiceVersion?: number | undefined;
   amount: number;
   currency: string;
   receivedDate: string;
@@ -79,22 +85,25 @@ export type PaymentCreate$Outbound = {
 export const PaymentCreate$outboundSchema: z.ZodMiniType<
   PaymentCreate$Outbound,
   PaymentCreate
-> = z.object({
-  clientId: z.string(),
-  invoiceId: z.optional(z.string()),
-  amount: z.number(),
-  currency: z._default(z.string(), "USD"),
-  receivedDate: z.pipe(
-    z.date(),
-    z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
-  ),
-  method: PaymentCreateMethod$outboundSchema,
-  kind: z._default(PaymentCreateKind$outboundSchema, "payment"),
-  reference: z.optional(z.string()),
-  notes: z.optional(z.string()),
-  refundOfId: z.optional(z.string()),
-  sendReceipt: z._default(z.boolean(), false),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    clientId: z.string(),
+    invoiceId: z.optional(z.string()),
+    invoiceVersion: z.optional(z.int()),
+    amount: z.number(),
+    currency: z._default(z.string(), "USD"),
+    receivedDate: z.pipe(
+      z.date(),
+      z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
+    ),
+    method: PaymentCreateMethod$outboundSchema,
+    kind: z._default(PaymentCreateKind$outboundSchema, "payment"),
+    reference: z.optional(z.string()),
+    notes: z.optional(z.string()),
+    refundOfId: z.optional(z.string()),
+    sendReceipt: z._default(z.boolean(), false),
+  })
+);
 
 export function paymentCreateToJSON(paymentCreate: PaymentCreate): string {
   return JSON.stringify(PaymentCreate$outboundSchema.parse(paymentCreate));

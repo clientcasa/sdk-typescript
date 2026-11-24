@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 export type VendorCreateAddress = {
@@ -60,12 +61,14 @@ export type VendorCreateAddress$Outbound = {
 export const VendorCreateAddress$outboundSchema: z.ZodMiniType<
   VendorCreateAddress$Outbound,
   VendorCreateAddress
-> = z.object({
-  street: z.optional(z.string()),
-  city: z.optional(z.string()),
-  state: z.optional(z.string()),
-  zip: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    street: z.optional(z.string()),
+    city: z.optional(z.string()),
+    state: z.optional(z.string()),
+    zip: z.optional(z.string()),
+  })
+);
 
 export function vendorCreateAddressToJSON(
   vendorCreateAddress: VendorCreateAddress,
@@ -78,12 +81,12 @@ export function vendorCreateAddressToJSON(
 /** @internal */
 export const VendorCreateRating$outboundSchema: z.ZodMiniEnum<
   typeof VendorCreateRating
-> = z.enum(VendorCreateRating);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(VendorCreateRating));
 
 /** @internal */
 export const VendorCreateStatus$outboundSchema: z.ZodMiniEnum<
   typeof VendorCreateStatus
-> = z.enum(VendorCreateStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(VendorCreateStatus));
 
 /** @internal */
 export type VendorCreate$Outbound = {
@@ -106,21 +109,23 @@ export type VendorCreate$Outbound = {
 export const VendorCreate$outboundSchema: z.ZodMiniType<
   VendorCreate$Outbound,
   VendorCreate
-> = z.object({
-  name: z.string(),
-  companyName: z.optional(z.string()),
-  categoryId: z.optional(z.string()),
-  email: z.optional(z.string()),
-  phone: z.optional(z.string()),
-  website: z.optional(z.string()),
-  address: z.optional(z.lazy(() => VendorCreateAddress$outboundSchema)),
-  notes: z.optional(z.string()),
-  rating: z.optional(VendorCreateRating$outboundSchema),
-  defaultSetupMinutes: z.optional(z.int()),
-  defaultTeardownMinutes: z.optional(z.int()),
-  linkedContactId: z.optional(z.string()),
-  status: z._default(VendorCreateStatus$outboundSchema, "active"),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    name: z.string(),
+    companyName: z.optional(z.string()),
+    categoryId: z.optional(z.string()),
+    email: z.optional(z.string()),
+    phone: z.optional(z.string()),
+    website: z.optional(z.string()),
+    address: z.optional(z.lazy(() => VendorCreateAddress$outboundSchema)),
+    notes: z.optional(z.string()),
+    rating: z.optional(VendorCreateRating$outboundSchema),
+    defaultSetupMinutes: z.optional(z.int()),
+    defaultTeardownMinutes: z.optional(z.int()),
+    linkedContactId: z.optional(z.string()),
+    status: z._default(VendorCreateStatus$outboundSchema, "active"),
+  })
+);
 
 export function vendorCreateToJSON(vendorCreate: VendorCreate): string {
   return JSON.stringify(VendorCreate$outboundSchema.parse(vendorCreate));

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
@@ -40,21 +40,24 @@ export type Form = {
 
 /** @internal */
 export const FormKind$inboundSchema: z.ZodMiniType<FormKind, unknown> =
-  openEnums.inboundSchema(FormKind);
+  /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(FormKind));
 
 /** @internal */
-export const Form$inboundSchema: z.ZodMiniType<Form, unknown> = z.object({
-  id: types.string(),
-  name: types.string(),
-  title: types.nullable(types.string()),
-  description: types.nullable(types.string()),
-  kind: FormKind$inboundSchema,
-  slug: types.nullable(types.string()),
-  enabled: types.boolean(),
-  isDefault: types.boolean(),
-  createdAt: types.date(),
-  updatedAt: types.date(),
-});
+export const Form$inboundSchema: z.ZodMiniType<Form, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      id: types.string(),
+      name: types.string(),
+      title: types.nullable(types.string()),
+      description: types.nullable(types.string()),
+      kind: FormKind$inboundSchema,
+      slug: types.nullable(types.string()),
+      enabled: types.boolean(),
+      isDefault: types.boolean(),
+      createdAt: types.date(),
+      updatedAt: types.date(),
+    })
+  );
 
 export function formFromJSON(
   jsonString: string,

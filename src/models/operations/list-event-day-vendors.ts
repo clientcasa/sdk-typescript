@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
@@ -41,10 +41,12 @@ export type ListEventDayVendorsSecurity$Outbound = {
 export const ListEventDayVendorsSecurity$outboundSchema: z.ZodMiniType<
   ListEventDayVendorsSecurity$Outbound,
   ListEventDayVendorsSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function listEventDayVendorsSecurityToJSON(
   listEventDayVendorsSecurity: ListEventDayVendorsSecurity,
@@ -68,12 +70,14 @@ export type ListEventDayVendorsRequest$Outbound = {
 export const ListEventDayVendorsRequest$outboundSchema: z.ZodMiniType<
   ListEventDayVendorsRequest$Outbound,
   ListEventDayVendorsRequest
-> = z.object({
-  page: z._default(z.int(), 1),
-  pageSize: z._default(z.int(), 25),
-  eventDayId: z.optional(z.string()),
-  vendorId: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z._default(z.int(), 1),
+    pageSize: z._default(z.int(), 25),
+    eventDayId: z.optional(z.string()),
+    vendorId: z.optional(z.string()),
+  })
+);
 
 export function listEventDayVendorsRequestToJSON(
   listEventDayVendorsRequest: ListEventDayVendorsRequest,
@@ -87,15 +91,17 @@ export function listEventDayVendorsRequestToJSON(
 export const ListEventDayVendorsResponse$inboundSchema: z.ZodMiniType<
   ListEventDayVendorsResponse,
   unknown
-> = z.pipe(
-  z.object({
-    Result: models.EventDayVendorList$inboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      "Result": "result",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      Result: models.EventDayVendorList$inboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        "Result": "result",
+      });
+    }),
+  )
 );
 
 export function listEventDayVendorsResponseFromJSON(

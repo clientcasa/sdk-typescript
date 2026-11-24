@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
@@ -11,7 +11,13 @@ import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 
 export const WebhookEvent = {
+  BookingCreated: "booking_created",
+  BookingRescheduled: "booking_rescheduled",
+  BookingCancelled: "booking_cancelled",
+  BookingCompleted: "booking_completed",
+  BookingNoShow: "booking_no_show",
   InvoiceSent: "invoice_sent",
+  InvoiceRevised: "invoice_revised",
   InvoiceDueSoon: "invoice_due_soon",
   InvoiceOverdue: "invoice_overdue",
   InvoicePaid: "invoice_paid",
@@ -30,6 +36,9 @@ export const WebhookEvent = {
   ScheduleInstallmentDue: "schedule_installment_due",
   ScheduleInstallmentPaid: "schedule_installment_paid",
   ScheduleCompleted: "schedule_completed",
+  PaymentPlanInvoicePrepared: "payment_plan_invoice_prepared",
+  PaymentPlanReopened: "payment_plan_reopened",
+  PaymentPlanSendingPaused: "payment_plan_sending_paused",
   DocumentProcessed: "document_processed",
   DocumentActionCreated: "document_action_created",
   DocumentActionApproved: "document_action_approved",
@@ -38,6 +47,19 @@ export const WebhookEvent = {
   ClientCreated: "client_created",
   ContactCreated: "contact_created",
   ProjectCreated: "project_created",
+  ProjectStageChanged: "project_stage_changed",
+  TodoCreated: "todo_created",
+  TodoUpdated: "todo_updated",
+  TodoScheduled: "todo_scheduled",
+  TodoStarted: "todo_started",
+  TodoCompleted: "todo_completed",
+  TodoReopened: "todo_reopened",
+  TodoCancelled: "todo_cancelled",
+  TodoRestored: "todo_restored",
+  TodoMerged: "todo_merged",
+  PlanTemplateApplied: "plan_template_applied",
+  ProjectEventDateChanged: "project_event_date_changed",
+  ProjectActRecorded: "project_act_recorded",
   TimeEntryCreated: "time_entry_created",
   LeadCreated: "lead_created",
   ClientWon: "client_won",
@@ -56,6 +78,7 @@ export const WebhookEvent = {
   ContractVoided: "contract_voided",
   FormSubmissionCompleted: "form_submission_completed",
   SmartFileSent: "smart_file_sent",
+  SmartFileEmailRequested: "smart_file_email_requested",
   SmartFileViewed: "smart_file_viewed",
   SmartFileAccepted: "smart_file_accepted",
   SmartFileCompleted: "smart_file_completed",
@@ -83,6 +106,8 @@ export const WebhookEvent = {
   SaleViewed: "sale_viewed",
   RecurringBillingRestarted: "recurring_billing_restarted",
   AutoChargeSkipped: "auto_charge_skipped",
+  SmartFileBillingReviewed: "smart_file_billing_reviewed",
+  ProposalPaymentTermsSaved: "proposal_payment_terms_saved",
 } as const;
 export type WebhookEvent = OpenEnum<typeof WebhookEvent>;
 
@@ -123,29 +148,32 @@ export type Webhook = {
 
 /** @internal */
 export const WebhookEvent$inboundSchema: z.ZodMiniType<WebhookEvent, unknown> =
-  openEnums.inboundSchema(WebhookEvent);
+  /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(WebhookEvent));
 
 /** @internal */
 export const WebhookSource$inboundSchema: z.ZodMiniType<
   WebhookSource,
   unknown
-> = openEnums.inboundSchema(WebhookSource);
+> = /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(WebhookSource));
 
 /** @internal */
-export const Webhook$inboundSchema: z.ZodMiniType<Webhook, unknown> = z.object({
-  id: types.string(),
-  name: types.string(),
-  url: types.string(),
-  events: z.array(WebhookEvent$inboundSchema),
-  enabled: types.boolean(),
-  source: WebhookSource$inboundSchema,
-  hasSecret: types.boolean(),
-  lastTriggered: types.nullable(types.date()),
-  lastStatus: types.nullable(types.number()),
-  consecutiveFailures: types.number(),
-  createdAt: types.date(),
-  updatedAt: types.date(),
-});
+export const Webhook$inboundSchema: z.ZodMiniType<Webhook, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      id: types.string(),
+      name: types.string(),
+      url: types.string(),
+      events: z.array(WebhookEvent$inboundSchema),
+      enabled: types.boolean(),
+      source: WebhookSource$inboundSchema,
+      hasSecret: types.boolean(),
+      lastTriggered: types.nullable(types.date()),
+      lastStatus: types.nullable(types.number()),
+      consecutiveFailures: types.number(),
+      createdAt: types.date(),
+      updatedAt: types.date(),
+    })
+  );
 
 export function webhookFromJSON(
   jsonString: string,

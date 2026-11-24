@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 export type VenueUpdateAddress = {
@@ -58,14 +59,16 @@ export type VenueUpdateAddress$Outbound = {
 export const VenueUpdateAddress$outboundSchema: z.ZodMiniType<
   VenueUpdateAddress$Outbound,
   VenueUpdateAddress
-> = z.object({
-  line1: z.optional(z.string()),
-  line2: z.optional(z.string()),
-  city: z.optional(z.string()),
-  state: z.optional(z.string()),
-  postalCode: z.optional(z.string()),
-  country: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    line1: z.optional(z.string()),
+    line2: z.optional(z.string()),
+    city: z.optional(z.string()),
+    state: z.optional(z.string()),
+    postalCode: z.optional(z.string()),
+    country: z.optional(z.string()),
+  })
+);
 
 export function venueUpdateAddressToJSON(
   venueUpdateAddress: VenueUpdateAddress,
@@ -87,12 +90,14 @@ export type VenueUpdateContact$Outbound = {
 export const VenueUpdateContact$outboundSchema: z.ZodMiniType<
   VenueUpdateContact$Outbound,
   VenueUpdateContact
-> = z.object({
-  name: z.optional(z.string()),
-  role: z.optional(z.string()),
-  email: z.optional(z.string()),
-  phone: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    name: z.optional(z.string()),
+    role: z.optional(z.string()),
+    email: z.optional(z.string()),
+    phone: z.optional(z.string()),
+  })
+);
 
 export function venueUpdateContactToJSON(
   venueUpdateContact: VenueUpdateContact,
@@ -112,10 +117,12 @@ export type VenueUpdateSpace$Outbound = {
 export const VenueUpdateSpace$outboundSchema: z.ZodMiniType<
   VenueUpdateSpace$Outbound,
   VenueUpdateSpace
-> = z.object({
-  name: z.string(),
-  notes: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    name: z.string(),
+    notes: z.optional(z.string()),
+  })
+);
 
 export function venueUpdateSpaceToJSON(
   venueUpdateSpace: VenueUpdateSpace,
@@ -128,7 +135,7 @@ export function venueUpdateSpaceToJSON(
 /** @internal */
 export const VenueUpdateStatus$outboundSchema: z.ZodMiniEnum<
   typeof VenueUpdateStatus
-> = z.enum(VenueUpdateStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(VenueUpdateStatus));
 
 /** @internal */
 export type VenueUpdate$Outbound = {
@@ -147,19 +154,21 @@ export type VenueUpdate$Outbound = {
 export const VenueUpdate$outboundSchema: z.ZodMiniType<
   VenueUpdate$Outbound,
   VenueUpdate
-> = z.object({
-  name: z.optional(z.string()),
-  website: z.optional(z.nullable(z.string())),
-  address: z.optional(z.lazy(() => VenueUpdateAddress$outboundSchema)),
-  timezone: z.optional(z.nullable(z.string())),
-  contacts: z.optional(
-    z.array(z.lazy(() => VenueUpdateContact$outboundSchema)),
-  ),
-  spaces: z.optional(z.array(z.lazy(() => VenueUpdateSpace$outboundSchema))),
-  notes: z.optional(z.nullable(z.string())),
-  tagIds: z.optional(z.array(z.string())),
-  status: z.optional(VenueUpdateStatus$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    name: z.optional(z.string()),
+    website: z.optional(z.nullable(z.string())),
+    address: z.optional(z.lazy(() => VenueUpdateAddress$outboundSchema)),
+    timezone: z.optional(z.nullable(z.string())),
+    contacts: z.optional(
+      z.array(z.lazy(() => VenueUpdateContact$outboundSchema)),
+    ),
+    spaces: z.optional(z.array(z.lazy(() => VenueUpdateSpace$outboundSchema))),
+    notes: z.optional(z.nullable(z.string())),
+    tagIds: z.optional(z.array(z.string())),
+    status: z.optional(VenueUpdateStatus$outboundSchema),
+  })
+);
 
 export function venueUpdateToJSON(venueUpdate: VenueUpdate): string {
   return JSON.stringify(VenueUpdate$outboundSchema.parse(venueUpdate));

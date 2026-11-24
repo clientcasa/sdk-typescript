@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
@@ -36,16 +36,19 @@ export type Inquiry = {
 
 /** @internal */
 export const InquiryStatus$inboundSchema: z.ZodMiniEnum<typeof InquiryStatus> =
-  z.enum(InquiryStatus);
+  /* @__PURE__ */ lazySchema$(() => z.enum(InquiryStatus));
 
 /** @internal */
-export const Inquiry$inboundSchema: z.ZodMiniType<Inquiry, unknown> = z.object({
-  id: types.string(),
-  status: InquiryStatus$inboundSchema,
-  clientId: types.nullable(types.string()),
-  contactId: types.nullable(types.string()),
-  submissionId: types.nullable(types.string()),
-});
+export const Inquiry$inboundSchema: z.ZodMiniType<Inquiry, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      id: types.string(),
+      status: InquiryStatus$inboundSchema,
+      clientId: types.nullable(types.string()),
+      contactId: types.nullable(types.string()),
+      submissionId: types.nullable(types.string()),
+    })
+  );
 
 export function inquiryFromJSON(
   jsonString: string,

@@ -9,20 +9,21 @@ let value: CalendarEvent = {
   id: "550e8400-e29b-41d4-a716-446655440000",
   title: "<value>",
   description: "until since quaver why",
-  startDateTime: new Date("2025-08-08T07:59:32.866Z"),
-  endDateTime: new Date("2026-04-16T14:43:59.507Z"),
+  location: "<value>",
+  startDateTime: new Date("2026-04-16T14:43:59.507Z"),
+  endDateTime: new Date("2024-10-12T17:15:08.650Z"),
   allDay: true,
   projectId: "550e8400-e29b-41d4-a716-446655440000",
   clientId: "550e8400-e29b-41d4-a716-446655440000",
   actionable: true,
-  completedAt: new Date("2026-05-07T18:11:39.782Z"),
+  completedAt: new Date("2025-01-30T08:05:08.512Z"),
   recurring: true,
   rrule: "<value>",
-  recurrenceEnd: new Date("2026-05-05T04:37:49.258Z"),
-  source: "manual",
-  readOnly: true,
-  createdAt: new Date("2026-12-15T20:24:53.914Z"),
-  updatedAt: new Date("2024-03-29T03:47:58.728Z"),
+  recurrenceEnd: new Date("2024-09-22T11:55:54.937Z"),
+  source: "google",
+  readOnly: false,
+  createdAt: new Date("2024-03-29T03:47:58.728Z"),
+  updatedAt: new Date("2025-05-22T16:21:00.522Z"),
 };
 ```
 
@@ -33,6 +34,7 @@ let value: CalendarEvent = {
 | `id`                                                                                          | *string*                                                                                      | :heavy_check_mark:                                                                            | UUID v4                                                                                       | 550e8400-e29b-41d4-a716-446655440000                                                          |
 | `title`                                                                                       | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
 | `description`                                                                                 | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `location`                                                                                    | *string*                                                                                      | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
 | `startDateTime`                                                                               | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | ISO 8601 timestamp (UTC)                                                                      |                                                                                               |
 | `endDateTime`                                                                                 | [Date](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date) | :heavy_check_mark:                                                                            | ISO 8601 timestamp (UTC)                                                                      |                                                                                               |
 | `allDay`                                                                                      | *boolean*                                                                                     | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |

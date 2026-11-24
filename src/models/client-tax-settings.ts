@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -18,11 +18,13 @@ export type ClientTaxSettings = {
 export const ClientTaxSettings$inboundSchema: z.ZodMiniType<
   ClientTaxSettings,
   unknown
-> = z.object({
-  defaultTaxable: types.boolean(),
-  overrideTaxRate: types.boolean(),
-  taxRate: types.nullable(types.number()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    defaultTaxable: types.boolean(),
+    overrideTaxRate: types.boolean(),
+    taxRate: types.nullable(types.number()),
+  })
+);
 /** @internal */
 export type ClientTaxSettings$Outbound = {
   defaultTaxable: boolean;
@@ -34,11 +36,13 @@ export type ClientTaxSettings$Outbound = {
 export const ClientTaxSettings$outboundSchema: z.ZodMiniType<
   ClientTaxSettings$Outbound,
   ClientTaxSettings
-> = z.object({
-  defaultTaxable: z.boolean(),
-  overrideTaxRate: z.boolean(),
-  taxRate: z.nullable(z.number()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    defaultTaxable: z.boolean(),
+    overrideTaxRate: z.boolean(),
+    taxRate: z.nullable(z.number()),
+  })
+);
 
 export function clientTaxSettingsToJSON(
   clientTaxSettings: ClientTaxSettings,

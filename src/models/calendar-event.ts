@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
@@ -25,6 +25,7 @@ export type CalendarEvent = {
   id: string;
   title: string;
   description: string | null;
+  location: string | null;
   /**
    * ISO 8601 timestamp (UTC)
    */
@@ -69,31 +70,36 @@ export type CalendarEvent = {
 export const CalendarEventSource$inboundSchema: z.ZodMiniType<
   CalendarEventSource,
   unknown
-> = openEnums.inboundSchema(CalendarEventSource);
+> = /* @__PURE__ */ lazySchema$(() =>
+  openEnums.inboundSchema(CalendarEventSource)
+);
 
 /** @internal */
 export const CalendarEvent$inboundSchema: z.ZodMiniType<
   CalendarEvent,
   unknown
-> = z.object({
-  id: types.string(),
-  title: types.string(),
-  description: types.nullable(types.string()),
-  startDateTime: types.date(),
-  endDateTime: types.date(),
-  allDay: types.boolean(),
-  projectId: types.nullable(types.string()),
-  clientId: types.nullable(types.string()),
-  actionable: types.boolean(),
-  completedAt: types.nullable(types.date()),
-  recurring: types.boolean(),
-  rrule: types.nullable(types.string()),
-  recurrenceEnd: types.nullable(types.date()),
-  source: CalendarEventSource$inboundSchema,
-  readOnly: types.boolean(),
-  createdAt: types.date(),
-  updatedAt: types.date(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.string(),
+    title: types.string(),
+    description: types.nullable(types.string()),
+    location: types.nullable(types.string()),
+    startDateTime: types.date(),
+    endDateTime: types.date(),
+    allDay: types.boolean(),
+    projectId: types.nullable(types.string()),
+    clientId: types.nullable(types.string()),
+    actionable: types.boolean(),
+    completedAt: types.nullable(types.date()),
+    recurring: types.boolean(),
+    rrule: types.nullable(types.string()),
+    recurrenceEnd: types.nullable(types.date()),
+    source: CalendarEventSource$inboundSchema,
+    readOnly: types.boolean(),
+    createdAt: types.date(),
+    updatedAt: types.date(),
+  })
+);
 
 export function calendarEventFromJSON(
   jsonString: string,

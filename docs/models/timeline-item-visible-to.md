@@ -5,7 +5,7 @@
 ```typescript
 import { TimelineItemVisibleTo } from "@clientcasa/sdk/models";
 
-let value: TimelineItemVisibleTo = "party";
+let value: TimelineItemVisibleTo = "shot-list";
 
 // Open enum: unrecognized values are captured as Unrecognized<string>
 ```
@@ -13,5 +13,5 @@ let value: TimelineItemVisibleTo = "party";
 ## Values
 
 ```typescript
-"master" | "couple" | "vendor-all" | "venue" | "shot-list" | "party" | Unrecognized<string>
+"master" | "public-master" | "custom" | "vendor-selected" | "couple" | "vendor-all" | "venue" | "shot-list" | "party" | Unrecognized<string>
 ```

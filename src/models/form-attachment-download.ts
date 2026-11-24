@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -27,14 +27,16 @@ export type FormAttachmentDownload = {
 export const FormAttachmentDownload$inboundSchema: z.ZodMiniType<
   FormAttachmentDownload,
   unknown
-> = z.object({
-  id: types.string(),
-  filename: types.string(),
-  mimeType: types.nullable(types.string()),
-  filesize: types.nullable(types.number()),
-  downloadUrl: types.string(),
-  expiresAt: types.date(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.string(),
+    filename: types.string(),
+    mimeType: types.nullable(types.string()),
+    filesize: types.nullable(types.number()),
+    downloadUrl: types.string(),
+    expiresAt: types.date(),
+  })
+);
 
 export function formAttachmentDownloadFromJSON(
   jsonString: string,

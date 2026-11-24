@@ -3,28 +3,121 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
+import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
-import { Milestone, Milestone$inboundSchema } from "./milestone.js";
 import {
-  PaginationMeta,
-  PaginationMeta$inboundSchema,
-} from "./pagination-meta.js";
+  MilestoneCursorPagination,
+  MilestoneCursorPagination$inboundSchema,
+} from "./milestone-cursor-pagination.js";
+import { Milestone, Milestone$inboundSchema } from "./milestone.js";
+
+export type MilestoneListCoverage = {
+  /**
+   * Opaque date and identity continuation from pagination.nextCursor.
+   */
+  after: string | null;
+  /**
+   * Opaque date and identity continuation from pagination.nextCursor.
+   */
+  next: string | null;
+  stopped: boolean;
+};
+
+export type Todos = {
+  complete: boolean;
+  stopped: boolean;
+  unavailable: boolean;
+  code?: string | undefined;
+};
+
+export type Sources = {
+  todos: Todos;
+};
 
 export type MilestoneList = {
   data: Array<Milestone>;
-  pagination: PaginationMeta;
+  pagination: MilestoneCursorPagination;
+  complete: boolean;
+  coverage: MilestoneListCoverage;
+  sources: Sources;
 };
+
+/** @internal */
+export const MilestoneListCoverage$inboundSchema: z.ZodMiniType<
+  MilestoneListCoverage,
+  unknown
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    after: types.nullable(types.string()),
+    next: types.nullable(types.string()),
+    stopped: types.boolean(),
+  })
+);
+
+export function milestoneListCoverageFromJSON(
+  jsonString: string,
+): SafeParseResult<MilestoneListCoverage, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => MilestoneListCoverage$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'MilestoneListCoverage' from JSON`,
+  );
+}
+
+/** @internal */
+export const Todos$inboundSchema: z.ZodMiniType<Todos, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      complete: types.boolean(),
+      stopped: types.boolean(),
+      unavailable: types.boolean(),
+      code: types.optional(types.string()),
+    })
+  );
+
+export function todosFromJSON(
+  jsonString: string,
+): SafeParseResult<Todos, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Todos$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Todos' from JSON`,
+  );
+}
+
+/** @internal */
+export const Sources$inboundSchema: z.ZodMiniType<Sources, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      todos: z.lazy(() => Todos$inboundSchema),
+    })
+  );
+
+export function sourcesFromJSON(
+  jsonString: string,
+): SafeParseResult<Sources, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Sources$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Sources' from JSON`,
+  );
+}
 
 /** @internal */
 export const MilestoneList$inboundSchema: z.ZodMiniType<
   MilestoneList,
   unknown
-> = z.object({
-  data: z.array(Milestone$inboundSchema),
-  pagination: PaginationMeta$inboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    data: z.array(Milestone$inboundSchema),
+    pagination: MilestoneCursorPagination$inboundSchema,
+    complete: types.boolean(),
+    coverage: z.lazy(() => MilestoneListCoverage$inboundSchema),
+    sources: z.lazy(() => Sources$inboundSchema),
+  })
+);
 
 export function milestoneListFromJSON(
   jsonString: string,

@@ -4,6 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 import * as models from "../index.js";
 
 export type CreateCalendarEventSecurity = {
@@ -29,10 +30,12 @@ export type CreateCalendarEventSecurity$Outbound = {
 export const CreateCalendarEventSecurity$outboundSchema: z.ZodMiniType<
   CreateCalendarEventSecurity$Outbound,
   CreateCalendarEventSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function createCalendarEventSecurityToJSON(
   createCalendarEventSecurity: CreateCalendarEventSecurity,
@@ -54,16 +57,18 @@ export type CreateCalendarEventRequest$Outbound = {
 export const CreateCalendarEventRequest$outboundSchema: z.ZodMiniType<
   CreateCalendarEventRequest$Outbound,
   CreateCalendarEventRequest
-> = z.pipe(
-  z.object({
-    idempotencyKey: z.optional(z.string()),
-    body: models.CalendarEventCreate$outboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      idempotencyKey: "Idempotency-Key",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      idempotencyKey: z.optional(z.string()),
+      body: models.CalendarEventCreate$outboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        idempotencyKey: "Idempotency-Key",
+      });
+    }),
+  )
 );
 
 export function createCalendarEventRequestToJSON(

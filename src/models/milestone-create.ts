@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 export const MilestoneCreateParentType = {
@@ -29,7 +30,10 @@ export type MilestoneCreate = {
   title: string;
   description?: string | undefined;
   date: Date;
-  time?: string | undefined;
+  /**
+   * Local time in HH:mm (24-hour), from 00:00 to 23:59, or no value to leave it unset. No seconds or date.
+   */
+  time?: string | null | undefined;
   status?: MilestoneCreateStatus | undefined;
   /**
    * UUID v4
@@ -45,12 +49,12 @@ export type MilestoneCreate = {
 /** @internal */
 export const MilestoneCreateParentType$outboundSchema: z.ZodMiniEnum<
   typeof MilestoneCreateParentType
-> = z.enum(MilestoneCreateParentType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(MilestoneCreateParentType));
 
 /** @internal */
 export const MilestoneCreateStatus$outboundSchema: z.ZodMiniEnum<
   typeof MilestoneCreateStatus
-> = z.enum(MilestoneCreateStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(MilestoneCreateStatus));
 
 /** @internal */
 export type MilestoneCreate$Outbound = {
@@ -59,7 +63,7 @@ export type MilestoneCreate$Outbound = {
   title: string;
   description?: string | undefined;
   date: string;
-  time?: string | undefined;
+  time?: string | null | undefined;
   status: string;
   assigneeId?: string | undefined;
   catalogItemId?: string | undefined;
@@ -70,21 +74,23 @@ export type MilestoneCreate$Outbound = {
 export const MilestoneCreate$outboundSchema: z.ZodMiniType<
   MilestoneCreate$Outbound,
   MilestoneCreate
-> = z.object({
-  parentType: MilestoneCreateParentType$outboundSchema,
-  parentId: z.string(),
-  title: z.string(),
-  description: z.optional(z.string()),
-  date: z.pipe(
-    z.date(),
-    z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
-  ),
-  time: z.optional(z.string()),
-  status: z._default(MilestoneCreateStatus$outboundSchema, "pending"),
-  assigneeId: z.optional(z.string()),
-  catalogItemId: z.optional(z.string()),
-  sortOrder: z.optional(z.int()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    parentType: MilestoneCreateParentType$outboundSchema,
+    parentId: z.string(),
+    title: z.string(),
+    description: z.optional(z.string()),
+    date: z.pipe(
+      z.date(),
+      z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
+    ),
+    time: z.optional(z.nullable(z.string())),
+    status: z._default(MilestoneCreateStatus$outboundSchema, "pending"),
+    assigneeId: z.optional(z.string()),
+    catalogItemId: z.optional(z.string()),
+    sortOrder: z.optional(z.int()),
+  })
+);
 
 export function milestoneCreateToJSON(
   milestoneCreate: MilestoneCreate,

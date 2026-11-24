@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 
 export type GetTimeEntrySecurity = {
   apiKey?: string | undefined;
@@ -26,10 +27,12 @@ export type GetTimeEntrySecurity$Outbound = {
 export const GetTimeEntrySecurity$outboundSchema: z.ZodMiniType<
   GetTimeEntrySecurity$Outbound,
   GetTimeEntrySecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function getTimeEntrySecurityToJSON(
   getTimeEntrySecurity: GetTimeEntrySecurity,
@@ -48,9 +51,11 @@ export type GetTimeEntryRequest$Outbound = {
 export const GetTimeEntryRequest$outboundSchema: z.ZodMiniType<
   GetTimeEntryRequest$Outbound,
   GetTimeEntryRequest
-> = z.object({
-  id: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+  })
+);
 
 export function getTimeEntryRequestToJSON(
   getTimeEntryRequest: GetTimeEntryRequest,

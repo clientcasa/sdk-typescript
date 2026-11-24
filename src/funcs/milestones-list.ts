@@ -35,6 +35,9 @@ import {
 
 /**
  * List milestones
+ *
+ * @remarks
+ * Results are ordered by date, then identity. Continue with pagination.nextCursor as after. Totals are unavailable when the whole population is unknown. Page numbers above one require after. Project-parent reads include checkpoints placed on a day.
  */
 export function milestonesList(
   client: ClientCasaCore,
@@ -55,7 +58,7 @@ export function milestonesList(
       | UnexpectedClientError
       | SDKValidationError
     >,
-    { page: number }
+    { cursor: string }
   >
 > {
   return new APIPromise($do(
@@ -86,7 +89,7 @@ async function $do(
         | UnexpectedClientError
         | SDKValidationError
       >,
-      { page: number }
+      { cursor: string }
     >,
     APICall,
   ]
@@ -109,6 +112,7 @@ async function $do(
   const path = pathToFunc("/api/v1/milestones")();
 
   const query = encodeFormQuery({
+    "after": payload?.after,
     "page": payload?.page,
     "pageSize": payload?.pageSize,
     "parentId": payload?.parentId,
@@ -239,20 +243,15 @@ async function $do(
         | SDKValidationError
       >
     >;
-    "~next"?: { page: number };
+    "~next"?: { cursor: string };
   } => {
-    const page = request?.page ?? 1;
-    const nextPage = page + 1;
-
-    if (!responseData) {
+    const nextCursor =
+      (responseData as { pagination: { nextCursor: unknown | null } })
+        .pagination.nextCursor;
+    if (typeof nextCursor !== "string") {
       return { next: () => null };
     }
-    const results = (responseData as { data: unknown }).data;
-    if (!Array.isArray(results) || !results.length) {
-      return { next: () => null };
-    }
-    const limit = request?.pageSize ?? 25;
-    if (results.length < limit) {
+    if (nextCursor.trim() === "") {
       return { next: () => null };
     }
 
@@ -262,12 +261,12 @@ async function $do(
         security,
         {
           ...request!,
-          page: nextPage,
+          after: nextCursor,
         },
         options,
       );
 
-    return { next: nextVal, "~next": { page: nextPage } };
+    return { next: nextVal, "~next": { cursor: nextCursor } };
   };
 
   const page = { ...result, ...nextFunc(raw) };

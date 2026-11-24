@@ -1,11 +1,11 @@
-# TimelineItemStatus
+# TimelineItemStatusEnum
 
 ## Example Usage
 
 ```typescript
-import { TimelineItemStatus } from "@clientcasa/sdk/models";
+import { TimelineItemStatusEnum } from "@clientcasa/sdk/models";
 
-let value: TimelineItemStatus = "pending";
+let value: TimelineItemStatusEnum = "in-progress";
 
 // Open enum: unrecognized values are captured as Unrecognized<string>
 ```

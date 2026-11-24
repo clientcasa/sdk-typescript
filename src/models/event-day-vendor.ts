@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
@@ -56,29 +56,33 @@ export type EventDayVendor = {
 export const EventDayVendorConfirmationStatus$inboundSchema: z.ZodMiniType<
   EventDayVendorConfirmationStatus,
   unknown
-> = openEnums.inboundSchema(EventDayVendorConfirmationStatus);
+> = /* @__PURE__ */ lazySchema$(() =>
+  openEnums.inboundSchema(EventDayVendorConfirmationStatus)
+);
 
 /** @internal */
 export const EventDayVendor$inboundSchema: z.ZodMiniType<
   EventDayVendor,
   unknown
-> = z.object({
-  id: types.string(),
-  eventDayId: types.string(),
-  vendorId: types.string(),
-  role: types.nullable(types.string()),
-  callTime: types.nullable(types.string()),
-  coverageStartTime: types.nullable(types.string()),
-  coverageEndTime: types.nullable(types.string()),
-  mealProvided: types.boolean(),
-  mealNotes: types.nullable(types.string()),
-  pointOfContact: types.nullable(types.string()),
-  pointOfContactPhone: types.nullable(types.string()),
-  internalNotes: types.nullable(types.string()),
-  confirmationStatus: EventDayVendorConfirmationStatus$inboundSchema,
-  createdAt: types.date(),
-  updatedAt: types.date(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.string(),
+    eventDayId: types.string(),
+    vendorId: types.string(),
+    role: types.nullable(types.string()),
+    callTime: types.nullable(types.string()),
+    coverageStartTime: types.nullable(types.string()),
+    coverageEndTime: types.nullable(types.string()),
+    mealProvided: types.boolean(),
+    mealNotes: types.nullable(types.string()),
+    pointOfContact: types.nullable(types.string()),
+    pointOfContactPhone: types.nullable(types.string()),
+    internalNotes: types.nullable(types.string()),
+    confirmationStatus: EventDayVendorConfirmationStatus$inboundSchema,
+    createdAt: types.date(),
+    updatedAt: types.date(),
+  })
+);
 
 export function eventDayVendorFromJSON(
   jsonString: string,

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 import { Invoice, Invoice$inboundSchema } from "./invoice.js";
@@ -18,11 +18,13 @@ export type InvoiceList = {
 };
 
 /** @internal */
-export const InvoiceList$inboundSchema: z.ZodMiniType<InvoiceList, unknown> = z
-  .object({
-    data: z.array(Invoice$inboundSchema),
-    pagination: PaginationMeta$inboundSchema,
-  });
+export const InvoiceList$inboundSchema: z.ZodMiniType<InvoiceList, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      data: z.array(Invoice$inboundSchema),
+      pagination: PaginationMeta$inboundSchema,
+    })
+  );
 
 export function invoiceListFromJSON(
   jsonString: string,

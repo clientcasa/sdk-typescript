@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 export const TimeEntryUpdateRateType = {
@@ -41,7 +42,7 @@ export type TimeEntryUpdate = {
 /** @internal */
 export const TimeEntryUpdateRateType$outboundSchema: z.ZodMiniEnum<
   typeof TimeEntryUpdateRateType
-> = z.enum(TimeEntryUpdateRateType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(TimeEntryUpdateRateType));
 
 /** @internal */
 export type TimeEntryUpdate$Outbound = {
@@ -62,24 +63,24 @@ export type TimeEntryUpdate$Outbound = {
 export const TimeEntryUpdate$outboundSchema: z.ZodMiniType<
   TimeEntryUpdate$Outbound,
   TimeEntryUpdate
-> = z.object({
-  projectId: z.optional(z.string()),
-  memberId: z.optional(z.string()),
-  catalogItemId: z.optional(z.string()),
-  date: z.optional(
-    z.pipe(
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    projectId: z.optional(z.string()),
+    memberId: z.optional(z.string()),
+    catalogItemId: z.optional(z.string()),
+    date: z.optional(z.pipe(
       z.date(),
       z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
-    ),
-  ),
-  hours: z.optional(z.number()),
-  description: z.optional(z.string()),
-  billable: z.optional(z.boolean()),
-  rateType: z.optional(TimeEntryUpdateRateType$outboundSchema),
-  customMultiplierName: z.optional(z.string()),
-  rateOverride: z.optional(z.number()),
-  workerName: z.optional(z.string()),
-});
+    )),
+    hours: z.optional(z.number()),
+    description: z.optional(z.string()),
+    billable: z.optional(z.boolean()),
+    rateType: z.optional(TimeEntryUpdateRateType$outboundSchema),
+    customMultiplierName: z.optional(z.string()),
+    rateOverride: z.optional(z.number()),
+    workerName: z.optional(z.string()),
+  })
+);
 
 export function timeEntryUpdateToJSON(
   timeEntryUpdate: TimeEntryUpdate,

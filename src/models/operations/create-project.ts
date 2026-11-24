@@ -4,6 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 import * as models from "../index.js";
 
 export type CreateProjectSecurity = {
@@ -29,10 +30,12 @@ export type CreateProjectSecurity$Outbound = {
 export const CreateProjectSecurity$outboundSchema: z.ZodMiniType<
   CreateProjectSecurity$Outbound,
   CreateProjectSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function createProjectSecurityToJSON(
   createProjectSecurity: CreateProjectSecurity,
@@ -52,16 +55,18 @@ export type CreateProjectRequest$Outbound = {
 export const CreateProjectRequest$outboundSchema: z.ZodMiniType<
   CreateProjectRequest$Outbound,
   CreateProjectRequest
-> = z.pipe(
-  z.object({
-    idempotencyKey: z.optional(z.string()),
-    body: models.ProjectCreate$outboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      idempotencyKey: "Idempotency-Key",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      idempotencyKey: z.optional(z.string()),
+      body: models.ProjectCreate$outboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        idempotencyKey: "Idempotency-Key",
+      });
+    }),
+  )
 );
 
 export function createProjectRequestToJSON(

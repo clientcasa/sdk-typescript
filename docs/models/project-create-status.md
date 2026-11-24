@@ -11,5 +11,5 @@ let value: ProjectCreateStatus = "active";
 ## Values
 
 ```typescript
-"active" | "paused" | "completed"
+"active"
 ```

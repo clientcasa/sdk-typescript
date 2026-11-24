@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 
 export type DeleteMilestoneSecurity = {
   apiKey?: string | undefined;
@@ -26,10 +27,12 @@ export type DeleteMilestoneSecurity$Outbound = {
 export const DeleteMilestoneSecurity$outboundSchema: z.ZodMiniType<
   DeleteMilestoneSecurity$Outbound,
   DeleteMilestoneSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function deleteMilestoneSecurityToJSON(
   deleteMilestoneSecurity: DeleteMilestoneSecurity,
@@ -48,9 +51,11 @@ export type DeleteMilestoneRequest$Outbound = {
 export const DeleteMilestoneRequest$outboundSchema: z.ZodMiniType<
   DeleteMilestoneRequest$Outbound,
   DeleteMilestoneRequest
-> = z.object({
-  id: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+  })
+);
 
 export function deleteMilestoneRequestToJSON(
   deleteMilestoneRequest: DeleteMilestoneRequest,

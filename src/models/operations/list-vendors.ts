@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -45,10 +45,12 @@ export type ListVendorsSecurity$Outbound = {
 export const ListVendorsSecurity$outboundSchema: z.ZodMiniType<
   ListVendorsSecurity$Outbound,
   ListVendorsSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function listVendorsSecurityToJSON(
   listVendorsSecurity: ListVendorsSecurity,
@@ -61,7 +63,7 @@ export function listVendorsSecurityToJSON(
 /** @internal */
 export const ListVendorsStatus$outboundSchema: z.ZodMiniEnum<
   typeof ListVendorsStatus
-> = z.enum(ListVendorsStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(ListVendorsStatus));
 
 /** @internal */
 export type ListVendorsRequest$Outbound = {
@@ -75,12 +77,14 @@ export type ListVendorsRequest$Outbound = {
 export const ListVendorsRequest$outboundSchema: z.ZodMiniType<
   ListVendorsRequest$Outbound,
   ListVendorsRequest
-> = z.object({
-  page: z._default(z.int(), 1),
-  pageSize: z._default(z.int(), 25),
-  categoryId: z.optional(z.string()),
-  status: z.optional(ListVendorsStatus$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z._default(z.int(), 1),
+    pageSize: z._default(z.int(), 25),
+    categoryId: z.optional(z.string()),
+    status: z.optional(ListVendorsStatus$outboundSchema),
+  })
+);
 
 export function listVendorsRequestToJSON(
   listVendorsRequest: ListVendorsRequest,
@@ -94,15 +98,17 @@ export function listVendorsRequestToJSON(
 export const ListVendorsResponse$inboundSchema: z.ZodMiniType<
   ListVendorsResponse,
   unknown
-> = z.pipe(
-  z.object({
-    Result: models.VendorList$inboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      "Result": "result",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      Result: models.VendorList$inboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        "Result": "result",
+      });
+    }),
+  )
 );
 
 export function listVendorsResponseFromJSON(

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
@@ -103,65 +103,73 @@ export type CatalogItem = {
 export const CatalogItemUnit$inboundSchema: z.ZodMiniType<
   CatalogItemUnit,
   unknown
-> = openEnums.inboundSchema(CatalogItemUnit);
+> = /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(CatalogItemUnit));
 
 /** @internal */
 export const CatalogItemDefaultFrequency$inboundSchema: z.ZodMiniType<
   CatalogItemDefaultFrequency,
   unknown
-> = openEnums.inboundSchema(CatalogItemDefaultFrequency);
+> = /* @__PURE__ */ lazySchema$(() =>
+  openEnums.inboundSchema(CatalogItemDefaultFrequency)
+);
 
 /** @internal */
 export const CatalogItemType$inboundSchema: z.ZodMiniType<
   CatalogItemType,
   unknown
-> = openEnums.inboundSchema(CatalogItemType);
+> = /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(CatalogItemType));
 
 /** @internal */
 export const CatalogItemPricingMode$inboundSchema: z.ZodMiniType<
   CatalogItemPricingMode,
   unknown
-> = openEnums.inboundSchema(CatalogItemPricingMode);
+> = /* @__PURE__ */ lazySchema$(() =>
+  openEnums.inboundSchema(CatalogItemPricingMode)
+);
 
 /** @internal */
 export const Composition$inboundSchema: z.ZodMiniType<Composition, unknown> =
-  openEnums.inboundSchema(Composition);
+  /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(Composition));
 
 /** @internal */
 export const BundlePriceMode$inboundSchema: z.ZodMiniType<
   BundlePriceMode,
   unknown
-> = openEnums.inboundSchema(BundlePriceMode);
+> = /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(BundlePriceMode));
 
 /** @internal */
 export const CatalogItemStatus$inboundSchema: z.ZodMiniType<
   CatalogItemStatus,
   unknown
-> = openEnums.inboundSchema(CatalogItemStatus);
+> = /* @__PURE__ */ lazySchema$(() =>
+  openEnums.inboundSchema(CatalogItemStatus)
+);
 
 /** @internal */
-export const CatalogItem$inboundSchema: z.ZodMiniType<CatalogItem, unknown> = z
-  .object({
-    id: types.string(),
-    name: types.string(),
-    businessId: types.string(),
-    invoiceLabel: types.nullable(types.string()),
-    description: types.nullable(types.string()),
-    invoiceDescription: types.nullable(types.string()),
-    defaultRate: types.nullable(types.number()),
-    unit: CatalogItemUnit$inboundSchema,
-    defaultFrequency: CatalogItemDefaultFrequency$inboundSchema,
-    type: CatalogItemType$inboundSchema,
-    pricingMode: CatalogItemPricingMode$inboundSchema,
-    composition: Composition$inboundSchema,
-    bundlePriceMode: types.nullable(BundlePriceMode$inboundSchema),
-    bundleFixedPrice: types.nullable(types.number()),
-    taxCategoryId: types.nullable(types.string()),
-    status: CatalogItemStatus$inboundSchema,
-    clientId: types.nullable(types.string()),
-    createdAt: types.date(),
-    updatedAt: types.date(),
-  });
+export const CatalogItem$inboundSchema: z.ZodMiniType<CatalogItem, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      id: types.string(),
+      name: types.string(),
+      businessId: types.string(),
+      invoiceLabel: types.nullable(types.string()),
+      description: types.nullable(types.string()),
+      invoiceDescription: types.nullable(types.string()),
+      defaultRate: types.nullable(types.number()),
+      unit: CatalogItemUnit$inboundSchema,
+      defaultFrequency: CatalogItemDefaultFrequency$inboundSchema,
+      type: CatalogItemType$inboundSchema,
+      pricingMode: CatalogItemPricingMode$inboundSchema,
+      composition: Composition$inboundSchema,
+      bundlePriceMode: types.nullable(BundlePriceMode$inboundSchema),
+      bundleFixedPrice: types.nullable(types.number()),
+      taxCategoryId: types.nullable(types.string()),
+      status: CatalogItemStatus$inboundSchema,
+      clientId: types.nullable(types.string()),
+      createdAt: types.date(),
+      updatedAt: types.date(),
+    })
+  );
 
 export function catalogItemFromJSON(
   jsonString: string,

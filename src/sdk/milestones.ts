@@ -16,13 +16,16 @@ import { PageIterator, unwrapResultIterator } from "../types/operations.js";
 export class Milestones extends ClientSDK {
   /**
    * List milestones
+   *
+   * @remarks
+   * Results are ordered by date, then identity. Continue with pagination.nextCursor as after. Totals are unavailable when the whole population is unknown. Page numbers above one require after. Project-parent reads include checkpoints placed on a day.
    */
   async list(
     security: operations.ListMilestonesSecurity,
     request?: operations.ListMilestonesRequest | undefined,
     options?: RequestOptions,
   ): Promise<
-    PageIterator<operations.ListMilestonesResponse, { page: number }>
+    PageIterator<operations.ListMilestonesResponse, { cursor: string }>
   > {
     return unwrapResultIterator(milestonesList(
       this,

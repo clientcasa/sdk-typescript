@@ -4,6 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 import * as models from "../index.js";
 
 export type UpdateContactSecurity = {
@@ -33,10 +34,12 @@ export type UpdateContactSecurity$Outbound = {
 export const UpdateContactSecurity$outboundSchema: z.ZodMiniType<
   UpdateContactSecurity$Outbound,
   UpdateContactSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function updateContactSecurityToJSON(
   updateContactSecurity: UpdateContactSecurity,
@@ -57,17 +60,19 @@ export type UpdateContactRequest$Outbound = {
 export const UpdateContactRequest$outboundSchema: z.ZodMiniType<
   UpdateContactRequest$Outbound,
   UpdateContactRequest
-> = z.pipe(
-  z.object({
-    id: z.string(),
-    idempotencyKey: z.optional(z.string()),
-    body: models.ContactUpdate$outboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      idempotencyKey: "Idempotency-Key",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      id: z.string(),
+      idempotencyKey: z.optional(z.string()),
+      body: models.ContactUpdate$outboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        idempotencyKey: "Idempotency-Key",
+      });
+    }),
+  )
 );
 
 export function updateContactRequestToJSON(

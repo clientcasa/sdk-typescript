@@ -4,6 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 import * as models from "../index.js";
 
 export type CreateVendorSecurity = {
@@ -29,10 +30,12 @@ export type CreateVendorSecurity$Outbound = {
 export const CreateVendorSecurity$outboundSchema: z.ZodMiniType<
   CreateVendorSecurity$Outbound,
   CreateVendorSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function createVendorSecurityToJSON(
   createVendorSecurity: CreateVendorSecurity,
@@ -52,16 +55,18 @@ export type CreateVendorRequest$Outbound = {
 export const CreateVendorRequest$outboundSchema: z.ZodMiniType<
   CreateVendorRequest$Outbound,
   CreateVendorRequest
-> = z.pipe(
-  z.object({
-    idempotencyKey: z.optional(z.string()),
-    body: models.VendorCreate$outboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      idempotencyKey: "Idempotency-Key",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      idempotencyKey: z.optional(z.string()),
+      body: models.VendorCreate$outboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        idempotencyKey: "Idempotency-Key",
+      });
+    }),
+  )
 );
 
 export function createVendorRequestToJSON(

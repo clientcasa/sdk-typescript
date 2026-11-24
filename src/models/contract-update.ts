@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 
 export type ContractUpdate = {
   title?: string | undefined;
@@ -23,22 +24,20 @@ export type ContractUpdate$Outbound = {
 export const ContractUpdate$outboundSchema: z.ZodMiniType<
   ContractUpdate$Outbound,
   ContractUpdate
-> = z.object({
-  title: z.optional(z.string()),
-  effectiveDate: z.optional(
-    z.nullable(z.pipe(
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    title: z.optional(z.string()),
+    effectiveDate: z.optional(z.nullable(z.pipe(
       z.date(),
       z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
-    )),
-  ),
-  expirationDate: z.optional(
-    z.nullable(z.pipe(
+    ))),
+    expirationDate: z.optional(z.nullable(z.pipe(
       z.date(),
       z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
-    )),
-  ),
-  archived: z.optional(z.boolean()),
-});
+    ))),
+    archived: z.optional(z.boolean()),
+  })
+);
 
 export function contractUpdateToJSON(contractUpdate: ContractUpdate): string {
   return JSON.stringify(ContractUpdate$outboundSchema.parse(contractUpdate));

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import * as openEnums from "../types/enums.js";
 import { ClosedEnum, OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
@@ -78,35 +78,39 @@ export type ClientDocument = {
 /** @internal */
 export const ClientDocumentKind$inboundSchema: z.ZodMiniEnum<
   typeof ClientDocumentKind
-> = z.enum(ClientDocumentKind);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(ClientDocumentKind));
 
 /** @internal */
 export const ClientDocumentStatus$inboundSchema: z.ZodMiniType<
   ClientDocumentStatus,
   unknown
-> = openEnums.inboundSchema(ClientDocumentStatus);
+> = /* @__PURE__ */ lazySchema$(() =>
+  openEnums.inboundSchema(ClientDocumentStatus)
+);
 
 /** @internal */
 export const ClientDocument$inboundSchema: z.ZodMiniType<
   ClientDocument,
   unknown
-> = z.object({
-  id: types.string(),
-  kind: ClientDocumentKind$inboundSchema,
-  title: types.nullable(types.string()),
-  status: ClientDocumentStatus$inboundSchema,
-  contactId: types.nullable(types.string()),
-  clientId: types.nullable(types.string()),
-  projectId: types.nullable(types.string()),
-  engagementProjectId: types.nullable(types.string()),
-  isTemplate: types.boolean(),
-  clientUrl: types.nullable(types.string()),
-  quoteConvertedAt: types.nullable(types.date()),
-  expiresAt: types.nullable(types.date()),
-  archivedAt: types.nullable(types.date()),
-  createdAt: types.date(),
-  updatedAt: types.date(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.string(),
+    kind: ClientDocumentKind$inboundSchema,
+    title: types.nullable(types.string()),
+    status: ClientDocumentStatus$inboundSchema,
+    contactId: types.nullable(types.string()),
+    clientId: types.nullable(types.string()),
+    projectId: types.nullable(types.string()),
+    engagementProjectId: types.nullable(types.string()),
+    isTemplate: types.boolean(),
+    clientUrl: types.nullable(types.string()),
+    quoteConvertedAt: types.nullable(types.date()),
+    expiresAt: types.nullable(types.date()),
+    archivedAt: types.nullable(types.date()),
+    createdAt: types.date(),
+    updatedAt: types.date(),
+  })
+);
 
 export function clientDocumentFromJSON(
   jsonString: string,

@@ -11,6 +11,14 @@ let value: CreateEventDayRequest = {
     date: new Date("2024-10-11"),
     projectId: "550e8400-e29b-41d4-a716-446655440000",
     clientId: "550e8400-e29b-41d4-a716-446655440000",
+    ceremonyTime: "16:07",
+    eventStartTime: "16:07",
+    customAnchors: [
+      {
+        key: "<key>",
+        time: "16:07",
+      },
+    ],
   },
 };
 ```
