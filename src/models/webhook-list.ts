@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 import {
@@ -18,11 +18,13 @@ export type WebhookList = {
 };
 
 /** @internal */
-export const WebhookList$inboundSchema: z.ZodMiniType<WebhookList, unknown> = z
-  .object({
-    data: z.array(Webhook$inboundSchema),
-    pagination: PaginationMeta$inboundSchema,
-  });
+export const WebhookList$inboundSchema: z.ZodMiniType<WebhookList, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      data: z.array(Webhook$inboundSchema),
+      pagination: PaginationMeta$inboundSchema,
+    })
+  );
 
 export function webhookListFromJSON(
   jsonString: string,

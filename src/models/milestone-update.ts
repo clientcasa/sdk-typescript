@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 export const MilestoneUpdateStatus = {
@@ -16,6 +17,9 @@ export type MilestoneUpdate = {
   title?: string | undefined;
   description?: string | null | undefined;
   date?: Date | null | undefined;
+  /**
+   * Local time in HH:mm (24-hour), from 00:00 to 23:59, or no value to leave it unset. No seconds or date.
+   */
   time?: string | null | undefined;
   status?: MilestoneUpdateStatus | undefined;
   /**
@@ -32,7 +36,7 @@ export type MilestoneUpdate = {
 /** @internal */
 export const MilestoneUpdateStatus$outboundSchema: z.ZodMiniEnum<
   typeof MilestoneUpdateStatus
-> = z.enum(MilestoneUpdateStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(MilestoneUpdateStatus));
 
 /** @internal */
 export type MilestoneUpdate$Outbound = {
@@ -50,21 +54,21 @@ export type MilestoneUpdate$Outbound = {
 export const MilestoneUpdate$outboundSchema: z.ZodMiniType<
   MilestoneUpdate$Outbound,
   MilestoneUpdate
-> = z.object({
-  title: z.optional(z.string()),
-  description: z.optional(z.nullable(z.string())),
-  date: z.optional(
-    z.nullable(z.pipe(
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    title: z.optional(z.string()),
+    description: z.optional(z.nullable(z.string())),
+    date: z.optional(z.nullable(z.pipe(
       z.date(),
       z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
-    )),
-  ),
-  time: z.optional(z.nullable(z.string())),
-  status: z.optional(MilestoneUpdateStatus$outboundSchema),
-  assigneeId: z.optional(z.nullable(z.string())),
-  catalogItemId: z.optional(z.nullable(z.string())),
-  sortOrder: z.optional(z.int()),
-});
+    ))),
+    time: z.optional(z.nullable(z.string())),
+    status: z.optional(MilestoneUpdateStatus$outboundSchema),
+    assigneeId: z.optional(z.nullable(z.string())),
+    catalogItemId: z.optional(z.nullable(z.string())),
+    sortOrder: z.optional(z.int()),
+  })
+);
 
 export function milestoneUpdateToJSON(
   milestoneUpdate: MilestoneUpdate,

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { Client, Client$inboundSchema } from "./client.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -18,11 +18,13 @@ export type ClientList = {
 };
 
 /** @internal */
-export const ClientList$inboundSchema: z.ZodMiniType<ClientList, unknown> = z
-  .object({
-    data: z.array(Client$inboundSchema),
-    pagination: PaginationMeta$inboundSchema,
-  });
+export const ClientList$inboundSchema: z.ZodMiniType<ClientList, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      data: z.array(Client$inboundSchema),
+      pagination: PaginationMeta$inboundSchema,
+    })
+  );
 
 export function clientListFromJSON(
   jsonString: string,

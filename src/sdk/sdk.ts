@@ -20,10 +20,12 @@ import { Invoices } from "./invoices.js";
 import { Milestones } from "./milestones.js";
 import { Payments } from "./payments.js";
 import { Payouts } from "./payouts.js";
+import { ProjectPlan } from "./project-plan.js";
 import { Projects } from "./projects.js";
 import { Sales } from "./sales.js";
 import { TimeEntries } from "./time-entries.js";
 import { TimelineItems } from "./timeline-items.js";
+import { ToDos } from "./to-dos.js";
 import { Transactions } from "./transactions.js";
 import { Vendors } from "./vendors.js";
 import { Venues } from "./venues.js";
@@ -153,5 +155,15 @@ export class ClientCasa extends ClientSDK {
   private _webhooks?: Webhooks;
   get webhooks(): Webhooks {
     return (this._webhooks ??= new Webhooks(this._options));
+  }
+
+  private _toDos?: ToDos;
+  get toDos(): ToDos {
+    return (this._toDos ??= new ToDos(this._options));
+  }
+
+  private _projectPlan?: ProjectPlan;
+  get projectPlan(): ProjectPlan {
+    return (this._projectPlan ??= new ProjectPlan(this._options));
   }
 }

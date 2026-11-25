@@ -5,11 +5,11 @@
 ```typescript
 import { TimelineItemCreateVisibleTo } from "@clientcasa/sdk/models";
 
-let value: TimelineItemCreateVisibleTo = "venue";
+let value: TimelineItemCreateVisibleTo = "master";
 ```
 
 ## Values
 
 ```typescript
-"master" | "couple" | "vendor-all" | "venue" | "shot-list" | "party"
+"master"
 ```

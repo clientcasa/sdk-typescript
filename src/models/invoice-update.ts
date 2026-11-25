@@ -3,7 +3,14 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
+
+export const InvoiceUpdateTaxMode = {
+  Exclusive: "exclusive",
+  Inclusive: "inclusive",
+} as const;
+export type InvoiceUpdateTaxMode = ClosedEnum<typeof InvoiceUpdateTaxMode>;
 
 export const InvoiceUpdateStatus = {
   Sent: "sent",
@@ -12,6 +19,7 @@ export const InvoiceUpdateStatus = {
 export type InvoiceUpdateStatus = ClosedEnum<typeof InvoiceUpdateStatus>;
 
 export type InvoiceUpdate = {
+  taxMode?: InvoiceUpdateTaxMode | undefined;
   /**
    * UUID v4
    */
@@ -26,12 +34,18 @@ export type InvoiceUpdate = {
 };
 
 /** @internal */
+export const InvoiceUpdateTaxMode$outboundSchema: z.ZodMiniEnum<
+  typeof InvoiceUpdateTaxMode
+> = /* @__PURE__ */ lazySchema$(() => z.enum(InvoiceUpdateTaxMode));
+
+/** @internal */
 export const InvoiceUpdateStatus$outboundSchema: z.ZodMiniEnum<
   typeof InvoiceUpdateStatus
-> = z.enum(InvoiceUpdateStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(InvoiceUpdateStatus));
 
 /** @internal */
 export type InvoiceUpdate$Outbound = {
+  taxMode?: string | undefined;
   billingContactId?: string | null | undefined;
   projectIds?: Array<string> | undefined;
   status?: string | undefined;
@@ -46,26 +60,25 @@ export type InvoiceUpdate$Outbound = {
 export const InvoiceUpdate$outboundSchema: z.ZodMiniType<
   InvoiceUpdate$Outbound,
   InvoiceUpdate
-> = z.object({
-  billingContactId: z.optional(z.nullable(z.string())),
-  projectIds: z.optional(z.array(z.string())),
-  status: z.optional(InvoiceUpdateStatus$outboundSchema),
-  subject: z.optional(z.nullable(z.string())),
-  issueDate: z.optional(
-    z.pipe(
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    taxMode: z.optional(InvoiceUpdateTaxMode$outboundSchema),
+    billingContactId: z.optional(z.nullable(z.string())),
+    projectIds: z.optional(z.array(z.string())),
+    status: z.optional(InvoiceUpdateStatus$outboundSchema),
+    subject: z.optional(z.nullable(z.string())),
+    issueDate: z.optional(z.pipe(
       z.date(),
       z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
-    ),
-  ),
-  dueDate: z.optional(
-    z.pipe(
+    )),
+    dueDate: z.optional(z.pipe(
       z.date(),
       z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
-    ),
-  ),
-  paymentTerms: z.optional(z.nullable(z.string())),
-  notes: z.optional(z.nullable(z.string())),
-});
+    )),
+    paymentTerms: z.optional(z.nullable(z.string())),
+    notes: z.optional(z.nullable(z.string())),
+  })
+);
 
 export function invoiceUpdateToJSON(invoiceUpdate: InvoiceUpdate): string {
   return JSON.stringify(InvoiceUpdate$outboundSchema.parse(invoiceUpdate));

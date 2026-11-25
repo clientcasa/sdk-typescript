@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -50,10 +50,12 @@ export type ListEventDaysSecurity$Outbound = {
 export const ListEventDaysSecurity$outboundSchema: z.ZodMiniType<
   ListEventDaysSecurity$Outbound,
   ListEventDaysSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function listEventDaysSecurityToJSON(
   listEventDaysSecurity: ListEventDaysSecurity,
@@ -66,7 +68,7 @@ export function listEventDaysSecurityToJSON(
 /** @internal */
 export const ListEventDaysStatus$outboundSchema: z.ZodMiniEnum<
   typeof ListEventDaysStatus
-> = z.enum(ListEventDaysStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(ListEventDaysStatus));
 
 /** @internal */
 export type ListEventDaysRequest$Outbound = {
@@ -81,13 +83,15 @@ export type ListEventDaysRequest$Outbound = {
 export const ListEventDaysRequest$outboundSchema: z.ZodMiniType<
   ListEventDaysRequest$Outbound,
   ListEventDaysRequest
-> = z.object({
-  page: z._default(z.int(), 1),
-  pageSize: z._default(z.int(), 25),
-  status: z.optional(ListEventDaysStatus$outboundSchema),
-  projectId: z.optional(z.string()),
-  clientId: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z._default(z.int(), 1),
+    pageSize: z._default(z.int(), 25),
+    status: z.optional(ListEventDaysStatus$outboundSchema),
+    projectId: z.optional(z.string()),
+    clientId: z.optional(z.string()),
+  })
+);
 
 export function listEventDaysRequestToJSON(
   listEventDaysRequest: ListEventDaysRequest,
@@ -101,15 +105,17 @@ export function listEventDaysRequestToJSON(
 export const ListEventDaysResponse$inboundSchema: z.ZodMiniType<
   ListEventDaysResponse,
   unknown
-> = z.pipe(
-  z.object({
-    Result: models.EventDayList$inboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      "Result": "result",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      Result: models.EventDayList$inboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        "Result": "result",
+      });
+    }),
+  )
 );
 
 export function listEventDaysResponseFromJSON(

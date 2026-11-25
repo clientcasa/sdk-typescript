@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
@@ -49,10 +49,12 @@ export type ListCalendarEventsSecurity$Outbound = {
 export const ListCalendarEventsSecurity$outboundSchema: z.ZodMiniType<
   ListCalendarEventsSecurity$Outbound,
   ListCalendarEventsSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function listCalendarEventsSecurityToJSON(
   listCalendarEventsSecurity: ListCalendarEventsSecurity,
@@ -76,14 +78,20 @@ export type ListCalendarEventsRequest$Outbound = {
 export const ListCalendarEventsRequest$outboundSchema: z.ZodMiniType<
   ListCalendarEventsRequest$Outbound,
   ListCalendarEventsRequest
-> = z.object({
-  page: z._default(z.int(), 1),
-  pageSize: z._default(z.int(), 25),
-  projectId: z.optional(z.string()),
-  clientId: z.optional(z.string()),
-  startsAfter: z.optional(z.pipe(z.date(), z.transform(v => v.toISOString()))),
-  startsBefore: z.optional(z.pipe(z.date(), z.transform(v => v.toISOString()))),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z._default(z.int(), 1),
+    pageSize: z._default(z.int(), 25),
+    projectId: z.optional(z.string()),
+    clientId: z.optional(z.string()),
+    startsAfter: z.optional(
+      z.pipe(z.date(), z.transform(v => v.toISOString())),
+    ),
+    startsBefore: z.optional(
+      z.pipe(z.date(), z.transform(v => v.toISOString())),
+    ),
+  })
+);
 
 export function listCalendarEventsRequestToJSON(
   listCalendarEventsRequest: ListCalendarEventsRequest,
@@ -97,15 +105,17 @@ export function listCalendarEventsRequestToJSON(
 export const ListCalendarEventsResponse$inboundSchema: z.ZodMiniType<
   ListCalendarEventsResponse,
   unknown
-> = z.pipe(
-  z.object({
-    Result: models.CalendarEventList$inboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      "Result": "result",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      Result: models.CalendarEventList$inboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        "Result": "result",
+      });
+    }),
+  )
 );
 
 export function listCalendarEventsResponseFromJSON(

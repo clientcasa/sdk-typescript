@@ -4,9 +4,10 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
+import { smartUnion } from "../../types/smart-union.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
 import * as models from "../index.js";
 
@@ -15,15 +16,22 @@ export type ListTimelineItemsSecurity = {
   bearer?: string | undefined;
 };
 
-export const ListTimelineItemsStatus = {
+export const StatusInformational = {
+  Informational: "informational",
+} as const;
+export type StatusInformational = ClosedEnum<typeof StatusInformational>;
+
+export const ListTimelineItemsStatusEnum = {
   Pending: "pending",
   InProgress: "in-progress",
   Completed: "completed",
   Skipped: "skipped",
 } as const;
-export type ListTimelineItemsStatus = ClosedEnum<
-  typeof ListTimelineItemsStatus
+export type ListTimelineItemsStatusEnum = ClosedEnum<
+  typeof ListTimelineItemsStatusEnum
 >;
+
+export type Status = ListTimelineItemsStatusEnum | StatusInformational;
 
 export type ListTimelineItemsRequest = {
   page?: number | undefined;
@@ -32,7 +40,7 @@ export type ListTimelineItemsRequest = {
    * UUID v4
    */
   eventDayId?: string | undefined;
-  status?: ListTimelineItemsStatus | undefined;
+  status?: ListTimelineItemsStatusEnum | StatusInformational | undefined;
 };
 
 export type ListTimelineItemsResponse = {
@@ -49,10 +57,12 @@ export type ListTimelineItemsSecurity$Outbound = {
 export const ListTimelineItemsSecurity$outboundSchema: z.ZodMiniType<
   ListTimelineItemsSecurity$Outbound,
   ListTimelineItemsSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function listTimelineItemsSecurityToJSON(
   listTimelineItemsSecurity: ListTimelineItemsSecurity,
@@ -63,28 +73,56 @@ export function listTimelineItemsSecurityToJSON(
 }
 
 /** @internal */
-export const ListTimelineItemsStatus$outboundSchema: z.ZodMiniEnum<
-  typeof ListTimelineItemsStatus
-> = z.enum(ListTimelineItemsStatus);
+export const StatusInformational$outboundSchema: z.ZodMiniEnum<
+  typeof StatusInformational
+> = /* @__PURE__ */ lazySchema$(() => z.enum(StatusInformational));
+
+/** @internal */
+export const ListTimelineItemsStatusEnum$outboundSchema: z.ZodMiniEnum<
+  typeof ListTimelineItemsStatusEnum
+> = /* @__PURE__ */ lazySchema$(() => z.enum(ListTimelineItemsStatusEnum));
+
+/** @internal */
+export type Status$Outbound = string | string;
+
+/** @internal */
+export const Status$outboundSchema: z.ZodMiniType<Status$Outbound, Status> =
+  /* @__PURE__ */ lazySchema$(() =>
+    smartUnion([
+      ListTimelineItemsStatusEnum$outboundSchema,
+      StatusInformational$outboundSchema,
+    ])
+  );
+
+export function statusToJSON(status: Status): string {
+  return JSON.stringify(Status$outboundSchema.parse(status));
+}
 
 /** @internal */
 export type ListTimelineItemsRequest$Outbound = {
   page: number;
   pageSize: number;
   eventDayId?: string | undefined;
-  status?: string | undefined;
+  status?: string | string | undefined;
 };
 
 /** @internal */
 export const ListTimelineItemsRequest$outboundSchema: z.ZodMiniType<
   ListTimelineItemsRequest$Outbound,
   ListTimelineItemsRequest
-> = z.object({
-  page: z._default(z.int(), 1),
-  pageSize: z._default(z.int(), 25),
-  eventDayId: z.optional(z.string()),
-  status: z.optional(ListTimelineItemsStatus$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z._default(z.int(), 1),
+    pageSize: z._default(z.int(), 25),
+    eventDayId: z.optional(z.string()),
+    status: z.optional(
+      smartUnion([
+        ListTimelineItemsStatusEnum$outboundSchema,
+        StatusInformational$outboundSchema,
+      ]),
+    ),
+  })
+);
 
 export function listTimelineItemsRequestToJSON(
   listTimelineItemsRequest: ListTimelineItemsRequest,
@@ -98,15 +136,17 @@ export function listTimelineItemsRequestToJSON(
 export const ListTimelineItemsResponse$inboundSchema: z.ZodMiniType<
   ListTimelineItemsResponse,
   unknown
-> = z.pipe(
-  z.object({
-    Result: models.TimelineItemList$inboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      "Result": "result",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      Result: models.TimelineItemList$inboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        "Result": "result",
+      });
+    }),
+  )
 );
 
 export function listTimelineItemsResponseFromJSON(

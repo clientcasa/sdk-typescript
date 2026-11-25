@@ -4,6 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 import * as models from "../index.js";
 
 export type UpdateCatalogItemSecurity = {
@@ -33,10 +34,12 @@ export type UpdateCatalogItemSecurity$Outbound = {
 export const UpdateCatalogItemSecurity$outboundSchema: z.ZodMiniType<
   UpdateCatalogItemSecurity$Outbound,
   UpdateCatalogItemSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function updateCatalogItemSecurityToJSON(
   updateCatalogItemSecurity: UpdateCatalogItemSecurity,
@@ -57,17 +60,19 @@ export type UpdateCatalogItemRequest$Outbound = {
 export const UpdateCatalogItemRequest$outboundSchema: z.ZodMiniType<
   UpdateCatalogItemRequest$Outbound,
   UpdateCatalogItemRequest
-> = z.pipe(
-  z.object({
-    id: z.string(),
-    idempotencyKey: z.optional(z.string()),
-    body: models.CatalogItemUpdate$outboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      idempotencyKey: "Idempotency-Key",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      id: z.string(),
+      idempotencyKey: z.optional(z.string()),
+      body: models.CatalogItemUpdate$outboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        idempotencyKey: "Idempotency-Key",
+      });
+    }),
+  )
 );
 
 export function updateCatalogItemRequestToJSON(

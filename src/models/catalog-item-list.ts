@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { CatalogItem, CatalogItem$inboundSchema } from "./catalog-item.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -21,10 +21,12 @@ export type CatalogItemList = {
 export const CatalogItemList$inboundSchema: z.ZodMiniType<
   CatalogItemList,
   unknown
-> = z.object({
-  data: z.array(CatalogItem$inboundSchema),
-  pagination: PaginationMeta$inboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    data: z.array(CatalogItem$inboundSchema),
+    pagination: PaginationMeta$inboundSchema,
+  })
+);
 
 export function catalogItemListFromJSON(
   jsonString: string,

@@ -12,6 +12,7 @@ let value: CreateMilestoneRequest = {
     parentId: "550e8400-e29b-41d4-a716-446655440000",
     title: "<value>",
     date: new Date("2024-09-07"),
+    time: "16:07",
     assigneeId: "550e8400-e29b-41d4-a716-446655440000",
     catalogItemId: "550e8400-e29b-41d4-a716-446655440000",
   },

@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -58,10 +58,12 @@ export type ListTransactionsSecurity$Outbound = {
 export const ListTransactionsSecurity$outboundSchema: z.ZodMiniType<
   ListTransactionsSecurity$Outbound,
   ListTransactionsSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function listTransactionsSecurityToJSON(
   listTransactionsSecurity: ListTransactionsSecurity,
@@ -72,19 +74,17 @@ export function listTransactionsSecurityToJSON(
 }
 
 /** @internal */
-export const Direction$outboundSchema: z.ZodMiniEnum<typeof Direction> = z.enum(
-  Direction,
-);
+export const Direction$outboundSchema: z.ZodMiniEnum<typeof Direction> =
+  /* @__PURE__ */ lazySchema$(() => z.enum(Direction));
 
 /** @internal */
 export const ListTransactionsStatus$outboundSchema: z.ZodMiniEnum<
   typeof ListTransactionsStatus
-> = z.enum(ListTransactionsStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(ListTransactionsStatus));
 
 /** @internal */
-export const Frequency$outboundSchema: z.ZodMiniEnum<typeof Frequency> = z.enum(
-  Frequency,
-);
+export const Frequency$outboundSchema: z.ZodMiniEnum<typeof Frequency> =
+  /* @__PURE__ */ lazySchema$(() => z.enum(Frequency));
 
 /** @internal */
 export type ListTransactionsRequest$Outbound = {
@@ -99,13 +99,15 @@ export type ListTransactionsRequest$Outbound = {
 export const ListTransactionsRequest$outboundSchema: z.ZodMiniType<
   ListTransactionsRequest$Outbound,
   ListTransactionsRequest
-> = z.object({
-  page: z._default(z.int(), 1),
-  pageSize: z._default(z.int(), 25),
-  direction: z.optional(Direction$outboundSchema),
-  status: z.optional(ListTransactionsStatus$outboundSchema),
-  frequency: z.optional(Frequency$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z._default(z.int(), 1),
+    pageSize: z._default(z.int(), 25),
+    direction: z.optional(Direction$outboundSchema),
+    status: z.optional(ListTransactionsStatus$outboundSchema),
+    frequency: z.optional(Frequency$outboundSchema),
+  })
+);
 
 export function listTransactionsRequestToJSON(
   listTransactionsRequest: ListTransactionsRequest,
@@ -119,15 +121,17 @@ export function listTransactionsRequestToJSON(
 export const ListTransactionsResponse$inboundSchema: z.ZodMiniType<
   ListTransactionsResponse,
   unknown
-> = z.pipe(
-  z.object({
-    Result: models.TransactionList$inboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      "Result": "result",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      Result: models.TransactionList$inboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        "Result": "result",
+      });
+    }),
+  )
 );
 
 export function listTransactionsResponseFromJSON(

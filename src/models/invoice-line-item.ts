@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import * as types from "../types/primitives.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -25,15 +25,17 @@ export type InvoiceLineItem = {
 export const InvoiceLineItem$inboundSchema: z.ZodMiniType<
   InvoiceLineItem,
   unknown
-> = z.object({
-  id: types.string(),
-  description: types.string(),
-  quantity: types.number(),
-  unitPrice: types.number(),
-  taxable: types.boolean(),
-  discountPercent: types.nullable(types.number()),
-  total: types.number(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.string(),
+    description: types.string(),
+    quantity: types.number(),
+    unitPrice: types.number(),
+    taxable: types.boolean(),
+    discountPercent: types.nullable(types.number()),
+    total: types.number(),
+  })
+);
 
 export function invoiceLineItemFromJSON(
   jsonString: string,

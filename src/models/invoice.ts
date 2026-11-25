@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
@@ -23,12 +23,22 @@ export const InvoiceStatus = {
 } as const;
 export type InvoiceStatus = OpenEnum<typeof InvoiceStatus>;
 
+export const InvoiceTaxMode = {
+  Exclusive: "exclusive",
+  Inclusive: "inclusive",
+} as const;
+export type InvoiceTaxMode = OpenEnum<typeof InvoiceTaxMode>;
+
 export type Invoice = {
   /**
    * UUID v4
    */
   id: string;
   invoiceNumber: string;
+  /**
+   * The immutable sent invoice version. Pass this as invoiceVersion when recording a payment to get a version-bound receipt. Without it, the receipt shows the payment only. Null when no immutable issued version is available; this read never creates a version.
+   */
+  invoiceVersion: number | null;
   /**
    * UUID v4
    */
@@ -43,8 +53,11 @@ export type Invoice = {
   issueDate: Date;
   dueDate: Date;
   currency: string;
+  taxMode: InvoiceTaxMode;
   subtotal: number;
+  discountPercent: number | null;
   discountAmount: number;
+  taxRate: number | null;
   taxAmount: number;
   total: number;
   amountPaid: number;
@@ -81,35 +94,48 @@ export type Invoice = {
 export const InvoiceStatus$inboundSchema: z.ZodMiniType<
   InvoiceStatus,
   unknown
-> = openEnums.inboundSchema(InvoiceStatus);
+> = /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(InvoiceStatus));
 
 /** @internal */
-export const Invoice$inboundSchema: z.ZodMiniType<Invoice, unknown> = z.object({
-  id: types.string(),
-  invoiceNumber: types.string(),
-  clientId: types.string(),
-  billingContactId: types.nullable(types.string()),
-  projectIds: z.array(types.string()),
-  status: InvoiceStatus$inboundSchema,
-  subject: types.nullable(types.string()),
-  issueDate: types.date(),
-  dueDate: types.date(),
-  currency: types.string(),
-  subtotal: types.number(),
-  discountAmount: types.number(),
-  taxAmount: types.number(),
-  total: types.number(),
-  amountPaid: types.number(),
-  balanceDue: types.number(),
-  overdue: types.boolean(),
-  supersedesInvoice: types.nullable(types.string()),
-  paymentTerms: types.nullable(types.string()),
-  notes: types.nullable(types.string()),
-  paidAt: types.nullable(types.date()),
-  lineItems: z.array(InvoiceLineItem$inboundSchema),
-  createdAt: types.date(),
-  updatedAt: types.date(),
-});
+export const InvoiceTaxMode$inboundSchema: z.ZodMiniType<
+  InvoiceTaxMode,
+  unknown
+> = /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(InvoiceTaxMode));
+
+/** @internal */
+export const Invoice$inboundSchema: z.ZodMiniType<Invoice, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      id: types.string(),
+      invoiceNumber: types.string(),
+      invoiceVersion: types.nullable(types.number()),
+      clientId: types.string(),
+      billingContactId: types.nullable(types.string()),
+      projectIds: z.array(types.string()),
+      status: InvoiceStatus$inboundSchema,
+      subject: types.nullable(types.string()),
+      issueDate: types.date(),
+      dueDate: types.date(),
+      currency: types.string(),
+      taxMode: InvoiceTaxMode$inboundSchema,
+      subtotal: types.number(),
+      discountPercent: types.nullable(types.number()),
+      discountAmount: types.number(),
+      taxRate: types.nullable(types.number()),
+      taxAmount: types.number(),
+      total: types.number(),
+      amountPaid: types.number(),
+      balanceDue: types.number(),
+      overdue: types.boolean(),
+      supersedesInvoice: types.nullable(types.string()),
+      paymentTerms: types.nullable(types.string()),
+      notes: types.nullable(types.string()),
+      paidAt: types.nullable(types.date()),
+      lineItems: z.array(InvoiceLineItem$inboundSchema),
+      createdAt: types.date(),
+      updatedAt: types.date(),
+    })
+  );
 
 export function invoiceFromJSON(
   jsonString: string,

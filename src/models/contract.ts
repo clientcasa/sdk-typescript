@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import * as openEnums from "../types/enums.js";
 import { ClosedEnum, OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
@@ -105,22 +105,21 @@ export type Contract = {
 export const ContractStatus$inboundSchema: z.ZodMiniType<
   ContractStatus,
   unknown
-> = openEnums.inboundSchema(ContractStatus);
+> = /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(ContractStatus));
 
 /** @internal */
 export const ContentType$inboundSchema: z.ZodMiniType<ContentType, unknown> =
-  openEnums.inboundSchema(ContentType);
+  /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(ContentType));
 
 /** @internal */
-export const EmailEnum$inboundSchema: z.ZodMiniEnum<typeof EmailEnum> = z.enum(
-  EmailEnum,
-);
+export const EmailEnum$inboundSchema: z.ZodMiniEnum<typeof EmailEnum> =
+  /* @__PURE__ */ lazySchema$(() => z.enum(EmailEnum));
 
 /** @internal */
-export const Email$inboundSchema: z.ZodMiniType<Email, unknown> = smartUnion([
-  types.string(),
-  EmailEnum$inboundSchema,
-]);
+export const Email$inboundSchema: z.ZodMiniType<Email, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    smartUnion([types.string(), EmailEnum$inboundSchema])
+  );
 
 export function emailFromJSON(
   jsonString: string,
@@ -133,15 +132,18 @@ export function emailFromJSON(
 }
 
 /** @internal */
-export const Signer$inboundSchema: z.ZodMiniType<Signer, unknown> = z.object({
-  contactId: types.nullable(types.string()),
-  name: types.string(),
-  email: smartUnion([types.string(), EmailEnum$inboundSchema]),
-  role: types.string(),
-  order: types.number(),
-  status: types.string(),
-  signedAt: types.nullable(types.date()),
-});
+export const Signer$inboundSchema: z.ZodMiniType<Signer, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      contactId: types.nullable(types.string()),
+      name: types.string(),
+      email: smartUnion([types.string(), EmailEnum$inboundSchema]),
+      role: types.string(),
+      order: types.number(),
+      status: types.string(),
+      signedAt: types.nullable(types.date()),
+    })
+  );
 
 export function signerFromJSON(
   jsonString: string,
@@ -154,29 +156,31 @@ export function signerFromJSON(
 }
 
 /** @internal */
-export const Contract$inboundSchema: z.ZodMiniType<Contract, unknown> = z
-  .object({
-    id: types.string(),
-    contractNumber: types.string(),
-    title: types.string(),
-    clientId: types.string(),
-    billingContactId: types.nullable(types.string()),
-    projectId: types.nullable(types.string()),
-    sourceTemplateId: types.nullable(types.string()),
-    status: ContractStatus$inboundSchema,
-    contentType: ContentType$inboundSchema,
-    issueDate: types.nullable(types.date()),
-    effectiveDate: types.nullable(types.date()),
-    expirationDate: types.nullable(types.date()),
-    signedDate: types.nullable(types.date()),
-    currency: types.string(),
-    contractValue: types.nullable(types.number()),
-    signers: z.array(z.lazy(() => Signer$inboundSchema)),
-    archived: types.boolean(),
-    archivedAt: types.nullable(types.date()),
-    createdAt: types.date(),
-    updatedAt: types.date(),
-  });
+export const Contract$inboundSchema: z.ZodMiniType<Contract, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      id: types.string(),
+      contractNumber: types.string(),
+      title: types.string(),
+      clientId: types.string(),
+      billingContactId: types.nullable(types.string()),
+      projectId: types.nullable(types.string()),
+      sourceTemplateId: types.nullable(types.string()),
+      status: ContractStatus$inboundSchema,
+      contentType: ContentType$inboundSchema,
+      issueDate: types.nullable(types.date()),
+      effectiveDate: types.nullable(types.date()),
+      expirationDate: types.nullable(types.date()),
+      signedDate: types.nullable(types.date()),
+      currency: types.string(),
+      contractValue: types.nullable(types.number()),
+      signers: z.array(z.lazy(() => Signer$inboundSchema)),
+      archived: types.boolean(),
+      archivedAt: types.nullable(types.date()),
+      createdAt: types.date(),
+      updatedAt: types.date(),
+    })
+  );
 
 export function contractFromJSON(
   jsonString: string,

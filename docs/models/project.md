@@ -12,12 +12,27 @@ let value: Project = {
   businessId: "550e8400-e29b-41d4-a716-446655440000",
   status: "completed",
   pipelineStageId: "550e8400-e29b-41d4-a716-446655440000",
-  startDate: new Date("2026-08-21"),
-  endDate: new Date("2025-10-30"),
-  eventDate: new Date("2026-10-19"),
-  contractValue: 1403.97,
-  createdAt: new Date("2024-08-20T10:03:50.071Z"),
-  updatedAt: new Date("2026-08-23T21:41:05.976Z"),
+  foldedStage: {
+    category: "complete",
+    state: "updating",
+    label: "<value>",
+    labelId: "550e8400-e29b-41d4-a716-446655440000",
+    status: "paused",
+    cancelled: false,
+    evidence: [
+      "<value 1>",
+      "<value 2>",
+      "<value 3>",
+    ],
+    commercialAttention: true,
+    actualPrecision: "instant",
+  },
+  startDate: new Date("2026-04-25"),
+  endDate: new Date("2026-11-08"),
+  eventDate: new Date("2026-03-31"),
+  contractValue: 9289.2,
+  createdAt: new Date("2024-05-08T18:44:42.561Z"),
+  updatedAt: new Date("2026-11-23T18:16:25.118Z"),
 };
 ```
 
@@ -31,6 +46,7 @@ let value: Project = {
 | `businessId`                                                                                  | *string*                                                                                      | :heavy_check_mark:                                                                            | UUID v4                                                                                       | 550e8400-e29b-41d4-a716-446655440000                                                          |
 | `status`                                                                                      | [models.ProjectStatus](../models/project-status.md)                                           | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
 | `pipelineStageId`                                                                             | *string*                                                                                      | :heavy_check_mark:                                                                            | UUID v4                                                                                       | 550e8400-e29b-41d4-a716-446655440000                                                          |
+| `foldedStage`                                                                                 | [models.FoldedStage](../models/folded-stage.md)                                               | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
 | `startDate`                                                                                   | [Date](../types/rfcdate.md)                                                                   | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
 | `endDate`                                                                                     | [Date](../types/rfcdate.md)                                                                   | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
 | `eventDate`                                                                                   | [Date](../types/rfcdate.md)                                                                   | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |

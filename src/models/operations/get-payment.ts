@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 
 export type GetPaymentSecurity = {
   apiKey?: string | undefined;
@@ -26,10 +27,12 @@ export type GetPaymentSecurity$Outbound = {
 export const GetPaymentSecurity$outboundSchema: z.ZodMiniType<
   GetPaymentSecurity$Outbound,
   GetPaymentSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function getPaymentSecurityToJSON(
   getPaymentSecurity: GetPaymentSecurity,
@@ -48,9 +51,11 @@ export type GetPaymentRequest$Outbound = {
 export const GetPaymentRequest$outboundSchema: z.ZodMiniType<
   GetPaymentRequest$Outbound,
   GetPaymentRequest
-> = z.object({
-  id: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+  })
+);
 
 export function getPaymentRequestToJSON(
   getPaymentRequest: GetPaymentRequest,

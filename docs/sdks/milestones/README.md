@@ -12,7 +12,7 @@
 
 ## list
 
-List milestones
+Results are ordered by date, then identity. Continue with pagination.nextCursor as after. Totals are unavailable when the whole population is unknown. Page numbers above one require after. Project-parent reads include checkpoints placed on a day.
 
 ### Example Usage
 
@@ -112,6 +112,7 @@ async function run() {
       parentId: "550e8400-e29b-41d4-a716-446655440000",
       title: "<value>",
       date: new Date("2025-07-24"),
+      time: "16:07",
       assigneeId: "550e8400-e29b-41d4-a716-446655440000",
       catalogItemId: "550e8400-e29b-41d4-a716-446655440000",
     },
@@ -145,6 +146,7 @@ async function run() {
       parentId: "550e8400-e29b-41d4-a716-446655440000",
       title: "<value>",
       date: new Date("2025-07-24"),
+      time: "16:07",
       assigneeId: "550e8400-e29b-41d4-a716-446655440000",
       catalogItemId: "550e8400-e29b-41d4-a716-446655440000",
     },
@@ -353,6 +355,7 @@ async function run() {
     id: "550e8400-e29b-41d4-a716-446655440000",
     idempotencyKey: "create-client-2026-05-24-a1b2c3",
     body: {
+      time: "16:07",
       assigneeId: "550e8400-e29b-41d4-a716-446655440000",
       catalogItemId: "550e8400-e29b-41d4-a716-446655440000",
     },
@@ -383,6 +386,7 @@ async function run() {
     id: "550e8400-e29b-41d4-a716-446655440000",
     idempotencyKey: "create-client-2026-05-24-a1b2c3",
     body: {
+      time: "16:07",
       assigneeId: "550e8400-e29b-41d4-a716-446655440000",
       catalogItemId: "550e8400-e29b-41d4-a716-446655440000",
     },

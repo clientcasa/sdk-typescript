@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 export const EventDayUpdateStatus = {
@@ -24,7 +25,10 @@ export type EventDayUpdateVenueAddress = {
 export type EventDayUpdateCustomAnchor = {
   key: string;
   label?: string | undefined;
-  time?: string | undefined;
+  /**
+   * Local time in HH:mm (24-hour), from 00:00 to 23:59, or no value to leave it unset. No seconds or date.
+   */
+  time?: string | null | undefined;
 };
 
 export type EventDayUpdate = {
@@ -39,7 +43,13 @@ export type EventDayUpdate = {
    * UUID v4
    */
   clientId?: string | null | undefined;
+  /**
+   * Local time in HH:mm (24-hour), from 00:00 to 23:59, or no value to leave it unset. No seconds or date.
+   */
   ceremonyTime?: string | null | undefined;
+  /**
+   * Local time in HH:mm (24-hour), from 00:00 to 23:59, or no value to leave it unset. No seconds or date.
+   */
   eventStartTime?: string | null | undefined;
   venueAddress?: EventDayUpdateVenueAddress | undefined;
   venueNotes?: string | null | undefined;
@@ -53,7 +63,7 @@ export type EventDayUpdate = {
 /** @internal */
 export const EventDayUpdateStatus$outboundSchema: z.ZodMiniEnum<
   typeof EventDayUpdateStatus
-> = z.enum(EventDayUpdateStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(EventDayUpdateStatus));
 
 /** @internal */
 export type EventDayUpdateVenueAddress$Outbound = {
@@ -69,14 +79,16 @@ export type EventDayUpdateVenueAddress$Outbound = {
 export const EventDayUpdateVenueAddress$outboundSchema: z.ZodMiniType<
   EventDayUpdateVenueAddress$Outbound,
   EventDayUpdateVenueAddress
-> = z.object({
-  name: z.optional(z.string()),
-  street: z.optional(z.string()),
-  city: z.optional(z.string()),
-  state: z.optional(z.string()),
-  zip: z.optional(z.string()),
-  country: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    name: z.optional(z.string()),
+    street: z.optional(z.string()),
+    city: z.optional(z.string()),
+    state: z.optional(z.string()),
+    zip: z.optional(z.string()),
+    country: z.optional(z.string()),
+  })
+);
 
 export function eventDayUpdateVenueAddressToJSON(
   eventDayUpdateVenueAddress: EventDayUpdateVenueAddress,
@@ -90,18 +102,20 @@ export function eventDayUpdateVenueAddressToJSON(
 export type EventDayUpdateCustomAnchor$Outbound = {
   key: string;
   label?: string | undefined;
-  time?: string | undefined;
+  time?: string | null | undefined;
 };
 
 /** @internal */
 export const EventDayUpdateCustomAnchor$outboundSchema: z.ZodMiniType<
   EventDayUpdateCustomAnchor$Outbound,
   EventDayUpdateCustomAnchor
-> = z.object({
-  key: z.string(),
-  label: z.optional(z.string()),
-  time: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    key: z.string(),
+    label: z.optional(z.string()),
+    time: z.optional(z.nullable(z.string())),
+  })
+);
 
 export function eventDayUpdateCustomAnchorToJSON(
   eventDayUpdateCustomAnchor: EventDayUpdateCustomAnchor,
@@ -133,31 +147,31 @@ export type EventDayUpdate$Outbound = {
 export const EventDayUpdate$outboundSchema: z.ZodMiniType<
   EventDayUpdate$Outbound,
   EventDayUpdate
-> = z.object({
-  name: z.optional(z.nullable(z.string())),
-  date: z.optional(
-    z.pipe(
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    name: z.optional(z.nullable(z.string())),
+    date: z.optional(z.pipe(
       z.date(),
       z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
-    ),
-  ),
-  status: z.optional(EventDayUpdateStatus$outboundSchema),
-  projectId: z.optional(z.nullable(z.string())),
-  clientId: z.optional(z.nullable(z.string())),
-  ceremonyTime: z.optional(z.nullable(z.string())),
-  eventStartTime: z.optional(z.nullable(z.string())),
-  venueAddress: z.optional(
-    z.lazy(() => EventDayUpdateVenueAddress$outboundSchema),
-  ),
-  venueNotes: z.optional(z.nullable(z.string())),
-  dayStartMinute: z.optional(z.int()),
-  dayEndMinute: z.optional(z.int()),
-  customAnchors: z.optional(
-    z.array(z.lazy(() => EventDayUpdateCustomAnchor$outboundSchema)),
-  ),
-  isPrimary: z.optional(z.boolean()),
-  sortOrder: z.optional(z.int()),
-});
+    )),
+    status: z.optional(EventDayUpdateStatus$outboundSchema),
+    projectId: z.optional(z.nullable(z.string())),
+    clientId: z.optional(z.nullable(z.string())),
+    ceremonyTime: z.optional(z.nullable(z.string())),
+    eventStartTime: z.optional(z.nullable(z.string())),
+    venueAddress: z.optional(z.lazy(() =>
+      EventDayUpdateVenueAddress$outboundSchema
+    )),
+    venueNotes: z.optional(z.nullable(z.string())),
+    dayStartMinute: z.optional(z.int()),
+    dayEndMinute: z.optional(z.int()),
+    customAnchors: z.optional(z.array(z.lazy(() =>
+      EventDayUpdateCustomAnchor$outboundSchema
+    ))),
+    isPrimary: z.optional(z.boolean()),
+    sortOrder: z.optional(z.int()),
+  })
+);
 
 export function eventDayUpdateToJSON(eventDayUpdate: EventDayUpdate): string {
   return JSON.stringify(EventDayUpdate$outboundSchema.parse(eventDayUpdate));

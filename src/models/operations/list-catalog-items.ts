@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -60,10 +60,12 @@ export type ListCatalogItemsSecurity$Outbound = {
 export const ListCatalogItemsSecurity$outboundSchema: z.ZodMiniType<
   ListCatalogItemsSecurity$Outbound,
   ListCatalogItemsSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function listCatalogItemsSecurityToJSON(
   listCatalogItemsSecurity: ListCatalogItemsSecurity,
@@ -74,16 +76,17 @@ export function listCatalogItemsSecurityToJSON(
 }
 
 /** @internal */
-export const Type$outboundSchema: z.ZodMiniEnum<typeof Type> = z.enum(Type);
+export const Type$outboundSchema: z.ZodMiniEnum<typeof Type> =
+  /* @__PURE__ */ lazySchema$(() => z.enum(Type));
 
 /** @internal */
 export const ListCatalogItemsStatus$outboundSchema: z.ZodMiniEnum<
   typeof ListCatalogItemsStatus
-> = z.enum(ListCatalogItemsStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(ListCatalogItemsStatus));
 
 /** @internal */
-export const Composition$outboundSchema: z.ZodMiniEnum<typeof Composition> = z
-  .enum(Composition);
+export const Composition$outboundSchema: z.ZodMiniEnum<typeof Composition> =
+  /* @__PURE__ */ lazySchema$(() => z.enum(Composition));
 
 /** @internal */
 export type ListCatalogItemsRequest$Outbound = {
@@ -99,14 +102,16 @@ export type ListCatalogItemsRequest$Outbound = {
 export const ListCatalogItemsRequest$outboundSchema: z.ZodMiniType<
   ListCatalogItemsRequest$Outbound,
   ListCatalogItemsRequest
-> = z.object({
-  page: z._default(z.int(), 1),
-  pageSize: z._default(z.int(), 25),
-  type: z.optional(Type$outboundSchema),
-  status: z.optional(ListCatalogItemsStatus$outboundSchema),
-  composition: z.optional(Composition$outboundSchema),
-  clientId: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z._default(z.int(), 1),
+    pageSize: z._default(z.int(), 25),
+    type: z.optional(Type$outboundSchema),
+    status: z.optional(ListCatalogItemsStatus$outboundSchema),
+    composition: z.optional(Composition$outboundSchema),
+    clientId: z.optional(z.string()),
+  })
+);
 
 export function listCatalogItemsRequestToJSON(
   listCatalogItemsRequest: ListCatalogItemsRequest,
@@ -120,15 +125,17 @@ export function listCatalogItemsRequestToJSON(
 export const ListCatalogItemsResponse$inboundSchema: z.ZodMiniType<
   ListCatalogItemsResponse,
   unknown
-> = z.pipe(
-  z.object({
-    Result: models.CatalogItemList$inboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      "Result": "result",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      Result: models.CatalogItemList$inboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        "Result": "result",
+      });
+    }),
+  )
 );
 
 export function listCatalogItemsResponseFromJSON(

@@ -27,11 +27,25 @@ let value: ListMilestonesResponse = {
       },
     ],
     pagination: {
-      page: 299018,
-      pageSize: 331897,
-      total: 615983,
-      totalPages: 226919,
+      page: 516578,
+      pageSize: 475915,
+      total: 168292,
+      totalPages: 953541,
       hasMore: true,
+      nextCursor: "<value>",
+    },
+    complete: false,
+    coverage: {
+      after: "<value>",
+      next: "<value>",
+      stopped: true,
+    },
+    sources: {
+      todos: {
+        complete: true,
+        stopped: true,
+        unavailable: false,
+      },
     },
   },
 };

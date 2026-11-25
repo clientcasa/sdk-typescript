@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
@@ -108,35 +108,41 @@ export type Transaction = {
 export const TransactionFrequency$inboundSchema: z.ZodMiniType<
   TransactionFrequency,
   unknown
-> = openEnums.inboundSchema(TransactionFrequency);
+> = /* @__PURE__ */ lazySchema$(() =>
+  openEnums.inboundSchema(TransactionFrequency)
+);
 
 /** @internal */
 export const TransactionDirection$inboundSchema: z.ZodMiniType<
   TransactionDirection,
   unknown
-> = openEnums.inboundSchema(TransactionDirection);
+> = /* @__PURE__ */ lazySchema$(() =>
+  openEnums.inboundSchema(TransactionDirection)
+);
 
 /** @internal */
 export const TransactionMode$inboundSchema: z.ZodMiniType<
   TransactionMode,
   unknown
-> = openEnums.inboundSchema(TransactionMode);
+> = /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(TransactionMode));
 
 /** @internal */
 export const TransactionAssignment$inboundSchema: z.ZodMiniType<
   TransactionAssignment,
   unknown
-> = z.object({
-  id: types.nullable(types.string()),
-  projectId: types.nullable(types.string()),
-  clientId: types.nullable(types.string()),
-  amount: types.nullable(types.number()),
-  percentage: types.nullable(types.number()),
-  fixedAmount: types.nullable(types.number()),
-  startDate: types.nullable(types.date()),
-  endDate: types.nullable(types.date()),
-  allocationKey: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.nullable(types.string()),
+    projectId: types.nullable(types.string()),
+    clientId: types.nullable(types.string()),
+    amount: types.nullable(types.number()),
+    percentage: types.nullable(types.number()),
+    fixedAmount: types.nullable(types.number()),
+    startDate: types.nullable(types.date()),
+    endDate: types.nullable(types.date()),
+    allocationKey: types.nullable(types.string()),
+  })
+);
 
 export function transactionAssignmentFromJSON(
   jsonString: string,
@@ -152,36 +158,40 @@ export function transactionAssignmentFromJSON(
 export const TransactionStatus$inboundSchema: z.ZodMiniType<
   TransactionStatus,
   unknown
-> = openEnums.inboundSchema(TransactionStatus);
+> = /* @__PURE__ */ lazySchema$(() =>
+  openEnums.inboundSchema(TransactionStatus)
+);
 
 /** @internal */
-export const Transaction$inboundSchema: z.ZodMiniType<Transaction, unknown> = z
-  .object({
-    id: types.string(),
-    name: types.string(),
-    businessId: types.string(),
-    catalogItemId: types.nullable(types.string()),
-    taxCategoryId: types.nullable(types.string()),
-    amount: types.nullable(types.number()),
-    frequency: TransactionFrequency$inboundSchema,
-    direction: TransactionDirection$inboundSchema,
-    mode: TransactionMode$inboundSchema,
-    splitEvenly: types.nullable(types.boolean()),
-    assignments: z.array(z.lazy(() => TransactionAssignment$inboundSchema)),
-    passThrough: types.nullable(types.boolean()),
-    markupPercent: types.nullable(types.number()),
-    billedAmount: types.nullable(types.number()),
-    startDate: types.nullable(types.date()),
-    endDate: types.nullable(types.date()),
-    notes: types.nullable(types.string()),
-    vendorName: types.nullable(types.string()),
-    vendorEmail: types.nullable(types.string()),
-    vendorTaxId: types.nullable(types.string()),
-    receiptVerified: types.boolean(),
-    status: TransactionStatus$inboundSchema,
-    createdAt: types.date(),
-    updatedAt: types.date(),
-  });
+export const Transaction$inboundSchema: z.ZodMiniType<Transaction, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      id: types.string(),
+      name: types.string(),
+      businessId: types.string(),
+      catalogItemId: types.nullable(types.string()),
+      taxCategoryId: types.nullable(types.string()),
+      amount: types.nullable(types.number()),
+      frequency: TransactionFrequency$inboundSchema,
+      direction: TransactionDirection$inboundSchema,
+      mode: TransactionMode$inboundSchema,
+      splitEvenly: types.nullable(types.boolean()),
+      assignments: z.array(z.lazy(() => TransactionAssignment$inboundSchema)),
+      passThrough: types.nullable(types.boolean()),
+      markupPercent: types.nullable(types.number()),
+      billedAmount: types.nullable(types.number()),
+      startDate: types.nullable(types.date()),
+      endDate: types.nullable(types.date()),
+      notes: types.nullable(types.string()),
+      vendorName: types.nullable(types.string()),
+      vendorEmail: types.nullable(types.string()),
+      vendorTaxId: types.nullable(types.string()),
+      receiptVerified: types.boolean(),
+      status: TransactionStatus$inboundSchema,
+      createdAt: types.date(),
+      updatedAt: types.date(),
+    })
+  );
 
 export function transactionFromJSON(
   jsonString: string,

@@ -3,7 +3,14 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
+
+export const InvoiceCreateTaxMode = {
+  Exclusive: "exclusive",
+  Inclusive: "inclusive",
+} as const;
+export type InvoiceCreateTaxMode = ClosedEnum<typeof InvoiceCreateTaxMode>;
 
 export const InvoiceCreateStatus = {
   Draft: "draft",
@@ -24,6 +31,7 @@ export type InvoiceCreate = {
    * UUID v4
    */
   clientId: string;
+  taxMode?: InvoiceCreateTaxMode | undefined;
   /**
    * UUID v4
    */
@@ -39,9 +47,14 @@ export type InvoiceCreate = {
 };
 
 /** @internal */
+export const InvoiceCreateTaxMode$outboundSchema: z.ZodMiniEnum<
+  typeof InvoiceCreateTaxMode
+> = /* @__PURE__ */ lazySchema$(() => z.enum(InvoiceCreateTaxMode));
+
+/** @internal */
 export const InvoiceCreateStatus$outboundSchema: z.ZodMiniEnum<
   typeof InvoiceCreateStatus
-> = z.enum(InvoiceCreateStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(InvoiceCreateStatus));
 
 /** @internal */
 export type LineItem$Outbound = {
@@ -56,13 +69,15 @@ export type LineItem$Outbound = {
 export const LineItem$outboundSchema: z.ZodMiniType<
   LineItem$Outbound,
   LineItem
-> = z.object({
-  description: z.string(),
-  quantity: z.number(),
-  unitPrice: z.number(),
-  taxable: z._default(z.boolean(), false),
-  discountPercent: z.optional(z.number()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    description: z.string(),
+    quantity: z.number(),
+    unitPrice: z.number(),
+    taxable: z._default(z.boolean(), false),
+    discountPercent: z.optional(z.number()),
+  })
+);
 
 export function lineItemToJSON(lineItem: LineItem): string {
   return JSON.stringify(LineItem$outboundSchema.parse(lineItem));
@@ -71,6 +86,7 @@ export function lineItemToJSON(lineItem: LineItem): string {
 /** @internal */
 export type InvoiceCreate$Outbound = {
   clientId: string;
+  taxMode?: string | undefined;
   billingContactId?: string | undefined;
   projectIds?: Array<string> | undefined;
   status: string;
@@ -86,28 +102,29 @@ export type InvoiceCreate$Outbound = {
 export const InvoiceCreate$outboundSchema: z.ZodMiniType<
   InvoiceCreate$Outbound,
   InvoiceCreate
-> = z.object({
-  clientId: z.string(),
-  billingContactId: z.optional(z.string()),
-  projectIds: z.optional(z.array(z.string())),
-  status: z._default(InvoiceCreateStatus$outboundSchema, "draft"),
-  subject: z.optional(z.string()),
-  issueDate: z.optional(
-    z.pipe(
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    clientId: z.string(),
+    taxMode: z.optional(InvoiceCreateTaxMode$outboundSchema),
+    billingContactId: z.optional(z.string()),
+    projectIds: z.optional(z.array(z.string())),
+    status: z._default(InvoiceCreateStatus$outboundSchema, "draft"),
+    subject: z.optional(z.string()),
+    issueDate: z.optional(z.pipe(
       z.date(),
       z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
-    ),
-  ),
-  dueDate: z.optional(
-    z.pipe(
+    )),
+    dueDate: z.optional(z.pipe(
       z.date(),
       z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
-    ),
-  ),
-  paymentTerms: z.optional(z.string()),
-  notes: z.optional(z.string()),
-  lineItems: z.array(z.lazy(() => LineItem$outboundSchema)),
-});
+    )),
+    paymentTerms: z.optional(z.string()),
+    notes: z.optional(z.string()),
+    lineItems: z.array(z.lazy(() =>
+      LineItem$outboundSchema
+    )),
+  })
+);
 
 export function invoiceCreateToJSON(invoiceCreate: InvoiceCreate): string {
   return JSON.stringify(InvoiceCreate$outboundSchema.parse(invoiceCreate));

@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -46,10 +46,12 @@ export type ListContactsSecurity$Outbound = {
 export const ListContactsSecurity$outboundSchema: z.ZodMiniType<
   ListContactsSecurity$Outbound,
   ListContactsSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function listContactsSecurityToJSON(
   listContactsSecurity: ListContactsSecurity,
@@ -60,7 +62,8 @@ export function listContactsSecurityToJSON(
 }
 
 /** @internal */
-export const Role$outboundSchema: z.ZodMiniEnum<typeof Role> = z.enum(Role);
+export const Role$outboundSchema: z.ZodMiniEnum<typeof Role> =
+  /* @__PURE__ */ lazySchema$(() => z.enum(Role));
 
 /** @internal */
 export type ListContactsRequest$Outbound = {
@@ -74,12 +77,14 @@ export type ListContactsRequest$Outbound = {
 export const ListContactsRequest$outboundSchema: z.ZodMiniType<
   ListContactsRequest$Outbound,
   ListContactsRequest
-> = z.object({
-  page: z._default(z.int(), 1),
-  pageSize: z._default(z.int(), 25),
-  clientId: z.optional(z.string()),
-  role: z.optional(Role$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z._default(z.int(), 1),
+    pageSize: z._default(z.int(), 25),
+    clientId: z.optional(z.string()),
+    role: z.optional(Role$outboundSchema),
+  })
+);
 
 export function listContactsRequestToJSON(
   listContactsRequest: ListContactsRequest,
@@ -93,15 +98,17 @@ export function listContactsRequestToJSON(
 export const ListContactsResponse$inboundSchema: z.ZodMiniType<
   ListContactsResponse,
   unknown
-> = z.pipe(
-  z.object({
-    Result: models.ContactList$inboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      "Result": "result",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      Result: models.ContactList$inboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        "Result": "result",
+      });
+    }),
+  )
 );
 
 export function listContactsResponseFromJSON(

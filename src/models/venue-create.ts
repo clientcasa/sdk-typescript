@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 export type VenueCreateAddress = {
@@ -58,14 +59,16 @@ export type VenueCreateAddress$Outbound = {
 export const VenueCreateAddress$outboundSchema: z.ZodMiniType<
   VenueCreateAddress$Outbound,
   VenueCreateAddress
-> = z.object({
-  line1: z.optional(z.string()),
-  line2: z.optional(z.string()),
-  city: z.optional(z.string()),
-  state: z.optional(z.string()),
-  postalCode: z.optional(z.string()),
-  country: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    line1: z.optional(z.string()),
+    line2: z.optional(z.string()),
+    city: z.optional(z.string()),
+    state: z.optional(z.string()),
+    postalCode: z.optional(z.string()),
+    country: z.optional(z.string()),
+  })
+);
 
 export function venueCreateAddressToJSON(
   venueCreateAddress: VenueCreateAddress,
@@ -87,12 +90,14 @@ export type VenueCreateContact$Outbound = {
 export const VenueCreateContact$outboundSchema: z.ZodMiniType<
   VenueCreateContact$Outbound,
   VenueCreateContact
-> = z.object({
-  name: z.optional(z.string()),
-  role: z.optional(z.string()),
-  email: z.optional(z.string()),
-  phone: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    name: z.optional(z.string()),
+    role: z.optional(z.string()),
+    email: z.optional(z.string()),
+    phone: z.optional(z.string()),
+  })
+);
 
 export function venueCreateContactToJSON(
   venueCreateContact: VenueCreateContact,
@@ -112,10 +117,12 @@ export type VenueCreateSpace$Outbound = {
 export const VenueCreateSpace$outboundSchema: z.ZodMiniType<
   VenueCreateSpace$Outbound,
   VenueCreateSpace
-> = z.object({
-  name: z.string(),
-  notes: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    name: z.string(),
+    notes: z.optional(z.string()),
+  })
+);
 
 export function venueCreateSpaceToJSON(
   venueCreateSpace: VenueCreateSpace,
@@ -128,7 +135,7 @@ export function venueCreateSpaceToJSON(
 /** @internal */
 export const VenueCreateStatus$outboundSchema: z.ZodMiniEnum<
   typeof VenueCreateStatus
-> = z.enum(VenueCreateStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(VenueCreateStatus));
 
 /** @internal */
 export type VenueCreate$Outbound = {
@@ -147,19 +154,21 @@ export type VenueCreate$Outbound = {
 export const VenueCreate$outboundSchema: z.ZodMiniType<
   VenueCreate$Outbound,
   VenueCreate
-> = z.object({
-  name: z.string(),
-  website: z.optional(z.string()),
-  address: z.optional(z.lazy(() => VenueCreateAddress$outboundSchema)),
-  timezone: z.optional(z.string()),
-  contacts: z.optional(
-    z.array(z.lazy(() => VenueCreateContact$outboundSchema)),
-  ),
-  spaces: z.optional(z.array(z.lazy(() => VenueCreateSpace$outboundSchema))),
-  notes: z.optional(z.string()),
-  tagIds: z.optional(z.array(z.string())),
-  status: z._default(VenueCreateStatus$outboundSchema, "active"),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    name: z.string(),
+    website: z.optional(z.string()),
+    address: z.optional(z.lazy(() => VenueCreateAddress$outboundSchema)),
+    timezone: z.optional(z.string()),
+    contacts: z.optional(
+      z.array(z.lazy(() => VenueCreateContact$outboundSchema)),
+    ),
+    spaces: z.optional(z.array(z.lazy(() => VenueCreateSpace$outboundSchema))),
+    notes: z.optional(z.string()),
+    tagIds: z.optional(z.array(z.string())),
+    status: z._default(VenueCreateStatus$outboundSchema, "active"),
+  })
+);
 
 export function venueCreateToJSON(venueCreate: VenueCreate): string {
   return JSON.stringify(VenueCreate$outboundSchema.parse(venueCreate));

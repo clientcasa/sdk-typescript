@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 
 export type GetFormAttachmentSecurity = {
   apiKey?: string | undefined;
@@ -26,10 +27,12 @@ export type GetFormAttachmentSecurity$Outbound = {
 export const GetFormAttachmentSecurity$outboundSchema: z.ZodMiniType<
   GetFormAttachmentSecurity$Outbound,
   GetFormAttachmentSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function getFormAttachmentSecurityToJSON(
   getFormAttachmentSecurity: GetFormAttachmentSecurity,
@@ -48,9 +51,11 @@ export type GetFormAttachmentRequest$Outbound = {
 export const GetFormAttachmentRequest$outboundSchema: z.ZodMiniType<
   GetFormAttachmentRequest$Outbound,
   GetFormAttachmentRequest
-> = z.object({
-  id: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+  })
+);
 
 export function getFormAttachmentRequestToJSON(
   getFormAttachmentRequest: GetFormAttachmentRequest,

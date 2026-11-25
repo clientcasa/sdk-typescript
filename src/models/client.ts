@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
@@ -72,22 +72,26 @@ export type Client = {
 
 /** @internal */
 export const ClientStatus$inboundSchema: z.ZodMiniType<ClientStatus, unknown> =
-  openEnums.inboundSchema(ClientStatus);
+  /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(ClientStatus));
 
 /** @internal */
 export const RecurringBillingStatus$inboundSchema: z.ZodMiniType<
   RecurringBillingStatus,
   unknown
-> = openEnums.inboundSchema(RecurringBillingStatus);
+> = /* @__PURE__ */ lazySchema$(() =>
+  openEnums.inboundSchema(RecurringBillingStatus)
+);
 
 /** @internal */
 export const RecurringBilling$inboundSchema: z.ZodMiniType<
   RecurringBilling,
   unknown
-> = z.object({
-  status: RecurringBillingStatus$inboundSchema,
-  nextBillingDate: types.nullable(types.date()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    status: RecurringBillingStatus$inboundSchema,
+    nextBillingDate: types.nullable(types.date()),
+  })
+);
 
 export function recurringBillingFromJSON(
   jsonString: string,
@@ -100,23 +104,26 @@ export function recurringBillingFromJSON(
 }
 
 /** @internal */
-export const Client$inboundSchema: z.ZodMiniType<Client, unknown> = z.object({
-  id: types.string(),
-  name: types.string(),
-  status: ClientStatus$inboundSchema,
-  businessId: types.string(),
-  notes: types.nullable(types.string()),
-  taxSettings: ClientTaxSettings$inboundSchema,
-  invoiceRemindersEnabled: types.boolean(),
-  attachInvoicePdf: types.boolean(),
-  attachReceiptPdf: types.boolean(),
-  recurringBilling: types.nullable(
-    z.lazy(() => RecurringBilling$inboundSchema),
-  ),
-  sourceSubmissionId: types.nullable(types.string()),
-  createdAt: types.date(),
-  updatedAt: types.date(),
-});
+export const Client$inboundSchema: z.ZodMiniType<Client, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      id: types.string(),
+      name: types.string(),
+      status: ClientStatus$inboundSchema,
+      businessId: types.string(),
+      notes: types.nullable(types.string()),
+      taxSettings: ClientTaxSettings$inboundSchema,
+      invoiceRemindersEnabled: types.boolean(),
+      attachInvoicePdf: types.boolean(),
+      attachReceiptPdf: types.boolean(),
+      recurringBilling: types.nullable(
+        z.lazy(() => RecurringBilling$inboundSchema),
+      ),
+      sourceSubmissionId: types.nullable(types.string()),
+      createdAt: types.date(),
+      updatedAt: types.date(),
+    })
+  );
 
 export function clientFromJSON(
   jsonString: string,

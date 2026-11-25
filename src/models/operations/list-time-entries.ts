@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -64,10 +64,12 @@ export type ListTimeEntriesSecurity$Outbound = {
 export const ListTimeEntriesSecurity$outboundSchema: z.ZodMiniType<
   ListTimeEntriesSecurity$Outbound,
   ListTimeEntriesSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function listTimeEntriesSecurityToJSON(
   listTimeEntriesSecurity: ListTimeEntriesSecurity,
@@ -78,9 +80,8 @@ export function listTimeEntriesSecurityToJSON(
 }
 
 /** @internal */
-export const Billable$outboundSchema: z.ZodMiniEnum<typeof Billable> = z.enum(
-  Billable,
-);
+export const Billable$outboundSchema: z.ZodMiniEnum<typeof Billable> =
+  /* @__PURE__ */ lazySchema$(() => z.enum(Billable));
 
 /** @internal */
 export type ListTimeEntriesRequest$Outbound = {
@@ -98,26 +99,24 @@ export type ListTimeEntriesRequest$Outbound = {
 export const ListTimeEntriesRequest$outboundSchema: z.ZodMiniType<
   ListTimeEntriesRequest$Outbound,
   ListTimeEntriesRequest
-> = z.object({
-  page: z._default(z.int(), 1),
-  pageSize: z._default(z.int(), 25),
-  projectId: z.optional(z.string()),
-  clientId: z.optional(z.string()),
-  memberId: z.optional(z.string()),
-  dateFrom: z.optional(
-    z.pipe(
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z._default(z.int(), 1),
+    pageSize: z._default(z.int(), 25),
+    projectId: z.optional(z.string()),
+    clientId: z.optional(z.string()),
+    memberId: z.optional(z.string()),
+    dateFrom: z.optional(z.pipe(
       z.date(),
       z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
-    ),
-  ),
-  dateTo: z.optional(
-    z.pipe(
+    )),
+    dateTo: z.optional(z.pipe(
       z.date(),
       z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
-    ),
-  ),
-  billable: z.optional(Billable$outboundSchema),
-});
+    )),
+    billable: z.optional(Billable$outboundSchema),
+  })
+);
 
 export function listTimeEntriesRequestToJSON(
   listTimeEntriesRequest: ListTimeEntriesRequest,
@@ -131,15 +130,17 @@ export function listTimeEntriesRequestToJSON(
 export const ListTimeEntriesResponse$inboundSchema: z.ZodMiniType<
   ListTimeEntriesResponse,
   unknown
-> = z.pipe(
-  z.object({
-    Result: models.TimeEntryList$inboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      "Result": "result",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      Result: models.TimeEntryList$inboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        "Result": "result",
+      });
+    }),
+  )
 );
 
 export function listTimeEntriesResponseFromJSON(

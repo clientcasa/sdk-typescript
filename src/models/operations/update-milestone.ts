@@ -4,6 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 import * as models from "../index.js";
 
 export type UpdateMilestoneSecurity = {
@@ -33,10 +34,12 @@ export type UpdateMilestoneSecurity$Outbound = {
 export const UpdateMilestoneSecurity$outboundSchema: z.ZodMiniType<
   UpdateMilestoneSecurity$Outbound,
   UpdateMilestoneSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function updateMilestoneSecurityToJSON(
   updateMilestoneSecurity: UpdateMilestoneSecurity,
@@ -57,17 +60,19 @@ export type UpdateMilestoneRequest$Outbound = {
 export const UpdateMilestoneRequest$outboundSchema: z.ZodMiniType<
   UpdateMilestoneRequest$Outbound,
   UpdateMilestoneRequest
-> = z.pipe(
-  z.object({
-    id: z.string(),
-    idempotencyKey: z.optional(z.string()),
-    body: models.MilestoneUpdate$outboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      idempotencyKey: "Idempotency-Key",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      id: z.string(),
+      idempotencyKey: z.optional(z.string()),
+      body: models.MilestoneUpdate$outboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        idempotencyKey: "Idempotency-Key",
+      });
+    }),
+  )
 );
 
 export function updateMilestoneRequestToJSON(

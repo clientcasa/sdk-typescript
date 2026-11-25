@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 
 export type GetFormSubmissionSecurity = {
   apiKey?: string | undefined;
@@ -26,10 +27,12 @@ export type GetFormSubmissionSecurity$Outbound = {
 export const GetFormSubmissionSecurity$outboundSchema: z.ZodMiniType<
   GetFormSubmissionSecurity$Outbound,
   GetFormSubmissionSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function getFormSubmissionSecurityToJSON(
   getFormSubmissionSecurity: GetFormSubmissionSecurity,
@@ -48,9 +51,11 @@ export type GetFormSubmissionRequest$Outbound = {
 export const GetFormSubmissionRequest$outboundSchema: z.ZodMiniType<
   GetFormSubmissionRequest$Outbound,
   GetFormSubmissionRequest
-> = z.object({
-  id: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+  })
+);
 
 export function getFormSubmissionRequestToJSON(
   getFormSubmissionRequest: GetFormSubmissionRequest,

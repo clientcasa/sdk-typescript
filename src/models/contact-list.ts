@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { Contact, Contact$inboundSchema } from "./contact.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
@@ -18,11 +18,13 @@ export type ContactList = {
 };
 
 /** @internal */
-export const ContactList$inboundSchema: z.ZodMiniType<ContactList, unknown> = z
-  .object({
-    data: z.array(Contact$inboundSchema),
-    pagination: PaginationMeta$inboundSchema,
-  });
+export const ContactList$inboundSchema: z.ZodMiniType<ContactList, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      data: z.array(Contact$inboundSchema),
+      pagination: PaginationMeta$inboundSchema,
+    })
+  );
 
 export function contactListFromJSON(
   jsonString: string,

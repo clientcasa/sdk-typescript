@@ -11,8 +11,12 @@ let value: CreateTimelineItemRequest = {
     eventDayId: "550e8400-e29b-41d4-a716-446655440000",
     title: "<value>",
     categoryId: "550e8400-e29b-41d4-a716-446655440000",
+    requestedStartTime: "16:07",
     durationMinutes: 729957,
     vendorIds: [
+      "550e8400-e29b-41d4-a716-446655440000",
+    ],
+    publicVendorIds: [
       "550e8400-e29b-41d4-a716-446655440000",
     ],
   },

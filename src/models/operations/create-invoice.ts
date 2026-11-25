@@ -4,6 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 import * as models from "../index.js";
 
 export type CreateInvoiceSecurity = {
@@ -29,10 +30,12 @@ export type CreateInvoiceSecurity$Outbound = {
 export const CreateInvoiceSecurity$outboundSchema: z.ZodMiniType<
   CreateInvoiceSecurity$Outbound,
   CreateInvoiceSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function createInvoiceSecurityToJSON(
   createInvoiceSecurity: CreateInvoiceSecurity,
@@ -52,16 +55,18 @@ export type CreateInvoiceRequest$Outbound = {
 export const CreateInvoiceRequest$outboundSchema: z.ZodMiniType<
   CreateInvoiceRequest$Outbound,
   CreateInvoiceRequest
-> = z.pipe(
-  z.object({
-    idempotencyKey: z.optional(z.string()),
-    body: models.InvoiceCreate$outboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      idempotencyKey: "Idempotency-Key",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      idempotencyKey: z.optional(z.string()),
+      body: models.InvoiceCreate$outboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        idempotencyKey: "Idempotency-Key",
+      });
+    }),
+  )
 );
 
 export function createInvoiceRequestToJSON(

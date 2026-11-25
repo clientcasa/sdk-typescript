@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -50,10 +50,12 @@ export type ListContractsSecurity$Outbound = {
 export const ListContractsSecurity$outboundSchema: z.ZodMiniType<
   ListContractsSecurity$Outbound,
   ListContractsSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function listContractsSecurityToJSON(
   listContractsSecurity: ListContractsSecurity,
@@ -66,7 +68,7 @@ export function listContractsSecurityToJSON(
 /** @internal */
 export const ListContractsStatus$outboundSchema: z.ZodMiniEnum<
   typeof ListContractsStatus
-> = z.enum(ListContractsStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(ListContractsStatus));
 
 /** @internal */
 export type ListContractsRequest$Outbound = {
@@ -80,12 +82,14 @@ export type ListContractsRequest$Outbound = {
 export const ListContractsRequest$outboundSchema: z.ZodMiniType<
   ListContractsRequest$Outbound,
   ListContractsRequest
-> = z.object({
-  page: z._default(z.int(), 1),
-  pageSize: z._default(z.int(), 25),
-  clientId: z.optional(z.string()),
-  status: z.optional(ListContractsStatus$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z._default(z.int(), 1),
+    pageSize: z._default(z.int(), 25),
+    clientId: z.optional(z.string()),
+    status: z.optional(ListContractsStatus$outboundSchema),
+  })
+);
 
 export function listContractsRequestToJSON(
   listContractsRequest: ListContractsRequest,
@@ -99,15 +103,17 @@ export function listContractsRequestToJSON(
 export const ListContractsResponse$inboundSchema: z.ZodMiniType<
   ListContractsResponse,
   unknown
-> = z.pipe(
-  z.object({
-    Result: models.ContractList$inboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      "Result": "result",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      Result: models.ContractList$inboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        "Result": "result",
+      });
+    }),
+  )
 );
 
 export function listContractsResponseFromJSON(

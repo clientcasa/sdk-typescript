@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
@@ -65,32 +65,36 @@ export type Milestone = {
 export const MilestoneParentType$inboundSchema: z.ZodMiniType<
   MilestoneParentType,
   unknown
-> = openEnums.inboundSchema(MilestoneParentType);
+> = /* @__PURE__ */ lazySchema$(() =>
+  openEnums.inboundSchema(MilestoneParentType)
+);
 
 /** @internal */
 export const MilestoneStatus$inboundSchema: z.ZodMiniType<
   MilestoneStatus,
   unknown
-> = openEnums.inboundSchema(MilestoneStatus);
+> = /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(MilestoneStatus));
 
 /** @internal */
-export const Milestone$inboundSchema: z.ZodMiniType<Milestone, unknown> = z
-  .object({
-    id: types.string(),
-    parentType: MilestoneParentType$inboundSchema,
-    parentId: types.string(),
-    title: types.string(),
-    description: types.nullable(types.string()),
-    date: types.nullable(types.date()),
-    time: types.nullable(types.string()),
-    status: MilestoneStatus$inboundSchema,
-    completedAt: types.nullable(types.date()),
-    assigneeId: types.nullable(types.string()),
-    catalogItemId: types.nullable(types.string()),
-    sortOrder: types.number(),
-    createdAt: types.date(),
-    updatedAt: types.date(),
-  });
+export const Milestone$inboundSchema: z.ZodMiniType<Milestone, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      id: types.string(),
+      parentType: MilestoneParentType$inboundSchema,
+      parentId: types.string(),
+      title: types.string(),
+      description: types.nullable(types.string()),
+      date: types.nullable(types.date()),
+      time: types.nullable(types.string()),
+      status: MilestoneStatus$inboundSchema,
+      completedAt: types.nullable(types.date()),
+      assigneeId: types.nullable(types.string()),
+      catalogItemId: types.nullable(types.string()),
+      sortOrder: types.number(),
+      createdAt: types.date(),
+      updatedAt: types.date(),
+    })
+  );
 
 export function milestoneFromJSON(
   jsonString: string,

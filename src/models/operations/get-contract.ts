@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 
 export type GetContractSecurity = {
   apiKey?: string | undefined;
@@ -26,10 +27,12 @@ export type GetContractSecurity$Outbound = {
 export const GetContractSecurity$outboundSchema: z.ZodMiniType<
   GetContractSecurity$Outbound,
   GetContractSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function getContractSecurityToJSON(
   getContractSecurity: GetContractSecurity,
@@ -48,9 +51,11 @@ export type GetContractRequest$Outbound = {
 export const GetContractRequest$outboundSchema: z.ZodMiniType<
   GetContractRequest$Outbound,
   GetContractRequest
-> = z.object({
-  id: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+  })
+);
 
 export function getContractRequestToJSON(
   getContractRequest: GetContractRequest,

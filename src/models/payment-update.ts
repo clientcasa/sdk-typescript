@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 
 export type PaymentUpdate = {
   reference?: string | null | undefined;
@@ -19,10 +20,12 @@ export type PaymentUpdate$Outbound = {
 export const PaymentUpdate$outboundSchema: z.ZodMiniType<
   PaymentUpdate$Outbound,
   PaymentUpdate
-> = z.object({
-  reference: z.optional(z.nullable(z.string())),
-  notes: z.optional(z.nullable(z.string())),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    reference: z.optional(z.nullable(z.string())),
+    notes: z.optional(z.nullable(z.string())),
+  })
+);
 
 export function paymentUpdateToJSON(paymentUpdate: PaymentUpdate): string {
   return JSON.stringify(PaymentUpdate$outboundSchema.parse(paymentUpdate));

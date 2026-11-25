@@ -4,6 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 import * as models from "../index.js";
 
 export type UpdateWebhookSecurity = {
@@ -33,10 +34,12 @@ export type UpdateWebhookSecurity$Outbound = {
 export const UpdateWebhookSecurity$outboundSchema: z.ZodMiniType<
   UpdateWebhookSecurity$Outbound,
   UpdateWebhookSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function updateWebhookSecurityToJSON(
   updateWebhookSecurity: UpdateWebhookSecurity,
@@ -57,17 +60,19 @@ export type UpdateWebhookRequest$Outbound = {
 export const UpdateWebhookRequest$outboundSchema: z.ZodMiniType<
   UpdateWebhookRequest$Outbound,
   UpdateWebhookRequest
-> = z.pipe(
-  z.object({
-    id: z.string(),
-    idempotencyKey: z.optional(z.string()),
-    body: models.WebhookUpdate$outboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      idempotencyKey: "Idempotency-Key",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      id: z.string(),
+      idempotencyKey: z.optional(z.string()),
+      body: models.WebhookUpdate$outboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        idempotencyKey: "Idempotency-Key",
+      });
+    }),
+  )
 );
 
 export function updateWebhookRequestToJSON(

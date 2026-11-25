@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 export const TransactionCreateFrequency = {
@@ -94,17 +95,17 @@ export type TransactionCreate = {
 /** @internal */
 export const TransactionCreateFrequency$outboundSchema: z.ZodMiniEnum<
   typeof TransactionCreateFrequency
-> = z.enum(TransactionCreateFrequency);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(TransactionCreateFrequency));
 
 /** @internal */
 export const TransactionCreateDirection$outboundSchema: z.ZodMiniEnum<
   typeof TransactionCreateDirection
-> = z.enum(TransactionCreateDirection);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(TransactionCreateDirection));
 
 /** @internal */
 export const TransactionCreateMode$outboundSchema: z.ZodMiniEnum<
   typeof TransactionCreateMode
-> = z.enum(TransactionCreateMode);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(TransactionCreateMode));
 
 /** @internal */
 export type TransactionCreateAssignment$Outbound = {
@@ -123,27 +124,25 @@ export type TransactionCreateAssignment$Outbound = {
 export const TransactionCreateAssignment$outboundSchema: z.ZodMiniType<
   TransactionCreateAssignment$Outbound,
   TransactionCreateAssignment
-> = z.object({
-  id: z.optional(z.string()),
-  projectId: z.optional(z.string()),
-  clientId: z.optional(z.string()),
-  amount: z.optional(z.number()),
-  percentage: z.optional(z.number()),
-  fixedAmount: z.optional(z.number()),
-  startDate: z.optional(
-    z.pipe(
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.optional(z.string()),
+    projectId: z.optional(z.string()),
+    clientId: z.optional(z.string()),
+    amount: z.optional(z.number()),
+    percentage: z.optional(z.number()),
+    fixedAmount: z.optional(z.number()),
+    startDate: z.optional(z.pipe(
       z.date(),
       z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
-    ),
-  ),
-  endDate: z.optional(
-    z.pipe(
+    )),
+    endDate: z.optional(z.pipe(
       z.date(),
       z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
-    ),
-  ),
-  allocationKey: z.optional(z.string()),
-});
+    )),
+    allocationKey: z.optional(z.string()),
+  })
+);
 
 export function transactionCreateAssignmentToJSON(
   transactionCreateAssignment: TransactionCreateAssignment,
@@ -158,7 +157,7 @@ export function transactionCreateAssignmentToJSON(
 /** @internal */
 export const TransactionCreateStatus$outboundSchema: z.ZodMiniEnum<
   typeof TransactionCreateStatus
-> = z.enum(TransactionCreateStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(TransactionCreateStatus));
 
 /** @internal */
 export type TransactionCreate$Outbound = {
@@ -187,39 +186,44 @@ export type TransactionCreate$Outbound = {
 export const TransactionCreate$outboundSchema: z.ZodMiniType<
   TransactionCreate$Outbound,
   TransactionCreate
-> = z.object({
-  name: z.string(),
-  businessId: z.optional(z.string()),
-  catalogItemId: z.optional(z.string()),
-  taxCategoryId: z.optional(z.string()),
-  amount: z.number(),
-  frequency: z._default(TransactionCreateFrequency$outboundSchema, "one-time"),
-  direction: TransactionCreateDirection$outboundSchema,
-  mode: z._default(TransactionCreateMode$outboundSchema, "each"),
-  splitEvenly: z.optional(z.boolean()),
-  assignments: z.optional(
-    z.array(z.lazy(() => TransactionCreateAssignment$outboundSchema)),
-  ),
-  passThrough: z.optional(z.boolean()),
-  markupPercent: z.optional(z.number()),
-  startDate: z.optional(
-    z.pipe(
-      z.date(),
-      z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    name: z.string(),
+    businessId: z.optional(z.string()),
+    catalogItemId: z.optional(z.string()),
+    taxCategoryId: z.optional(z.string()),
+    amount: z.number(),
+    frequency: z._default(
+      TransactionCreateFrequency$outboundSchema,
+      "one-time",
     ),
-  ),
-  endDate: z.optional(
-    z.pipe(
-      z.date(),
-      z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
+    direction: TransactionCreateDirection$outboundSchema,
+    mode: z._default(TransactionCreateMode$outboundSchema, "each"),
+    splitEvenly: z.optional(z.boolean()),
+    assignments: z.optional(
+      z.array(z.lazy(() => TransactionCreateAssignment$outboundSchema)),
     ),
-  ),
-  notes: z.optional(z.string()),
-  vendorName: z.optional(z.string()),
-  vendorEmail: z.optional(z.string()),
-  vendorTaxId: z.optional(z.string()),
-  status: z._default(TransactionCreateStatus$outboundSchema, "active"),
-});
+    passThrough: z.optional(z.boolean()),
+    markupPercent: z.optional(z.number()),
+    startDate: z.optional(
+      z.pipe(
+        z.date(),
+        z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
+      ),
+    ),
+    endDate: z.optional(
+      z.pipe(
+        z.date(),
+        z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
+      ),
+    ),
+    notes: z.optional(z.string()),
+    vendorName: z.optional(z.string()),
+    vendorEmail: z.optional(z.string()),
+    vendorTaxId: z.optional(z.string()),
+    status: z._default(TransactionCreateStatus$outboundSchema, "active"),
+  })
+);
 
 export function transactionCreateToJSON(
   transactionCreate: TransactionCreate,

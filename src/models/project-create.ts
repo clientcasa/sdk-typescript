@@ -3,12 +3,11 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 export const ProjectCreateStatus = {
   Active: "active",
-  Paused: "paused",
-  Completed: "completed",
 } as const;
 export type ProjectCreateStatus = ClosedEnum<typeof ProjectCreateStatus>;
 
@@ -19,10 +18,6 @@ export type ProjectCreate = {
    */
   clientId: string;
   status?: ProjectCreateStatus | undefined;
-  /**
-   * UUID v4
-   */
-  pipelineStageId?: string | undefined;
   startDate?: Date | undefined;
   endDate?: Date | undefined;
   eventDate?: Date | undefined;
@@ -32,14 +27,13 @@ export type ProjectCreate = {
 /** @internal */
 export const ProjectCreateStatus$outboundSchema: z.ZodMiniEnum<
   typeof ProjectCreateStatus
-> = z.enum(ProjectCreateStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(ProjectCreateStatus));
 
 /** @internal */
 export type ProjectCreate$Outbound = {
   name: string;
   clientId: string;
   status: string;
-  pipelineStageId?: string | undefined;
   startDate?: string | undefined;
   endDate?: string | undefined;
   eventDate?: string | undefined;
@@ -50,31 +44,26 @@ export type ProjectCreate$Outbound = {
 export const ProjectCreate$outboundSchema: z.ZodMiniType<
   ProjectCreate$Outbound,
   ProjectCreate
-> = z.object({
-  name: z.string(),
-  clientId: z.string(),
-  status: z._default(ProjectCreateStatus$outboundSchema, "active"),
-  pipelineStageId: z.optional(z.string()),
-  startDate: z.optional(
-    z.pipe(
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    name: z.string(),
+    clientId: z.string(),
+    status: z._default(ProjectCreateStatus$outboundSchema, "active"),
+    startDate: z.optional(z.pipe(
       z.date(),
       z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
-    ),
-  ),
-  endDate: z.optional(
-    z.pipe(
+    )),
+    endDate: z.optional(z.pipe(
       z.date(),
       z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
-    ),
-  ),
-  eventDate: z.optional(
-    z.pipe(
+    )),
+    eventDate: z.optional(z.pipe(
       z.date(),
       z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
-    ),
-  ),
-  contractValue: z.optional(z.number()),
-});
+    )),
+    contractValue: z.optional(z.number()),
+  })
+);
 
 export function projectCreateToJSON(projectCreate: ProjectCreate): string {
   return JSON.stringify(ProjectCreate$outboundSchema.parse(projectCreate));

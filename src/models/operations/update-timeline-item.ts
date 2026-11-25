@@ -4,6 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 import * as models from "../index.js";
 
 export type UpdateTimelineItemSecurity = {
@@ -33,10 +34,12 @@ export type UpdateTimelineItemSecurity$Outbound = {
 export const UpdateTimelineItemSecurity$outboundSchema: z.ZodMiniType<
   UpdateTimelineItemSecurity$Outbound,
   UpdateTimelineItemSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function updateTimelineItemSecurityToJSON(
   updateTimelineItemSecurity: UpdateTimelineItemSecurity,
@@ -57,17 +60,19 @@ export type UpdateTimelineItemRequest$Outbound = {
 export const UpdateTimelineItemRequest$outboundSchema: z.ZodMiniType<
   UpdateTimelineItemRequest$Outbound,
   UpdateTimelineItemRequest
-> = z.pipe(
-  z.object({
-    id: z.string(),
-    idempotencyKey: z.optional(z.string()),
-    body: models.TimelineItemUpdate$outboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      idempotencyKey: "Idempotency-Key",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      id: z.string(),
+      idempotencyKey: z.optional(z.string()),
+      body: models.TimelineItemUpdate$outboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        idempotencyKey: "Idempotency-Key",
+      });
+    }),
+  )
 );
 
 export function updateTimelineItemRequestToJSON(

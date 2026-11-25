@@ -112,6 +112,9 @@ async function run() {
     body: {
       eventDayId: "<id>",
       vendorId: "<id>",
+      callTime: "16:07",
+      coverageStartTime: "16:07",
+      coverageEndTime: "16:07",
     },
   });
 
@@ -141,6 +144,9 @@ async function run() {
     body: {
       eventDayId: "<id>",
       vendorId: "<id>",
+      callTime: "16:07",
+      coverageStartTime: "16:07",
+      coverageEndTime: "16:07",
     },
   });
   if (res.ok) {
@@ -349,6 +355,9 @@ async function run() {
     body: {
       eventDayId: "550e8400-e29b-41d4-a716-446655440000",
       vendorId: "550e8400-e29b-41d4-a716-446655440000",
+      callTime: "16:07",
+      coverageStartTime: "16:07",
+      coverageEndTime: "16:07",
     },
   });
 
@@ -379,6 +388,9 @@ async function run() {
     body: {
       eventDayId: "550e8400-e29b-41d4-a716-446655440000",
       vendorId: "550e8400-e29b-41d4-a716-446655440000",
+      callTime: "16:07",
+      coverageStartTime: "16:07",
+      coverageEndTime: "16:07",
     },
   });
   if (res.ok) {

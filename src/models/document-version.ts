@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
@@ -106,14 +106,16 @@ export type DocumentVersion = {
 
 /** @internal */
 export const DocumentType$inboundSchema: z.ZodMiniType<DocumentType, unknown> =
-  openEnums.inboundSchema(DocumentType);
+  /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(DocumentType));
 
 /** @internal */
-export const DocumentRef$inboundSchema: z.ZodMiniType<DocumentRef, unknown> = z
-  .object({
-    relationTo: types.string(),
-    value: types.string(),
-  });
+export const DocumentRef$inboundSchema: z.ZodMiniType<DocumentRef, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      relationTo: types.string(),
+      value: types.string(),
+    })
+  );
 
 export function documentRefFromJSON(
   jsonString: string,
@@ -129,40 +131,42 @@ export function documentRefFromJSON(
 export const VersionStatus$inboundSchema: z.ZodMiniType<
   VersionStatus,
   unknown
-> = openEnums.inboundSchema(VersionStatus);
+> = /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(VersionStatus));
 
 /** @internal */
 export const AcceptedBy$inboundSchema: z.ZodMiniType<AcceptedBy, unknown> =
-  openEnums.inboundSchema(AcceptedBy);
+  /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(AcceptedBy));
 
 /** @internal */
 export const DocumentVersion$inboundSchema: z.ZodMiniType<
   DocumentVersion,
   unknown
-> = z.object({
-  id: types.string(),
-  documentType: DocumentType$inboundSchema,
-  documentId: types.nullable(types.string()),
-  documentRef: types.nullable(z.lazy(() => DocumentRef$inboundSchema)),
-  versionNumber: types.number(),
-  subVersionNumber: types.number(),
-  versionStatus: VersionStatus$inboundSchema,
-  contentHash: types.string(),
-  currency: types.string(),
-  issuedAt: types.nullable(types.date()),
-  viewedAt: types.nullable(types.date()),
-  acceptedAt: types.nullable(types.date()),
-  acceptedBy: types.nullable(AcceptedBy$inboundSchema),
-  supersededAt: types.nullable(types.date()),
-  supersededByVersionId: types.nullable(types.string()),
-  voidedAt: types.nullable(types.date()),
-  quoteConvertedAt: types.nullable(types.date()),
-  expiresAt: types.nullable(types.date()),
-  engagementProjectId: types.nullable(types.string()),
-  parentVersionId: types.nullable(types.string()),
-  createdAt: types.date(),
-  updatedAt: types.date(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: types.string(),
+    documentType: DocumentType$inboundSchema,
+    documentId: types.nullable(types.string()),
+    documentRef: types.nullable(z.lazy(() => DocumentRef$inboundSchema)),
+    versionNumber: types.number(),
+    subVersionNumber: types.number(),
+    versionStatus: VersionStatus$inboundSchema,
+    contentHash: types.string(),
+    currency: types.string(),
+    issuedAt: types.nullable(types.date()),
+    viewedAt: types.nullable(types.date()),
+    acceptedAt: types.nullable(types.date()),
+    acceptedBy: types.nullable(AcceptedBy$inboundSchema),
+    supersededAt: types.nullable(types.date()),
+    supersededByVersionId: types.nullable(types.string()),
+    voidedAt: types.nullable(types.date()),
+    quoteConvertedAt: types.nullable(types.date()),
+    expiresAt: types.nullable(types.date()),
+    engagementProjectId: types.nullable(types.string()),
+    parentVersionId: types.nullable(types.string()),
+    createdAt: types.date(),
+    updatedAt: types.date(),
+  })
+);
 
 export function documentVersionFromJSON(
   jsonString: string,

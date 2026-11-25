@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
@@ -76,33 +76,36 @@ export type Payout = {
 
 /** @internal */
 export const PayoutStatus$inboundSchema: z.ZodMiniType<PayoutStatus, unknown> =
-  openEnums.inboundSchema(PayoutStatus);
+  /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(PayoutStatus));
 
 /** @internal */
-export const Payout$inboundSchema: z.ZodMiniType<Payout, unknown> = z.object({
-  id: types.string(),
-  stripePayoutId: types.string(),
-  amount: types.number(),
-  currency: types.string(),
-  arrivalDate: types.nullable(types.date()),
-  status: PayoutStatus$inboundSchema,
-  type: types.string(),
-  automatic: types.boolean(),
-  description: types.nullable(types.string()),
-  bankAccountLast4: types.nullable(types.string()),
-  bankAccountName: types.nullable(types.string()),
-  grossTotal: types.nullable(types.number()),
-  feeTotal: types.nullable(types.number()),
-  refundTotal: types.nullable(types.number()),
-  disputeTotal: types.nullable(types.number()),
-  unattributedTotal: types.nullable(types.number()),
-  paymentCount: types.nullable(types.number()),
-  lastReconciledAt: types.nullable(types.date()),
-  failureCode: types.nullable(types.string()),
-  failureMessage: types.nullable(types.string()),
-  createdAt: types.date(),
-  updatedAt: types.date(),
-});
+export const Payout$inboundSchema: z.ZodMiniType<Payout, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      id: types.string(),
+      stripePayoutId: types.string(),
+      amount: types.number(),
+      currency: types.string(),
+      arrivalDate: types.nullable(types.date()),
+      status: PayoutStatus$inboundSchema,
+      type: types.string(),
+      automatic: types.boolean(),
+      description: types.nullable(types.string()),
+      bankAccountLast4: types.nullable(types.string()),
+      bankAccountName: types.nullable(types.string()),
+      grossTotal: types.nullable(types.number()),
+      feeTotal: types.nullable(types.number()),
+      refundTotal: types.nullable(types.number()),
+      disputeTotal: types.nullable(types.number()),
+      unattributedTotal: types.nullable(types.number()),
+      paymentCount: types.nullable(types.number()),
+      lastReconciledAt: types.nullable(types.date()),
+      failureCode: types.nullable(types.string()),
+      failureMessage: types.nullable(types.string()),
+      createdAt: types.date(),
+      updatedAt: types.date(),
+    })
+  );
 
 export function payoutFromJSON(
   jsonString: string,

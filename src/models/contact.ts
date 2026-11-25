@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
@@ -48,22 +48,25 @@ export type Contact = {
 
 /** @internal */
 export const ContactRole$inboundSchema: z.ZodMiniType<ContactRole, unknown> =
-  openEnums.inboundSchema(ContactRole);
+  /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(ContactRole));
 
 /** @internal */
-export const Contact$inboundSchema: z.ZodMiniType<Contact, unknown> = z.object({
-  id: types.string(),
-  name: types.string(),
-  email: types.nullable(types.string()),
-  phone: types.nullable(types.string()),
-  title: types.nullable(types.string()),
-  role: ContactRole$inboundSchema,
-  isPrimary: types.boolean(),
-  clientId: types.nullable(types.string()),
-  sourceSubmissionId: types.nullable(types.string()),
-  createdAt: types.date(),
-  updatedAt: types.date(),
-});
+export const Contact$inboundSchema: z.ZodMiniType<Contact, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      id: types.string(),
+      name: types.string(),
+      email: types.nullable(types.string()),
+      phone: types.nullable(types.string()),
+      title: types.nullable(types.string()),
+      role: ContactRole$inboundSchema,
+      isPrimary: types.boolean(),
+      clientId: types.nullable(types.string()),
+      sourceSubmissionId: types.nullable(types.string()),
+      createdAt: types.date(),
+      updatedAt: types.date(),
+    })
+  );
 
 export function contactFromJSON(
   jsonString: string,

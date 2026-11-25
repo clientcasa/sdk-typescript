@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 
 export type DeleteCatalogItemSecurity = {
   apiKey?: string | undefined;
@@ -26,10 +27,12 @@ export type DeleteCatalogItemSecurity$Outbound = {
 export const DeleteCatalogItemSecurity$outboundSchema: z.ZodMiniType<
   DeleteCatalogItemSecurity$Outbound,
   DeleteCatalogItemSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function deleteCatalogItemSecurityToJSON(
   deleteCatalogItemSecurity: DeleteCatalogItemSecurity,
@@ -48,9 +51,11 @@ export type DeleteCatalogItemRequest$Outbound = {
 export const DeleteCatalogItemRequest$outboundSchema: z.ZodMiniType<
   DeleteCatalogItemRequest$Outbound,
   DeleteCatalogItemRequest
-> = z.object({
-  id: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+  })
+);
 
 export function deleteCatalogItemRequestToJSON(
   deleteCatalogItemRequest: DeleteCatalogItemRequest,

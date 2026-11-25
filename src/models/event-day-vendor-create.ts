@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 export const EventDayVendorCreateConfirmationStatus = {
@@ -24,9 +25,18 @@ export type EventDayVendorCreate = {
    */
   vendorId: string;
   role?: string | undefined;
-  callTime?: string | undefined;
-  coverageStartTime?: string | undefined;
-  coverageEndTime?: string | undefined;
+  /**
+   * Local time in HH:mm (24-hour), from 00:00 to 23:59, or no value to leave it unset. No seconds or date.
+   */
+  callTime?: string | null | undefined;
+  /**
+   * Local time in HH:mm (24-hour), from 00:00 to 23:59, or no value to leave it unset. No seconds or date.
+   */
+  coverageStartTime?: string | null | undefined;
+  /**
+   * Local time in HH:mm (24-hour), from 00:00 to 23:59, or no value to leave it unset. No seconds or date.
+   */
+  coverageEndTime?: string | null | undefined;
   mealProvided?: boolean | undefined;
   mealNotes?: string | undefined;
   pointOfContact?: string | undefined;
@@ -37,18 +47,19 @@ export type EventDayVendorCreate = {
 
 /** @internal */
 export const EventDayVendorCreateConfirmationStatus$outboundSchema:
-  z.ZodMiniEnum<typeof EventDayVendorCreateConfirmationStatus> = z.enum(
-    EventDayVendorCreateConfirmationStatus,
-  );
+  z.ZodMiniEnum<typeof EventDayVendorCreateConfirmationStatus> =
+    /* @__PURE__ */ lazySchema$(() =>
+      z.enum(EventDayVendorCreateConfirmationStatus)
+    );
 
 /** @internal */
 export type EventDayVendorCreate$Outbound = {
   eventDayId: string;
   vendorId: string;
   role?: string | undefined;
-  callTime?: string | undefined;
-  coverageStartTime?: string | undefined;
-  coverageEndTime?: string | undefined;
+  callTime?: string | null | undefined;
+  coverageStartTime?: string | null | undefined;
+  coverageEndTime?: string | null | undefined;
   mealProvided: boolean;
   mealNotes?: string | undefined;
   pointOfContact?: string | undefined;
@@ -61,23 +72,25 @@ export type EventDayVendorCreate$Outbound = {
 export const EventDayVendorCreate$outboundSchema: z.ZodMiniType<
   EventDayVendorCreate$Outbound,
   EventDayVendorCreate
-> = z.object({
-  eventDayId: z.string(),
-  vendorId: z.string(),
-  role: z.optional(z.string()),
-  callTime: z.optional(z.string()),
-  coverageStartTime: z.optional(z.string()),
-  coverageEndTime: z.optional(z.string()),
-  mealProvided: z._default(z.boolean(), false),
-  mealNotes: z.optional(z.string()),
-  pointOfContact: z.optional(z.string()),
-  pointOfContactPhone: z.optional(z.string()),
-  internalNotes: z.optional(z.string()),
-  confirmationStatus: z._default(
-    EventDayVendorCreateConfirmationStatus$outboundSchema,
-    "unconfirmed",
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    eventDayId: z.string(),
+    vendorId: z.string(),
+    role: z.optional(z.string()),
+    callTime: z.optional(z.nullable(z.string())),
+    coverageStartTime: z.optional(z.nullable(z.string())),
+    coverageEndTime: z.optional(z.nullable(z.string())),
+    mealProvided: z._default(z.boolean(), false),
+    mealNotes: z.optional(z.string()),
+    pointOfContact: z.optional(z.string()),
+    pointOfContactPhone: z.optional(z.string()),
+    internalNotes: z.optional(z.string()),
+    confirmationStatus: z._default(
+      EventDayVendorCreateConfirmationStatus$outboundSchema,
+      "unconfirmed",
+    ),
+  })
+);
 
 export function eventDayVendorCreateToJSON(
   eventDayVendorCreate: EventDayVendorCreate,

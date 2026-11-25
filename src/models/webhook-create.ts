@@ -3,10 +3,17 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 export const WebhookCreateEvent = {
+  BookingCreated: "booking_created",
+  BookingRescheduled: "booking_rescheduled",
+  BookingCancelled: "booking_cancelled",
+  BookingCompleted: "booking_completed",
+  BookingNoShow: "booking_no_show",
   InvoiceSent: "invoice_sent",
+  InvoiceRevised: "invoice_revised",
   InvoiceDueSoon: "invoice_due_soon",
   InvoiceOverdue: "invoice_overdue",
   InvoicePaid: "invoice_paid",
@@ -25,6 +32,9 @@ export const WebhookCreateEvent = {
   ScheduleInstallmentDue: "schedule_installment_due",
   ScheduleInstallmentPaid: "schedule_installment_paid",
   ScheduleCompleted: "schedule_completed",
+  PaymentPlanInvoicePrepared: "payment_plan_invoice_prepared",
+  PaymentPlanReopened: "payment_plan_reopened",
+  PaymentPlanSendingPaused: "payment_plan_sending_paused",
   DocumentProcessed: "document_processed",
   DocumentActionCreated: "document_action_created",
   DocumentActionApproved: "document_action_approved",
@@ -33,6 +43,19 @@ export const WebhookCreateEvent = {
   ClientCreated: "client_created",
   ContactCreated: "contact_created",
   ProjectCreated: "project_created",
+  ProjectStageChanged: "project_stage_changed",
+  TodoCreated: "todo_created",
+  TodoUpdated: "todo_updated",
+  TodoScheduled: "todo_scheduled",
+  TodoStarted: "todo_started",
+  TodoCompleted: "todo_completed",
+  TodoReopened: "todo_reopened",
+  TodoCancelled: "todo_cancelled",
+  TodoRestored: "todo_restored",
+  TodoMerged: "todo_merged",
+  PlanTemplateApplied: "plan_template_applied",
+  ProjectEventDateChanged: "project_event_date_changed",
+  ProjectActRecorded: "project_act_recorded",
   TimeEntryCreated: "time_entry_created",
   LeadCreated: "lead_created",
   ClientWon: "client_won",
@@ -51,6 +74,7 @@ export const WebhookCreateEvent = {
   ContractVoided: "contract_voided",
   FormSubmissionCompleted: "form_submission_completed",
   SmartFileSent: "smart_file_sent",
+  SmartFileEmailRequested: "smart_file_email_requested",
   SmartFileViewed: "smart_file_viewed",
   SmartFileAccepted: "smart_file_accepted",
   SmartFileCompleted: "smart_file_completed",
@@ -78,6 +102,8 @@ export const WebhookCreateEvent = {
   SaleViewed: "sale_viewed",
   RecurringBillingRestarted: "recurring_billing_restarted",
   AutoChargeSkipped: "auto_charge_skipped",
+  SmartFileBillingReviewed: "smart_file_billing_reviewed",
+  ProposalPaymentTermsSaved: "proposal_payment_terms_saved",
 } as const;
 export type WebhookCreateEvent = ClosedEnum<typeof WebhookCreateEvent>;
 
@@ -92,7 +118,7 @@ export type WebhookCreate = {
 /** @internal */
 export const WebhookCreateEvent$outboundSchema: z.ZodMiniEnum<
   typeof WebhookCreateEvent
-> = z.enum(WebhookCreateEvent);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(WebhookCreateEvent));
 
 /** @internal */
 export type WebhookCreate$Outbound = {
@@ -107,13 +133,15 @@ export type WebhookCreate$Outbound = {
 export const WebhookCreate$outboundSchema: z.ZodMiniType<
   WebhookCreate$Outbound,
   WebhookCreate
-> = z.object({
-  name: z.string(),
-  url: z.string(),
-  events: z.array(WebhookCreateEvent$outboundSchema),
-  enabled: z._default(z.boolean(), true),
-  secret: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    name: z.string(),
+    url: z.string(),
+    events: z.array(WebhookCreateEvent$outboundSchema),
+    enabled: z._default(z.boolean(), true),
+    secret: z.optional(z.string()),
+  })
+);
 
 export function webhookCreateToJSON(webhookCreate: WebhookCreate): string {
   return JSON.stringify(WebhookCreate$outboundSchema.parse(webhookCreate));

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
@@ -62,30 +62,32 @@ export type EventDay = {
 export const EventDayStatus$inboundSchema: z.ZodMiniType<
   EventDayStatus,
   unknown
-> = openEnums.inboundSchema(EventDayStatus);
+> = /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(EventDayStatus));
 
 /** @internal */
-export const EventDay$inboundSchema: z.ZodMiniType<EventDay, unknown> = z
-  .object({
-    id: types.string(),
-    projectId: types.nullable(types.string()),
-    clientId: types.nullable(types.string()),
-    name: types.nullable(types.string()),
-    date: types.nullable(types.date()),
-    status: EventDayStatus$inboundSchema,
-    ceremonyTime: types.nullable(types.string()),
-    eventStartTime: types.nullable(types.string()),
-    venueTimezone: types.nullable(types.string()),
-    venueAddress: types.nullable(VenueAddress$inboundSchema),
-    venueNotes: types.nullable(types.string()),
-    dayStartMinute: types.nullable(types.number()),
-    dayEndMinute: types.nullable(types.number()),
-    customAnchors: z.array(EventDayCustomAnchor$inboundSchema),
-    isPrimary: types.boolean(),
-    sortOrder: types.number(),
-    createdAt: types.date(),
-    updatedAt: types.date(),
-  });
+export const EventDay$inboundSchema: z.ZodMiniType<EventDay, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      id: types.string(),
+      projectId: types.nullable(types.string()),
+      clientId: types.nullable(types.string()),
+      name: types.nullable(types.string()),
+      date: types.nullable(types.date()),
+      status: EventDayStatus$inboundSchema,
+      ceremonyTime: types.nullable(types.string()),
+      eventStartTime: types.nullable(types.string()),
+      venueTimezone: types.nullable(types.string()),
+      venueAddress: types.nullable(VenueAddress$inboundSchema),
+      venueNotes: types.nullable(types.string()),
+      dayStartMinute: types.nullable(types.number()),
+      dayEndMinute: types.nullable(types.number()),
+      customAnchors: z.array(EventDayCustomAnchor$inboundSchema),
+      isPrimary: types.boolean(),
+      sortOrder: types.number(),
+      createdAt: types.date(),
+      updatedAt: types.date(),
+    })
+  );
 
 export function eventDayFromJSON(
   jsonString: string,

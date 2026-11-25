@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { smartUnion } from "../types/smart-union.js";
 
 export type Fields = string | Array<string>;
@@ -21,7 +22,9 @@ export type Fields$Outbound = string | Array<string>;
 
 /** @internal */
 export const Fields$outboundSchema: z.ZodMiniType<Fields$Outbound, Fields> =
-  smartUnion([z.string(), z.array(z.string())]);
+  /* @__PURE__ */ lazySchema$(() =>
+    smartUnion([z.string(), z.array(z.string())])
+  );
 
 export function fieldsToJSON(fields: Fields): string {
   return JSON.stringify(Fields$outboundSchema.parse(fields));
@@ -41,16 +44,18 @@ export type InquiryCreate$Outbound = {
 export const InquiryCreate$outboundSchema: z.ZodMiniType<
   InquiryCreate$Outbound,
   InquiryCreate
-> = z.object({
-  name: z.string(),
-  email: z.string(),
-  phone: z.optional(z.string()),
-  preferredDate: z.optional(z.string()),
-  message: z.optional(z.string()),
-  fields: z.optional(
-    z.record(z.string(), smartUnion([z.string(), z.array(z.string())])),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    name: z.string(),
+    email: z.string(),
+    phone: z.optional(z.string()),
+    preferredDate: z.optional(z.string()),
+    message: z.optional(z.string()),
+    fields: z.optional(
+      z.record(z.string(), smartUnion([z.string(), z.array(z.string())])),
+    ),
+  })
+);
 
 export function inquiryCreateToJSON(inquiryCreate: InquiryCreate): string {
   return JSON.stringify(InquiryCreate$outboundSchema.parse(inquiryCreate));

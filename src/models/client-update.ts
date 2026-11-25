@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 import {
   ClientTaxSettings,
@@ -34,7 +35,7 @@ export type ClientUpdate = {
 /** @internal */
 export const ClientUpdateStatus$outboundSchema: z.ZodMiniEnum<
   typeof ClientUpdateStatus
-> = z.enum(ClientUpdateStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(ClientUpdateStatus));
 
 /** @internal */
 export type ClientUpdate$Outbound = {
@@ -51,15 +52,17 @@ export type ClientUpdate$Outbound = {
 export const ClientUpdate$outboundSchema: z.ZodMiniType<
   ClientUpdate$Outbound,
   ClientUpdate
-> = z.object({
-  name: z.optional(z.string()),
-  status: z.optional(ClientUpdateStatus$outboundSchema),
-  notes: z.optional(z.string()),
-  taxSettings: z.optional(ClientTaxSettings$outboundSchema),
-  invoiceRemindersEnabled: z.optional(z.boolean()),
-  attachInvoicePdf: z.optional(z.boolean()),
-  attachReceiptPdf: z.optional(z.boolean()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    name: z.optional(z.string()),
+    status: z.optional(ClientUpdateStatus$outboundSchema),
+    notes: z.optional(z.string()),
+    taxSettings: z.optional(ClientTaxSettings$outboundSchema),
+    invoiceRemindersEnabled: z.optional(z.boolean()),
+    attachInvoicePdf: z.optional(z.boolean()),
+    attachReceiptPdf: z.optional(z.boolean()),
+  })
+);
 
 export function clientUpdateToJSON(clientUpdate: ClientUpdate): string {
   return JSON.stringify(ClientUpdate$outboundSchema.parse(clientUpdate));

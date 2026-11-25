@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 import * as models from "../index.js";
 import { ClientCasaError } from "./client-casa-error.js";
 
@@ -31,18 +32,21 @@ export class ApiError extends ClientCasaError {
 }
 
 /** @internal */
-export const ApiError$inboundSchema: z.ZodMiniType<ApiError, unknown> = z.pipe(
-  z.object({
-    error: z.lazy(() => models.ErrorT$inboundSchema),
-    request$: z.custom<Request>(x => x instanceof Request),
-    response$: z.custom<Response>(x => x instanceof Response),
-    body$: z.string(),
-  }),
-  z.transform((v) => {
-    return new ApiError(v, {
-      request: v.request$,
-      response: v.response$,
-      body: v.body$,
-    });
-  }),
-);
+export const ApiError$inboundSchema: z.ZodMiniType<ApiError, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.pipe(
+      z.object({
+        error: z.lazy(() => models.ErrorT$inboundSchema),
+        request$: z.custom<Request>(x => x instanceof Request),
+        response$: z.custom<Response>(x => x instanceof Response),
+        body$: z.string(),
+      }),
+      z.transform((v) => {
+        return new ApiError(v, {
+          request: v.request$,
+          response: v.response$,
+          body: v.body$,
+        });
+      }),
+    )
+  );

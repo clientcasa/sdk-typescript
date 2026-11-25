@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import { Result as SafeParseResult } from "../types/fp.js";
 import { SDKValidationError } from "./errors/sdk-validation-error.js";
 import {
@@ -21,10 +21,12 @@ export type TransactionList = {
 export const TransactionList$inboundSchema: z.ZodMiniType<
   TransactionList,
   unknown
-> = z.object({
-  data: z.array(Transaction$inboundSchema),
-  pagination: PaginationMeta$inboundSchema,
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    data: z.array(Transaction$inboundSchema),
+    pagination: PaginationMeta$inboundSchema,
+  })
+);
 
 export function transactionListFromJSON(
   jsonString: string,

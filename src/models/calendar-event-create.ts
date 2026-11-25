@@ -3,10 +3,12 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 
 export type CalendarEventCreate = {
   title: string;
   description?: string | undefined;
+  location?: string | null | undefined;
   /**
    * ISO 8601 timestamp (UTC)
    */
@@ -37,6 +39,7 @@ export type CalendarEventCreate = {
 export type CalendarEventCreate$Outbound = {
   title: string;
   description?: string | undefined;
+  location?: string | null | undefined;
   startDateTime: string;
   endDateTime: string;
   allDay: boolean;
@@ -52,21 +55,24 @@ export type CalendarEventCreate$Outbound = {
 export const CalendarEventCreate$outboundSchema: z.ZodMiniType<
   CalendarEventCreate$Outbound,
   CalendarEventCreate
-> = z.object({
-  title: z.string(),
-  description: z.optional(z.string()),
-  startDateTime: z.pipe(z.date(), z.transform(v => v.toISOString())),
-  endDateTime: z.pipe(z.date(), z.transform(v => v.toISOString())),
-  allDay: z._default(z.boolean(), false),
-  projectId: z.optional(z.string()),
-  clientId: z.optional(z.string()),
-  actionable: z._default(z.boolean(), false),
-  recurring: z._default(z.boolean(), false),
-  rrule: z.optional(z.string()),
-  recurrenceEnd: z.optional(
-    z.pipe(z.date(), z.transform(v => v.toISOString())),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    title: z.string(),
+    description: z.optional(z.string()),
+    location: z.optional(z.nullable(z.string())),
+    startDateTime: z.pipe(z.date(), z.transform(v => v.toISOString())),
+    endDateTime: z.pipe(z.date(), z.transform(v => v.toISOString())),
+    allDay: z._default(z.boolean(), false),
+    projectId: z.optional(z.string()),
+    clientId: z.optional(z.string()),
+    actionable: z._default(z.boolean(), false),
+    recurring: z._default(z.boolean(), false),
+    rrule: z.optional(z.string()),
+    recurrenceEnd: z.optional(
+      z.pipe(z.date(), z.transform(v => v.toISOString())),
+    ),
+  })
+);
 
 export function calendarEventCreateToJSON(
   calendarEventCreate: CalendarEventCreate,

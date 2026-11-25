@@ -4,6 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 import * as models from "../index.js";
 
 export type UpdateEventDayVendorSecurity = {
@@ -33,10 +34,12 @@ export type UpdateEventDayVendorSecurity$Outbound = {
 export const UpdateEventDayVendorSecurity$outboundSchema: z.ZodMiniType<
   UpdateEventDayVendorSecurity$Outbound,
   UpdateEventDayVendorSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function updateEventDayVendorSecurityToJSON(
   updateEventDayVendorSecurity: UpdateEventDayVendorSecurity,
@@ -59,17 +62,19 @@ export type UpdateEventDayVendorRequest$Outbound = {
 export const UpdateEventDayVendorRequest$outboundSchema: z.ZodMiniType<
   UpdateEventDayVendorRequest$Outbound,
   UpdateEventDayVendorRequest
-> = z.pipe(
-  z.object({
-    id: z.string(),
-    idempotencyKey: z.optional(z.string()),
-    body: models.EventDayVendorUpdate$outboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      idempotencyKey: "Idempotency-Key",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      id: z.string(),
+      idempotencyKey: z.optional(z.string()),
+      body: models.EventDayVendorUpdate$outboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        idempotencyKey: "Idempotency-Key",
+      });
+    }),
+  )
 );
 
 export function updateEventDayVendorRequestToJSON(

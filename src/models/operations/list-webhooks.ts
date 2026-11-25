@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -27,8 +27,14 @@ export const Enabled = {
  */
 export type Enabled = ClosedEnum<typeof Enabled>;
 
-export const Event = {
+export const ListWebhooksEvent = {
+  BookingCreated: "booking_created",
+  BookingRescheduled: "booking_rescheduled",
+  BookingCancelled: "booking_cancelled",
+  BookingCompleted: "booking_completed",
+  BookingNoShow: "booking_no_show",
   InvoiceSent: "invoice_sent",
+  InvoiceRevised: "invoice_revised",
   InvoiceDueSoon: "invoice_due_soon",
   InvoiceOverdue: "invoice_overdue",
   InvoicePaid: "invoice_paid",
@@ -47,6 +53,9 @@ export const Event = {
   ScheduleInstallmentDue: "schedule_installment_due",
   ScheduleInstallmentPaid: "schedule_installment_paid",
   ScheduleCompleted: "schedule_completed",
+  PaymentPlanInvoicePrepared: "payment_plan_invoice_prepared",
+  PaymentPlanReopened: "payment_plan_reopened",
+  PaymentPlanSendingPaused: "payment_plan_sending_paused",
   DocumentProcessed: "document_processed",
   DocumentActionCreated: "document_action_created",
   DocumentActionApproved: "document_action_approved",
@@ -55,6 +64,19 @@ export const Event = {
   ClientCreated: "client_created",
   ContactCreated: "contact_created",
   ProjectCreated: "project_created",
+  ProjectStageChanged: "project_stage_changed",
+  TodoCreated: "todo_created",
+  TodoUpdated: "todo_updated",
+  TodoScheduled: "todo_scheduled",
+  TodoStarted: "todo_started",
+  TodoCompleted: "todo_completed",
+  TodoReopened: "todo_reopened",
+  TodoCancelled: "todo_cancelled",
+  TodoRestored: "todo_restored",
+  TodoMerged: "todo_merged",
+  PlanTemplateApplied: "plan_template_applied",
+  ProjectEventDateChanged: "project_event_date_changed",
+  ProjectActRecorded: "project_act_recorded",
   TimeEntryCreated: "time_entry_created",
   LeadCreated: "lead_created",
   ClientWon: "client_won",
@@ -73,6 +95,7 @@ export const Event = {
   ContractVoided: "contract_voided",
   FormSubmissionCompleted: "form_submission_completed",
   SmartFileSent: "smart_file_sent",
+  SmartFileEmailRequested: "smart_file_email_requested",
   SmartFileViewed: "smart_file_viewed",
   SmartFileAccepted: "smart_file_accepted",
   SmartFileCompleted: "smart_file_completed",
@@ -100,8 +123,10 @@ export const Event = {
   SaleViewed: "sale_viewed",
   RecurringBillingRestarted: "recurring_billing_restarted",
   AutoChargeSkipped: "auto_charge_skipped",
+  SmartFileBillingReviewed: "smart_file_billing_reviewed",
+  ProposalPaymentTermsSaved: "proposal_payment_terms_saved",
 } as const;
-export type Event = ClosedEnum<typeof Event>;
+export type ListWebhooksEvent = ClosedEnum<typeof ListWebhooksEvent>;
 
 export type ListWebhooksRequest = {
   page?: number | undefined;
@@ -110,7 +135,7 @@ export type ListWebhooksRequest = {
    * Literal `true` or `false`. Any other value is rejected with 400 invalid_request.
    */
   enabled?: Enabled | undefined;
-  event?: Event | undefined;
+  event?: ListWebhooksEvent | undefined;
 };
 
 export type ListWebhooksResponse = {
@@ -127,10 +152,12 @@ export type ListWebhooksSecurity$Outbound = {
 export const ListWebhooksSecurity$outboundSchema: z.ZodMiniType<
   ListWebhooksSecurity$Outbound,
   ListWebhooksSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function listWebhooksSecurityToJSON(
   listWebhooksSecurity: ListWebhooksSecurity,
@@ -141,12 +168,13 @@ export function listWebhooksSecurityToJSON(
 }
 
 /** @internal */
-export const Enabled$outboundSchema: z.ZodMiniEnum<typeof Enabled> = z.enum(
-  Enabled,
-);
+export const Enabled$outboundSchema: z.ZodMiniEnum<typeof Enabled> =
+  /* @__PURE__ */ lazySchema$(() => z.enum(Enabled));
 
 /** @internal */
-export const Event$outboundSchema: z.ZodMiniEnum<typeof Event> = z.enum(Event);
+export const ListWebhooksEvent$outboundSchema: z.ZodMiniEnum<
+  typeof ListWebhooksEvent
+> = /* @__PURE__ */ lazySchema$(() => z.enum(ListWebhooksEvent));
 
 /** @internal */
 export type ListWebhooksRequest$Outbound = {
@@ -160,12 +188,14 @@ export type ListWebhooksRequest$Outbound = {
 export const ListWebhooksRequest$outboundSchema: z.ZodMiniType<
   ListWebhooksRequest$Outbound,
   ListWebhooksRequest
-> = z.object({
-  page: z._default(z.int(), 1),
-  pageSize: z._default(z.int(), 25),
-  enabled: z.optional(Enabled$outboundSchema),
-  event: z.optional(Event$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z._default(z.int(), 1),
+    pageSize: z._default(z.int(), 25),
+    enabled: z.optional(Enabled$outboundSchema),
+    event: z.optional(ListWebhooksEvent$outboundSchema),
+  })
+);
 
 export function listWebhooksRequestToJSON(
   listWebhooksRequest: ListWebhooksRequest,
@@ -179,15 +209,17 @@ export function listWebhooksRequestToJSON(
 export const ListWebhooksResponse$inboundSchema: z.ZodMiniType<
   ListWebhooksResponse,
   unknown
-> = z.pipe(
-  z.object({
-    Result: models.WebhookList$inboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      "Result": "result",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      Result: models.WebhookList$inboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        "Result": "result",
+      });
+    }),
+  )
 );
 
 export function listWebhooksResponseFromJSON(

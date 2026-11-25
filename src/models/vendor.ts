@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
@@ -69,12 +69,14 @@ export type Vendor = {
 export const VendorAddress$inboundSchema: z.ZodMiniType<
   VendorAddress,
   unknown
-> = z.object({
-  street: types.nullable(types.string()),
-  city: types.nullable(types.string()),
-  state: types.nullable(types.string()),
-  zip: types.nullable(types.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    street: types.nullable(types.string()),
+    city: types.nullable(types.string()),
+    state: types.nullable(types.string()),
+    zip: types.nullable(types.string()),
+  })
+);
 
 export function vendorAddressFromJSON(
   jsonString: string,
@@ -88,31 +90,34 @@ export function vendorAddressFromJSON(
 
 /** @internal */
 export const VendorRating$inboundSchema: z.ZodMiniType<VendorRating, unknown> =
-  openEnums.inboundSchema(VendorRating);
+  /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(VendorRating));
 
 /** @internal */
 export const VendorStatus$inboundSchema: z.ZodMiniType<VendorStatus, unknown> =
-  openEnums.inboundSchema(VendorStatus);
+  /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(VendorStatus));
 
 /** @internal */
-export const Vendor$inboundSchema: z.ZodMiniType<Vendor, unknown> = z.object({
-  id: types.string(),
-  name: types.string(),
-  companyName: types.nullable(types.string()),
-  categoryId: types.nullable(types.string()),
-  email: types.nullable(types.string()),
-  phone: types.nullable(types.string()),
-  website: types.nullable(types.string()),
-  address: types.nullable(z.lazy(() => VendorAddress$inboundSchema)),
-  notes: types.nullable(types.string()),
-  rating: types.nullable(VendorRating$inboundSchema),
-  defaultSetupMinutes: types.nullable(types.number()),
-  defaultTeardownMinutes: types.nullable(types.number()),
-  linkedContactId: types.nullable(types.string()),
-  status: VendorStatus$inboundSchema,
-  createdAt: types.date(),
-  updatedAt: types.date(),
-});
+export const Vendor$inboundSchema: z.ZodMiniType<Vendor, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      id: types.string(),
+      name: types.string(),
+      companyName: types.nullable(types.string()),
+      categoryId: types.nullable(types.string()),
+      email: types.nullable(types.string()),
+      phone: types.nullable(types.string()),
+      website: types.nullable(types.string()),
+      address: types.nullable(z.lazy(() => VendorAddress$inboundSchema)),
+      notes: types.nullable(types.string()),
+      rating: types.nullable(VendorRating$inboundSchema),
+      defaultSetupMinutes: types.nullable(types.number()),
+      defaultTeardownMinutes: types.nullable(types.number()),
+      linkedContactId: types.nullable(types.string()),
+      status: VendorStatus$inboundSchema,
+      createdAt: types.date(),
+      updatedAt: types.date(),
+    })
+  );
 
 export function vendorFromJSON(
   jsonString: string,

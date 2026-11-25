@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 export const CatalogItemUpdateUnit = {
@@ -70,27 +71,29 @@ export type CatalogItemUpdate = {
 /** @internal */
 export const CatalogItemUpdateUnit$outboundSchema: z.ZodMiniEnum<
   typeof CatalogItemUpdateUnit
-> = z.enum(CatalogItemUpdateUnit);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CatalogItemUpdateUnit));
 
 /** @internal */
 export const CatalogItemUpdateDefaultFrequency$outboundSchema: z.ZodMiniEnum<
   typeof CatalogItemUpdateDefaultFrequency
-> = z.enum(CatalogItemUpdateDefaultFrequency);
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(CatalogItemUpdateDefaultFrequency)
+);
 
 /** @internal */
 export const CatalogItemUpdateType$outboundSchema: z.ZodMiniEnum<
   typeof CatalogItemUpdateType
-> = z.enum(CatalogItemUpdateType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CatalogItemUpdateType));
 
 /** @internal */
 export const CatalogItemUpdatePricingMode$outboundSchema: z.ZodMiniEnum<
   typeof CatalogItemUpdatePricingMode
-> = z.enum(CatalogItemUpdatePricingMode);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CatalogItemUpdatePricingMode));
 
 /** @internal */
 export const CatalogItemUpdateStatus$outboundSchema: z.ZodMiniEnum<
   typeof CatalogItemUpdateStatus
-> = z.enum(CatalogItemUpdateStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(CatalogItemUpdateStatus));
 
 /** @internal */
 export type CatalogItemUpdate$Outbound = {
@@ -112,22 +115,24 @@ export type CatalogItemUpdate$Outbound = {
 export const CatalogItemUpdate$outboundSchema: z.ZodMiniType<
   CatalogItemUpdate$Outbound,
   CatalogItemUpdate
-> = z.object({
-  name: z.optional(z.string()),
-  invoiceLabel: z.optional(z.string()),
-  description: z.optional(z.string()),
-  invoiceDescription: z.optional(z.string()),
-  defaultRate: z.optional(z.number()),
-  unit: z.optional(CatalogItemUpdateUnit$outboundSchema),
-  defaultFrequency: z.optional(
-    CatalogItemUpdateDefaultFrequency$outboundSchema,
-  ),
-  type: z.optional(CatalogItemUpdateType$outboundSchema),
-  pricingMode: z.optional(CatalogItemUpdatePricingMode$outboundSchema),
-  taxCategoryId: z.optional(z.string()),
-  status: z.optional(CatalogItemUpdateStatus$outboundSchema),
-  clientId: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    name: z.optional(z.string()),
+    invoiceLabel: z.optional(z.string()),
+    description: z.optional(z.string()),
+    invoiceDescription: z.optional(z.string()),
+    defaultRate: z.optional(z.number()),
+    unit: z.optional(CatalogItemUpdateUnit$outboundSchema),
+    defaultFrequency: z.optional(
+      CatalogItemUpdateDefaultFrequency$outboundSchema,
+    ),
+    type: z.optional(CatalogItemUpdateType$outboundSchema),
+    pricingMode: z.optional(CatalogItemUpdatePricingMode$outboundSchema),
+    taxCategoryId: z.optional(z.string()),
+    status: z.optional(CatalogItemUpdateStatus$outboundSchema),
+    clientId: z.optional(z.string()),
+  })
+);
 
 export function catalogItemUpdateToJSON(
   catalogItemUpdate: CatalogItemUpdate,

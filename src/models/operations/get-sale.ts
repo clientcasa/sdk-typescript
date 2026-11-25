@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 
 export type GetSaleSecurity = {
   apiKey?: string | undefined;
@@ -26,10 +27,12 @@ export type GetSaleSecurity$Outbound = {
 export const GetSaleSecurity$outboundSchema: z.ZodMiniType<
   GetSaleSecurity$Outbound,
   GetSaleSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function getSaleSecurityToJSON(
   getSaleSecurity: GetSaleSecurity,
@@ -46,9 +49,11 @@ export type GetSaleRequest$Outbound = {
 export const GetSaleRequest$outboundSchema: z.ZodMiniType<
   GetSaleRequest$Outbound,
   GetSaleRequest
-> = z.object({
-  id: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+  })
+);
 
 export function getSaleRequestToJSON(getSaleRequest: GetSaleRequest): string {
   return JSON.stringify(GetSaleRequest$outboundSchema.parse(getSaleRequest));

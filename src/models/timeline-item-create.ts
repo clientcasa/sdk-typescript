@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 /**
@@ -27,11 +28,6 @@ export type TimelineItemCreateAnchorType = ClosedEnum<
 
 export const TimelineItemCreateVisibleTo = {
   Master: "master",
-  Couple: "couple",
-  VendorAll: "vendor-all",
-  Venue: "venue",
-  ShotList: "shot-list",
-  Party: "party",
 } as const;
 export type TimelineItemCreateVisibleTo = ClosedEnum<
   typeof TimelineItemCreateVisibleTo
@@ -47,6 +43,9 @@ export type TimelineItemCreateStatus = ClosedEnum<
   typeof TimelineItemCreateStatus
 >;
 
+/**
+ * New items start private. Create with master visibility and no publicVendorIds; then PATCH the draft audience. Share changes publishes the reviewed day schedule.
+ */
 export type TimelineItemCreate = {
   /**
    * UUID v4
@@ -60,7 +59,10 @@ export type TimelineItemCreate = {
   categoryId?: string | undefined;
   sortOrder?: number | undefined;
   trackId?: string | undefined;
-  requestedStartTime?: string | undefined;
+  /**
+   * Local time in HH:mm (24-hour), from 00:00 to 23:59, or no value to leave it unset. No seconds or date.
+   */
+  requestedStartTime?: string | null | undefined;
   durationMinutes: number;
   bufferBeforeMinutes?: number | undefined;
   bufferAfterMinutes?: number | undefined;
@@ -74,23 +76,24 @@ export type TimelineItemCreate = {
   location?: string | undefined;
   visibleTo?: Array<TimelineItemCreateVisibleTo> | undefined;
   vendorIds?: Array<string> | undefined;
+  publicVendorIds?: Array<string> | undefined;
   status?: TimelineItemCreateStatus | undefined;
 };
 
 /** @internal */
 export const TimelineItemCreateAnchorType$outboundSchema: z.ZodMiniEnum<
   typeof TimelineItemCreateAnchorType
-> = z.enum(TimelineItemCreateAnchorType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(TimelineItemCreateAnchorType));
 
 /** @internal */
 export const TimelineItemCreateVisibleTo$outboundSchema: z.ZodMiniEnum<
   typeof TimelineItemCreateVisibleTo
-> = z.enum(TimelineItemCreateVisibleTo);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(TimelineItemCreateVisibleTo));
 
 /** @internal */
 export const TimelineItemCreateStatus$outboundSchema: z.ZodMiniEnum<
   typeof TimelineItemCreateStatus
-> = z.enum(TimelineItemCreateStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(TimelineItemCreateStatus));
 
 /** @internal */
 export type TimelineItemCreate$Outbound = {
@@ -100,7 +103,7 @@ export type TimelineItemCreate$Outbound = {
   categoryId?: string | undefined;
   sortOrder?: number | undefined;
   trackId?: string | undefined;
-  requestedStartTime?: string | undefined;
+  requestedStartTime?: string | null | undefined;
   durationMinutes: number;
   bufferBeforeMinutes?: number | undefined;
   bufferAfterMinutes?: number | undefined;
@@ -111,6 +114,7 @@ export type TimelineItemCreate$Outbound = {
   location?: string | undefined;
   visibleTo?: Array<string> | undefined;
   vendorIds?: Array<string> | undefined;
+  publicVendorIds?: Array<string> | undefined;
   status?: string | undefined;
 };
 
@@ -118,26 +122,29 @@ export type TimelineItemCreate$Outbound = {
 export const TimelineItemCreate$outboundSchema: z.ZodMiniType<
   TimelineItemCreate$Outbound,
   TimelineItemCreate
-> = z.object({
-  eventDayId: z.string(),
-  title: z.string(),
-  description: z.optional(z.string()),
-  categoryId: z.optional(z.string()),
-  sortOrder: z.optional(z.int()),
-  trackId: z.optional(z.string()),
-  requestedStartTime: z.optional(z.string()),
-  durationMinutes: z.int(),
-  bufferBeforeMinutes: z.optional(z.int()),
-  bufferAfterMinutes: z.optional(z.int()),
-  travelTimeMinutes: z.optional(z.int()),
-  locked: z.optional(z.boolean()),
-  anchorType: z.optional(TimelineItemCreateAnchorType$outboundSchema),
-  anchorKey: z.optional(z.string()),
-  location: z.optional(z.string()),
-  visibleTo: z.optional(z.array(TimelineItemCreateVisibleTo$outboundSchema)),
-  vendorIds: z.optional(z.array(z.string())),
-  status: z.optional(TimelineItemCreateStatus$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    eventDayId: z.string(),
+    title: z.string(),
+    description: z.optional(z.string()),
+    categoryId: z.optional(z.string()),
+    sortOrder: z.optional(z.int()),
+    trackId: z.optional(z.string()),
+    requestedStartTime: z.optional(z.nullable(z.string())),
+    durationMinutes: z.int(),
+    bufferBeforeMinutes: z.optional(z.int()),
+    bufferAfterMinutes: z.optional(z.int()),
+    travelTimeMinutes: z.optional(z.int()),
+    locked: z.optional(z.boolean()),
+    anchorType: z.optional(TimelineItemCreateAnchorType$outboundSchema),
+    anchorKey: z.optional(z.string()),
+    location: z.optional(z.string()),
+    visibleTo: z.optional(z.array(TimelineItemCreateVisibleTo$outboundSchema)),
+    vendorIds: z.optional(z.array(z.string())),
+    publicVendorIds: z.optional(z.array(z.string())),
+    status: z.optional(TimelineItemCreateStatus$outboundSchema),
+  })
+);
 
 export function timelineItemCreateToJSON(
   timelineItemCreate: TimelineItemCreate,

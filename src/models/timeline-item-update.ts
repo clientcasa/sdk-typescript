@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 /**
@@ -27,6 +28,9 @@ export type TimelineItemUpdateAnchorType = ClosedEnum<
 
 export const TimelineItemUpdateVisibleTo = {
   Master: "master",
+  PublicMaster: "public-master",
+  Custom: "custom",
+  VendorSelected: "vendor-selected",
   Couple: "couple",
   VendorAll: "vendor-all",
   Venue: "venue",
@@ -60,6 +64,9 @@ export type TimelineItemUpdate = {
   categoryId?: string | null | undefined;
   sortOrder?: number | undefined;
   trackId?: string | null | undefined;
+  /**
+   * Local time in HH:mm (24-hour), from 00:00 to 23:59, or no value to leave it unset. No seconds or date.
+   */
   requestedStartTime?: string | null | undefined;
   durationMinutes?: number | undefined;
   bufferBeforeMinutes?: number | undefined;
@@ -74,23 +81,24 @@ export type TimelineItemUpdate = {
   location?: string | null | undefined;
   visibleTo?: Array<TimelineItemUpdateVisibleTo> | undefined;
   vendorIds?: Array<string> | undefined;
+  publicVendorIds?: Array<string> | undefined;
   status?: TimelineItemUpdateStatus | undefined;
 };
 
 /** @internal */
 export const TimelineItemUpdateAnchorType$outboundSchema: z.ZodMiniEnum<
   typeof TimelineItemUpdateAnchorType
-> = z.enum(TimelineItemUpdateAnchorType);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(TimelineItemUpdateAnchorType));
 
 /** @internal */
 export const TimelineItemUpdateVisibleTo$outboundSchema: z.ZodMiniEnum<
   typeof TimelineItemUpdateVisibleTo
-> = z.enum(TimelineItemUpdateVisibleTo);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(TimelineItemUpdateVisibleTo));
 
 /** @internal */
 export const TimelineItemUpdateStatus$outboundSchema: z.ZodMiniEnum<
   typeof TimelineItemUpdateStatus
-> = z.enum(TimelineItemUpdateStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(TimelineItemUpdateStatus));
 
 /** @internal */
 export type TimelineItemUpdate$Outbound = {
@@ -111,6 +119,7 @@ export type TimelineItemUpdate$Outbound = {
   location?: string | null | undefined;
   visibleTo?: Array<string> | undefined;
   vendorIds?: Array<string> | undefined;
+  publicVendorIds?: Array<string> | undefined;
   status?: string | undefined;
 };
 
@@ -118,26 +127,29 @@ export type TimelineItemUpdate$Outbound = {
 export const TimelineItemUpdate$outboundSchema: z.ZodMiniType<
   TimelineItemUpdate$Outbound,
   TimelineItemUpdate
-> = z.object({
-  eventDayId: z.optional(z.string()),
-  title: z.optional(z.string()),
-  description: z.optional(z.nullable(z.string())),
-  categoryId: z.optional(z.nullable(z.string())),
-  sortOrder: z.optional(z.int()),
-  trackId: z.optional(z.nullable(z.string())),
-  requestedStartTime: z.optional(z.nullable(z.string())),
-  durationMinutes: z.optional(z.int()),
-  bufferBeforeMinutes: z.optional(z.int()),
-  bufferAfterMinutes: z.optional(z.int()),
-  travelTimeMinutes: z.optional(z.int()),
-  locked: z.optional(z.boolean()),
-  anchorType: z.optional(TimelineItemUpdateAnchorType$outboundSchema),
-  anchorKey: z.optional(z.nullable(z.string())),
-  location: z.optional(z.nullable(z.string())),
-  visibleTo: z.optional(z.array(TimelineItemUpdateVisibleTo$outboundSchema)),
-  vendorIds: z.optional(z.array(z.string())),
-  status: z.optional(TimelineItemUpdateStatus$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    eventDayId: z.optional(z.string()),
+    title: z.optional(z.string()),
+    description: z.optional(z.nullable(z.string())),
+    categoryId: z.optional(z.nullable(z.string())),
+    sortOrder: z.optional(z.int()),
+    trackId: z.optional(z.nullable(z.string())),
+    requestedStartTime: z.optional(z.nullable(z.string())),
+    durationMinutes: z.optional(z.int()),
+    bufferBeforeMinutes: z.optional(z.int()),
+    bufferAfterMinutes: z.optional(z.int()),
+    travelTimeMinutes: z.optional(z.int()),
+    locked: z.optional(z.boolean()),
+    anchorType: z.optional(TimelineItemUpdateAnchorType$outboundSchema),
+    anchorKey: z.optional(z.nullable(z.string())),
+    location: z.optional(z.nullable(z.string())),
+    visibleTo: z.optional(z.array(TimelineItemUpdateVisibleTo$outboundSchema)),
+    vendorIds: z.optional(z.array(z.string())),
+    publicVendorIds: z.optional(z.array(z.string())),
+    status: z.optional(TimelineItemUpdateStatus$outboundSchema),
+  })
+);
 
 export function timelineItemUpdateToJSON(
   timelineItemUpdate: TimelineItemUpdate,

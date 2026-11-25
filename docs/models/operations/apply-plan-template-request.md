@@ -1,0 +1,22 @@
+# ApplyPlanTemplateRequest
+
+## Example Usage
+
+```typescript
+import { ApplyPlanTemplateRequest } from "@clientcasa/sdk/models/operations";
+
+let value: ApplyPlanTemplateRequest = {
+  idempotencyKey: "create-client-2026-05-24-a1b2c3",
+  body: {
+    commandId: "6156e4dc-f012-49f9-868c-33792168d120",
+    previewId: "afd16b96-1d6c-40a2-8d7e-515578a9f60c",
+  },
+};
+```
+
+## Fields
+
+| Field                                                                                                                                                                                                        | Type                                                                                                                                                                                                         | Required                                                                                                                                                                                                     | Description                                                                                                                                                                                                  | Example                                                                                                                                                                                                      |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `idempotencyKey`                                                                                                                                                                                             | *string*                                                                                                                                                                                                     | :heavy_minus_sign:                                                                                                                                                                                           | Optional unique key that makes this request safely retryable. Replaying the same key returns the original response instead of creating a duplicate; reusing a key with a different request body returns 409. | create-client-2026-05-24-a1b2c3                                                                                                                                                                              |
+| `body`                                                                                                                                                                                                       | [operations.ApplyPlanTemplateRequestBody](../../models/operations/apply-plan-template-request-body.md)                                                                                                       | :heavy_check_mark:                                                                                                                                                                                           | N/A                                                                                                                                                                                                          |                                                                                                                                                                                                              |

@@ -3,10 +3,12 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 
 export type CalendarEventUpdate = {
   title?: string | undefined;
   description?: string | null | undefined;
+  location?: string | null | undefined;
   /**
    * ISO 8601 timestamp (UTC)
    */
@@ -41,6 +43,7 @@ export type CalendarEventUpdate = {
 export type CalendarEventUpdate$Outbound = {
   title?: string | undefined;
   description?: string | null | undefined;
+  location?: string | null | undefined;
   startDateTime?: string | undefined;
   endDateTime?: string | undefined;
   allDay?: boolean | undefined;
@@ -57,26 +60,31 @@ export type CalendarEventUpdate$Outbound = {
 export const CalendarEventUpdate$outboundSchema: z.ZodMiniType<
   CalendarEventUpdate$Outbound,
   CalendarEventUpdate
-> = z.object({
-  title: z.optional(z.string()),
-  description: z.optional(z.nullable(z.string())),
-  startDateTime: z.optional(
-    z.pipe(z.date(), z.transform(v => v.toISOString())),
-  ),
-  endDateTime: z.optional(z.pipe(z.date(), z.transform(v => v.toISOString()))),
-  allDay: z.optional(z.boolean()),
-  projectId: z.optional(z.nullable(z.string())),
-  clientId: z.optional(z.nullable(z.string())),
-  actionable: z.optional(z.boolean()),
-  recurring: z.optional(z.boolean()),
-  rrule: z.optional(z.nullable(z.string())),
-  recurrenceEnd: z.optional(
-    z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
-  ),
-  completedAt: z.optional(
-    z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
-  ),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    title: z.optional(z.string()),
+    description: z.optional(z.nullable(z.string())),
+    location: z.optional(z.nullable(z.string())),
+    startDateTime: z.optional(
+      z.pipe(z.date(), z.transform(v => v.toISOString())),
+    ),
+    endDateTime: z.optional(
+      z.pipe(z.date(), z.transform(v => v.toISOString())),
+    ),
+    allDay: z.optional(z.boolean()),
+    projectId: z.optional(z.nullable(z.string())),
+    clientId: z.optional(z.nullable(z.string())),
+    actionable: z.optional(z.boolean()),
+    recurring: z.optional(z.boolean()),
+    rrule: z.optional(z.nullable(z.string())),
+    recurrenceEnd: z.optional(
+      z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
+    ),
+    completedAt: z.optional(
+      z.nullable(z.pipe(z.date(), z.transform(v => v.toISOString()))),
+    ),
+  })
+);
 
 export function calendarEventUpdateToJSON(
   calendarEventUpdate: CalendarEventUpdate,

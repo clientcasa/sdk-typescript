@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -42,10 +42,12 @@ export type ListFormsSecurity$Outbound = {
 export const ListFormsSecurity$outboundSchema: z.ZodMiniType<
   ListFormsSecurity$Outbound,
   ListFormsSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function listFormsSecurityToJSON(
   listFormsSecurity: ListFormsSecurity,
@@ -57,7 +59,7 @@ export function listFormsSecurityToJSON(
 
 /** @internal */
 export const ListFormsKind$outboundSchema: z.ZodMiniEnum<typeof ListFormsKind> =
-  z.enum(ListFormsKind);
+  /* @__PURE__ */ lazySchema$(() => z.enum(ListFormsKind));
 
 /** @internal */
 export type ListFormsRequest$Outbound = {
@@ -71,12 +73,14 @@ export type ListFormsRequest$Outbound = {
 export const ListFormsRequest$outboundSchema: z.ZodMiniType<
   ListFormsRequest$Outbound,
   ListFormsRequest
-> = z.object({
-  page: z._default(z.int(), 1),
-  pageSize: z._default(z.int(), 25),
-  kind: z.optional(ListFormsKind$outboundSchema),
-  slug: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z._default(z.int(), 1),
+    pageSize: z._default(z.int(), 25),
+    kind: z.optional(ListFormsKind$outboundSchema),
+    slug: z.optional(z.string()),
+  })
+);
 
 export function listFormsRequestToJSON(
   listFormsRequest: ListFormsRequest,
@@ -90,15 +94,17 @@ export function listFormsRequestToJSON(
 export const ListFormsResponse$inboundSchema: z.ZodMiniType<
   ListFormsResponse,
   unknown
-> = z.pipe(
-  z.object({
-    Result: models.FormList$inboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      "Result": "result",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      Result: models.FormList$inboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        "Result": "result",
+      });
+    }),
+  )
 );
 
 export function listFormsResponseFromJSON(

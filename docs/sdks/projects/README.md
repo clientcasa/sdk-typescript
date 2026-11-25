@@ -110,7 +110,6 @@ async function run() {
     body: {
       name: "<value>",
       clientId: "550e8400-e29b-41d4-a716-446655440000",
-      pipelineStageId: "550e8400-e29b-41d4-a716-446655440000",
     },
   });
 
@@ -140,7 +139,6 @@ async function run() {
     body: {
       name: "<value>",
       clientId: "550e8400-e29b-41d4-a716-446655440000",
-      pipelineStageId: "550e8400-e29b-41d4-a716-446655440000",
     },
   });
   if (res.ok) {
@@ -348,7 +346,6 @@ async function run() {
     idempotencyKey: "create-client-2026-05-24-a1b2c3",
     body: {
       clientId: "550e8400-e29b-41d4-a716-446655440000",
-      pipelineStageId: "550e8400-e29b-41d4-a716-446655440000",
     },
   });
 
@@ -378,7 +375,6 @@ async function run() {
     idempotencyKey: "create-client-2026-05-24-a1b2c3",
     body: {
       clientId: "550e8400-e29b-41d4-a716-446655440000",
-      pipelineStageId: "550e8400-e29b-41d4-a716-446655440000",
     },
   });
   if (res.ok) {

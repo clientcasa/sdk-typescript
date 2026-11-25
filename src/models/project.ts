@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
@@ -16,6 +16,52 @@ export const ProjectStatus = {
   Completed: "completed",
 } as const;
 export type ProjectStatus = OpenEnum<typeof ProjectStatus>;
+
+export const Category = {
+  Lead: "lead",
+  Proposed: "proposed",
+  Booked: "booked",
+  Active: "active",
+  Complete: "complete",
+} as const;
+export type Category = OpenEnum<typeof Category>;
+
+export const State = {
+  Ready: "ready",
+  Updating: "updating",
+  Review: "review",
+  Unavailable: "unavailable",
+} as const;
+export type State = OpenEnum<typeof State>;
+
+export const FoldedStageStatus = {
+  Active: "active",
+  Paused: "paused",
+  Completed: "completed",
+} as const;
+export type FoldedStageStatus = OpenEnum<typeof FoldedStageStatus>;
+
+export const ActualPrecision = {
+  Instant: "instant",
+  Day: "day",
+  Unknown: "unknown",
+} as const;
+export type ActualPrecision = OpenEnum<typeof ActualPrecision>;
+
+export type FoldedStage = {
+  category: Category | null;
+  state: State;
+  label: string | null;
+  /**
+   * UUID v4
+   */
+  labelId: string | null;
+  status: FoldedStageStatus;
+  cancelled: boolean;
+  evidence: Array<string>;
+  commercialAttention: boolean;
+  actualPrecision: ActualPrecision;
+};
 
 export type Project = {
   /**
@@ -36,6 +82,7 @@ export type Project = {
    * UUID v4
    */
   pipelineStageId: string | null;
+  foldedStage: FoldedStage;
   startDate: Date | null;
   endDate: Date | null;
   eventDate: Date | null;
@@ -54,23 +101,75 @@ export type Project = {
 export const ProjectStatus$inboundSchema: z.ZodMiniType<
   ProjectStatus,
   unknown
-> = openEnums.inboundSchema(ProjectStatus);
+> = /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(ProjectStatus));
 
 /** @internal */
-export const Project$inboundSchema: z.ZodMiniType<Project, unknown> = z.object({
-  id: types.string(),
-  name: types.string(),
-  clientId: types.nullable(types.string()),
-  businessId: types.string(),
-  status: ProjectStatus$inboundSchema,
-  pipelineStageId: types.nullable(types.string()),
-  startDate: types.nullable(types.date()),
-  endDate: types.nullable(types.date()),
-  eventDate: types.nullable(types.date()),
-  contractValue: types.nullable(types.number()),
-  createdAt: types.date(),
-  updatedAt: types.date(),
-});
+export const Category$inboundSchema: z.ZodMiniType<Category, unknown> =
+  /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(Category));
+
+/** @internal */
+export const State$inboundSchema: z.ZodMiniType<State, unknown> =
+  /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(State));
+
+/** @internal */
+export const FoldedStageStatus$inboundSchema: z.ZodMiniType<
+  FoldedStageStatus,
+  unknown
+> = /* @__PURE__ */ lazySchema$(() =>
+  openEnums.inboundSchema(FoldedStageStatus)
+);
+
+/** @internal */
+export const ActualPrecision$inboundSchema: z.ZodMiniType<
+  ActualPrecision,
+  unknown
+> = /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(ActualPrecision));
+
+/** @internal */
+export const FoldedStage$inboundSchema: z.ZodMiniType<FoldedStage, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      category: types.nullable(Category$inboundSchema),
+      state: State$inboundSchema,
+      label: types.nullable(types.string()),
+      labelId: types.nullable(types.string()),
+      status: FoldedStageStatus$inboundSchema,
+      cancelled: types.boolean(),
+      evidence: z.array(types.string()),
+      commercialAttention: types.boolean(),
+      actualPrecision: ActualPrecision$inboundSchema,
+    })
+  );
+
+export function foldedStageFromJSON(
+  jsonString: string,
+): SafeParseResult<FoldedStage, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => FoldedStage$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'FoldedStage' from JSON`,
+  );
+}
+
+/** @internal */
+export const Project$inboundSchema: z.ZodMiniType<Project, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      id: types.string(),
+      name: types.string(),
+      clientId: types.nullable(types.string()),
+      businessId: types.string(),
+      status: ProjectStatus$inboundSchema,
+      pipelineStageId: types.nullable(types.string()),
+      foldedStage: z.lazy(() => FoldedStage$inboundSchema),
+      startDate: types.nullable(types.date()),
+      endDate: types.nullable(types.date()),
+      eventDate: types.nullable(types.date()),
+      contractValue: types.nullable(types.number()),
+      createdAt: types.date(),
+      updatedAt: types.date(),
+    })
+  );
 
 export function projectFromJSON(
   jsonString: string,

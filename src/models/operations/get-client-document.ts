@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 
 export type GetClientDocumentSecurity = {
   apiKey?: string | undefined;
@@ -26,10 +27,12 @@ export type GetClientDocumentSecurity$Outbound = {
 export const GetClientDocumentSecurity$outboundSchema: z.ZodMiniType<
   GetClientDocumentSecurity$Outbound,
   GetClientDocumentSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function getClientDocumentSecurityToJSON(
   getClientDocumentSecurity: GetClientDocumentSecurity,
@@ -48,9 +51,11 @@ export type GetClientDocumentRequest$Outbound = {
 export const GetClientDocumentRequest$outboundSchema: z.ZodMiniType<
   GetClientDocumentRequest$Outbound,
   GetClientDocumentRequest
-> = z.object({
-  id: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+  })
+);
 
 export function getClientDocumentRequestToJSON(
   getClientDocumentRequest: GetClientDocumentRequest,

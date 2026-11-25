@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 
 export type DeleteTimeEntrySecurity = {
   apiKey?: string | undefined;
@@ -26,10 +27,12 @@ export type DeleteTimeEntrySecurity$Outbound = {
 export const DeleteTimeEntrySecurity$outboundSchema: z.ZodMiniType<
   DeleteTimeEntrySecurity$Outbound,
   DeleteTimeEntrySecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function deleteTimeEntrySecurityToJSON(
   deleteTimeEntrySecurity: DeleteTimeEntrySecurity,
@@ -48,9 +51,11 @@ export type DeleteTimeEntryRequest$Outbound = {
 export const DeleteTimeEntryRequest$outboundSchema: z.ZodMiniType<
   DeleteTimeEntryRequest$Outbound,
   DeleteTimeEntryRequest
-> = z.object({
-  id: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+  })
+);
 
 export function deleteTimeEntryRequestToJSON(
   deleteTimeEntryRequest: DeleteTimeEntryRequest,

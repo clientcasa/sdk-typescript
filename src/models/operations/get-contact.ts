@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 
 export type GetContactSecurity = {
   apiKey?: string | undefined;
@@ -26,10 +27,12 @@ export type GetContactSecurity$Outbound = {
 export const GetContactSecurity$outboundSchema: z.ZodMiniType<
   GetContactSecurity$Outbound,
   GetContactSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function getContactSecurityToJSON(
   getContactSecurity: GetContactSecurity,
@@ -48,9 +51,11 @@ export type GetContactRequest$Outbound = {
 export const GetContactRequest$outboundSchema: z.ZodMiniType<
   GetContactRequest$Outbound,
   GetContactRequest
-> = z.object({
-  id: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+  })
+);
 
 export function getContactRequestToJSON(
   getContactRequest: GetContactRequest,

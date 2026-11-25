@@ -4,7 +4,7 @@
 
 import * as z from "zod/v4-mini";
 import { remap as remap$ } from "../../lib/primitives.js";
-import { safeParse } from "../../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
 import { ClosedEnum } from "../../types/enums.js";
 import { Result as SafeParseResult } from "../../types/fp.js";
 import { SDKValidationError } from "../errors/sdk-validation-error.js";
@@ -41,10 +41,12 @@ export type ListVenuesSecurity$Outbound = {
 export const ListVenuesSecurity$outboundSchema: z.ZodMiniType<
   ListVenuesSecurity$Outbound,
   ListVenuesSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function listVenuesSecurityToJSON(
   listVenuesSecurity: ListVenuesSecurity,
@@ -57,7 +59,7 @@ export function listVenuesSecurityToJSON(
 /** @internal */
 export const ListVenuesStatus$outboundSchema: z.ZodMiniEnum<
   typeof ListVenuesStatus
-> = z.enum(ListVenuesStatus);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(ListVenuesStatus));
 
 /** @internal */
 export type ListVenuesRequest$Outbound = {
@@ -70,11 +72,13 @@ export type ListVenuesRequest$Outbound = {
 export const ListVenuesRequest$outboundSchema: z.ZodMiniType<
   ListVenuesRequest$Outbound,
   ListVenuesRequest
-> = z.object({
-  page: z._default(z.int(), 1),
-  pageSize: z._default(z.int(), 25),
-  status: z.optional(ListVenuesStatus$outboundSchema),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    page: z._default(z.int(), 1),
+    pageSize: z._default(z.int(), 25),
+    status: z.optional(ListVenuesStatus$outboundSchema),
+  })
+);
 
 export function listVenuesRequestToJSON(
   listVenuesRequest: ListVenuesRequest,
@@ -88,15 +92,17 @@ export function listVenuesRequestToJSON(
 export const ListVenuesResponse$inboundSchema: z.ZodMiniType<
   ListVenuesResponse,
   unknown
-> = z.pipe(
-  z.object({
-    Result: models.VenueList$inboundSchema,
-  }),
-  z.transform((v) => {
-    return remap$(v, {
-      "Result": "result",
-    });
-  }),
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.pipe(
+    z.object({
+      Result: models.VenueList$inboundSchema,
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        "Result": "result",
+      });
+    }),
+  )
 );
 
 export function listVenuesResponseFromJSON(

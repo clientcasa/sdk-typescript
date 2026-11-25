@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
@@ -88,38 +88,41 @@ export type Payment = {
 export const PaymentMethod$inboundSchema: z.ZodMiniType<
   PaymentMethod,
   unknown
-> = openEnums.inboundSchema(PaymentMethod);
+> = /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(PaymentMethod));
 
 /** @internal */
 export const PaymentStatus$inboundSchema: z.ZodMiniType<
   PaymentStatus,
   unknown
-> = openEnums.inboundSchema(PaymentStatus);
+> = /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(PaymentStatus));
 
 /** @internal */
 export const PaymentKind$inboundSchema: z.ZodMiniType<PaymentKind, unknown> =
-  openEnums.inboundSchema(PaymentKind);
+  /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(PaymentKind));
 
 /** @internal */
-export const Payment$inboundSchema: z.ZodMiniType<Payment, unknown> = z.object({
-  id: types.string(),
-  clientId: types.nullable(types.string()),
-  invoiceId: types.nullable(types.string()),
-  saleId: types.nullable(types.string()),
-  amount: types.number(),
-  currency: types.string(),
-  receivedDate: types.date(),
-  method: PaymentMethod$inboundSchema,
-  status: PaymentStatus$inboundSchema,
-  kind: PaymentKind$inboundSchema,
-  reference: types.nullable(types.string()),
-  notes: types.nullable(types.string()),
-  netAmount: types.nullable(types.number()),
-  payoutId: types.nullable(types.string()),
-  refundOfId: types.nullable(types.string()),
-  createdAt: types.date(),
-  updatedAt: types.date(),
-});
+export const Payment$inboundSchema: z.ZodMiniType<Payment, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      id: types.string(),
+      clientId: types.nullable(types.string()),
+      invoiceId: types.nullable(types.string()),
+      saleId: types.nullable(types.string()),
+      amount: types.number(),
+      currency: types.string(),
+      receivedDate: types.date(),
+      method: PaymentMethod$inboundSchema,
+      status: PaymentStatus$inboundSchema,
+      kind: PaymentKind$inboundSchema,
+      reference: types.nullable(types.string()),
+      notes: types.nullable(types.string()),
+      netAmount: types.nullable(types.number()),
+      payoutId: types.nullable(types.string()),
+      refundOfId: types.nullable(types.string()),
+      createdAt: types.date(),
+      updatedAt: types.date(),
+    })
+  );
 
 export function paymentFromJSON(
   jsonString: string,

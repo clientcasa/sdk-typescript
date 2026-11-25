@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 
 export type ContractCreate = {
   title: string;
@@ -45,32 +46,28 @@ export type ContractCreate$Outbound = {
 export const ContractCreate$outboundSchema: z.ZodMiniType<
   ContractCreate$Outbound,
   ContractCreate
-> = z.object({
-  title: z.string(),
-  clientId: z.string(),
-  billingContactId: z.optional(z.string()),
-  projectId: z.optional(z.string()),
-  sourceTemplateId: z.optional(z.string()),
-  issueDate: z.optional(
-    z.pipe(
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    title: z.string(),
+    clientId: z.string(),
+    billingContactId: z.optional(z.string()),
+    projectId: z.optional(z.string()),
+    sourceTemplateId: z.optional(z.string()),
+    issueDate: z.optional(z.pipe(
       z.date(),
       z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
-    ),
-  ),
-  effectiveDate: z.optional(
-    z.pipe(
+    )),
+    effectiveDate: z.optional(z.pipe(
       z.date(),
       z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
-    ),
-  ),
-  expirationDate: z.optional(
-    z.pipe(
+    )),
+    expirationDate: z.optional(z.pipe(
       z.date(),
       z.transform(v => v.toISOString().slice(0, "YYYY-MM-DD".length)),
-    ),
-  ),
-  contractValue: z.optional(z.number()),
-});
+    )),
+    contractValue: z.optional(z.number()),
+  })
+);
 
 export function contractCreateToJSON(contractCreate: ContractCreate): string {
   return JSON.stringify(ContractCreate$outboundSchema.parse(contractCreate));

@@ -3,7 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
-import { safeParse } from "../lib/schemas.js";
+import { lazySchema as lazySchema$, safeParse } from "../lib/schemas.js";
 import * as openEnums from "../types/enums.js";
 import { OpenEnum } from "../types/enums.js";
 import { Result as SafeParseResult } from "../types/fp.js";
@@ -78,40 +78,43 @@ export type Sale = {
 };
 
 /** @internal */
-export const Channel$inboundSchema: z.ZodMiniType<Channel, unknown> = openEnums
-  .inboundSchema(Channel);
+export const Channel$inboundSchema: z.ZodMiniType<Channel, unknown> =
+  /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(Channel));
 
 /** @internal */
 export const SaleStatus$inboundSchema: z.ZodMiniType<SaleStatus, unknown> =
-  openEnums.inboundSchema(SaleStatus);
+  /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(SaleStatus));
 
 /** @internal */
-export const Sale$inboundSchema: z.ZodMiniType<Sale, unknown> = z.object({
-  id: types.string(),
-  saleNumber: types.string(),
-  businessId: types.nullable(types.string()),
-  clientId: types.nullable(types.string()),
-  contactId: types.nullable(types.string()),
-  channel: Channel$inboundSchema,
-  externalId: types.nullable(types.string()),
-  saleDate: types.date(),
-  currency: types.string(),
-  status: SaleStatus$inboundSchema,
-  voidedAt: types.nullable(types.date()),
-  voidReason: types.nullable(types.string()),
-  taxJurisdiction: types.nullable(types.string()),
-  taxInclusive: types.boolean(),
-  subtotal: types.nullable(types.number()),
-  discountPercent: types.nullable(types.number()),
-  discountAmount: types.nullable(types.number()),
-  taxRate: types.nullable(types.number()),
-  taxAmount: types.nullable(types.number()),
-  total: types.nullable(types.number()),
-  amountRefunded: types.number(),
-  notes: types.nullable(types.string()),
-  createdAt: types.date(),
-  updatedAt: types.date(),
-});
+export const Sale$inboundSchema: z.ZodMiniType<Sale, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      id: types.string(),
+      saleNumber: types.string(),
+      businessId: types.nullable(types.string()),
+      clientId: types.nullable(types.string()),
+      contactId: types.nullable(types.string()),
+      channel: Channel$inboundSchema,
+      externalId: types.nullable(types.string()),
+      saleDate: types.date(),
+      currency: types.string(),
+      status: SaleStatus$inboundSchema,
+      voidedAt: types.nullable(types.date()),
+      voidReason: types.nullable(types.string()),
+      taxJurisdiction: types.nullable(types.string()),
+      taxInclusive: types.boolean(),
+      subtotal: types.nullable(types.number()),
+      discountPercent: types.nullable(types.number()),
+      discountAmount: types.nullable(types.number()),
+      taxRate: types.nullable(types.number()),
+      taxAmount: types.nullable(types.number()),
+      total: types.nullable(types.number()),
+      amountRefunded: types.number(),
+      notes: types.nullable(types.string()),
+      createdAt: types.date(),
+      updatedAt: types.date(),
+    })
+  );
 
 export function saleFromJSON(
   jsonString: string,

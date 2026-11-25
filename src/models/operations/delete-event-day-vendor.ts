@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
 
 export type DeleteEventDayVendorSecurity = {
   apiKey?: string | undefined;
@@ -26,10 +27,12 @@ export type DeleteEventDayVendorSecurity$Outbound = {
 export const DeleteEventDayVendorSecurity$outboundSchema: z.ZodMiniType<
   DeleteEventDayVendorSecurity$Outbound,
   DeleteEventDayVendorSecurity
-> = z.object({
-  apiKey: z.optional(z.string()),
-  bearer: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    apiKey: z.optional(z.string()),
+    bearer: z.optional(z.string()),
+  })
+);
 
 export function deleteEventDayVendorSecurityToJSON(
   deleteEventDayVendorSecurity: DeleteEventDayVendorSecurity,
@@ -50,9 +53,11 @@ export type DeleteEventDayVendorRequest$Outbound = {
 export const DeleteEventDayVendorRequest$outboundSchema: z.ZodMiniType<
   DeleteEventDayVendorRequest$Outbound,
   DeleteEventDayVendorRequest
-> = z.object({
-  id: z.string(),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    id: z.string(),
+  })
+);
 
 export function deleteEventDayVendorRequestToJSON(
   deleteEventDayVendorRequest: DeleteEventDayVendorRequest,

@@ -3,6 +3,7 @@
  */
 
 import * as z from "zod/v4-mini";
+import { lazySchema as lazySchema$ } from "../lib/schemas.js";
 import { ClosedEnum } from "../types/enums.js";
 
 export const ContactUpdateRole = {
@@ -28,7 +29,7 @@ export type ContactUpdate = {
 /** @internal */
 export const ContactUpdateRole$outboundSchema: z.ZodMiniEnum<
   typeof ContactUpdateRole
-> = z.enum(ContactUpdateRole);
+> = /* @__PURE__ */ lazySchema$(() => z.enum(ContactUpdateRole));
 
 /** @internal */
 export type ContactUpdate$Outbound = {
@@ -45,15 +46,17 @@ export type ContactUpdate$Outbound = {
 export const ContactUpdate$outboundSchema: z.ZodMiniType<
   ContactUpdate$Outbound,
   ContactUpdate
-> = z.object({
-  name: z.optional(z.string()),
-  email: z.optional(z.string()),
-  phone: z.optional(z.string()),
-  title: z.optional(z.string()),
-  role: z.optional(ContactUpdateRole$outboundSchema),
-  isPrimary: z.optional(z.boolean()),
-  clientId: z.optional(z.string()),
-});
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.object({
+    name: z.optional(z.string()),
+    email: z.optional(z.string()),
+    phone: z.optional(z.string()),
+    title: z.optional(z.string()),
+    role: z.optional(ContactUpdateRole$outboundSchema),
+    isPrimary: z.optional(z.boolean()),
+    clientId: z.optional(z.string()),
+  })
+);
 
 export function contactUpdateToJSON(contactUpdate: ContactUpdate): string {
   return JSON.stringify(ContactUpdate$outboundSchema.parse(contactUpdate));
