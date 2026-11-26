@@ -176,6 +176,7 @@ export const DetailsCode = {
   PausedTransactionWindowLocked: "paused_transaction_window_locked",
   ExpenseRecognitionPeriodSealed: "expense_recognition_period_sealed",
   RecordHasDependents: "record_has_dependents",
+  RecordHasLedgerHistory: "record_has_ledger_history",
   DuplicateRecord: "duplicate_record",
   RecordImmutable: "record_immutable",
   QuotaExceeded: "quota_exceeded",
