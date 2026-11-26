@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 845b3ae5-0c5c-44ad-9b76-21e1d9e24151
 management:
-  docChecksum: 91edf0a4ea94a710eadde3313352a0db
+  docChecksum: 19bc4c8d1a4472668768fd5baed0367c
   docVersion: 1.0.0
-  speakeasyVersion: 1.811.0
+  speakeasyVersion: 1.812.0
   generationVersion: 2.968.1
-  releaseVersion: 0.7.11
-  configChecksum: 94934425743e00d91bcedcc703841064
+  releaseVersion: 0.7.12
+  configChecksum: 21a8349a888e9ceef906fcd37a5a5b3d
   repoURL: https://github.com/clientcasa/sdk-typescript.git
   installationURL: https://github.com/clientcasa/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: ceb79dae-20f3-4fce-ac5d-99243b37ade4
-  pristine_commit_hash: fb59d3c718c14dcf52f6edba8d55465dd4647840
-  pristine_tree_hash: bb3d4c6fc61f27e08551763f15c3793837248870
+  generation_id: 0567630f-989a-4592-92f8-a64f8352c170
+  pristine_commit_hash: 3e70deea51a77ca44b8fe28d4487575989a68abd
+  pristine_tree_hash: 0becb80b110ebbf5f83a0cd0032ecf055118245d
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -316,8 +316,8 @@ trackedFiles:
     pristine_git_object: 1c801cbc126cb4e906070289634e70628b038663
   docs/models/details-code.md:
     id: f59269204db0
-    last_write_checksum: sha1:6f9d50b91a52ef84c744485660c0b836919ea3e7
-    pristine_git_object: 2b28f3d73f2c72345931acbd3950346defe658fd
+    last_write_checksum: sha1:e7fe30fbaa02faca0b92533029c9f22ea0c6d8c6
+    pristine_git_object: dea3107fb9bde835a7416dc66d5997b6e833aba5
   docs/models/details.md:
     id: 78f6f9d989a9
     last_write_checksum: sha1:508bb311aadf58ff6a2d7914bf21ff673cf774b8
@@ -2856,12 +2856,12 @@ trackedFiles:
     pristine_git_object: dca8b77bfe9ec131b8e55da6a49883996f4ea14e
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:629fcca43aa1d61a61da578e70176601b3a9195b
-    pristine_git_object: 507d9d80f2be9ad4c23fce104f1163d1a598ab4b
+    last_write_checksum: sha1:5348a2ac59de75d3b63c33e6f206c06528c9c39e
+    pristine_git_object: 8a306d6373ee3c5ff04669cf7e4270c08ee8833c
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:e8ac3b3d3296a78a803a794a795a337790ac1351
-    pristine_git_object: 299d3ce223eddd135f499405e08cec55abd325ca
+    last_write_checksum: sha1:5d04720ab2a1cb11e5048b9c2405ec98391f75f4
+    pristine_git_object: c30d49816d17853f5ea2e30ef1ef0cf2e0b756f1
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:473b76edf3d30ed53981d70a75feb9a4318c3ec1
@@ -3348,8 +3348,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:1f566a4533abce57e9e3e0534f05e9299e2d8ab9
-    pristine_git_object: 3778b702829b7d74b1d9f11ebb303750ad68fbee
+    last_write_checksum: sha1:b5be8b8dcf729eac30b5044909685428141aba5a
+    pristine_git_object: 50fbf1e1a8d5e095d203688ea3e35a1b0d36f3eb
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:d49408b88c0328b6ff59dc02466fc956dfd3c706
@@ -3400,8 +3400,8 @@ trackedFiles:
     pristine_git_object: 61cf6241a92af930d9b852235f347ea81ec28cc5
   src/models/api-error.ts:
     id: 1f7b1c091e2a
-    last_write_checksum: sha1:4c0c09d8450349d833dd1cd546b21337cfe6298c
-    pristine_git_object: 884d1b736fbaa68aaf1ac5e22555fc5cecce00fd
+    last_write_checksum: sha1:8a2de6bbe43b315c016ef73c123fd2b2aa769faa
+    pristine_git_object: 5f7143501cdd07993c54044f4a6b5138b74a3726
   src/models/calendar-event-create.ts:
     id: b551e2d3e0b9
     last_write_checksum: sha1:58be9fbfc62c1a4ffa32355e5f6a9beda7b22ad5
@@ -6832,4 +6832,120 @@ examples:
         "500":
           application/json: {"error": {"code": "service_unavailable", "message": "<value>", "requestId": "<id>"}}
 examplesVersion: 1.0.2
-releaseNotes: "## Typescript SDK Changes:\n* `clientcasa.timeEntries.create()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.catalogItems.create()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.clients.get()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.clients.delete()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.clients.update()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.webhooks.update()`: \n  *  `request.body.events[]` **Changed**\n  *  `response.events[]` **Changed**\n  *  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.webhooks.delete()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.webhooks.get()`: \n  *  `response.events[]` **Changed**\n  *  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.webhooks.create()`: \n  *  `request.body.events[]` **Changed**\n  *  `response.events[]` **Changed**\n  *  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.webhooks.list()`: \n  *  `request.event` **Changed**\n  *  `response.data[].events[]` **Changed**\n  *  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.venues.update()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.venues.delete()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.venues.get()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.venues.create()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.venues.list()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.timeEntries.delete()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.vendors.delete()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.contacts.list()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.contacts.create()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.contacts.get()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.contacts.delete()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.contacts.update()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.projects.list()`: \n  *  `response.data[].foldedStage` **Added**\n  *  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.projects.create()`: \n  *  `request.body` **Changed** (Breaking ⚠️)\n  *  `response.foldedStage` **Added**\n  *  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.projects.get()`: \n  *  `response.foldedStage` **Added**\n  *  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.projects.delete()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.projects.update()`: \n  *  `request.body.pipelineStageId` **Removed** (Breaking ⚠️)\n  *  `response.foldedStage` **Added**\n  *  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.invoices.list()`: \n  *  `response.data[]` **Changed**\n  *  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.invoices.create()`: \n  *  `request.body.taxMode` **Added**\n  *  `response` **Changed**\n  *  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.invoices.get()`: \n  *  `response` **Changed**\n  *  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.invoices.delete()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.invoices.update()`: \n  *  `request.body.taxMode` **Added**\n  *  `response` **Changed**\n  *  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.contracts.list()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.contracts.create()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.contracts.get()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.contracts.delete()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.contracts.update()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.forms&Agreements.list()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.forms&Agreements.get()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.documentVersions.list()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.documentVersions.get()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.forms.list()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.forms.get()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.formSubmissions.list()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.formSubmissions.get()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.formAttachments.get()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.inquiries.create()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.payments.list()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.payments.create()`: \n  *  `request.body.invoiceVersion` **Added**\n  *  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.payments.get()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.payments.update()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.payouts.list()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.payouts.get()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.sales.list()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.sales.get()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.timeEntries.list()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.clients.create()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.clients.list()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.vendors.update()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.timeEntries.update()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.milestones.list()`: \n  *  `request.after` **Added**\n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.milestones.create()`: \n  *  `request.body.time` **Changed**\n  *  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.milestones.get()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.milestones.delete()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.milestones.update()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.calendarEvents.list()`: \n  *  `response.data[].location` **Added**\n  *  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.calendarEvents.create()`: \n  *  `request.body.location` **Added**\n  *  `response.location` **Added**\n  *  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.calendarEvents.get()`: \n  *  `response.location` **Added**\n  *  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.calendarEvents.delete()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.calendarEvents.update()`: \n  *  `request.body.location` **Added**\n  *  `response.location` **Added**\n  *  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.transactions.list()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.transactions.create()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.transactions.get()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.transactions.delete()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.transactions.update()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.catalogItems.list()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.timeEntries.get()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.catalogItems.get()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.catalogItems.delete()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.catalogItems.update()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.eventDays.list()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.eventDays.create()`: \n  *  `request.body` **Changed**\n  *  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.eventDays.get()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.eventDays.delete()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.eventDays.update()`: \n  *  `request.body.customAnchors[].time` **Changed**\n  *  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.timelineItems.list()`: \n  *  `request.status` **Changed** (Breaking ⚠️)\n  *  `response.data[]` **Changed** (Breaking ⚠️)\n  *  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.timelineItems.create()`: \n  *  `request.body` **Changed** (Breaking ⚠️)\n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.timelineItems.get()`: \n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.timelineItems.delete()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.timelineItems.update()`: \n  *  `request.body` **Changed**\n  *  `response` **Changed** (Breaking ⚠️)\n  *  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.eventDayVendors.list()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.eventDayVendors.create()`: \n  *  `request.body` **Changed**\n  *  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.eventDayVendors.get()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.eventDayVendors.delete()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.eventDayVendors.update()`: \n  *  `request.body` **Changed**\n  *  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.vendors.list()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.vendors.create()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.vendors.get()`:  `error.details.code` **Changed** (Breaking ⚠️)\n* `clientcasa.toDos.get()`: **Added**\n* `clientcasa.toDos.update()`: **Added**\n* `clientcasa.projectPlan.changeTodoOccurrence()`: **Added**\n* `clientcasa.projectPlan.restoreTodo()`: **Added**\n* `clientcasa.projectPlan.cancelTodo()`: **Added**\n* `clientcasa.projectPlan.reopenTodo()`: **Added**\n* `clientcasa.projectPlan.completeTodo()`: **Added**\n* `clientcasa.projectPlan.previewPlanTemplate()`: **Added**\n* `clientcasa.projectPlan.list()`: **Added**\n* `clientcasa.toDos.create()`: **Added**\n* `clientcasa.projectPlan.startTodo()`: **Added**\n* `clientcasa.toDos.list()`: **Added**\n* `clientcasa.projectPlan.applyPlanTemplate()`: **Added**\n* `clientcasa.projectPlan.previewPlanDateChange()`: **Added**\n* `clientcasa.projectPlan.applyPlanDateChange()`: **Added**\n* `clientcasa.projectPlan.recordProjectAct()`: **Added**\n* `clientcasa.projectPlan.listEvents()`: **Added**\n"
+releaseNotes: |
+  ## Typescript SDK Changes:
+  * `clientcasa.clients.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.clients.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.clients.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.clients.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.clients.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.contacts.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.contacts.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.contacts.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.contacts.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.contacts.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.projects.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.projects.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.projects.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.projects.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.projects.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.invoices.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.invoices.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.invoices.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.invoices.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.invoices.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.contracts.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.contracts.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.contracts.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.contracts.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.contracts.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.forms&Agreements.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.forms&Agreements.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.documentVersions.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.documentVersions.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.forms.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.forms.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.formSubmissions.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.formSubmissions.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.formAttachments.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.inquiries.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.payments.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.payments.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.payments.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.payments.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.payouts.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.payouts.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.sales.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.sales.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.timeEntries.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.timeEntries.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.timeEntries.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.timeEntries.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.timeEntries.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.milestones.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.milestones.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.milestones.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.milestones.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.milestones.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.calendarEvents.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.calendarEvents.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.calendarEvents.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.calendarEvents.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.calendarEvents.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.transactions.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.transactions.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.transactions.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.transactions.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.transactions.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.catalogItems.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.catalogItems.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.catalogItems.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.catalogItems.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.catalogItems.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.eventDays.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.eventDays.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.eventDays.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.eventDays.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.eventDays.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.timelineItems.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.timelineItems.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.timelineItems.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.timelineItems.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.timelineItems.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.eventDayVendors.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.eventDayVendors.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.eventDayVendors.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.eventDayVendors.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.eventDayVendors.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.vendors.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.vendors.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.vendors.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.vendors.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.vendors.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.venues.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.venues.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.venues.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.venues.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.venues.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.webhooks.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.webhooks.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.webhooks.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.webhooks.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.webhooks.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.toDos.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.toDos.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.toDos.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.toDos.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.projectPlan.startTodo()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.projectPlan.completeTodo()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.projectPlan.reopenTodo()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.projectPlan.cancelTodo()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.projectPlan.restoreTodo()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.projectPlan.changeTodoOccurrence()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.projectPlan.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.projectPlan.previewPlanTemplate()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.projectPlan.applyPlanTemplate()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.projectPlan.previewPlanDateChange()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.projectPlan.applyPlanDateChange()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.projectPlan.recordProjectAct()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+  * `clientcasa.projectPlan.listEvents()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
