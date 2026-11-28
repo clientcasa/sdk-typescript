@@ -5,6 +5,7 @@
 export * from "./api-error.js";
 export * from "./client-casa-default-error.js";
 export * from "./client-casa-error.js";
+export * from "./delete-transaction.js";
 export * from "./http-client-errors.js";
 export * from "./response-validation-error.js";
 export * from "./sdk-validation-error.js";

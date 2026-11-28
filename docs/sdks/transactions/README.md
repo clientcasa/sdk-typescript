@@ -192,7 +192,7 @@ run();
 
 ## get
 
-Get a transaction
+Deleted charges and expenses return 404, including items kept in the books for history.
 
 ### Example Usage
 
@@ -268,7 +268,7 @@ run();
 
 ## delete
 
-Transactions billed to a sent/paid invoice cannot be deleted.
+If deletion would change the books, review the 409 preview and repeat DELETE with its acknowledgement. Billed items and changes to closed periods are refused.
 
 ### Example Usage
 
@@ -338,7 +338,9 @@ run();
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
-| errors.ApiError               | 401, 403, 404, 409, 429       | application/json              |
+| errors.ResponseBodyError      | 409                           | application/json              |
+| errors.ApiError               | 409                           | application/json              |
+| errors.ApiError               | 401, 403, 404, 429            | application/json              |
 | errors.ApiError               | 500                           | application/json              |
 | errors.ClientCasaDefaultError | 4XX, 5XX                      | \*/\*                         |
 

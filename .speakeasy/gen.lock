@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 845b3ae5-0c5c-44ad-9b76-21e1d9e24151
 management:
-  docChecksum: 19bc4c8d1a4472668768fd5baed0367c
+  docChecksum: ee3f6eb94d9d4d9a257cddd23224f68f
   docVersion: 1.0.0
-  speakeasyVersion: 1.812.0
-  generationVersion: 2.968.1
-  releaseVersion: 0.7.12
-  configChecksum: 21a8349a888e9ceef906fcd37a5a5b3d
+  speakeasyVersion: 1.813.0
+  generationVersion: 2.969.4
+  releaseVersion: 0.8.0
+  configChecksum: f262e42ca8814d8fe06a6dc740195e36
   repoURL: https://github.com/clientcasa/sdk-typescript.git
   installationURL: https://github.com/clientcasa/sdk-typescript
   published: true
 persistentEdits:
-  generation_id: 0567630f-989a-4592-92f8-a64f8352c170
-  pristine_commit_hash: 3e70deea51a77ca44b8fe28d4487575989a68abd
-  pristine_tree_hash: 0becb80b110ebbf5f83a0cd0032ecf055118245d
+  generation_id: b218726b-5af5-4834-85d5-d35c8ca1e538
+  pristine_commit_hash: f9a7774f3875dcd3b61223478ab31550e8322317
+  pristine_tree_hash: 425cdf68eeddde9a2e2956bff1f144157ab7c8cf
 features:
   typescript:
     additionalDependencies: 0.1.0
@@ -24,6 +24,7 @@ features:
     devContainers: 2.90.1
     enumUnions: 0.1.0
     envVarSecurityUsage: 0.1.2
+    errorUnions: 0.1.1
     globalSecurity: 2.82.16
     globalSecurityCallbacks: 0.1.0
     globalSecurityFlattening: 0.1.1
@@ -316,8 +317,8 @@ trackedFiles:
     pristine_git_object: 1c801cbc126cb4e906070289634e70628b038663
   docs/models/details-code.md:
     id: f59269204db0
-    last_write_checksum: sha1:e7fe30fbaa02faca0b92533029c9f22ea0c6d8c6
-    pristine_git_object: dea3107fb9bde835a7416dc66d5997b6e833aba5
+    last_write_checksum: sha1:5ede0cb67e106528925479a95fcca05d2c967742
+    pristine_git_object: faa1175308f4ffc619633a1886e1d064447dfe39
   docs/models/details.md:
     id: 78f6f9d989a9
     last_write_checksum: sha1:508bb311aadf58ff6a2d7914bf21ff673cf774b8
@@ -354,6 +355,14 @@ trackedFiles:
     id: 9bd6b090035d
     last_write_checksum: sha1:3969cb8229826826632b5fc2c5346867d49e4771
     pristine_git_object: f9440eb12b506b081d0424a4325fcbcaf6e7607a
+  docs/models/errors/conflict.md:
+    id: 4dbff5df58df
+    last_write_checksum: sha1:41bf3ac0bce5d78d8daa11f25c398c96893e7246
+    pristine_git_object: a0657b8b3544376531344a67e20098042d52333b
+  docs/models/errors/response-body-error.md:
+    id: 08a8338dfc3d
+    last_write_checksum: sha1:332e6c75b6fd2340eb2763cdf15ac583fbc862d4
+    pristine_git_object: 3c5db0853d02ebce1e8217a7207350cc288c3582
   docs/models/event-day-create-custom-anchor.md:
     id: 001aad480463
     last_write_checksum: sha1:d30ff06039c09a5de4850a9394bfcff1f19c80b3
@@ -622,6 +631,10 @@ trackedFiles:
     id: 340e5c385cbf
     last_write_checksum: sha1:ef08fa040edd17cc1573398a9a6dc4218d00550d
     pristine_git_object: 996cb335c2b2d2b5372482620a546f0067e46b3a
+  docs/models/operations/basis.md:
+    id: 043a2b6c9dc9
+    last_write_checksum: sha1:17c2de41a12955798933c4da8f03747c2840781d
+    pristine_git_object: ae434c0b9a7914e09adae368390d9d62b83562e4
   docs/models/operations/billable.md:
     id: 83c2dd8ba2db
     last_write_checksum: sha1:1d354f6eb0057dc335a760bcfb5ffd3393043287
@@ -666,6 +679,14 @@ trackedFiles:
     id: c7870011b02f
     last_write_checksum: sha1:e8da4b410336cc223d88cfd367cd26545cad4e3c
     pristine_git_object: 1e4d82c3d49820ee511a4e0ada91352c0605927b
+  docs/models/operations/code-transaction-delete-preview-required.md:
+    id: 97b8323a038b
+    last_write_checksum: sha1:85bde4425e6c0a02b1bd8342da30a0962d668e8c
+    pristine_git_object: 2393b8720599644c7dc959eab0b8b0578042bd31
+  docs/models/operations/code.md:
+    id: b8a6c9e297f9
+    last_write_checksum: sha1:62dbf074efc729ff5552a8ff40e5c6eb55827d3b
+    pristine_git_object: 855a094b4ac9422d36c963879e1fc9be012c0e7a
   docs/models/operations/complete-todo-request.md:
     id: a64f7ba604c5
     last_write_checksum: sha1:70c7342d371fecab0dc20fbbb0bc5cfc098c084b
@@ -1014,10 +1035,14 @@ trackedFiles:
     id: e5e219f782e7
     last_write_checksum: sha1:8fe3f7453aa2243976e6e4b4c6968fca49a6f5a6
     pristine_git_object: 260ebdd21797e70e8093e7e39c7a406c6998a225
+  docs/models/operations/delete-transaction-direction.md:
+    id: 5f611c1fc266
+    last_write_checksum: sha1:0a212d0f6b37d91f89aca3dca0c6a8d01592a1dc
+    pristine_git_object: 429e5844f7ab2322f3bffb85c95c46f5e5691ca0
   docs/models/operations/delete-transaction-request.md:
     id: ba67d18efa16
-    last_write_checksum: sha1:45af6bc79727b8a66911939dbb4aa96753c065b0
-    pristine_git_object: 48c552884b58a4c690aaad858da15be3dc62bbbb
+    last_write_checksum: sha1:f78435c365d769a453cb694b0dda8dc8bfa3b1e2
+    pristine_git_object: 7cd7d9f24a1862396e71ec546f59293c615f31ca
   docs/models/operations/delete-transaction-security.md:
     id: bf1b66dd86e4
     last_write_checksum: sha1:21d316bee88842d58ad80da58da95e70cc0e2906
@@ -1046,10 +1071,10 @@ trackedFiles:
     id: a086dfb75d03
     last_write_checksum: sha1:fd24b4b3ea72fa3a71377348a9842b934c7346f4
     pristine_git_object: 180eef8b0f129ab434a47b179ddb4995d6ea3852
-  docs/models/operations/direction.md:
-    id: 9a36eca7275b
-    last_write_checksum: sha1:1c045e4171b5550aa494f527a9c61ae2e2ab4f97
-    pristine_git_object: 067bd0bdf7ed11f38563adc340ab10e4e293d34d
+  docs/models/operations/details.md:
+    id: 887302470b83
+    last_write_checksum: sha1:2b15dafec99c987d92ee278f6222d8803f36a6e8
+    pristine_git_object: db97aef1231dd3a2cf2eb03c0b3cd111a419c29e
   docs/models/operations/do-rule-anchor-bound1.md:
     id: de9eff90b4ac
     last_write_checksum: sha1:d2e81ca14ca355886f188e743d60cfcd6a19b68b
@@ -1146,6 +1171,10 @@ trackedFiles:
     id: 8dcb4265cb76
     last_write_checksum: sha1:15ec1291d589078eee5debdda57a1dc95a965287
     pristine_git_object: d4ff60ad6c4ccfae446fa67731d1820d7a454ed1
+  docs/models/operations/error-t.md:
+    id: b57640440a27
+    last_write_checksum: sha1:177d67c8b989d7a7838776d67c06389c189ef978
+    pristine_git_object: c10435602af6b881295f3c4694ba636fdfa1affa
   docs/models/operations/evidence-day.md:
     id: 59f0ac3129f1
     last_write_checksum: sha1:576d6cc878612a7a87f8e4fca382252fe58458fb
@@ -1378,6 +1407,10 @@ trackedFiles:
     id: 751bf5590d36
     last_write_checksum: sha1:fd2cd0d5ed8d34ef1fa6c8ed98d3512e961c50ae
     pristine_git_object: 8b3eaf6ee93f92e81e1792c4a63b277f74ca5652
+  docs/models/operations/impact.md:
+    id: da340b9432cc
+    last_write_checksum: sha1:9b915ce3757709fd8b14eec5402f5fc534ab63cb
+    pristine_git_object: 75e2c87ceeb2bfb92c404df749d9587604011fa0
   docs/models/operations/list-calendar-events-request.md:
     id: d92095b4ba79
     last_write_checksum: sha1:15e3f941c70a3d7fb445ff7a5e9269d583916f70
@@ -1710,10 +1743,14 @@ trackedFiles:
     id: 6d7b05ba8e58
     last_write_checksum: sha1:f0386554f5a794c5ee65010051c6b18a8ac678d3
     pristine_git_object: 2cac347b2e00b1d98269ac579e4b09ff789c2365
+  docs/models/operations/list-transactions-direction.md:
+    id: 2ededf6f38df
+    last_write_checksum: sha1:1634f7707ea928251b3f9f94cd6e2a8b6c532dca
+    pristine_git_object: b5d0b09382dc34cd11c5ca2e3ceb94e458f078c4
   docs/models/operations/list-transactions-request.md:
     id: c107db81f868
-    last_write_checksum: sha1:62021f5b7c13310b14be0dd4f443c450bbcaa4f8
-    pristine_git_object: d33ad4661a8f86d6c19ea500e21281f05cdbd458
+    last_write_checksum: sha1:5ec041f375479287d8fdc7d6d4652188086aea8b
+    pristine_git_object: 87f690230fd74f4559362e15ecb954db85f051d0
   docs/models/operations/list-transactions-response.md:
     id: b5238ef30e07
     last_write_checksum: sha1:326023b51258bb0604d3ca2c6436e6e114dfc96e
@@ -1810,6 +1847,10 @@ trackedFiles:
     id: 6d33959fa95f
     last_write_checksum: sha1:ec3a2343098ddc24a9ecbb7e14b4eecfe4f046a5
     pristine_git_object: fb1708df45698a39f87a721a4d15ef5550e88ac2
+  docs/models/operations/preview.md:
+    id: 93e35c63fff3
+    last_write_checksum: sha1:7a99642197d3bad6e8c7d533005dd9d82151a2d5
+    pristine_git_object: bdafac55931cea9cc61e8f269fa7cfd7a6c52900
   docs/models/operations/read-plan-kind.md:
     id: 1d28fd46f0c1
     last_write_checksum: sha1:5f6caca49b285fe7075f4b7299d1898278c11cbc
@@ -2820,8 +2861,8 @@ trackedFiles:
     pristine_git_object: 722168ce5ad9adb23fa4bea6ee2d9d4b0241c707
   docs/sdks/transactions/README.md:
     id: 85592abe3c6b
-    last_write_checksum: sha1:df77dd6813df85caf5efc6703db82d1a63ef7796
-    pristine_git_object: 08a262a66fae89181eaa59bb33b6adcfb77d8455
+    last_write_checksum: sha1:3e9a7a0728597ea2e0e45135f9a59cef12e5e028
+    pristine_git_object: 6eceaf29809057d70bbc9884aa520dd7c8d82105
   docs/sdks/vendors/README.md:
     id: e074853ab7b5
     last_write_checksum: sha1:790300d1d7a3560f921c0918ec5de39c7af83118
@@ -2856,12 +2897,12 @@ trackedFiles:
     pristine_git_object: dca8b77bfe9ec131b8e55da6a49883996f4ea14e
   jsr.json:
     id: 7f6ab7767282
-    last_write_checksum: sha1:5348a2ac59de75d3b63c33e6f206c06528c9c39e
-    pristine_git_object: 8a306d6373ee3c5ff04669cf7e4270c08ee8833c
+    last_write_checksum: sha1:26a7d56325f50e4dc31749ca19179aad60601bd1
+    pristine_git_object: d143eae35ed9ff52e5eadb279f8879a8ea7be31a
   package.json:
     id: 7030d0b2f71b
-    last_write_checksum: sha1:5d04720ab2a1cb11e5048b9c2405ec98391f75f4
-    pristine_git_object: c30d49816d17853f5ea2e30ef1ef0cf2e0b756f1
+    last_write_checksum: sha1:0db8fadae93f80067f8d76a3168ed70ce434fc22
+    pristine_git_object: 40d0ab04e205bf7c1cce36815c3ae6550b1c3990
   src/core.ts:
     id: f431fdbcd144
     last_write_checksum: sha1:473b76edf3d30ed53981d70a75feb9a4318c3ec1
@@ -3252,12 +3293,12 @@ trackedFiles:
     pristine_git_object: 3380cb253299c089d76731a304ffe1eeab879983
   src/funcs/transactions-delete.ts:
     id: 4edc4df50808
-    last_write_checksum: sha1:a5b179b75cc1d5dd5de0dae38e763f3b3428aaea
-    pristine_git_object: 4f2ae062417a6b28d1e4000ff2c7c85d945c5da0
+    last_write_checksum: sha1:a1d6831e1df5655f955409190fd0d5e99ebfa1f0
+    pristine_git_object: c673e5c7dd5f70045aa8b737ec1da4f27b3a4de9
   src/funcs/transactions-get.ts:
     id: 235a75e36aae
-    last_write_checksum: sha1:2b5f38d99a80c5f9a933feadbdff93b0d483ee0c
-    pristine_git_object: 2a3366acc48f93bb66b2fadbcf012cfbdd000e9e
+    last_write_checksum: sha1:707a623757fe716d41b11d6b2c404924b912427e
+    pristine_git_object: dfe2c55108fb4b1a67d6ff1c6f702989ec508cb3
   src/funcs/transactions-list.ts:
     id: b41405e10f47
     last_write_checksum: sha1:d7713f0918e59bce5edd1d8fbcdd5443c6ae6728
@@ -3348,8 +3389,8 @@ trackedFiles:
     pristine_git_object: 44be0eae8246521b230e8e711a88eff738fc015d
   src/lib/config.ts:
     id: 320761608fb3
-    last_write_checksum: sha1:b5be8b8dcf729eac30b5044909685428141aba5a
-    pristine_git_object: 50fbf1e1a8d5e095d203688ea3e35a1b0d36f3eb
+    last_write_checksum: sha1:544f2c7302057efdea005f1d48e3da1595784501
+    pristine_git_object: ca7458a1292abaa69edea7f960ab24319597498e
   src/lib/encodings.ts:
     id: 3bd8ead98afd
     last_write_checksum: sha1:d49408b88c0328b6ff59dc02466fc956dfd3c706
@@ -3400,8 +3441,8 @@ trackedFiles:
     pristine_git_object: 61cf6241a92af930d9b852235f347ea81ec28cc5
   src/models/api-error.ts:
     id: 1f7b1c091e2a
-    last_write_checksum: sha1:8a2de6bbe43b315c016ef73c123fd2b2aa769faa
-    pristine_git_object: 5f7143501cdd07993c54044f4a6b5138b74a3726
+    last_write_checksum: sha1:f22a2f5515a430e7e524d59ef425abed533f9992
+    pristine_git_object: f5685e2774d52f00052c559f0420a30547df7cc7
   src/models/calendar-event-create.ts:
     id: b551e2d3e0b9
     last_write_checksum: sha1:58be9fbfc62c1a4ffa32355e5f6a9beda7b22ad5
@@ -3504,8 +3545,8 @@ trackedFiles:
     pristine_git_object: 182cea5fa7209e0a093c9b3e60e4ad6e1eee4095
   src/models/errors/api-error.ts:
     id: ee8983319270
-    last_write_checksum: sha1:1836264077c60d536062793b520891c67c5d487b
-    pristine_git_object: 334e8ae5b77b9ef530e7b044934d0c8ee6614932
+    last_write_checksum: sha1:5f10122fb5637184bf3c1bfd980a4d5a399e54af
+    pristine_git_object: 52c0acf27f1dcf65522564a7dc807b5b2062eed9
   src/models/errors/client-casa-default-error.ts:
     id: 55a9c1b85b60
     last_write_checksum: sha1:bbf5212419e13a928f8f371c85f5870517faefbd
@@ -3514,14 +3555,18 @@ trackedFiles:
     id: 4c365c7a23db
     last_write_checksum: sha1:dca217cb02dd92fd9c788074b2552e32c41effda
     pristine_git_object: 252672755266503a490304dd79c014878e22ddfd
+  src/models/errors/delete-transaction.ts:
+    id: f8f6254ad10d
+    last_write_checksum: sha1:282a8c596369ce4e43c092d31cf419e24e60312d
+    pristine_git_object: feb5c7b1adeae13680050692875925f86c20f534
   src/models/errors/http-client-errors.ts:
     id: 08390231aab8
     last_write_checksum: sha1:994ced121c54fecd0af038ccfb7855fbfd3868ec
     pristine_git_object: b34f612124c797c2a1106b9735708f679a90b74f
   src/models/errors/index.ts:
     id: c4e22507cb83
-    last_write_checksum: sha1:7cccf3043cc2f7e06fc2409d207d143558a5b823
-    pristine_git_object: 4f5b404af9a4d16763c825e6ad36e127115d5458
+    last_write_checksum: sha1:71e1b2f85ae06add6bc10ad80b88e3e852f56ac5
+    pristine_git_object: ebda40fb341de28b79c395a1faf0444f93fff215
   src/models/errors/response-validation-error.ts:
     id: a6ce701a9571
     last_write_checksum: sha1:bb922d87e0890bd36eec416b079f1579faa088b9
@@ -3792,8 +3837,8 @@ trackedFiles:
     pristine_git_object: 6c533937e26dfd263f2608dc47a9b9e195e5bed8
   src/models/operations/delete-transaction.ts:
     id: 0790d29b0e48
-    last_write_checksum: sha1:b698ae39f59addcd4095e93f32444bc16cbd28ca
-    pristine_git_object: eb804792ed68496443179c3e8c1e5175950b341f
+    last_write_checksum: sha1:3c99c1e3e98d4dfd335713f2a8120c2ae036148b
+    pristine_git_object: 3b4339712c8ee3d37a3c28ccd1dd2d85c6f2d8ee
   src/models/operations/delete-vendor.ts:
     id: 20baddcd35fb
     last_write_checksum: sha1:8ed446e4cd0c4308f01706032b1d43c165ede8bc
@@ -3996,8 +4041,8 @@ trackedFiles:
     pristine_git_object: 77e161f5ab933c5f6336e3300d1d98ce21c47811
   src/models/operations/list-transactions.ts:
     id: 1718a5e1265e
-    last_write_checksum: sha1:ce442013a1446943e8ee8436227906dbfe19adfd
-    pristine_git_object: 0ce6fe6fc97c84301bb54cb803daaf348dfb85df
+    last_write_checksum: sha1:af2fc09823c4e0b1bd5ad4098e5026da94c292bf
+    pristine_git_object: 121ef4ac33703b0702bd8545bbfec4983e4a9474
   src/models/operations/list-vendors.ts:
     id: 83f3391536e4
     last_write_checksum: sha1:9cd5aa5352327c3f4a7b6a7559c6c3bcc1591def
@@ -4500,12 +4545,12 @@ trackedFiles:
     pristine_git_object: 2557f63f9b25784086ff7ae4bd3447699f09eb8d
   src/sdk/transactions.lazy.ts:
     id: 13e318ff74e8
-    last_write_checksum: sha1:ad7dcfcff2de2139e2a4ae8a234f89babfd1ffa1
-    pristine_git_object: d25291e252fbe639064a8eaaf951e1c5cdd84742
+    last_write_checksum: sha1:f1710159013c75969d87f3e426a6155723fc4731
+    pristine_git_object: b5aaf59191322fb62ae243df0da490de7f10dbba
   src/sdk/transactions.ts:
     id: bcd7a9b32ed7
-    last_write_checksum: sha1:7944ce975672c33eebebac2c92383268a53a5d16
-    pristine_git_object: 106c665002529f5b607989ad5a5c90de5d7a55f0
+    last_write_checksum: sha1:0a1b870c72c0ac744726a58ebc5e189532d2423a
+    pristine_git_object: d6ecff318f457052d0d82f37f3ee90e409d7ac75
   src/sdk/vendors.lazy.ts:
     id: 56f3b0fe4f5c
     last_write_checksum: sha1:7ec382988aa937845f93c3834679a7ccda7be57b
@@ -5966,9 +6011,11 @@ examples:
           id: "550e8400-e29b-41d4-a716-446655440000"
       responses:
         "401":
-          application/json: {"error": {"code": "rate_limited", "message": "<value>", "requestId": "<id>"}}
+          application/json: {"error": {"code": "not_found", "message": "<value>", "requestId": "<id>"}}
         "500":
-          application/json: {"error": {"code": "rate_limited", "message": "<value>", "requestId": "<id>"}}
+          application/json: {"error": {"code": "not_found", "message": "<value>", "requestId": "<id>"}}
+        "409":
+          application/json: {"error": {"code": "not_found", "message": "<value>", "requestId": "<id>"}}
   listCatalogItems:
     speakeasy-default-list-catalog-items:
       parameters:
@@ -6832,120 +6879,4 @@ examples:
         "500":
           application/json: {"error": {"code": "service_unavailable", "message": "<value>", "requestId": "<id>"}}
 examplesVersion: 1.0.2
-releaseNotes: |
-  ## Typescript SDK Changes:
-  * `clientcasa.clients.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.clients.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.clients.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.clients.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.clients.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.contacts.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.contacts.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.contacts.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.contacts.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.contacts.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.projects.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.projects.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.projects.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.projects.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.projects.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.invoices.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.invoices.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.invoices.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.invoices.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.invoices.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.contracts.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.contracts.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.contracts.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.contracts.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.contracts.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.forms&Agreements.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.forms&Agreements.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.documentVersions.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.documentVersions.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.forms.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.forms.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.formSubmissions.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.formSubmissions.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.formAttachments.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.inquiries.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.payments.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.payments.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.payments.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.payments.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.payouts.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.payouts.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.sales.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.sales.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.timeEntries.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.timeEntries.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.timeEntries.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.timeEntries.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.timeEntries.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.milestones.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.milestones.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.milestones.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.milestones.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.milestones.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.calendarEvents.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.calendarEvents.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.calendarEvents.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.calendarEvents.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.calendarEvents.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.transactions.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.transactions.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.transactions.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.transactions.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.transactions.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.catalogItems.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.catalogItems.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.catalogItems.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.catalogItems.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.catalogItems.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.eventDays.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.eventDays.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.eventDays.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.eventDays.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.eventDays.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.timelineItems.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.timelineItems.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.timelineItems.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.timelineItems.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.timelineItems.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.eventDayVendors.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.eventDayVendors.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.eventDayVendors.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.eventDayVendors.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.eventDayVendors.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.vendors.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.vendors.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.vendors.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.vendors.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.vendors.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.venues.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.venues.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.venues.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.venues.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.venues.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.webhooks.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.webhooks.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.webhooks.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.webhooks.delete()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.webhooks.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.toDos.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.toDos.create()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.toDos.get()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.toDos.update()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.projectPlan.startTodo()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.projectPlan.completeTodo()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.projectPlan.reopenTodo()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.projectPlan.cancelTodo()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.projectPlan.restoreTodo()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.projectPlan.changeTodoOccurrence()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.projectPlan.list()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.projectPlan.previewPlanTemplate()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.projectPlan.applyPlanTemplate()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.projectPlan.previewPlanDateChange()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.projectPlan.applyPlanDateChange()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.projectPlan.recordProjectAct()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
-  * `clientcasa.projectPlan.listEvents()`:  `error.details.code.enum(recordHasLedgerHistory)` **Added**
+releaseNotes: "## Typescript SDK Changes:\n* `clientcasa.transactions.delete()`: \n  *  `request.xTransactionDeleteAcknowledgement` **Added**\n  *  `error` **Changed** (Breaking ⚠️)\n* `clientcasa.clients.list()`:  `error.details.code` **Changed**\n* `clientcasa.clients.create()`:  `error.details.code` **Changed**\n* `clientcasa.clients.get()`:  `error.details.code` **Changed**\n* `clientcasa.clients.delete()`:  `error.details.code` **Changed**\n* `clientcasa.clients.update()`:  `error.details.code` **Changed**\n* `clientcasa.contacts.list()`:  `error.details.code` **Changed**\n* `clientcasa.contacts.create()`:  `error.details.code` **Changed**\n* `clientcasa.contacts.get()`:  `error.details.code` **Changed**\n* `clientcasa.contacts.delete()`:  `error.details.code` **Changed**\n* `clientcasa.contacts.update()`:  `error.details.code` **Changed**\n* `clientcasa.projects.list()`:  `error.details.code` **Changed**\n* `clientcasa.projects.create()`:  `error.details.code` **Changed**\n* `clientcasa.projects.get()`:  `error.details.code` **Changed**\n* `clientcasa.projects.delete()`:  `error.details.code` **Changed**\n* `clientcasa.projects.update()`:  `error.details.code` **Changed**\n* `clientcasa.invoices.list()`:  `error.details.code` **Changed**\n* `clientcasa.invoices.create()`:  `error.details.code` **Changed**\n* `clientcasa.invoices.get()`:  `error.details.code` **Changed**\n* `clientcasa.invoices.delete()`:  `error.details.code` **Changed**\n* `clientcasa.invoices.update()`:  `error.details.code` **Changed**\n* `clientcasa.contracts.list()`:  `error.details.code` **Changed**\n* `clientcasa.contracts.create()`:  `error.details.code` **Changed**\n* `clientcasa.contracts.get()`:  `error.details.code` **Changed**\n* `clientcasa.contracts.delete()`:  `error.details.code` **Changed**\n* `clientcasa.contracts.update()`:  `error.details.code` **Changed**\n* `clientcasa.forms&Agreements.list()`:  `error.details.code` **Changed**\n* `clientcasa.forms&Agreements.get()`:  `error.details.code` **Changed**\n* `clientcasa.documentVersions.list()`:  `error.details.code` **Changed**\n* `clientcasa.documentVersions.get()`:  `error.details.code` **Changed**\n* `clientcasa.forms.list()`:  `error.details.code` **Changed**\n* `clientcasa.forms.get()`:  `error.details.code` **Changed**\n* `clientcasa.formSubmissions.list()`:  `error.details.code` **Changed**\n* `clientcasa.formSubmissions.get()`:  `error.details.code` **Changed**\n* `clientcasa.formAttachments.get()`:  `error.details.code` **Changed**\n* `clientcasa.inquiries.create()`:  `error.details.code` **Changed**\n* `clientcasa.payments.list()`:  `error.details.code` **Changed**\n* `clientcasa.payments.create()`:  `error.details.code` **Changed**\n* `clientcasa.payments.get()`:  `error.details.code` **Changed**\n* `clientcasa.payments.update()`:  `error.details.code` **Changed**\n* `clientcasa.payouts.list()`:  `error.details.code` **Changed**\n* `clientcasa.payouts.get()`:  `error.details.code` **Changed**\n* `clientcasa.sales.list()`:  `error.details.code` **Changed**\n* `clientcasa.sales.get()`:  `error.details.code` **Changed**\n* `clientcasa.timeEntries.list()`:  `error.details.code` **Changed**\n* `clientcasa.timeEntries.create()`:  `error.details.code` **Changed**\n* `clientcasa.timeEntries.get()`:  `error.details.code` **Changed**\n* `clientcasa.timeEntries.delete()`:  `error.details.code` **Changed**\n* `clientcasa.timeEntries.update()`:  `error.details.code` **Changed**\n* `clientcasa.milestones.list()`:  `error.details.code` **Changed**\n* `clientcasa.milestones.create()`:  `error.details.code` **Changed**\n* `clientcasa.milestones.get()`:  `error.details.code` **Changed**\n* `clientcasa.milestones.delete()`:  `error.details.code` **Changed**\n* `clientcasa.milestones.update()`:  `error.details.code` **Changed**\n* `clientcasa.calendarEvents.list()`:  `error.details.code` **Changed**\n* `clientcasa.calendarEvents.create()`:  `error.details.code` **Changed**\n* `clientcasa.calendarEvents.get()`:  `error.details.code` **Changed**\n* `clientcasa.calendarEvents.delete()`:  `error.details.code` **Changed**\n* `clientcasa.calendarEvents.update()`:  `error.details.code` **Changed**\n* `clientcasa.transactions.list()`:  `error.details.code` **Changed**\n* `clientcasa.transactions.create()`:  `error.details.code` **Changed**\n* `clientcasa.transactions.get()`:  `error.details.code` **Changed**\n* `clientcasa.transactions.update()`:  `error.details.code` **Changed**\n* `clientcasa.catalogItems.list()`:  `error.details.code` **Changed**\n* `clientcasa.catalogItems.create()`:  `error.details.code` **Changed**\n* `clientcasa.catalogItems.get()`:  `error.details.code` **Changed**\n* `clientcasa.catalogItems.delete()`:  `error.details.code` **Changed**\n* `clientcasa.catalogItems.update()`:  `error.details.code` **Changed**\n* `clientcasa.eventDays.list()`:  `error.details.code` **Changed**\n* `clientcasa.eventDays.create()`:  `error.details.code` **Changed**\n* `clientcasa.eventDays.get()`:  `error.details.code` **Changed**\n* `clientcasa.eventDays.delete()`:  `error.details.code` **Changed**\n* `clientcasa.eventDays.update()`:  `error.details.code` **Changed**\n* `clientcasa.timelineItems.list()`:  `error.details.code` **Changed**\n* `clientcasa.timelineItems.create()`:  `error.details.code` **Changed**\n* `clientcasa.timelineItems.get()`:  `error.details.code` **Changed**\n* `clientcasa.timelineItems.delete()`:  `error.details.code` **Changed**\n* `clientcasa.timelineItems.update()`:  `error.details.code` **Changed**\n* `clientcasa.eventDayVendors.list()`:  `error.details.code` **Changed**\n* `clientcasa.eventDayVendors.create()`:  `error.details.code` **Changed**\n* `clientcasa.eventDayVendors.get()`:  `error.details.code` **Changed**\n* `clientcasa.eventDayVendors.delete()`:  `error.details.code` **Changed**\n* `clientcasa.eventDayVendors.update()`:  `error.details.code` **Changed**\n* `clientcasa.vendors.list()`:  `error.details.code` **Changed**\n* `clientcasa.vendors.create()`:  `error.details.code` **Changed**\n* `clientcasa.vendors.get()`:  `error.details.code` **Changed**\n* `clientcasa.vendors.delete()`:  `error.details.code` **Changed**\n* `clientcasa.vendors.update()`:  `error.details.code` **Changed**\n* `clientcasa.venues.list()`:  `error.details.code` **Changed**\n* `clientcasa.venues.create()`:  `error.details.code` **Changed**\n* `clientcasa.venues.get()`:  `error.details.code` **Changed**\n* `clientcasa.venues.delete()`:  `error.details.code` **Changed**\n* `clientcasa.venues.update()`:  `error.details.code` **Changed**\n* `clientcasa.webhooks.list()`:  `error.details.code` **Changed**\n* `clientcasa.webhooks.create()`:  `error.details.code` **Changed**\n* `clientcasa.webhooks.get()`:  `error.details.code` **Changed**\n* `clientcasa.webhooks.delete()`:  `error.details.code` **Changed**\n* `clientcasa.webhooks.update()`:  `error.details.code` **Changed**\n* `clientcasa.toDos.list()`:  `error.details.code` **Changed**\n* `clientcasa.toDos.create()`:  `error.details.code` **Changed**\n* `clientcasa.toDos.get()`:  `error.details.code` **Changed**\n* `clientcasa.toDos.update()`:  `error.details.code` **Changed**\n* `clientcasa.projectPlan.startTodo()`:  `error.details.code` **Changed**\n* `clientcasa.projectPlan.completeTodo()`:  `error.details.code` **Changed**\n* `clientcasa.projectPlan.reopenTodo()`:  `error.details.code` **Changed**\n* `clientcasa.projectPlan.cancelTodo()`:  `error.details.code` **Changed**\n* `clientcasa.projectPlan.restoreTodo()`:  `error.details.code` **Changed**\n* `clientcasa.projectPlan.changeTodoOccurrence()`:  `error.details.code` **Changed**\n* `clientcasa.projectPlan.list()`:  `error.details.code` **Changed**\n* `clientcasa.projectPlan.previewPlanTemplate()`:  `error.details.code` **Changed**\n* `clientcasa.projectPlan.applyPlanTemplate()`:  `error.details.code` **Changed**\n* `clientcasa.projectPlan.previewPlanDateChange()`:  `error.details.code` **Changed**\n* `clientcasa.projectPlan.applyPlanDateChange()`:  `error.details.code` **Changed**\n* `clientcasa.projectPlan.recordProjectAct()`:  `error.details.code` **Changed**\n* `clientcasa.projectPlan.listEvents()`:  `error.details.code` **Changed**\n"

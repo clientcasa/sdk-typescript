@@ -30,7 +30,7 @@ import { Result } from "../types/fp.js";
  * Delete a transaction
  *
  * @remarks
- * Transactions billed to a sent/paid invoice cannot be deleted.
+ * If deletion would change the books, review the 409 preview and repeat DELETE with its acknowledgement. Billed items and changes to closed periods are refused.
  */
 export function transactionsDelete(
   client: ClientCasaCore,
@@ -40,6 +40,7 @@ export function transactionsDelete(
 ): APIPromise<
   Result<
     void,
+    | errors.Conflict
     | errors.ApiError
     | ClientCasaError
     | ResponseValidationError
@@ -68,6 +69,7 @@ async function $do(
   [
     Result<
       void,
+      | errors.Conflict
       | errors.ApiError
       | ClientCasaError
       | ResponseValidationError
@@ -107,6 +109,11 @@ async function $do(
 
   const headers = new Headers(compactMap({
     Accept: "application/json",
+    "X-Transaction-Delete-Acknowledgement": encodeSimple(
+      "X-Transaction-Delete-Acknowledgement",
+      payload["X-Transaction-Delete-Acknowledgement"],
+      { explode: false, charEncoding: "none" },
+    ),
   }));
 
   const requestSecurity = resolveSecurity(
@@ -184,6 +191,7 @@ async function $do(
 
   const [result] = await M.match<
     void,
+    | errors.Conflict
     | errors.ApiError
     | ClientCasaError
     | ResponseValidationError
@@ -195,7 +203,8 @@ async function $do(
     | SDKValidationError
   >(
     M.nil(204, z.void()),
-    M.jsonErr([401, 403, 404, 409, 429], errors.ApiError$inboundSchema),
+    M.jsonErr(409, errors.Conflict$inboundSchema),
+    M.jsonErr([401, 403, 404, 429], errors.ApiError$inboundSchema),
     M.jsonErr(500, errors.ApiError$inboundSchema),
     M.fail("4XX"),
     M.fail("5XX"),

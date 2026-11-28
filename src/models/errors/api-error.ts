@@ -42,10 +42,12 @@ export const ApiError$inboundSchema: z.ZodMiniType<ApiError, unknown> =
         body$: z.string(),
       }),
       z.transform((v) => {
-        return new ApiError(v, {
-          request: v.request$,
-          response: v.response$,
-          body: v.body$,
+        const { request$, response$, body$, ...data } = v;
+
+        return new ApiError(data, {
+          request: request$,
+          response: response$,
+          body: body$,
         });
       }),
     )

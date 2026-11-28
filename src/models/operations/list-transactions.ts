@@ -15,11 +15,13 @@ export type ListTransactionsSecurity = {
   bearer?: string | undefined;
 };
 
-export const Direction = {
+export const ListTransactionsDirection = {
   Cost: "cost",
   Revenue: "revenue",
 } as const;
-export type Direction = ClosedEnum<typeof Direction>;
+export type ListTransactionsDirection = ClosedEnum<
+  typeof ListTransactionsDirection
+>;
 
 export const ListTransactionsStatus = {
   Active: "active",
@@ -39,7 +41,7 @@ export type Frequency = ClosedEnum<typeof Frequency>;
 export type ListTransactionsRequest = {
   page?: number | undefined;
   pageSize?: number | undefined;
-  direction?: Direction | undefined;
+  direction?: ListTransactionsDirection | undefined;
   status?: ListTransactionsStatus | undefined;
   frequency?: Frequency | undefined;
 };
@@ -74,8 +76,9 @@ export function listTransactionsSecurityToJSON(
 }
 
 /** @internal */
-export const Direction$outboundSchema: z.ZodMiniEnum<typeof Direction> =
-  /* @__PURE__ */ lazySchema$(() => z.enum(Direction));
+export const ListTransactionsDirection$outboundSchema: z.ZodMiniEnum<
+  typeof ListTransactionsDirection
+> = /* @__PURE__ */ lazySchema$(() => z.enum(ListTransactionsDirection));
 
 /** @internal */
 export const ListTransactionsStatus$outboundSchema: z.ZodMiniEnum<
@@ -103,7 +106,7 @@ export const ListTransactionsRequest$outboundSchema: z.ZodMiniType<
   z.object({
     page: z._default(z.int(), 1),
     pageSize: z._default(z.int(), 25),
-    direction: z.optional(Direction$outboundSchema),
+    direction: z.optional(ListTransactionsDirection$outboundSchema),
     status: z.optional(ListTransactionsStatus$outboundSchema),
     frequency: z.optional(Frequency$outboundSchema),
   })
