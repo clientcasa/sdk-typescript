@@ -135,6 +135,9 @@ export class Transactions extends ClientSDK {
 
   /**
    * Get a transaction
+   *
+   * @remarks
+   * Deleted charges and expenses return 404, including items kept in the books for history.
    */
   async get(
     security: operations.GetTransactionSecurity,
@@ -153,7 +156,7 @@ export class Transactions extends ClientSDK {
    * Delete a transaction
    *
    * @remarks
-   * Transactions billed to a sent/paid invoice cannot be deleted.
+   * If deletion would change the books, review the 409 preview and repeat DELETE with its acknowledgement. Billed items and changes to closed periods are refused.
    */
   async delete(
     security: operations.DeleteTransactionSecurity,

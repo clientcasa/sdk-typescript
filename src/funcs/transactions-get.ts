@@ -29,6 +29,9 @@ import { Result } from "../types/fp.js";
 
 /**
  * Get a transaction
+ *
+ * @remarks
+ * Deleted charges and expenses return 404, including items kept in the books for history.
  */
 export function transactionsGet(
   client: ClientCasaCore,

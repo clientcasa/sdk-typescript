@@ -3,7 +3,13 @@
  */
 
 import * as z from "zod/v4-mini";
-import { lazySchema as lazySchema$ } from "../../lib/schemas.js";
+import { remap as remap$ } from "../../lib/primitives.js";
+import { lazySchema as lazySchema$, safeParse } from "../../lib/schemas.js";
+import * as openEnums from "../../types/enums.js";
+import { ClosedEnum, OpenEnum } from "../../types/enums.js";
+import { Result as SafeParseResult } from "../../types/fp.js";
+import * as types from "../../types/primitives.js";
+import { SDKValidationError } from "../errors/sdk-validation-error.js";
 
 export type DeleteTransactionSecurity = {
   apiKey?: string | undefined;
@@ -15,6 +21,65 @@ export type DeleteTransactionRequest = {
    * UUID v4
    */
   id: string;
+  /**
+   * The acknowledgement returned with transaction_delete_preview_required.
+   */
+  xTransactionDeleteAcknowledgement?: string | undefined;
+};
+
+export const Code = {
+  Conflict: "conflict",
+} as const;
+export type Code = ClosedEnum<typeof Code>;
+
+export const CodeTransactionDeletePreviewRequired = {
+  TransactionDeletePreviewRequired: "transaction_delete_preview_required",
+} as const;
+export type CodeTransactionDeletePreviewRequired = ClosedEnum<
+  typeof CodeTransactionDeletePreviewRequired
+>;
+
+export const DeleteTransactionDirection = {
+  Cost: "cost",
+  Revenue: "revenue",
+} as const;
+export type DeleteTransactionDirection = OpenEnum<
+  typeof DeleteTransactionDirection
+>;
+
+export const Basis = {
+  Accrual: "accrual",
+  Cash: "cash",
+} as const;
+export type Basis = OpenEnum<typeof Basis>;
+
+export type Impact = {
+  direction: DeleteTransactionDirection;
+  currency: string;
+  basis: Basis;
+  period: string;
+  /**
+   * Signed cents removed from the books.
+   */
+  amountCents: number;
+};
+
+export type Preview = {
+  ids: Array<string>;
+  impacts: Array<Impact>;
+};
+
+export type Details = {
+  code: CodeTransactionDeletePreviewRequired;
+  preview: Preview;
+  acknowledgement: string;
+};
+
+export type ErrorT = {
+  code: Code;
+  message: string;
+  requestId: string;
+  details: Details;
 };
 
 /** @internal */
@@ -45,6 +110,7 @@ export function deleteTransactionSecurityToJSON(
 /** @internal */
 export type DeleteTransactionRequest$Outbound = {
   id: string;
+  "X-Transaction-Delete-Acknowledgement"?: string | undefined;
 };
 
 /** @internal */
@@ -52,9 +118,18 @@ export const DeleteTransactionRequest$outboundSchema: z.ZodMiniType<
   DeleteTransactionRequest$Outbound,
   DeleteTransactionRequest
 > = /* @__PURE__ */ lazySchema$(() =>
-  z.object({
-    id: z.string(),
-  })
+  z.pipe(
+    z.object({
+      id: z.string(),
+      xTransactionDeleteAcknowledgement: z.optional(z.string()),
+    }),
+    z.transform((v) => {
+      return remap$(v, {
+        xTransactionDeleteAcknowledgement:
+          "X-Transaction-Delete-Acknowledgement",
+      });
+    }),
+  )
 );
 
 export function deleteTransactionRequestToJSON(
@@ -62,5 +137,110 @@ export function deleteTransactionRequestToJSON(
 ): string {
   return JSON.stringify(
     DeleteTransactionRequest$outboundSchema.parse(deleteTransactionRequest),
+  );
+}
+
+/** @internal */
+export const Code$inboundSchema: z.ZodMiniEnum<typeof Code> =
+  /* @__PURE__ */ lazySchema$(() => z.enum(Code));
+
+/** @internal */
+export const CodeTransactionDeletePreviewRequired$inboundSchema: z.ZodMiniEnum<
+  typeof CodeTransactionDeletePreviewRequired
+> = /* @__PURE__ */ lazySchema$(() =>
+  z.enum(CodeTransactionDeletePreviewRequired)
+);
+
+/** @internal */
+export const DeleteTransactionDirection$inboundSchema: z.ZodMiniType<
+  DeleteTransactionDirection,
+  unknown
+> = /* @__PURE__ */ lazySchema$(() =>
+  openEnums.inboundSchema(DeleteTransactionDirection)
+);
+
+/** @internal */
+export const Basis$inboundSchema: z.ZodMiniType<Basis, unknown> =
+  /* @__PURE__ */ lazySchema$(() => openEnums.inboundSchema(Basis));
+
+/** @internal */
+export const Impact$inboundSchema: z.ZodMiniType<Impact, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      direction: DeleteTransactionDirection$inboundSchema,
+      currency: types.string(),
+      basis: Basis$inboundSchema,
+      period: types.string(),
+      amountCents: types.number(),
+    })
+  );
+
+export function impactFromJSON(
+  jsonString: string,
+): SafeParseResult<Impact, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Impact$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Impact' from JSON`,
+  );
+}
+
+/** @internal */
+export const Preview$inboundSchema: z.ZodMiniType<Preview, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      ids: z.array(types.string()),
+      impacts: z.array(z.lazy(() => Impact$inboundSchema)),
+    })
+  );
+
+export function previewFromJSON(
+  jsonString: string,
+): SafeParseResult<Preview, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Preview$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Preview' from JSON`,
+  );
+}
+
+/** @internal */
+export const Details$inboundSchema: z.ZodMiniType<Details, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      code: CodeTransactionDeletePreviewRequired$inboundSchema,
+      preview: z.lazy(() => Preview$inboundSchema),
+      acknowledgement: types.string(),
+    })
+  );
+
+export function detailsFromJSON(
+  jsonString: string,
+): SafeParseResult<Details, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => Details$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'Details' from JSON`,
+  );
+}
+
+/** @internal */
+export const ErrorT$inboundSchema: z.ZodMiniType<ErrorT, unknown> =
+  /* @__PURE__ */ lazySchema$(() =>
+    z.object({
+      code: Code$inboundSchema,
+      message: types.string(),
+      requestId: types.string(),
+      details: z.lazy(() => Details$inboundSchema),
+    })
+  );
+
+export function errorFromJSON(
+  jsonString: string,
+): SafeParseResult<ErrorT, SDKValidationError> {
+  return safeParse(
+    jsonString,
+    (x) => ErrorT$inboundSchema.parse(JSON.parse(x)),
+    `Failed to parse 'ErrorT' from JSON`,
   );
 }

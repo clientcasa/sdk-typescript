@@ -2,7 +2,7 @@
 
 {
   "name": "@clientcasa/sdk",
-  "version": "0.7.12",
+  "version": "0.8.0",
   "exports": {
     ".": "./src/index.ts",
     "./node": "./src/node.ts",

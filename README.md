@@ -829,7 +829,7 @@ run();
 * [`ClientCasaError`](./src/models/errors/client-casa-error.ts): The base class for HTTP error responses.
   * [`ApiError`](./src/models/errors/api-error.ts): Generic error.
 
-<details><summary>Less common errors (6)</summary>
+<details><summary>Less common errors (7)</summary>
 
 <br />
 
@@ -842,9 +842,12 @@ run();
 
 
 **Inherit from [`ClientCasaError`](./src/models/errors/client-casa-error.ts)**:
+* [`ResponseBodyError`](./src/models/errors/response-body-error.ts): Review the latest preview, or follow the refusal message for a billed item or closed period. Status code `409`. Applicable to 1 of 115 methods.*
 * [`ResponseValidationError`](./src/models/errors/response-validation-error.ts): Type mismatch between the data returned from the server and the structure expected by the SDK. See `error.rawValue` for the raw value and `error.pretty()` for a nicely formatted multi-line string.
 
 </details>
+
+\* Check [the method documentation](#available-resources-and-operations) to see if the error is applicable.
 <!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
